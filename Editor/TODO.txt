@@ -1,0 +1,26 @@
+TODO List
+
+- Seperate texture coordinate generation from rasterization
+- Compute LMs for all LOD versions
+- Fix spotlights
+- Indiviual texel size for each GLM
+- Improve dialog, i.e. separate output for errors, stop calculation
+- Migrate raster table to polybump version
+- Selective recomputation should recompute regions that were obscured by moved geometry
+  = rebuild changes with Ivo cullingcode
+- Generate triangle strips (quad = 4 vertices, not 6) 
+- Optimize lightpatches (not always 4x4)
+- subsampling not only for shadows
+
+later:
+
+- Merge faces that span across multiple GLMs
+- Shadows from transparent textures / alpha textures
+- Monte Carlo ray tracing for Radiosity
+
+
+
+done:
+
+- Replace 'sub-sampling' setting with more descriptive variant
+- Obtain tangent space from Leaf Buffer, remove replicated material sorting

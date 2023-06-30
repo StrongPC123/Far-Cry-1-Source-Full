@@ -1,0 +1,24 @@
+REGEDIT4
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Ubi Soft\Game Service]
+"ConnectURL"="http://gsconnect.ubisoft.com/gsinit.php?user=%s&dp=%s"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\PocketSoft\RTPatch\AutoRTPatch\Client]
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\PocketSoft\RTPatch\AutoRTPatch\Client\{0AEB9862-7B93-11D5-86C0-005004C33CF0}]
+"Url"="http://gsupdate.ubisoft.com/RTPatches"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\PocketSoft\RTPatch\AutoRTPatch\Client\{532D92ED-77BC-11D5-86BF-005004C33CF0}]
+"Url"="http://gsupdate.ubisoft.com/RTPatches"
+
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\PocketSoft\RTPatch\AutoRTPatch\Client\{7E332159-342D-11D5-A8C7-000102246AAE}]
+"Url"="http://gsupdate.ubisoft.com/RTPatches"
+
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\PocketSoft\RTPatch\AutoRTPatch\Client\{7FC9FF23-E859-4253-BDF7-4BDD7FCA7F5F}]
+"Url"="http://gsupdate.ubisoft.com/RTPatches"
+
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\PocketSoft\RTPatch\AutoRTPatch\Client\{AEDDF5A3-29CE-11D5-A8C2-000102246AAE}]
+"Url"="http://gsupdate.ubisoft.com/RTPatches"

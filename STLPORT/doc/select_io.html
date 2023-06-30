@@ -1,0 +1,79 @@
+<html><head><META http-equiv="Content-Type" content="text/html; charset=iso-8859-1"><title>STLport: Getting Started: Selecting IOStreams mode</title><link href="doc.css" type="text/css" rel="stylesheet"></head><body marginwidth="0" marginheight="0" leftmargin="0" topmargin="0" vlink="#314A30" link="#314A30" text="black" bgcolor="white"><table border="0" cellspacing="0" cellpadding="0"><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img border="0" height="14" width="1" src="images/trans.gif"><br><a href="../index.html"><img src="images/stl_logo_doc.gif" border="0" height="80" width="80"></a><a href="http://www.stlport.com"><img border="0" height="80" width="461" src="images/t_doc2.gif"></a><br><img src="images/trans.gif" border="0" height="24" width="1"><br><img src="images/black.gif" border="0" height="1" width="776"><br><img src="images/trans.gif" border="0" height="24" width="1"></td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img src="images/trans.gif" border="0" height="10" width="776"></td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776">
+
+        <span class="heading">Selecting IOStreams Mode</span>
+        
+        <h3><b>Major IOStream Modes</b></h3>
+
+	STLport 4.0 may be used in two different major modes :
+	<ul>
+	<li><b>With STLport iostreams (default)</b>. In this mode, you are going to use iostreams
+        and complex libraries provided by STLport. 
+        To do so, first you have to build STLport library from sources 
+        provided in "src" subdirectory and link your programs with it.
+        This is major change since pre-4.0 releases, please read the instructions carefully.</li>
+
+	<li><b>Without STLport iostreams</b>. In this mode, STLport will use wrappers around  
+	 your compiler's iostreams and complex libraries, just like in STLport 
+         releases prior to 4.0.</li>
+        </ul>
+
+	For any of these modes, please make sure 
+        <b>"stlport"</b> directory containing header files
+        is the <b>first</b> one in your include search path when you compile the project<br>
+
+        <h3><a name="no_sgi_iostreams"></a>Installing STLport for use without STLport iostream library ("wrapper mode")</h3>
+
+	In this mode, you will use wrappers around  your compiler's iostreams 
+	libabry, as in previous STLport releases.
+
+	All you	have to do to use STLport in this mode is to uncomment 
+        <b>_STLP_NO_OWN_IOSTREAMS</b> setting in <b>"stlport/stl/_site_config.h"</b>
+       to disable use of STLport iostreams and to use wrappers around your existing iostreams. 
+       (For SUN CC, you still have to go to "src" subdirectory and do "make" or at least "make prepare" to produce additional .SUNWCCh files necessary for compilation)
+
+       Note though :
+       <ul>
+       <li>For the most modern compilers which implements Koenig lookup properly, this option may not be available due to ambiguities during namespace lookup. Example: gcc-3.0</li>
+       <li>New-style ANSI iostreams and/or complex library 
+           may not be provided by your compiler vendor;</li>
+       <li>If provided, vendor iostreams may appear to be slower than STLport version.</li>
+       </ul>
+      If you have decided to disable STLport iostreams, you may stop reading here.
+      To use wrapper mode, you do not have to build any binary libraries, as everything you need
+      is contained in the header files already.
+      
+      <h3><a name="beta"></a>Building STLport iostreams library (Default Mode)</h3>
+
+  In this mode, you will use STLport implementation of iostreams instead of the one that comes
+  with your compiler. It does contain some non-template code so you have to build STLport 
+  iostreams library in <b>"src"</b> directory to link your project with. 
+
+  Below are step-by-step instructions to build STLport library:
+  <ol>
+  <li>Do make sure you have followed instructions for default installation above.</li>
+
+  <li>Go to <b>"src"</b> subdirectory. It contains various makefiles for different compilers.
+    If iostreams library is not yet ported to your compiler (please see <a href="release_notes.html">Release Notes</a> for details), you may revert to use "wrapper" mode or port it. Please refer
+    to <a href="porting_iostreams.html">porting document</a> to learn how to port iostreams library
+    to your compiler. The porting procedure is usually straightforward on UNIXes.
+</li>
+
+    <li>Using appropriate makefile, do <b>"make clean all"</b> to build STLport libraries
+    (makefiles are set up to build several different flavors - debug/nondebug,
+    static/dynamic versions).    
+    <i>Note : your make program may have different name, like "nmake" for Visual C++, so, with "nmake", do "nmake clean all"</i>
+</li>
+    
+<li>If make fails, you may try fixing the build yourself and/or report it to <a href="http://www.stlport.com/cgi-bin/forum/dcboard.cgi">STLport Forum</a>.
+</li>
+
+<li>Do <b>"make install"</b> to install resulting libraries into <b>"lib"</b> subdirectory. On Windows, this step also copies .dll libraries to system directory to be accessible at runtime.</li>
+
+</ol>
+
+<h3>Testing STLport</h3>
+   STLport provides two <b>test suites</b> - <a href="testsuite.html">regression
+   test</a> and <a href="eh_testsuite.html">exception handling test</a>.<br>
+   It is recommended that you build and run them in place to verify your new STLport installation is OK.
+
+</td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img src="images/trans.gif" border="0" height="20" width="50"><br><a href="index.html">Table of Contents</a><br></td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img src="images/trans.gif" border="0" height="40" width="80"><br><img src="images/black.gif" border="0" height="1" width="776"></td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img src="images/black.gif" border="0" height="1" width="776"></td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img src="images/trans.gif" border="0" height="5" width="50"><br><span class="copyright">Copyright 2001 by STLport</span><br><img src="images/trans.gif" border="0" height="50" width="80"></td></tr></table></body></html>

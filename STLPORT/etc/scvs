@@ -1,0 +1,192 @@
+#!/usr/bin/perl
+# Note : you may have to edit path to Perl above, according to your system setup
+
+#
+# modified for ssh+chroot setup by Anton Berezin <tobez@plab.ku.dk> #
+# Synopsys : scvs -d :pserver:cvs@www.stlport.com/stlport <cvs command> # (this is for read-only anonymous access via "cvs" user)
+# Please use your cvs login name if you have one instead of "cvs" above, to be able to commit your changes 
+#
+
+
+#--
+#   tunable variables
+#--
+
+# Set this if it does not work otherwise
+# $tune_cvs_server_name = "cvs.stlport.com";
+
+# where cvs program is located on the client system
+$tune_local_cvs_cmd = "cvs";
+
+# remote pserver port to use
+# for explanation, see
+#    http://www.prima.eu.org/tobez/cvs-howto.html#inetd
+$tune_remote_cvs_port = 2410;
+
+# local pserver port;  you probably don't want to change this
+$tune_local_cvs_port = 2401;
+
+# ssh command to use; the default is good for UNIX clients
+$tune_ssh_cmd = "ssh";
+
+# the user on the server side cvs runs as
+$tune_ssh_user = "cvs";
+
+#--
+#   end of tunable variables
+#   there is no need to modify anything below
+#--
+
+#############################################################################
+# CVS settings
+
+$CVS_CMD=$tune_local_cvs_cmd;
+
+$CVS_PORT=$tune_remote_cvs_port;
+$CVS_LOCAL_PORT=$tune_local_cvs_port;
+
+# the values below will be needed only if the repository is specified via the
+# command line or the CVSROOT environment variable, and in those cases they
+# will be extracted from there. However, for funny results you can uncomment
+# these two lines.
+# $CVS_HOST="www.stlport.com";
+# $CVS_USER="cvs";
+
+#############################################################################
+# SSH settings
+
+# ssh2 does not seem to work with our -L port:host:hostport argument, so make
+# sure we will use ssh1.
+$SSH_CMD=$tune_ssh_cmd;
+
+# This should be the user on whose behalf the tunneling is made. It is
+# typically a user that cannot do any harm, has no password and uses a program
+# like nologin (but one that will wait) as a shell.
+$SSH_USER=$tune_ssh_user;
+
+# This value should also automagically be set from the repository name.
+# However, if that host is not running sshd, you may want to tunnel through
+# another host and modify and uncomment the line below.
+# $SSH_HOST=$CVS_HOST
+
+# This value is used if the repository cannot be determined from the
+# commandline or the CVSROOT variable. Modify this for your local situation.
+$SSH_DEFAULT_HOST=$tune_cvs_server_name;
+
+# Port at which the sshd on the remote server runs. Default is 22.
+# $SSH_PORT=22;
+
+# This should be left unmodified, as it makes no sense changing this. Unless
+# some future version (or perhaps even the current version) of cvs allow you
+# to specify the remote repository's port.
+$SSH_LOCAL_PORT=$CVS_LOCAL_PORT;
+
+
+#############################################################################
+# & parse_repository ({{rep}})
+# . extracts the method, user, host, port and directory from {{rep}}.
+# . There are four possibilities:
+#   - /path/to/repository
+#   - :method:/path/to/repository
+#   - :user@hostname:/path/to/repository
+#   - :method:user@hostname:/path/to/repository
+#   non-standard repositories. Has only been tested for :pserver: method.
+#
+sub parse_repository
+{
+  my $rep = $_[0];
+  my ($dir,$user,$host,$method);
+
+  # determine the directory
+  $rep =~ s/:(\/.*)$// && do { $dir=$1; };
+  if (not $dir)
+    { $rep =~ s/(\/.*)$// && do {$dir = $1; }; }
+
+  # determine the hostname and the username
+  $rep =~ s/:([^:]*)@(.*)$// && do { $user = $1; $host = $2; };
+  if (not $host)
+    { $rep =~ s/:([^:]+)$// && do { $host = $1; }; }
+
+  # all that is left now is the method
+  $rep =~ s/^:([^:]*)// && do { $method = $1; };
+
+  # if there is still anything left, we have an error, warn the user
+  if ($rep)
+    { print STDERR "Warning: repository parsed wrong ('$rep' ignored).\n"; }
+
+#  print STDERR "DEBUG: dir=$dir, user=$user, host=$host, method=$method\n";
+  return ($method, $user, $host, $dir);
+}
+
+
+#############################################################################
+# main
+
+# should be changed to a general cmdline parsing routine.
+# get the repository's name from the commandline or the CVSROOT environment
+# variable.
+if ($ARGV[0] eq "-d")
+{
+  $rep="$ARGV[1]";
+  shift; shift;
+}
+else
+{
+  $rep = $ENV{'CVSROOT'};
+}
+
+# print STDERR "DEBUG: rep = $rep\n";
+
+# parse the repository
+($method, $user, $host, $dir) = parse_repository $rep;
+# print "met: $method, user: $user, host: $host, dir: $dir\n";
+
+# construct the local fake cvs server name.
+if ($method) { $cvs_serv = ":$method:"; }
+if ($user)   { $cvs_serv .= "$user\@"; }
+if ($rep)    { $cvs_serv .= "localhost:"; }
+if ($dir)    { $cvs_serv .= $dir; }
+
+# print STDERR "DEBUG: cvs_serv = $cvs_serv\n";
+
+# construct the tunneling command
+$SSH_HOST |= $host;
+# print STDERR "DEBUG: SSH_HOST=$SSH_HOST\n";
+$SSH_HOST |= $SSH_DEFAULT_HOST;
+# print STDERR "DEBUG: SSH_HOST=$SSH_HOST\n";
+
+if ($SSH_USER)
+  { $ssh_serv="$SSH_USER\@$SSH_HOST"; }
+else
+  { $ssh_serv="$SSH_HOST"; }
+
+# print "ssh_serv: $ssh_serv\n";
+
+$tunnel_cmd = "$SSH_CMD $ssh_serv -x -f"
+            . ( ($SSH_PORT) ? " -p $(SSH_PORT)" : "" )
+            . " -L $SSH_LOCAL_PORT:$SSH_HOST:$CVS_PORT open";
+
+# print STDERR "DEBUG: tunnel_cmd: $tunnel_cmd\n";
+
+# execute the tunneling, and read the response from the server
+open (TUNNELSH,"$tunnel_cmd |") or die "Could not execute $tunnel_cmd!";
+chomp ($magicword = <TUNNELSH>);
+# print STDERR "DEBUG: magicword = $magicword!\n";
+
+# Now we can call system to execute the cvs command.
+  # print STDERR "Doing: $CVS_CMD|", ( ($cvs_serv) ? ('-d |', "$cvs_serv|") : ( ) ) , "@ARGV", "|\n";
+$exitcode =
+  system "$CVS_CMD", ( ($cvs_serv) ? ('-d', $cvs_serv) : () ) , @ARGV;
+
+if ($exitcode) { print STDERR "Could not execute CVS command!\n"; }
+
+# close the tunnel
+#print STDERR "DEBUG: ", ( "$SSH_CMD $ssh_serv -q -x -f"
+#            . ( ($SSH_PORT) ? " -p $SSH_PORT" : "" )
+#            . " $magicword" );
+# print STDERR "before close\n";
+system ( "$SSH_CMD $ssh_serv -q -x -f"
+            . ( ($SSH_PORT) ? " -p $SSH_PORT" : "" )
+            . " $magicword" );
+
+# print STDERR "right after close\n";

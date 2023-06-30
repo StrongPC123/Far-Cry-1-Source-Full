@@ -1,0 +1,48 @@
+[2/6/03]
+Made CryBone::GetParentWQuat: returns the parent world coordinate system rotation as a quaternion
+[2/10/03]
+Made ICryCharInstance::GetCurrentAnimation ()
+Got rid of cry:: debug namespace in animation system. In the future, if needed, std:: namespace will be used for debug-allocator-containers, together with DEBUG_STD_CONTAINERS macro
+[2/14/03]
+Added support for initial position chunk in cgf (In CryModelGeometryLoader), reorganized CryBoneHierarchyLoader for that a bit.
+[2/25/03]
+The Layer-0 phase synchronization has been corrected: previously, the secondary layers always synchronized with themselves.
+The corresponding checkbox for Phase SYnchronization has been added to the Model View of the editor.
+Sublayer blending has been changed. Previously, stack of animations being faded out has been frozen (when an animation on the layer started fading out, it did so with the constant phase). This caused smooth but unpleasant effects in the cases when many synchronized animations needed to be started/stopped in many layers. Currently, all the looped animations continue playing even during fading out.
+[2/26/03]
+Since we often have complains about animation quality, including too "robotic" motions, I introduced a new experimental blending function for animations. It's designed to make the blending motions less robotic and more human-like. My visual experiments show that it improves the quality of blended animations, but the artists must say their opinion. The change is very very slight. The feature is turned off by default, to turn it on set ca_EnableCubicBlending variable to 1 and try to see the multiple blended motions on the same character.
+
+Currently, all animations are blended linearly in time. This looks perceptibly unnatural, though all the motions seem to be smooth (continuous). But in the real world, all motions are driven by acceleration, and though have continuous velocity. I would say, acceleration is also continuous, but the eye hardly spots it.
+So, now, the linear blending value x (linear relative to the time) is replaced with smooth:
+
+Notebook[{
+Cell[BoxData[
+    \(Plot[{x, 1\/2 - 2 \((x - 1\/2)\)\^3 + \(3\/2\) \((x - 1\/2)\)}, {x, 0, 
+        1}]\)], "Input"]
+},
+FrontEndVersion->"4.0 for Microsoft Windows",
+ScreenRectangle->{{0, 1280}, {0, 951}},
+WindowSize->{1272, 924},
+WindowMargins->{{0, Automatic}, {Automatic, 0}}
+]
+
+[3/3/03]
+Changed to the new Matrix
+Made StartMorph() function
+Implemented support for morphing of smooth-skinned vertices (was broken)
+[3/6/03]
+Made infrastructure for the CCG format
+Made enumeration for the morph targets
+[3/7/03]
+SetMorphTime()
+Now the face info is stored in an array GeomFace  and array of unsigned char for materials instead of array of CryFace, for better memory utilization
+[3/10/03]
+Stopping routines for morph
+[3/17/03]
+Attach/Detach light functionality
+[3/19/03]
+Attach/Detach multiple objects to bone functionality
+[3/20/03]
+Got rid of the timer parameter in AUTO_PROFILE_SECTION macro for easier profiling of load times
+[4/9/03]
+Made support for character-tocharacter attachments

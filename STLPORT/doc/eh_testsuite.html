@@ -1,0 +1,85 @@
+<html><head><META http-equiv="Content-Type" content="text/html; charset=iso-8859-1"><title>STLport: Exception Handling Testsuite</title><link href="doc.css" type="text/css" rel="stylesheet"></head><body marginwidth="0" marginheight="0" leftmargin="0" topmargin="0" vlink="#314A30" link="#314A30" text="black" bgcolor="white"><table border="0" cellspacing="0" cellpadding="0"><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img border="0" height="14" width="1" src="images/trans.gif"><br><a href="../index.html"><img src="images/stl_logo_doc.gif" border="0" height="80" width="80"></a><a href="http://www.stlport.com"><img border="0" height="80" width="461" src="images/t_doc2.gif"></a><br><img src="images/trans.gif" border="0" height="24" width="1"><br><img src="images/black.gif" border="0" height="1" width="776"><br><img src="images/trans.gif" border="0" height="24" width="1"></td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img src="images/trans.gif" border="0" height="10" width="776"></td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776">
+        <span class="heading">Exception Handling Test Suite for STLport</span>
+<p>
+        <font size="1"><em><strong>by Dave Abrahams, Boris Fomitchev</strong></em></font>
+</p>
+        <h2>Synopsis</h2>
+        <p><b><tt>eh_test [-n &lt;iterations&gt;] [-s &lt;size&gt;] [-l] [-e]
+        [-q]/[-v] [-t]</tt></b></p>
+        <h4>Options:</h4>
+        <ul>
+          <li><tt>[<b>-n &lt;iterations&gt;</b>] </tt>: number of test
+            iterations, default==100;</li>
+          <li><tt>[<b>-s &lt;size&gt;</b>]</tt> : base value for random
+            container sizes, default==1000;</li>
+          <li><tt>[<b>-e</b>]</tt> : don't throw exceptions, test for leak in
+            normal conditions;</li>
+          <li><tt>[<b>-q</b>]</tt> : quiet mode;</li>
+          <li><tt>[<b>-v</b>]</tt> : verbose mode (default);</li>
+          <li><tt>[<b>-t</b>]</tt> : track each allocation;</li>
+          <li><tt>[<b>test_name</b> [<b>test_name</b>...]]</tt> : run <b>test_name</b>
+            tests (<b>default</b>==all). <br>
+            Names are : <b>algo, vector, bit_vector, list, slist, deque, set,
+            map, hash_set, hash_map, rope, string, bitset</b>.</li>
+        </ul>
+        <h2>The Story</h2>
+        <p>The testsuite was written by Dave Abrahams for testing of proposed EH
+        for SGI STL . Shortly, EH&nbsp;was merged into STLport v1.0. That wasn't
+        long until EH was introduced in&nbsp; SGI&nbsp;STL&nbsp;distribution,
+        too (a bit different approach was used). This test helped to locate and
+        fix some EH&nbsp;bugs in 2.0-2.02 releases of SGI STL. As a side effect,
+        it reveals problems in some compiler's EH&nbsp;implementation (typically
+        they show up when you are trying turning on some optimizations).</p>
+        <h2>Portability</h2>
+        <p>EH&nbsp;testsuite can be compiled and run with the following
+        compilers :</p>
+        <ul>
+          <li>SunPro CC 4.1-4.2 (passed OK)</li>
+          <li>Metrowerks CodeWarrior Pro 1 (passed OK)</li>
+          <li>Visual C++ 4.1 (hashed container tests won't compile, compiler bug
+            produce false alarms for list test, other passed.)</li>
+          <li>Visual C++ 5.0 (passed OK).</li>
+          <li>Borland C++ 5.0 (passed OK).</li>
+          <li>gcc-2.7.2 (without EH, actually ;))</li>
+          <li>egcs-970922 (fails to run, dumps core in __throw implemetation).</li>
+        </ul>
+        <p>Makefiles for <b>gcc</b>, <b>SUNPro</b>, <b>Visual C++</b> compilers
+        are provided with the suite. Look for <i>.mak</i> files in the
+        distribution. It should be not difficult to adjust one of them to your
+        compiler.</p>
+        <h2>How To</h2>
+        <p>EH testsuite comes in directory <b>test/eh</b> with your STLport
+        distribution. Edit appropriate makefile to fit your compiler and include
+        directories . After you've done, try "<i>make check</i>". That
+        should build test executable and run it with default options (see
+        Synopsis). If writing your own makefile or working from within some IDE,
+        you should specify the following switches to get proper testing :</p>
+        <p><tt>_STLP_USE_NEWALLOC</tt> - use new-based allocator (that will
+        promptly throw on common test scheme). Otherwise, only
+        assignment/comparison will throw,</p>
+        <p><tt>_STLP_USE_DEBUG_ALLOC</tt> - to catch other potential memory
+        problems.</p>
+        <p><tt>EH_NEW_HEADERS - </tt>if you wish to use new-style C++ headers.
+        This option may be useful to test some other STL&nbsp;implementation.</p>
+        <p>For Borland C++ 5.x , you have to <tt>#define _STLP_NO_NAMESPACES</tt>
+        to compile.</p>
+        <p>For 16-bit platforms, you have to #define NO_FAST_ALLOCATOR to
+        compile.</p>
+        <p>The testsuite may be used to test not only STLport adaptation against
+        particular compiler. It does not contain any adaptation-specific code,
+        so it may be used with regular SGI release (note <tt>_STLP_USE_NEWALLOC </tt>has
+        no effect<tt> </tt>then) or with other STL&nbsp;implementation (hash
+        containers and rope may not work).</p>
+        <h3>Copyright</h3>
+        <p>This software is<br>
+        <i>Copyright (c) 1997 Mark of the Unicorn, Inc. </i></p>
+        <p><i><font size="1">Permission to use, copy, modify, distribute and
+        sell this software and its documentation for any purpose is hereby
+        granted without fee, provided that the above copyright notice appear in
+        all copies and that both that copyright notice and this permission
+        notice appear in supporting documentation. Mark of the Unicorn makes no
+        representations about the suitability of this software for any purpose.
+        It is provided "as is" without express or implied warranty. </font></i>
+				</p>
+
+</td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img src="images/trans.gif" border="0" height="20" width="50"><br><a href="index.html">Table of Contents</a><br></td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img src="images/trans.gif" border="0" height="40" width="80"><br><img src="images/black.gif" border="0" height="1" width="776"></td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img src="images/black.gif" border="0" height="1" width="776"></td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img src="images/trans.gif" border="0" height="5" width="50"><br><span class="copyright">Copyright 2001 by STLport</span><br><img src="images/trans.gif" border="0" height="50" width="80"></td></tr></table></body></html>

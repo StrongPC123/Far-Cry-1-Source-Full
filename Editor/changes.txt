@@ -1,0 +1,543 @@
+-------------------------------------------------------------------------------
+ Log of changes done to the Editor.
+-------------------------------------------------------------------------------
+
+16-03-2003 - Timur
+===================
+* Editor in DirectX still fixing.
+
+16-03-2003 - Timur
+===================
+* Editor in DirectX.
+
+15-03-2003 - Timur
+===================
+* Terrain Surface Texture generation improvements.
+* Hemisphere lighting working again.
+* Improvement of shadows generation.
+* Two directional opening Door script.
+
+14-03-2003 - Timur
+===================
+* Terrain Surface Texture generation improvements.
+
+11-03-2003 - Timur
+===================
+* Modifications to Boids.
+* Starting bugs boids.
+
+10-03-2003 - Timur
+===================
+* Porting of Editor to DirectX.
+* Major speed up in rendering object helpers in Editor.
+* HitTesting of only displayed objects.
+* Bounding box checks for boids, and entity potential visibility checks for flocks.
+
+09-03-2003 - Timur
+===================
+* Porting of Editor to DirectX.
+* Manual sub-material drag&drop sorting in Material editor.
+* Bump map per surface type added.
+* Fixed crash ug when changing material library.
+
+08-03-2003 - Timur
+===================
+* Light direction in lighting dialog.
+* Shadows from terrain fixed, and working again, (much faster).
+* Slight changes and fixes for terrain cover texture generation code.
+* Menu items for assigning materials on objects.
+* Bug in resizing of object selection dialog fixed.
+
+07-03-2003 - Timur
+===================
+* Fixes to terrain generation.
+
+04-03-2003 - Timur
+===================
+* Building file removed, Indoor engine support removed.
+* CvariableEnum implemented, for displaying enumerations in Property control.
+* Object selection dialog now modeless.
+* Shape update area optimized to not update if shape not modified.
+
+03-03-2003 - Timur
+===================
+* Door entity.
+
+27-03-2003 - Timur
+===================
+* Bugs fixing.
+
+26-03-2003 - Timur
+===================
+* CViewport not destroyed bug fixed.
+* Bugs fixing.
+
+25-03-2003 - Timur
+===================
+* Feature to clone archetypes and materials.
+* Shortcuts to copy/paste/clone archetypes and materials,
+* Right click menu on archetypes and materials tree view.
+* Drag&Drop archetypes to the view to spawn archetype entity, or replace existing archetype with different.
+* MaterialGUID stored in objects in case material loading failed.
+* Materials property.
+* Materials for vegetation.
+
+24-03-2003 - Timur
+===================
+* Finilizing materials to work in the game.
+* In TrackView Animation key can be looped, and can change animation speed.
+* CameraObject not using StaticEntity anymore.
+
+21-03-2003 - Timur
+===================
+* Change move speed option added.
+* Default Material can be assigned to CEdMesh.
+* New version 2.0 of Codejock XT library is used.
+
+20-03-2003 - Timur
+==================
+* Changes to the menu.
+
+14-03-2003 - Timur
+===================
+* Changes to BasicEntity
+* Small Fixes to entity.
+* Fixes of Camera FOV
+* Material Editor fixes.
+
+13-03-2003 - Timur
+===================
+* Set height now shoots physical rays down and up to find closest floor.
+* Major changes to BasicEntity script.
+* Changes to BasicEntity
+* Material Editor fixes.
+
+18-02-2003 - Timur
+===================
+* Fixes for second per instance table for entity prototypes
+* STLport testing.
+* Fixed slow saving bug.
+* Loading/Saving times profiling. 
+
+17-02-2003 - Timur
+===================
+* Adding second per instance table for entity prototypes
+
+14-02-2003 - Timur
+===================
+* CEdMesh class, Add materials to library.
+
+13-02-2003 - Timur
+===================
+* Created CEdMesh class, wrapper on IStatObj with materials.
+
+12-02-2003 - Timur
+===================
+* Shaders text editor.
+* Shaders public parameters.
+
+11-02-2003 - Timur
+===================
+* Deleteing group, deletes all childs.
+* Fixed crash with undo of PropertyCtrl.
+* Material Editor fixes.
+* Local Level library for materials and entity archetypes.
+
+10-02-2003 - Timur
+===================
+* Fixed bug with changing prefab on Brush.
+* Hideable flag converted from StaticObject to Brush.
+* Working on Material Editor.
+
+07-02-2003 - Timur
+===================
+* Working on Material Editor.
+* Ctrl+Click will now not move selected object to position instead Ctrl+Shift+Click will.
+
+06-02-2003 - Timur
+===================
+* Working on Material Editor.
+* Added class CMaterial/CMaterialLibrary/CMaterialManager.
+* Fixed bug in Entity Prototype, it was not preserving property values after script reload.
+
+06-02-2003 - Timur
+===================
+* map_preview.jpg is not generated anymore, it was not used.
+* Fixes in terrain surface generation.
+* Fixes for support of bigger maps.
+* Working on material editor.
+* Implemented CBaseDialogLibrary.
+
+
+29-02-2003 - Timur
+===================
+* Working on Entity Prototype.
+* Fixed bug with cover_low.dds not saved to read-only file.
+* Fixed entity scripts reloading problem
+
+28-02-2003 - Timur
+===================
+* Working on Entity Prototype.
+
+23-02-2003 - Timur
+==================
+* Working on Entity Prototype.
+
+22-01-2003 - Timur
+==================
+* Working on Entity Prototype.
+
+21-01-2003 - Timur
+==================
+* No autosave during game mode.
+* OverriteFile function added.
+* Xml validates attribute names for bad characters.
+
+20-01-2003 - Timur
+==================
+* ObjectIDs are changed to be GUIDs
+
+19-01-2003 - Timur
+==================
+* ClassDesc changed name to CObjectClassDeasc and derived from IClassDesc
+* GUIDs are givven to all object class descriptinos.
+* Triggers entity selection bug fixed.
+* List brushes toggle in objects selection dialog.
+* Always Show Radiuses toggle in render settings panel (Turn on/off display of radiuses of entity).
+
+17-01-2003 - Timur
+==================
+* Layer Masks are staying in compressed form when level loaded, saves alot of memory.
+* Separate entity spawn and init so properties can be set between them.
+
+10-01-2003 - Timur
+==================
+* ZViewport.
+
+09-01-2003 - Timur
+==================
+* Preview for Cgf browsing.
+* Fast rotate by axis.
+* Angle snap.
+* Convert static entity to brush.
+
+19-12-2002 - Timur
+==================
+* Fixed exporting of wrong sized autogenerated mask to file.
+
+9-12-2002 - Timur
+=================
+* Axis gizmo changed.
+* Most Objects are rendered uniformly in 2D and 3D view.
+* Changing Map view to be derived from 2DViewport.
+* Changing objects to display themself correctly in 2D viewports.
+* Brush type hide switch in display pannel.
+
+06-12-2002 - Timur
+===================
+* Improvments of constrain axis gizmo.
+* Degradation of object display during modifications.
+* BrushIndoor implementation.
+
+05-12-2002 - Timur
+===================
+* Fixed bug in point to world ray in 2D Viewports, ray source was set to 1000 and skiped geometry placed farer.
+* Changing of axis constrains will automatically update construction planes at viewports.
+* Adding of brush geometry to indoors.
+
+04-12-2002 - Timur
+===================
+* Prefab geometry for brushes.
+* Layers rollup places in separate tab.
+
+29-11-2002 - Timur
+===================
+* Fixed bug with Shape object game area not updated after loading.
+* Groupid added to shape.
+* List of entities in ShapeObject changed to use new safe object array.
+* Added Tools configuration.
+
+28-10-2002 - Timur
+===================
+* Surface Texture layers painting.
+* Moving of terrain area.
+* Variable blocks replace properties.
+
+30-9-2002 - Timur
+===================
+* Multiple Layouts configuration.
+* CTRL + LeftClick to add/remove hit objects selection.
+* ALT + LeftClick to remove hit objects selection.
+
+13-9-2002 - Timur
+===================
+* AICharacter class added and property type created.
+* Fixed AIPoint with hide flag drawing bad arrow.
+* Now when openning a level Mission selection dialog appears.
+* All render resources now freed when switching mission.
+* CFileUtil class added, implements CompileLuaFile and EditTextFile functons.
+* Speedup loading of big bmp files.
+
+11-9-2002 - Timur
+===================
+* Rename Layer button added.
+* Terrain surface type registered in game.
+* Mission Shared object option now obsolete and ignored.
+* Object Layers stored per mission.
+
+64-7-2002 - Timur
+===================
+* Constrain axises remember last settings specific to edit mode.
+* Grid implementation.
+* DrawArrow function added to DisplayContext.
+
+24-7-2002 - Lennert
+===================
+* Animations now mission-based.
+
+22-7-2002 - Lennert
+===================
+* Exporting, loading, saving and editing of sequences works.
+* Playback of sequences in game possible.
+
+15-7-2002 - Lennert
+===================
+* Made Movie-System "DLL-Compatible"
+* Movie-System moved to DLL; used by Editor and Game.
+* ScriptObject for accessing MovieSystem via LUA (CScriptObjectMovie)
+
+17-7-202 - Timur
+==================
+* Headers clean-up, StdAfx.h now dont include most of Game includes.
+* Sort by layers in ObjectSelectDialog
+* Xml now converted to interface, now theres CXmlNode. node->createNode( "Tag" ) to create a node.
+* AttachChild/DetachThis/DetachAll now recieve parameter which allow to preserve or not world transformation.
+
+
+4-7-2002 - Lennert
+===============
+* Prop-Changes for multiple selections of static obj.
+
+28-6-2002 - Lennert
+===============
+* Equipment Editor Impl.; Import/Export...
+
+27-6-2002
+===============
+* Only scripts from EntityRegistry are displayed in entity browser.
+
+13-6-2002
+===============
+* Reload scripts now reloads AI behaviors and ai.lua
+
+29-5-2002
+===============
+* Out of range handling of animation sequences supported
+* Added CreateKey/CloneKey function for animated track,and supported in track view.
+* Fixed bug with track still looping when set to constant.
+* Implemented export of animation sequences.
+
+
+10-5-2002
+===============
+* Unfreeze changed to Unfreeze All.
+* Entity display of bounding bug fixed.
+* Propertied panel rewrited to fix properties reseted bug.
+* In crash dialog, you can save document and the send mail now.
+
+07-5-2002
+===============
+* Reload scripts function fixed.
+
+06-5-2002
+===============
+* AIPoint class implemented
+* Export of AI graph at export added.
+* Out of game now calls OnReset of entities.
+
+22-4-2002
+===============
+* Animation Editing started.
+
+02-4-2002
+===============
+* Brush exported files are now pure text xml.
+
+26-3-2002
+===============
+* Fixed bug with Color property.
+* Entities without bounding boxes givven standart 1meter bounding box.
+* Show Tangents normals option added for Cgf preview.
+* Surface texture saving rewrited, could fix memory trashing bug when doing full export.
+* Feature to spawn entity directly on building helper.
+* Entity bound boxes rendered as semitransparent boxes.
+
+Version v1.2.8
+===============
+* Undo/Redo system.
+* UI to hide sectors in buildings.
+* Vegetation distribution tool.
+* InfoBar modified.
+* Movement Speed control on InfoBar.
+
+Version v1.1.29
+===============
+* Fixed bugs with Group objects delete.
+* Support Attach/Detach to group.
+* Building now a group.
+* Building support holding of entities.
+
+Version v1.1.23
+===============
+* CloneObjectTool, PlaceMode removed from Viewport.
+* SetupEntityGrid bug fixed.
+* Entities not regstered in sectors bug fixed.
+* Cast Shadow  check box was not disabled when no objects selected in distributed objects dialog.
+* SoundObject created.
+* Entity understand and display now InnerRadius,OuterRadius properties as circles in 2D and 3D view.
+
+Version v1.1.22
+===============
+* Holes tool.
+* Customized Keyboard shortcuts.
+* Customized Color picker.
+* Object Creation tool.
+* New drawing function in DisplayContext.
+
+
+Version v1.1.18
+===============
+
+Version v1.1.17
+===============
+* Mission time now affect have immidiate effect.
+* Initial TerrainModifyTool implementation.
+* Changes to CEditTool.
+* CColorButton and CToolButton added.
+* Fixed terrain texture generation error that produced blocky visual.
+* Fixed terrain texture generation error when layers used incorrectly calculated slope.
+* Move over terrain constarain.
+* Updated Building support.
+* Enabled preview of buildings.
+
+Version v1.1.16
+===============
+* Mission Time and environment settings.
+* Expanding of environemnt properties.
+* ExpandAll for PropertySet control.
+
+Version v1.1.15
+===============
+* Fixed problems in Building panel with adding/removing multiple Cgfs.
+* Runtime update of Properties table of Entity instance.
+* Runtiem update of Events table of Entity instance.
+* Improving Entity event system.
+* Fixes to entity properties system.
+* LevelData xml now exports shared objects into <Objects> tag.
+
+Version v1.1.14
+===============
+* Basic Entity Event system introduction.
+* Some bug fixes.
+* Editing tools support thru CEditTool class is implemented.
+* Pick object tool created.
+
+Version v1.1.13
+===============
+* Multiple Missions per Map support.
+
+
+Version v1.1.12
+===============
+* Support for Buildings (Multiple Cgfs per building)
+* Entity Properties support added.
+* EntityScript class created, responsible to manage every aspect of entity lua script.
+* Method list of entity script, Edit Script/Reload Script/Goto Method features.
+* Reset of physical world when switching to game.
+* Reset event now sent to entities when switching to game.
+* LuaEditor switch added to Editor.ini to specify text editor to use for lua editing.
+
+Version v1.1.10
+===============
+* Volume object.
+* Fixes in display rollbar.
+* Volume object.
+* Disable accelerators when switcing to game and in console window.
+* Display Render Effects switches.
+
+Version v1.1.9
+==============
+* Display rollbar. Display Settings can be triggered from this rollbar.
+* Exception handler.
+
+Version v1.1.8
+==============
+* Many Bugs fixed.
+* Clear static objects by mask.
+* Changable Water Color.
+* Black border removed from preveiw.
+* Bug with selection fixed.
+* Ray hit with group object bug fixed.
+* Bad surface types on new map bug fixed.
+
+
+Version v1.1.4
+==============
+* Goto selection added.
+* Bug with Static object merge fixed.
+* Group object, (similar to Max group object).
+* Static objects now removed within flatten areas.
+* XML Templates created, stored in Editor directory.
+* EntityRegistry.xml is in Editor directory, this is a Registry of all know Entity types.
+* Fixed bug with user layer mask.
+
+
+Version v1.1.1
+==============
+* Distribute all feature and button in Static objects distribution wnidow.
+* Fixed water level loading.
+* Fixed bug when model preview crashed bcz main window was not yet created.
+* No UI for Terrain heightmap Load bug fixed.
+* Surface Types added to Document.
+* SurfaceTypesDialog for editing surface types settings created.
+* Surface types can be assigned to layers and exported to heightmap.
+* Export selected terrain as geometry option added.
+* Saving/Loading of object groups.
+* Static objects export changed again, angles removed from stat obj instances.
+* PGM image file format Export/Import.
+* Terrain heightmap can be exported/imported in PGM file format.
+* Clone selection bug fixed.
+* WASD render view controls supported.
+* Special Hole surface type supported.
+* Side Object/Entity files browser with drag&drop functionality.
+* Log will not crash from zero format string.
+* Material field added to Surface Types.
+* SurfaceTypes exported to LevelData.xml
+* Heightmap import/export of RAW data supported.
+* Generilized Property control, Property panel, attachement and editing of properties for objects.
+* Export, Saving/Loading of properties.
+
+Version v1.0.1
+==============
+Initial Editor Version.
+
+=========================================================================================
+Editor.ini switched.
+=========================================================================================
+- All the Engine.ini switches
+- OpenLastProject = (0/1) 1 to load last edited map on editor start.
+- LuaEditor = Filename of text editor to use for editing lua files.
+
+
+
+TODO
+====
+* Export Only visible objects.
+* Boids needs support for activation/deactivation.
+* Commands implementation (Partially done)
+* Cleanup IEditorImpl class, remove tool/axis handling to separate class.
+* Brush Editor.
+*	Texture Browser.
+*	Texture Align tool
+*	Stretch/Skew brush tool.
+*	Generating Geometry for brush.

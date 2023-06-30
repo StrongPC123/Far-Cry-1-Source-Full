@@ -1,0 +1,13 @@
+./complex
+./export
+./fstream
+./iomanip
+./ios
+./iosfwd
+./iostream
+./istream
+./locale
+./ostream
+./sstream
+./streambuf
+./strstream

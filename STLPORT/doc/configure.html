@@ -1,0 +1,793 @@
+<html><head><META http-equiv="Content-Type" content="text/html; charset=iso-8859-1"><title>STLport: Configuration Manual</title><link href="doc.css" type="text/css" rel="stylesheet"></head><body marginwidth="0" marginheight="0" leftmargin="0" topmargin="0" vlink="#314A30" link="#314A30" text="black" bgcolor="white"><table border="0" cellspacing="0" cellpadding="0"><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img border="0" height="14" width="1" src="images/trans.gif"><br><a href="../index.html"><img src="images/stl_logo_doc.gif" border="0" height="80" width="80"></a><a href="http://www.stlport.com"><img border="0" height="80" width="461" src="images/t_doc2.gif"></a><br><img src="images/trans.gif" border="0" height="24" width="1"><br><img src="images/black.gif" border="0" height="1" width="776"><br><img src="images/trans.gif" border="0" height="24" width="1"></td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img src="images/trans.gif" border="0" height="10" width="776"></td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776">
+
+        <span class="heading">STLport Configuration Manual</span>
+<p>
+        <font size="1"><em><strong>by Boris Fomitchev</strong></em></font>
+</p>
+        <h3>Parameters</h3>
+        <p>There are two major categories of STLport configuration parameters:</p>
+        <ul>
+          <li>User-definable preferences</li>
+          <li>Parameters describing compiler bugs and misfeatures</li>
+        </ul>
+        <p>The former class lets you set some specific preferences. Switches
+        controlling these preferences are located in &lt;stl_use_config.h&gt;
+        header, which is self-documented. This manual provide some additional
+        info on them.</p>
+        <p>For the latter, STLport&nbsp; comes&nbsp; preconfigured for a wide
+        variety of compilers. <br>
+        See list for a complete list of compilers that STLport automatically
+        recognizes.<br>
+        If your compiler is not being recognized properly, this document will
+        help you to fix the problem.</p>
+        <p>&nbsp;</p>
+        <h3>User-defined preferences</h3>
+        <p>You may specify some user-defined preferences for STLport. There are
+        two ways to set the options up :</p>
+        <ol>
+          <li>Setting corresponding #define in &lt;stl_user_config.h&gt; . This
+            is the preferred method. You can also use different &lt;stl_user_config.h&gt;
+            headers for different projects.</li>
+          <li>Specifying corresponding flag on compiler command-line. Some
+            options also may be suppressed. For example, you may configure the
+            distribution to exploit exception handling with setting <b>_STLP_USE_EXCEPTIONS</b>
+            macro to 1, then turning exception handling off with <b>-D_STLP_NO_EXCEPTIONS</b>
+            command-line option for particular project</li>
+        </ol>
+        <p>Below is a stable set of of user-defined options with description. If
+        not indicated otherwise, default for these options is that they are
+        undefined.<br>
+        </p>
+        <table border="1" cellspacing="0" cellpadding="4">
+          <caption>
+            <h4>User-defined options for STLport</h4>
+          </caption>
+          <tr>
+            <td><b>Controlling Macro</b></td>
+            <td><b>Description</b></td>
+          </tr>
+          <tr>
+            <td><font size="1" face="Arial, Helvetica"><b>_STLP_NO_OWN_IOSTREAMS
+              </b></font></td>
+            <td><font face="Arial, Helvetica" size="2">This switch is used to select
+              one from two major STLport iostream modes. Please visit <a href="select_io.html">"Getting Started"</a> section for details.
+	       </font></td>
+          </tr>
+          <tr>
+            <td><font size="1" face="Arial, Helvetica"><b>_STLP_NO_NEW_IOSTREAMS
+              </b></font></td>
+            <td><font face="Arial, Helvetica" size="2">Suppress using new-style
+              iostreams even if they are available. </font></td>
+          </tr>
+          <tr>
+            <td><font size="1" face="Arial, Helvetica"><b>_STLP_NO_IOSTREAMS
+              </b></font></td>
+            <td><font face="Arial, Helvetica" size="2">This switch is experimental and
+            is intended to be used in embedded environments. It makes STLport assume that
+            no iostreams are available at all. </font></td>
+          </tr>
+
+          <tr>
+            <td><font size="1" face="Arial, Helvetica"><b>_STLP_NO_CUSTOM_IO
+              </b></font></td>
+            <td><font face="Arial, Helvetica" size="2">This switch is experimental. Define this if you do not instantiate basic_xxx iostream classes  with custom types (which is most likely the case). "Custom" means types other than char, wchar and char_traits&lt;&gt;, like basic_ostream&lt;my_char_type, my_traits&lt;my_char_type&gt; &gt;. When this option is on, most non-inline template functions definitions for iostreams are not seen by the client. Default is off, just not to break compilation for those who do use those types. When on, it saves a lot of compile time for most compilers, also object and executable size for some. That also guarantees that you still use optimized standard i/o when you compile your program without optimization and link with optimized library. Option does not affect STLport library build; you may use the same binary library with and without this option, on per-project basis.</font></td>
+          </tr>
+
+          <tr>
+            <td><font size="1" face="Arial, Helvetica"><b>_STLP_USE_DEBUG_LIB </b></font></td>
+            <td><font face="Arial, Helvetica" size="2">(Windows compilers only)
+	    Normally, optimized STLport library is being automatically linked in even when you compile your project with _DEBUG set (Debug build). If you wish to use debug build of STLport library for your debug builds, define this option (you will also have to build STLport library with debug flags, via additional "make debug_static debug_dynamic"  command, as "make all" only builds "release" and "stldebug" versions of the libraries). 
+            </font></td>
+          </tr>
+
+          <tr>
+            <td><font size="1" face="Arial, Helvetica"><b>_STLP_USE_STATIC_LIB, _STLP_USE_STATICX_LIB, _STLP_USE_DYNAMIC_LIB </b></font></td>
+            <td><font face="Arial, Helvetica" size="2">(Windows compilers only)
+	    Normally, a version of STLport library iwhich corresponds to your RTL library setting is being automatically linked in (if you use dynamic RTL DLL, dynamic STLport DLL is being used, and vice versa).
+ If you wish to force use of particular (static, dynamic, or "staticx" which is static STLport lib built with dynamic RTL) STLport lib, please make use one of those options. 
+            </font></td>
+          </tr>
+
+          <tr>
+            <td><font size="1" face="Arial, Helvetica"><b>_STLP_NO_OWN_NAMESPACE
+              </b></font></td>
+            <td><font face="Arial, Helvetica" size="2">Suppresses STLport use of
+              namespace <b>_STL</b>:: even if it is recommended, forces
+              STLport to use <b>std</b>::. Normally, STLport uses <b>_STL</b>::
+              namespace instead of <b>std</b>::, to prevent clashes with iostreams/string stuff that comes
+              with the compiler. </font></td>
+          </tr>
+          <tr>
+            <td><font size="1" face="Arial, Helvetica"><b>_STLP_USE_OWN_NAMESPACE
+              </b></font></td>
+            <td><font face="Arial, Helvetica" size="2">Forces STLport to use <b>_STL</b>::
+              namespace instead of <b>std</b>:: STLport sets this flag
+              automatically if _STLP_USE_NAMESPACES is set.</font></td>
+          </tr>
+          <tr>
+            <td><font size="1" face="Arial, Helvetica"><b>_STLP_DONT_RENAME_STD
+              </b></font></td>
+            <td><font face="Arial, Helvetica" size="2">Precludes STLport from redefining <b>std</b>::
+             to <b>_STL</b>::. Define it only if renaming scheme does not work for you for some reason.
+            </font></td>
+          </tr>
+          <tr>
+            <td><font size="1" face="Arial, Helvetica"><b>_STLP_DEBUG </b></font></td>
+            <td><font face="Arial, Helvetica" size="2">Turns the <a href="debug_mode.html">Debug
+              Mode</a> on. That gets you checked iterators and ranges.
+              Thread-safe. </font></td>
+          </tr>
+          <tr>
+            <td><font size="1" face="Arial, Helvetica"><b>_STLP_USE_SYSTEM_ASSERT
+              </b></font></td>
+            <td><font face="Arial, Helvetica" size="2">use the system-defined
+              assert instead of fprintf to stderr </font></td>
+          </tr>
+          <tr>
+            <td><font size="1" face="Arial, Helvetica"><b>_STLP_DEBUG_MESSAGE </b></font></td>
+            <td><font face="Arial, Helvetica" size="2">Uncomment this to force
+              all failed assertions to be directed through a user-defined global
+              function: void __stl_debug_message(const char * format_str, ...).
+              This allows you to take control of assertions for debugging
+              purposes. Note : If you set this macro, you must supply <b>__stl_debug_message</b> function definition somewhere. </font></td>
+          </tr>
+          <tr>
+            <td><font size="1" face="Arial, Helvetica"><b>_STLP_DEBUG_TERMINATE </b></font></td>
+            <td><font face="Arial, Helvetica" size="2">Uncomment this to force
+             all failed assertions to be executed through user-defined global function: void __stl_debug_terminate(void). This allows you to take control of assertion behaviour for debugging purposes. Default routine throws unique exception if _STLP_NO_DEBUG_EXCEPTIONS is not set, calls abort() otherwise. <br>Note : If you set this macro, you must supply __stl_debug_terminate  function definition somewhere.
+            </font></td>
+          </tr>
+          <tr>
+            <td><font size="1" face="Arial, Helvetica"><b>_STLP_NO_DEBUG_EXCEPTIONS </b></font></td>
+            <td><font face="Arial, Helvetica" size="2"> Comment this out to enable throwing unique exceptions from default __stl_debug_terminate() instead of calling abort(). </font></td>
+          </tr>
+
+          <tr>
+            <td><font size="1" face="Arial, Helvetica"><b>_STLP_NO_EXCEPTIONS </b></font></td>
+            <td><font face="Arial, Helvetica" size="2">Disables exception
+              handling code. </font></td>
+          </tr>
+          <tr>
+            <td><font size="1" face="Arial, Helvetica"><b>_STLP_NO_NAMESPACES </b></font></td>
+            <td><font face="Arial, Helvetica" size="2">Puts STLport into global
+              namespace, even if the compiler supports namespaces. </font></td>
+          </tr>
+          <tr>
+            <td><font size="1" face="Arial, Helvetica"><b>_STLP_NO_RELOPS_NAMESPACE
+              </b></font></td>
+            <td><font face="Arial, Helvetica" size="2">if defined, don't put the
+              relational operators in namespace <b>std::rel_ops</b>. </font></td>
+          </tr>
+          <tr>
+            <td><font size="1" face="Arial, Helvetica"><b>_REENTRANT </b></font></td>
+            <td><font face="Arial, Helvetica" size="2">Define this if your
+              project is multithreaded. STLport uses MT-safe allocator support
+              then. </font></td>
+          </tr>
+          <tr>
+            <td><font size="1" face="Arial, Helvetica"><b>_NOTHREADS </b></font></td>
+            <td><font face="Arial, Helvetica" size="2">If defined, STLport don't
+              use any multithreading support. </font></td>
+          </tr>
+          <tr>
+            <td><font size="1" face="Arial, Helvetica"><b>_STLP_NO_NEW_C_HEADERS</b></font></td>
+            <td><font face="Arial, Helvetica" size="2">If defined, STLport don't
+              use native new-style C headers even if they are available. </font></td>
+          </tr>
+          <tr>
+            <td><font size="1" face="Arial, Helvetica"><b>_STLP_USE_RAW_SGI_ALLOCATORS
+              </b></font></td>
+            <td><font face="Arial, Helvetica" size="2">Force STLport to use
+              older SGI-style allocators as default ones for containers, instead
+              of standard-conforming <b>allocator</b>&lt;&gt;. </font></td>
+          </tr>
+          <tr>
+            <td><font size="1" face="Arial, Helvetica"><b>_STLP_USE_MALLOC </b></font></td>
+            <td><font face="Arial, Helvetica" size="2">This makes <b>allocator</b>&lt;&gt;
+              to do plain <b>malloc()</b> calls instead of using SGI optimized
+              node allocator engine. </font></td>
+          </tr>
+          <tr>
+            <td><font size="1" face="Arial, Helvetica"><b>_STLP_USE_NEWALLOC </b></font></td>
+            <td><font face="Arial, Helvetica" size="2">This makes <b>allocator</b>&lt;&gt;
+              to do plain <b>new()</b> calls instead of using SGI optimized node
+              allocator engine. </font></td>
+          </tr>
+          <tr>
+            <td><font size="1" face="Arial, Helvetica"><b>_STLP_DEBUG_ALLOC </b></font></td>
+            <td><font face="Arial, Helvetica" size="2">This makes <b>allocator</b>&lt;&gt;
+              to perform memory debugging, such as padding/checking for memory
+              consistency. </font></td>
+          </tr>
+          <tr>
+            <td><font size="1" face="Arial, Helvetica"><b>_STLP_DEBUG_UNINITIALIZED </b></font></td>
+            <td><font face="Arial, Helvetica" size="2">
+	    Use this option to catch uninitialized members in your classes.
+	    When it is set, construct() and destroy() fill the class storage
+	    with _STLP_SHRED_BYTE (see below). 
+	    Note : _STLP_DEBUG and _STLP_DEBUG_ALLOC don't set this option automatically
+	    </font></td>
+          </tr>
+          <tr>
+            <td><font size="1" face="Arial, Helvetica"><b>_STLP_SHRED_BYTE </b></font></td>
+            <td><font face="Arial, Helvetica" size="2">Provides a definition for
+              the byte with which raw memory will be filled if _STLP_DEBUG_ALLOC or _STLP_DEBUG_UNINITIALIZED
+              is defined. Choose a value which is likely to cause a noticeable
+              problem if dereferenced or otherwise abused. A good value may
+              already be defined for your platform; see <b>stldebug.h</b> </font></td>
+          </tr>
+          <tr>
+            <td><font size="1" face="Arial, Helvetica"><b>_STLP_DONT_THROW_RANGE_ERRORS </b></font></td>
+            <td><font face="Arial, Helvetica" size="2">
+	    This macro prevents instantiation of at() member function
+	    for containers (vector and deque).
+	    We do not instantiate at() that does not throw range errors -
+	    if this macro is defined, at() method is not defined.
+	    </font></td>
+          </tr>
+          <tr>
+            <td><font size="1" face="Arial, Helvetica"><b>_STLP_MSVC50_COMPATIBILITY
+              </b></font></td>
+            <td><font face="Arial, Helvetica" size="2">This definition makes SGI
+              <b>reverse_iterator</b> to be compatible with other parts of MSVC
+              library. (With partial specialization, it just has no effect). Its
+              use is strongly discouraged - for MSVC5.0 configuration, it is
+              being set automatically. </font></td>
+          </tr>
+          <tr>
+            <td><font size="1" face="Arial, Helvetica"><b>_STLP_USE_MFC </b></font></td>
+            <td><font face="Arial, Helvetica" size="2">
+	    You should define this macro if compiling with MFC - STLport &lt;stl/_config.h&gt;
+	    then include &lt;afx.h&gt; instead of &lt;windows.h&gt; to get synchronisation primitives
+	    </font></td>
+          </tr>
+          <tr>
+            <td><font size="1" face="Arial, Helvetica"><b>_STLP_MINIMUM_DEFAULT_TEMPLATE_PARAMS</b></font></td>
+            <td><font face="Arial, Helvetica" size="2">
+	    Use minimum set of default arguments on template classes that have more
+	    than one - for example map&lt;&gt;, set&lt;&gt;.
+	    This has effect only if _STLP_LIMITED_DEFAULT_TEMPLATES is on.
+	    </font></td>
+          </tr>
+          <tr>
+            <td><font size="1" face="Arial, Helvetica"><b>_STLP_NO_PROXY_ARROW_OPERATOR</b></font></td>
+            <td><font face="Arial, Helvetica" size="2">
+	    By default, STLport uses proxy technique to enable operator -&gt; for
+	    iterators even for those compilers that check the return type of
+	    unused instantiations. If this causes problems for your project, turn this
+	    switch on to disable proxy -&gt;() operators.
+	    </font></td>
+          </tr>
+          <tr>
+            <td><font size="1" face="Arial, Helvetica"><b>_STLP_USE_ABBREVS</b></font></td>
+            <td><font face="Arial, Helvetica" size="2">Use abbreviated class
+              names internally for linker benefit (don't affect interface). This
+              option is obsolete, but should work in this release.</font></td>
+          </tr>
+          <tr>
+            <td><font face="Arial, Helvetica" size="1"><b>_STLP_USE_DECLSPEC
+              </b></font></td>
+            <td><font face="Arial, Helvetica" size="2">
+	   (Obsolete, Windows only) This switch makes STLport symbols exported from DLL.
+           To use export feature, you should define this macro for all compilation units and
+           also define _STLP_DESIGNATED_DLL macro for one of your DLL's which is supposed to export
+           all STLport symbols. You must use this feature if you use default node allocator and pass
+           objects across DLL boundaries, and do not use STLport iostreams. 
+           Defined automatically if you use STLport iostreams and
+	   compile with /MD flag. 
+	    </font></td>
+          </tr>
+
+          <tr>
+            <td><font face="Arial, Helvetica" size="1"><b>_STLP_DESIGNATED_DLL
+              </b></font></td>
+            <td><font face="Arial, Helvetica" size="2">
+	   (Obsolete, Windows only) Designed to be used together with _STLP_USE_DECLSPEC switch to
+           make one of your DLL's to export STLport symbols for other modules. 
+           The library which is designated to export DLL symbols, must have both of
+           those switches defined for compilation and it should include at least &lt;string&gt;
+           header from at least one source file. Normally you should not be using this, it is used by STLport internally to build STLport DLL.
+	    </font></td>
+          </tr>
+
+        </table>
+        <p><b>Notes:</b></p>
+        <ul>
+          <li>When using tools like Purify (c), Codeguard (c) or BoundsChecker
+            (c), it is advised to <tt>#define _STLP_USE_MALLOC</tt> or <tt>_STLP_USE_NEWALLOC</tt>,
+            otherwise pointer checking will generally not be available on most
+            STL internal structures, thus defeating the purpose of those tools.</li>
+        </ul>
+        <p>&nbsp;</p>
+
+	<a name="compiler_switches"></a>
+        <h3>Compiler-specific switches</h3>
+
+        <p>Compiler-specific switches are STLport macros describing compiler (mis)features/bugs.Below is the
+        table describing them. They are designed in such a way that the compiler 
+        that implements complete set of ANSI C++ features and has no bugs ;) would 
+	have empty configuration file.</p>
+
+	STLport also provides a script that is designed to help you setting those numerous switches.
+	Please read <a href="auto_configure.html">Running configure</a> chapter to learn more about this tool. 
+	<br><i>Note : <b>do not</b> expect STLport to be configured just by running "configure".
+	It is provided only as a tool to help in the initial configuration phase.</i>
+
+        <table border="1" cellspacing="0" cellpadding="4">
+          <caption>
+            <h4>STLport macros describing compiler features</h4>
+          </caption>
+          <tr>
+            <td><b>Controlling macro name</b></td>
+            <td><b>Description</b></td>
+            <td><b>Default</b></td>
+          </tr>
+          <tr>
+            <td><font size="1" face="Arial, Helvetica"><b>_STLP_NATIVE_INCLUDE_PATH
+              </b></font></td>
+            <td><font face="Arial, Helvetica" size="2">The path where native
+              compiler headers are located. STLport uses this information to
+              import <b>std</b>:: names into <b>_STL</b>:: namespace. Default
+              is <b>../include</b>. Hint : never install STLport headers in the
+              directory that ends with <b>include</b>. </font></td>
+          </tr>
+          <tr>
+            <td><font size="1" face="Arial, Helvetica"><b>_STLP_UINT32_T</b></font></td>
+            <td><font face="Arial, Helvetica" size="2">Unsigned 32-bit integral
+              type</font></td>
+            <td><font face="Arial, Helvetica" size="2">unsigned long</font></td>
+          </tr>
+          <tr>
+            <td><font size="1" face="Arial, Helvetica"><b>_STLP_LONG_LONG</b></font></td>
+            <td><font face="Arial, Helvetica" size="2">Defined if compiler
+              supports non-standard <b>long long</b> type</font></td>
+            <td><font face="Arial, Helvetica" size="2">Off</font></td>
+          </tr>
+
+          <tr>
+            <td><font size="1" face="Arial, Helvetica"><b>_STLP_NO_WCHAR_T</b></font></td>
+            <td><font face="Arial, Helvetica" size="2">Defined if compiler
+              does not support <b>wchar_t</b> type</font></td>
+            <td><font face="Arial, Helvetica" size="2">Off</font></td>
+          </tr>
+          <tr>
+            <td><font face="Arial, Helvetica" size="1"><b>_STLP_WCHAR_T_IS_USHORT
+              </b></font></td>
+            <td><font face="Arial, Helvetica" size="2">wchar_t is not a unique
+              type, and is actually a typedef to unsigned short </font></td>
+            <td><font face="Arial, Helvetica" size="2">Off</font></td>
+          </tr>
+          <tr>
+            <td><font size="1" face="Arial, Helvetica"><b>_STLP_NO_LONG_DOUBLE</b></font></td>
+            <td><font face="Arial, Helvetica" size="2">Defined if compiler
+              does not support <b>long double</b> type</font></td>
+            <td><font face="Arial, Helvetica" size="2">Off</font></td>
+          </tr>
+          <tr>
+            <td><font size="1" face="Arial, Helvetica"><b>_STLP_NO_TYPENAME</b></font></td>
+            <td><font face="Arial, Helvetica" size="2">Defined if your compiler
+              does not support <b>typename </b>keyword</font></td>
+            <td><font face="Arial, Helvetica" size="2">Off</font></td>
+          </tr>
+          <tr>
+            <td><font size="1" face="Arial, Helvetica"><b>_STLP_NO_EXPLICIT</b></font></td>
+            <td><font face="Arial, Helvetica" size="2">Defined if your compiler
+              does not support <b>explicit </b>keyword</font></td>
+            <td><font face="Arial, Helvetica" size="2">Off</font></td>
+          </tr>
+          <tr>
+            <td><font size="1" face="Arial, Helvetica"><b>_STLP_NO_MUTABLE</b></font></td>
+            <td><font face="Arial, Helvetica" size="2">Defined if your compiler
+              does not support <b>mutable </b>keyword</font></td>
+            <td><font face="Arial, Helvetica" size="2">Off</font></td>
+          </tr>
+          <tr>
+            <td><font size="1" face="Arial, Helvetica"><b>_STLP_NO_NEW_STYLE_CASTS</b></font></td>
+            <td><font face="Arial, Helvetica" size="2">Defined if compiler
+              does not support new-style <b>const_cast&lt;&gt;</b></font></td>
+            <td><font face="Arial, Helvetica" size="2">Off</font></td>
+          </tr>
+          <tr>
+            <td><font size="1" face="Arial, Helvetica"><b>_STLP_NO_BOOL</b></font></td>
+            <td><font face="Arial, Helvetica" size="2">Defined if the compiler
+              does not support <b>bool</b></font></td>
+            <td><font face="Arial, Helvetica" size="2">Off</font></td>
+          </tr>
+          <tr>
+            <td><font size="1" face="Arial, Helvetica"><b>_STLP_DONT_USE_BOOL_TYPEDEF</b></font></td>
+            <td><font face="Arial, Helvetica" size="2">Bool not supported, but
+              keyword is reserved for future use</font></td>
+            <td><font face="Arial, Helvetica" size="2">Off</font></td>
+          </tr>
+          <tr>
+            <td><font size="1" face="Arial, Helvetica"><b>_STLP_YVALS_H</b></font></td>
+            <td><font face="Arial, Helvetica" size="2"><b>true/false</b> defined
+              in <b>&lt;yvals.h&gt;</b> header ( Visual C++ 4.2)</font></td>
+            <td><font face="Arial, Helvetica" size="2">Off</font></td>
+          </tr>
+          <tr>
+            <td><font size="1" face="Arial, Helvetica"><b>_STLP_DEFAULT_TEMPLATE_PARAM</b></font></td>
+            <td><font face="Arial, Helvetica" size="2">Defined if compiler
+              does not support default template parameters</font></td>
+            <td><font face="Arial, Helvetica" size="2">Off</font></td>
+          </tr>
+          <tr>
+            <td><font size="1" face="Arial, Helvetica"><b>_STLP_DEFAULT_TYPE_PARAM</b></font></td>
+            <td><font face="Arial, Helvetica" size="2">Defined if compiler
+              support only complete types as default parameters</font></td>
+            <td><font face="Arial, Helvetica" size="2">Off</font></td>
+          </tr>
+          <tr>
+            <td><font size="1" face="Arial, Helvetica"><b>_STLP_LIMITED_DEFAULT_TEMPLATES</b></font></td>
+            <td><font face="Arial, Helvetica" size="2">Defined if the compiler
+              cannot handle default non-type template parameters</font></td>
+            <td><font face="Arial, Helvetica" size="2">Off</font></td>
+          </tr>
+          <tr>
+            <td><font size="1" face="Arial, Helvetica"><b>_STLP_NON_TYPE_TMPL_PARAM_BUG</b></font></td>
+            <td><font face="Arial, Helvetica" size="2">Defined if compiler has
+              trouble with functions getting non-type-parameterized classes as
+              parameters</font></td>
+            <td><font face="Arial, Helvetica" size="2">Off</font></td>
+          </tr>
+          <tr>
+            <td><font size="1" face="Arial, Helvetica"><b>_STLP_NO_STATIC_TEMPLATE_DATA</b></font></td>
+            <td><font face="Arial, Helvetica" size="2">Defined if compiler does
+              not support static class data template definition</font></td>
+            <td><font face="Arial, Helvetica" size="2">Off</font></td>
+          </tr>
+          <tr>
+            <td><font size="1" face="Arial, Helvetica"><b>_STLP_STATIC_CONST_INIT_BUG</b></font></td>
+            <td><font face="Arial, Helvetica" size="2">Defined if compiler does
+              not support initialization of const static class data template members within class.</font></td>
+            <td><font face="Arial, Helvetica" size="2">Off</font></td>
+          </tr>
+          <tr>
+            <td><font size="1" face="Arial, Helvetica"><b>_STLP_WEAK_ATTRIBUTE</b></font></td>
+            <td><font face="Arial, Helvetica" size="2">Defined if your compiler
+              provides <b>__attribute((weak))__</b> construct as extension. Only needed if
+              the compiler can't handle static template data members (gcc 2.7.2)</font></td>
+            <td><font face="Arial, Helvetica" size="2">Off</font></td>
+          </tr>
+          <tr>
+            <td><font size="1" face="Arial, Helvetica"><b>_STLP_HAS_NO_NAMESPACES</b></font></td>
+            <td><font face="Arial, Helvetica" size="2">Defined if your compiler
+              does not support namespaces</font></td>
+            <td><font face="Arial, Helvetica" size="2">Off</font></td>
+          </tr>
+          <tr>
+            <td><font face="Arial, Helvetica" size="1"><b>_STLP_BROKEN_USING_DIRECTIVE
+              </b></font></td>
+            <td><font size="2" face="Arial, Helvetica">"<b>using</b>"
+              keyword does not work with template types </font></td>
+            <td><font face="Arial, Helvetica" size="2">Off</font></td>
+          </tr>
+          <tr>
+            <td><font size="1" face="Arial, Helvetica"><b>_STLP_HAS_NO_EXCEPTIONS</b></font></td>
+            <td><font face="Arial, Helvetica" size="2">Defined if your compiler
+              does not support exception-handling</font></td>
+            <td><font face="Arial, Helvetica" size="2">Off</font></td>
+          </tr>
+          <tr>
+            <td><font size="1" face="Arial, Helvetica"><b>_STLP_NO_EXCEPTION_SPEC</b></font></td>
+            <td><font face="Arial, Helvetica" size="2">Defined if your compiler
+              does not support exception specifications</font></td>
+            <td><font face="Arial, Helvetica" size="2">Off</font></td>
+          </tr>
+          <tr>
+            <td><font face="Arial, Helvetica" size="1"><b>_STLP_THROW_RETURN_BUG
+              </b></font></td>
+            <td><font face="Arial, Helvetica" size="2">Compiler requires <b>return</b>
+              statement after <b>throw</b>() </font></td>
+            <td><font face="Arial, Helvetica" size="2">Off</font></td>
+          </tr>
+          <tr>
+            <td><font face="Arial, Helvetica" size="1"><b>_STLP_NO_BAD_ALLOC </b></font></td>
+            <td><font face="Arial, Helvetica" size="2">Header &lt;<b>new</b>&gt;
+              that comes with the compiler does not define <b>bad_alloc</b>
+              exception </font></td>
+            <td><font face="Arial, Helvetica" size="2">Off</font></td>
+          </tr>
+          <tr>
+            <td><font size="1" face="Arial, Helvetica"><b>_STLP_NO_MEMBER_TEMPLATES</b></font></td>
+            <td><font face="Arial, Helvetica" size="2">Defined if compiler
+              does not support member templates</font></td>
+            <td><font face="Arial, Helvetica" size="2">Off</font></td>
+          </tr>
+          <tr>
+            <td><font size="1" face="Arial, Helvetica"><b>_STLP_NO_MEMBER_TEMPLATE_CLASSES</b></font></td>
+            <td><font face="Arial, Helvetica" size="2">Defined if compiler
+              does not support member template classes</font></td>
+            <td><font face="Arial, Helvetica" size="2">Off</font></td>
+          </tr>
+          <tr>
+            <td><font size="1" face="Arial, Helvetica"><b>_STLP_NO_FRIEND_TEMPLATES</b></font></td>
+            <td><font face="Arial, Helvetica" size="2">Defined if compiler
+              does not support friend templates</font></td>
+            <td><font face="Arial, Helvetica" size="2">Off</font></td>
+          </tr>
+          <tr>
+            <td><font face="Arial, Helvetica" size="1"><b>_STLP_NO_QUALIFIED_FRIENDS
+              </b></font></td>
+            <td><font face="Arial, Helvetica" size="2">Compiler does not accept
+              friend declaration qualified with namespace name. </font></td>
+            <td><font face="Arial, Helvetica" size="2">Off</font></td>
+          </tr>
+          <tr>
+            <td><font size="1" face="Arial, Helvetica"><b>_STLP_NO_CLASS_PARTIAL_SPECIALIZATION</b></font></td>
+            <td><font face="Arial, Helvetica" size="2">Defined if compiler
+              does not support partial template class specialization</font></td>
+            <td><font face="Arial, Helvetica" size="2">Off</font></td>
+          </tr>
+          <tr>
+            <td><font face="Arial, Helvetica" size="1"><b>_STLP_PARTIAL_SPEC_NEEDS_TEMPLATE_ARGS
+              </b></font></td>
+            <td><font size="2" face="Arial, Helvetica">Class being partially
+              specialized require full name (template parameters) of itself for
+              method declarations </font></td>
+            <td><font face="Arial, Helvetica" size="2">Off</font></td>
+          </tr>
+          <tr>
+            <td><font face="Arial, Helvetica" size="1"><b>_STLP_PARTIAL_SPECIALIZATION_BUG
+              </b></font></td>
+            <td><font face="Arial, Helvetica" size="2">Partial specialization
+              has bugs that prevent you from using new-style <b>reverse_iterator</b>
+              </font></td>
+            <td><font face="Arial, Helvetica" size="2">Off</font></td>
+          </tr>
+          <tr>
+            <td><font face="Arial, Helvetica" size="1"><b>_STLP_MEMBER_SPECIALIZATION_BUG
+              </b></font></td>
+            <td><font face="Arial, Helvetica" size="2">Compiler has problems
+              specializing members of partially specialized class </font></td>
+            <td><font face="Arial, Helvetica" size="2">Off</font></td>
+          </tr>
+          <tr>
+            <td><font size="1" face="Arial, Helvetica"><b>_STLP_NO_METHOD_SPECIALIZATION</b></font></td>
+            <td><font face="Arial, Helvetica" size="2">Defined if the compiler
+              does not support specializations of single template method.</font></td>
+            <td><font face="Arial, Helvetica" size="2">Off</font></td>
+          </tr>
+          <tr>
+            <td><font size="1" face="Arial, Helvetica"><b>_STLP_NO_FUNC_PARTIAL_ORDERING</b></font></td>
+            <td><font face="Arial, Helvetica" size="2">Defined if compiler
+              does not support partial template functions ordering</font></td>
+            <td><font face="Arial, Helvetica" size="2">Off</font></td>
+          </tr>
+          <tr>
+            <td><font size="1" face="Arial, Helvetica"><b>_STLP_NO_PARTIAL_SPECIALIZATION_SYNTAX</b></font></td>
+            <td><font face="Arial, Helvetica" size="2">Defined if compiler
+              does not support full template specialization syntax</font></td>
+            <td><font face="Arial, Helvetica" size="2">Off</font></td>
+          </tr>
+          <tr>
+            <td><font face="Arial, Helvetica" size="1"><b>_STLP_NO_EXPLICIT_FUNCTION_TMPL_ARGS
+              </b></font></td>
+            <td><font face="Arial, Helvetica" size="2">Compiler does not support
+              explicit template arguments for functions </font></td>
+            <td><font face="Arial, Helvetica" size="2">Off</font></td>
+          </tr>
+          <tr>
+            <td><b><font size="1" face="Arial, Helvetica">_STLP_AUTOMATIC_TYPE_TRAITS</font></b></td>
+            <td><font face="Arial, Helvetica" size="2">Defined if the compiler
+              specializes predefined class <b>type_traits&lt;T&gt;</b> for every
+              type. This is an extension</font></td>
+            <td><font face="Arial, Helvetica" size="2">Off</font></td>
+          </tr>
+          <tr>
+            <td><b><font size="1" face="Arial, Helvetica">_STLP_LOOP_INLINE_PROBLEMS</font></b></td>
+            <td><font face="Arial, Helvetica" size="2">Defined if your compiler
+              can't inline <b>while(), for()</b></font></td>
+            <td><font face="Arial, Helvetica" size="2">Off</font></td>
+          </tr>
+          <tr>
+            <td><b><font size="1" face="Arial, Helvetica">_STLP_BASE_MATCH_BUG</font></b></td>
+            <td><font face="Arial, Helvetica" size="2">Defined if the compiler
+              fails to match a template function argument of base type</font></td>
+            <td><font face="Arial, Helvetica" size="2">Off</font></td>
+          </tr>
+          <tr>
+            <td><b><font size="1" face="Arial, Helvetica">_STLP_NONTEMPL_BASE_MATCH_BUG</font></b></td>
+            <td><font face="Arial, Helvetica" size="2">Defined if the compiler
+              fails to match a template function argument of base
+              (non-template)&nbsp;type</font></td>
+            <td><font face="Arial, Helvetica" size="2">Off</font></td>
+          </tr>
+          <tr>
+            <td><b><font size="1" face="Arial, Helvetica">_STLP_NESTED_TYPE_PARAM_BUG</font></b></td>
+            <td><font face="Arial, Helvetica" size="2">Defined if the compiler
+              rejects outline method definition explicitly taking nested types/typedefs</font></td>
+            <td><font face="Arial, Helvetica" size="2">Off</font></td>
+          </tr>
+          <tr>
+            <td><font face="Arial, Helvetica" size="1"><b>_STLP_TYPENAME_ON_RETURN_TYPE
+              </b></font></td>
+            <td><font face="Arial, Helvetica" size="2">Compiler requires
+              typename keyword on outline method definition explicitly taking
+              nested types/typedefs </font></td>
+            <td><font face="Arial, Helvetica" size="2">Off</font></td>
+          </tr>
+          <tr>
+            <td><font size="1" face="Arial, Helvetica"><b>_STLP_BASE_TYPEDEF_BUG</b></font></td>
+            <td><font face="Arial, Helvetica" size="2">Defined if your compiler
+              have serious problems with typedefs</font></td>
+            <td><font face="Arial, Helvetica" size="2">Off</font></td>
+          </tr>
+          <tr>
+            <td><font size="1" face="Arial, Helvetica"><b>_STLP_BASE_TYPEDEF_OUTSIDE_BUG</b></font></td>
+            <td><font face="Arial, Helvetica" size="2">Defined if the baseclass
+              typedefs not visible from outside</font></td>
+            <td><font face="Arial, Helvetica" size="2">Off</font></td>
+          </tr>
+          <tr>
+            <td><font size="1" face="Arial, Helvetica"><b>_STLP_MEMBER_POINTER_PARAM_BUG</b></font></td>
+            <td><font face="Arial, Helvetica" size="2">Defined if the compiler
+              can't handle pointer-to-member type as function parameter</font></td>
+            <td><font face="Arial, Helvetica" size="2">Off</font></td>
+          </tr>
+          <tr>
+            <td><font size="1" face="Arial, Helvetica"><b>_STLP_UNINITIALIZABLE_PRIVATE</b></font></td>
+            <td><font face="Arial, Helvetica" size="2">Defined if the compiler
+              has problems with static private data members initialization</font></td>
+            <td><font face="Arial, Helvetica" size="2">Off</font></td>
+          </tr>
+          <tr>
+            <td><font size="1" face="Arial, Helvetica"><b>_STLP_STATIC_ARRAY_BUG</b></font></td>
+            <td><font face="Arial, Helvetica" size="2">Defined if the compiler
+              has trouble instantiating static array members with dimension
+              defined as enum.</font></td>
+            <td><font face="Arial, Helvetica" size="2">Off</font></td>
+          </tr>
+          <tr>
+            <td><font size="1" face="Arial, Helvetica"><b>_STLP_DEFAULT_CONSTRUCTOR_BUG</b></font></td>
+            <td><font face="Arial, Helvetica" size="2">Defined if default
+              constructor for builtin integer type fails to initialize it to 0 </font></td>
+            <td><font face="Arial, Helvetica" size="2">Off</font></td>
+          </tr>
+          <tr>
+            <td><font size="1" face="Arial, Helvetica"><b>_STLP_CONST_CONSTRUCTOR_BUG</b></font></td>
+            <td><font face="Arial, Helvetica" size="2">Defined if constructor
+              required to explicitly call member's default constructors for
+              const objects</font></td>
+            <td><font face="Arial, Helvetica" size="2">Off</font></td>
+          </tr>
+          <tr>
+            <td><font size="1" face="Arial, Helvetica"><b>_STLP_TRIVIAL_CONSTRUCTOR_BUG</b></font></td>
+            <td><font face="Arial, Helvetica" size="2">Defined if the compiler
+              has trouble calling <b>POD</b>-types constructors</font></td>
+            <td><font face="Arial, Helvetica" size="2">Off</font></td>
+          </tr>
+          <tr>
+            <td><font size="1" face="Arial, Helvetica"><b>_STLP_TRIVIAL_DESTRUCTOR_BUG</b></font></td>
+            <td><font face="Arial, Helvetica" size="2">Defined if the compiler
+              has trouble calling <b>POD</b>-types destructors</font></td>
+            <td><font face="Arial, Helvetica" size="2">Off</font></td>
+          </tr>
+          <tr>
+            <td><font face="Arial, Helvetica" size="1"><b>_STLP_MULTI_CONST_TEMPLATE_ARG_BUG
+              </b></font></td>
+            <td><font face="Arial, Helvetica" size="2">problems specializing
+              maps/sets with key type being const </font></td>
+            <td><font face="Arial, Helvetica" size="2">Off</font></td>
+          </tr>
+          <tr>
+            <td><font face="Arial, Helvetica" size="1"><b>__SGI_STL_NO_ARROW_OPERATOR
+              </b></font></td>
+            <td><font face="Arial, Helvetica" size="2">Compiler has deficiencie compiling
+              -&gt; operators for iterators. STLport provides proxy workaround for those. </font></td>
+            <td><font face="Arial, Helvetica" size="2">Off</font></td>
+          </tr>
+          <tr>
+            <td><font face="Arial, Helvetica" size="1"><b>_STLP_NO_AT_MEMBER_FUNCTION
+              </b></font></td>
+            <td><font face="Arial, Helvetica" size="2">Disables <b>at</b>()
+              member functions for containers </font></td>
+            <td><font face="Arial, Helvetica" size="2">Off</font></td>
+          </tr>
+          <tr>
+            <td><font face="Arial, Helvetica" size="1"><b>_STLP_HAS_NO_NEW_IOSTREAMS
+              </b></font></td>
+            <td><font face="Arial, Helvetica" size="2">Native C++ library does not provide
+              new-style templatized <b>iostreams</b> </font></td>
+            <td><font face="Arial, Helvetica" size="2">Off</font></td>
+          </tr>
+          <tr>
+            <td><font face="Arial, Helvetica" size="1"><b>_STLP_NO_EXCEPTION_HEADER
+              </b></font></td>
+            <td><font face="Arial, Helvetica" size="2">compiler lacks &lt;<b>exception</b>&gt;
+              header </font></td>
+            <td><font face="Arial, Helvetica" size="2">Off</font></td>
+          </tr>
+          <tr>
+            <td><font face="Arial, Helvetica" size="1"><b>_STLP_HAS_NO_NEW_C_HEADERS
+              </b></font></td>
+            <td><font face="Arial, Helvetica" size="2">Native library does not provide new-style headers
+              like &lt;<b>cstddef</b>&gt;, only old-style like: &lt;stddef.h&gt; </font></td>
+            <td><font face="Arial, Helvetica" size="2">Off</font></td>
+          </tr>
+          <tr>
+            <td><font face="Arial, Helvetica" size="1"><b>_STLP_NO_NEW_NEW_HEADER
+              </b></font></td>
+            <td><font face="Arial, Helvetica" size="2">Native library does not provide new-style
+              like &lt;<b>new</b>&gt; header. </font></td>
+            <td><font face="Arial, Helvetica" size="2">Off</font></td>
+          </tr>
+          <tr>
+            <td><font face="Arial, Helvetica" size="1"><b>_STLP_VENDOR_GLOBAL_STD </b></font></td>
+            <td><font face="Arial, Helvetica" size="2">compiler-supplied standard library
+              resides in global namespace, not <b>std</b>:: </font></td>
+            <td><font face="Arial, Helvetica" size="2">std::</font></td>
+          </tr>
+          <tr>
+            <td><font face="Arial, Helvetica" size="1"><b>_STLP_VENDOR_GLOBAL_CSTD </b></font></td>
+            <td><font face="Arial, Helvetica" size="2">compiler-supplied &lt;<b>cstdio</b>&gt;
+              and the like put stuff in global namespace, not <b>std</b>:: </font></td>
+            <td><font face="Arial, Helvetica" size="2">Off</font></td>
+          </tr>
+          <tr>
+            <td><font size="1" face="Arial, Helvetica"><b>_STLP_RAND48</b></font></td>
+            <td><font face="Arial, Helvetica" size="2">Defined if C library has <b>lrand48()</b>
+              function</font></td>
+            <td><font face="Arial, Helvetica" size="2">Off</font></td>
+          </tr>
+          <tr>
+            <td><font face="Arial, Helvetica" size="1"><b>_STLP_NATIVE_INCLUDE_PATH
+              </b></font></td>
+            <td><font face="Arial, Helvetica" size="2">Path to get native
+              compiler headers included. May be relative or absolute. </font></td>
+            <td><font face="Arial, Helvetica" size="2"><b>../include</b></font></td>
+          </tr>
+          <tr>
+            <td><font face="Arial, Helvetica" size="1"><b>_STLP_NATIVE_C_INCLUDE_PATH
+              </b></font></td>
+            <td><font face="Arial, Helvetica" size="2">Path to get native
+              compiler's  old-style C headers (like <b>stdio.h</b>) included. May be relative or absolute. </font></td>
+            <td><font face="Arial, Helvetica" size="2"><b>../include</b></font></td>
+          </tr>
+          <tr>
+            <td><font face="Arial, Helvetica" size="1"><b>_STLP_NATIVE_CPP_C_INCLUDE_PATH
+              </b></font></td>
+            <td><font face="Arial, Helvetica" size="2">Path to get native
+              compiler new-style C headers (like <b>cstdio</b>) included. May be relative or absolute. </font></td>
+            <td><font face="Arial, Helvetica" size="2"><b>../include</b></font></td>
+          </tr>
+          <tr>
+            <td><font face="Arial, Helvetica" size="1"><b>_STLP_MAKE_HEADER </b></font></td>
+            <td><font face="Arial, Helvetica" size="2">This macro constructs
+              header path from directory and name. You may change it if your
+              compiler does not understand "/". </font></td>
+            <td><font face="Arial, Helvetica" size="2">&lt;<b>path/header</b>&gt;</font></td>
+          </tr>
+          <tr>
+            <td><font face="Arial, Helvetica" size="1"><b>_STLP_NATIVE_HEADER(header)
+              </b></font></td>
+            <td><font face="Arial, Helvetica" size="2">This macro constructs
+              native include header path from include path and name. You may
+              have do define it if experiencing problems with preprocessor </font></td>
+            <td><font face="Arial, Helvetica" size="2">See <b>stl_config.h</b></font></td>
+          </tr>
+          <tr>
+            <td><font face="Arial, Helvetica" size="1"><b>_STLP_NATIVE_C_HEADER(header)
+              </b></font></td>
+            <td><font face="Arial, Helvetica" size="2">Same for old-style C headers </font></td>
+            <td><font face="Arial, Helvetica" size="2">See <b>stl_config.h</b></font></td>
+          </tr>
+          <tr>
+            <td><font face="Arial, Helvetica" size="1"><b>_STLP_NATIVE_CPP_C_HEADER(header)
+              </b></font></td>
+            <td><font face="Arial, Helvetica" size="2">Same for new-style C headers </font></td>
+            <td><font face="Arial, Helvetica" size="2">See <b>stl_config.h</b></font></td>
+          </tr>
+          <tr>
+            <td><font face="Arial, Helvetica" size="1"><b>_STLP_LINK_TIME_INSTANTIATION
+              </b></font></td>
+            <td><font face="Arial, Helvetica" size="2">
+	    This switch should be set on if the compiler supports separate template compilation model,
+	    with non-inlined functions and methods being defined in implementation .c file.
+	    </font></td>
+            <td><font face="Arial, Helvetica" size="2"><b>Off</b></font></td>
+          </tr>
+
+        </table>
+        <h4>&nbsp;</h4>
+</td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img src="images/trans.gif" border="0" height="20" width="50"><br><a href="index.html">Table of Contents</a><br></td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img src="images/trans.gif" border="0" height="40" width="80"><br><img src="images/black.gif" border="0" height="1" width="776"></td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img src="images/black.gif" border="0" height="1" width="776"></td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img src="images/trans.gif" border="0" height="5" width="50"><br><span class="copyright">Copyright 2001 by STLport</span><br><img src="images/trans.gif" border="0" height="50" width="80"></td></tr></table></body></html>

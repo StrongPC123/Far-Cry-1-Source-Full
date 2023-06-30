@@ -1,0 +1,28 @@
+<html><head><META http-equiv="Content-Type" content="text/html; charset=iso-8859-1"><title>STLport: Note For Metrowerks CodeWarrior Users</title><link href="doc.css" type="text/css" rel="stylesheet"></head><body marginwidth="0" marginheight="0" leftmargin="0" topmargin="0" vlink="#314A30" link="#314A30" text="black" bgcolor="white"><table border="0" cellspacing="0" cellpadding="0"><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img border="0" height="14" width="1" src="images/trans.gif"><br><a href="../index.html"><img src="images/stl_logo_doc.gif" border="0" height="80" width="80"></a><a href="http://www.stlport.com"><img border="0" height="80" width="461" src="images/t_doc2.gif"></a><br><img src="images/trans.gif" border="0" height="24" width="1"><br><img src="images/black.gif" border="0" height="1" width="776"><br><img src="images/trans.gif" border="0" height="24" width="1"></td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img src="images/trans.gif" border="0" height="10" width="776"></td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776">
+
+        <span class="heading">Note For Metrowerks CodeWarrior Users</span>
+        <hr>
+        <h2>Known problems</h2>
+        <h4>Compiling</h4>
+        <ul>
+          <li>You may have to edit relative/full path to CodeWarrior native
+            headers .</li>
+          <li>To avoid editing the headers mentioned above, Metrowerks users
+            should put the "STLport" directory in the "Metrowerks
+            Standard Library" directory, and add the "STLport"
+            directory as the first item in the system search paths of the
+            projects that wish to use it.</li>
+          <li>If you want your code to be portable, you should avoid explicit
+            usage of <tt>reverse_iterator&lt;Iterator,T,T&amp;,T*,Distance&gt;</tt>.</li>
+          <li>It's better to use coherent set of headers in the project: <b>all
+            new-style</b>, including STL ones;</li>
+          <li><b>IMPORTANT</b> : You should either have _STLP_USE_OWN_NAMESPACE
+            defined, or you should recompile CodeWarrior runtime libraries after
+            you installed STLport.</li>
+          <li>For earlier versions, you have to copy <tt>&lt;functional&gt;</tt>
+            to <tt>&lt;functional.h&gt;</tt>. <tt>&lt;functional.h&gt;</tt> is
+            not provided in distribution since it clobbers <tt>&lt;function.h&gt;</tt>
+            on 8.3 systems</li>
+        </ul>
+
+</td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img src="images/trans.gif" border="0" height="20" width="50"><br><a href="index.html">Table of Contents</a><br></td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img src="images/trans.gif" border="0" height="40" width="80"><br><img src="images/black.gif" border="0" height="1" width="776"></td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img src="images/black.gif" border="0" height="1" width="776"></td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img src="images/trans.gif" border="0" height="5" width="50"><br><span class="copyright">Copyright 2001 by STLport</span><br><img src="images/trans.gif" border="0" height="50" width="80"></td></tr></table></body></html>

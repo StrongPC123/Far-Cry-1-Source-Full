@@ -1,0 +1,36 @@
+**********************************************************************
+* 	   TODO file for STLport                                     *
+*                                                                    *
+**********************************************************************
+
+This file lists various prospective things to do with STLport.
+
+Please feel free to contribute to implementing any of these.
+Please submit results back to STLport coordinator 
+( boris@stlport.com, http://www.stlport.com/forum ).
+
+Below, numbers in "[]" brackets indicate priority.
+
+[1] Make sure that the libary compiled with thread support, 
+is binary compatible with _NOTHREADS compiled projects. Hint - now it's NOT. 
+
+[1] More makefiles in src directory.
+
+[1] More detailed installation/build instructions.
+
+[2] More detailed documentation.
+
+[1] User-friendly installation scripts.
+
+[3] iostreams efficiency analysis.
+
+[3] iostream/STL benchmarking against other implementations.
+
+[3] An "undef" script to expand macros and produce more readable
+STLport headers customized for given configuration automatically.
+
+[1] More points to add to this file ;).
+
+
+
+

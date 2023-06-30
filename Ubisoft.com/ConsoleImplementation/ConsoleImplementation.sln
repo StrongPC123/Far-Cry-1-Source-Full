@@ -1,0 +1,27 @@
+Microsoft Visual Studio Solution File, Format Version 7.00
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ConsoleImplementation", "ConsoleImplementation.vcproj", "{9C9E19C4-AC32-4D92-B50E-401D5A0FBC39}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CDKey", "..\CDKey\CDKey.vcproj", "{139D67B2-5379-429E-BBD4-F1E6D64C6C4D}"
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		ConfigName.0 = Debug
+		ConfigName.1 = Release
+	EndGlobalSection
+	GlobalSection(ProjectDependencies) = postSolution
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{9C9E19C4-AC32-4D92-B50E-401D5A0FBC39}.Debug.ActiveCfg = Debug|Win32
+		{9C9E19C4-AC32-4D92-B50E-401D5A0FBC39}.Debug.Build.0 = Debug|Win32
+		{9C9E19C4-AC32-4D92-B50E-401D5A0FBC39}.Release.ActiveCfg = Release|Win32
+		{9C9E19C4-AC32-4D92-B50E-401D5A0FBC39}.Release.Build.0 = Release|Win32
+		{139D67B2-5379-429E-BBD4-F1E6D64C6C4D}.Debug.ActiveCfg = Debug|Win32
+		{139D67B2-5379-429E-BBD4-F1E6D64C6C4D}.Debug.Build.0 = Debug|Win32
+		{139D67B2-5379-429E-BBD4-F1E6D64C6C4D}.Release.ActiveCfg = Release|Win32
+		{139D67B2-5379-429E-BBD4-F1E6D64C6C4D}.Release.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

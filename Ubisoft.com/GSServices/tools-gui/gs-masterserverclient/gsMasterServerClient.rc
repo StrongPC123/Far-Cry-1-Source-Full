@@ -1,0 +1,284 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_GSMASTERSERVERCLIENT_DIALOG DIALOGEX 0, 0, 447, 293
+STYLE DS_MODALFRAME | WS_MINIMIZEBOX | WS_POPUP | WS_VISIBLE | WS_CAPTION | 
+    WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "gsMasterServerClient"
+FONT 8, "Arial"
+BEGIN
+    EDITTEXT        IDC_EDITServerIP,64,26,65,13,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDITPort,64,44,65,13,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDITUsername,181,25,65,13,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDITPassword,181,44,65,13,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDITVersion,181,61,65,13,ES_AUTOHSCROLL
+    PUSHBUTTON      "Download config",IDC_BUTTONDownload,285,25,65,14
+    EDITTEXT        IDC_EDITGameName,64,61,65,13,ES_AUTOHSCROLL
+    PUSHBUTTON      "Initialize",IDC_BUTTONInitialize,285,43,65,14
+    PUSHBUTTON      "Uninitialize",IDC_BUTTONUninitialize,285,60,65,14
+    PUSHBUTTON      "Request",IDC_BUTTONRequest,358,25,65,14
+    CONTROL         "List4",IDC_LISTGameServers,"SysListView32",LVS_REPORT | 
+                    WS_BORDER | WS_TABSTOP,22,103,405,115
+    EDITTEXT        IDC_EDITGamePassword,137,244,65,13,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "Join Server",IDC_BUTTONJoin,22,244,65,14
+    PUSHBUTTON      "Leave Server",IDC_BUTTONLeave,22,264,65,14
+    PUSHBUTTON      "Exit",IDEXIT,368,264,60,14
+    LTEXT           "Game name",IDC_STATIC,20,65,43,8
+    LTEXT           "Server IP",IDC_STATIC,20,30,30,8
+    LTEXT           "Server port",IDC_STATIC,20,48,36,8
+    LTEXT           "Username",IDC_STATIC,139,29,33,8
+    LTEXT           "Password",IDC_STATIC,139,48,32,8
+    LTEXT           "Version",IDC_STATIC,139,65,24,8
+    LTEXT           "Password",IDC_STATIC,97,247,34,8
+    PUSHBUTTON      "About",IDC_BUTTONAbout,368,245,60,14
+    PUSHBUTTON      "Refresh",IDC_BUTTONRefresh,358,60,65,14
+    PUSHBUTTON      "Scores",IDC_BUTTONScores,358,43,65,14
+    PUSHBUTTON      "Get Alt Info",IDC_BUTTONGetAlt,213,244,65,14
+    PUSHBUTTON      "Start Match",IDC_BUTTONStartMatch,213,264,65,14
+    PUSHBUTTON      "Connected",IDC_BUTTONConnected,137,264,65,14
+    GROUPBOX        "Operations",IDC_STATIC,272,12,163,70
+    GROUPBOX        "Connection properties",IDC_STATIC,13,12,243,70
+    GROUPBOX        "Server list",IDC_STATIC,13,88,422,140
+    GROUPBOX        "Game server operations",IDC_STATIC,13,232,274,53
+    GROUPBOX        "Misc",IDC_STATIC,294,232,141,53
+    PUSHBUTTON      "Get MOTD",IDC_BUTTON_GETMOTD,300,245,60,14
+END
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904B0"
+        BEGIN
+            VALUE "CompanyName", "\0"
+            VALUE "FileDescription", "gsMasterServerClient MFC Application\0"
+            VALUE "FileVersion", "1, 0, 0, 1\0"
+            VALUE "InternalName", "gsMasterServerClient\0"
+            VALUE "LegalCopyright", "Copyright (C) 2002\0"
+            VALUE "LegalTrademarks", "\0"
+            VALUE "OriginalFilename", "gsMasterServerClient.EXE\0"
+            VALUE "ProductName", "gsMasterServerClient Application\0"
+            VALUE "ProductVersion", "1, 0, 0, 1\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_GSMASTERSERVERCLIENT_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 440
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 286
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDP_SOCKETS_INIT_FAILED "Windows sockets initialization failed."
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// English (Canada) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENC)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_CAN
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_DIALOGAddScores DIALOG DISCARDABLE  0, 0, 247, 239
+STYLE DS_MODALFRAME | DS_3DLOOK | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Submit Scores"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "Init Match",IDC_BUTTONinit,182,7,57,14
+    PUSHBUTTON      "Set Match",IDC_BUTTONSet,182,25,57,14
+    LTEXT           "Lobby ID:",IDC_STATIC,7,13,32,8
+    EDITTEXT        IDC_EDITLobbyID,45,7,40,14,ES_AUTOHSCROLL | ES_READONLY | 
+                    ES_NUMBER
+    LTEXT           "Match ID:",IDC_STATIC,7,68,32,8
+    EDITTEXT        IDC_EDITMatchID,45,62,40,14,ES_AUTOHSCROLL | ES_READONLY | 
+                    ES_NUMBER
+    LTEXT           "Username:",IDC_STATIC,7,90,35,8
+    EDITTEXT        IDC_EDITUsername,45,84,40,14,ES_AUTOHSCROLL
+    LTEXT           "Field ID:",IDC_STATIC,7,112,27,8
+    EDITTEXT        IDC_EDITFieldID,45,106,40,14,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "Field Value:",IDC_STATIC,7,134,38,8
+    EDITTEXT        IDC_EDITFieldValue,45,128,40,14,ES_AUTOHSCROLL | 
+                    ES_NUMBER
+    PUSHBUTTON      "Submit Match",IDC_BUTTONSubmit,182,43,57,14
+    PUSHBUTTON      "Uninit Match",IDC_BUTTONUninit,182,61,57,14
+    PUSHBUTTON      "Match Finish",IDC_BUTTONFinished,182,79,58,14
+    LTEXT           "Room ID:",IDC_STATIC,7,36,31,8
+    EDITTEXT        IDC_EDITRoomID,45,30,40,14,ES_AUTOHSCROLL | ES_READONLY | 
+                    ES_NUMBER
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_DIALOGAddScores, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 240
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 232
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""res\\gsMasterServerClient.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""         // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON    DISCARDABLE     "res\\gsMasterServerClient.ico"
+#endif    // English (Canada) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#endif //_WIN32
+#include "res\gsMasterServerClient.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"         // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

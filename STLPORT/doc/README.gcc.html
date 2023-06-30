@@ -1,0 +1,91 @@
+<html><head><META http-equiv="Content-Type" content="text/html; charset=iso-8859-1"><title>STLport: Note for GCC users</title><link href="doc.css" type="text/css" rel="stylesheet"></head><body marginwidth="0" marginheight="0" leftmargin="0" topmargin="0" vlink="#314A30" link="#314A30" text="black" bgcolor="white"><table border="0" cellspacing="0" cellpadding="0"><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img border="0" height="14" width="1" src="images/trans.gif"><br><a href="../index.html"><img src="images/stl_logo_doc.gif" border="0" height="80" width="80"></a><a href="http://www.stlport.com"><img border="0" height="80" width="461" src="images/t_doc2.gif"></a><br><img src="images/trans.gif" border="0" height="24" width="1"><br><img src="images/black.gif" border="0" height="1" width="776"><br><img src="images/trans.gif" border="0" height="24" width="1"></td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img src="images/trans.gif" border="0" height="10" width="776"></td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776">
+
+        <span class="heading">Note for GCC users</span>
+        <hr>
+        <h3>GCC versions</h3>
+        STLport works with the following GCC flavours:
+	<p>gcc-3.0 Note : "wrapper mode" w/o STLport iostreams doesn't work with 3.0, as gcc 3.0 implements Koenig lookup properly, which leads to ambiguity errors when trying to wrap new-style gcc iostreams into STLport namespace.</p>
+	<p>gcc-2.95.x  Note: on some platforms (HP, AIX) gcc-2.95 does not implement automatic instantiation of static template data members. Please refer to gcc-2.7 section below for workaround. </p>
+        <p><a href="http://www.cygnus.com/egcs">Cygnus "egcs":</a>
+        Based on gcc-2.8 development tree, it provides <b>better </b>template
+        support than in FSF gcc-2.8.1, and many modern commercial compilers. It
+        features full-blown default template parameters, namespaces, partial
+        template specialization and member template methods. EGCS also offers
+        greatly improved EH support.&nbsp; STLport works with egcs just fine.
+        Though it comes with SGI STL, <br>
+        you may still want to use STLport because of debug mode.</p>
+        <p>gcc-2.8.1: About the same as egcs. <br>
+        <i>( Note : you may encounter problems compiling with 2.8.1 due to bugs
+        in partial template specialization. Just #define _STLP_PARTIAL_SPECIALIZATION_BUG
+        then ) </i>.</p>
+        <p>If you use egcs or 2.8.1 or higher, you may stop reading here.</p>
+        <p>&nbsp;</p>
+        <hr width="100%">
+        <h3>GCC 2.7.x :</h3>
+        Althought it does work with STLport, it has poor template support
+        compared to other modern compilers. <br>
+        If you do generic programming, it's definitely time to upgrade.
+        <h3>Workaround strategy</h3>
+        To address GCC inability to auto-instantiate static template data
+        members, the following workaround introduced:
+        <p>Instantiations of required static data members provided in
+        corresponing headers under <i>#ifdef </i><tt>__PUT_STATIC_DATA_MEMBERS_HERE</tt>
+        ( luckily, in this version of STL their amount doesn't depend on how
+        many different instantiations you have ). You should <tt>#define __PUT_STATIC_DATA_MEMBERS_HERE</tt><i>
+        </i>in <b>one</b> of your compilation unit ( or specify it in <i>CFLAGS </i>for
+        it ) <b>before </b>including any STL header. That should not affect
+        'good' compilers in any way.</p>
+        <p><b>Moreover,</b> <b>gcc on platforms that use ELF object file format
+        or GNU linker, will work without this hack</b>. gcc's <b><i>__attribute__((weak))__</i></b>
+        used instead as workaround. That makes gcc usable in portable way with
+        STL on many platforms ( Linux/Solaris/etc. ).</p>
+        <p>&nbsp;</p>
+        <hr>
+        <h2>Known problems</h2>
+        <h4>Compiling</h4>
+        See <a href="#Migration%20notes">Migration notes</a>.
+        <h4>Linking</h4>
+        When using <i>__attribute__((weak))__<b> </b></i>, you may run into
+        linker errors like : <b>'multiple definition of `global constructors
+        keyed to __malloc_alloc_template&lt;0&gt;::oom_handler'</b>. <br>
+        That indicates that you have defined some global objects in your source.
+        gcc then produce a bug treating weak symbol declared in header as real
+        global. <br>
+        The workaround is simple : just put some dummy global variable <b>before
+        </b>including STL headers. That worked for me. <br>
+        Another way is to <tt>#define _STLP_WEAK_ATTRIBUTE 0 </tt>in <b><i>stlconf.h</i></b>
+        and use <tt>__PUT_STATIC_DATA_MEMBERS_HERE</tt> scheme described above.
+        <p>On some non-ELF systems (<b>SunOS 4.x</b>) "configure" sets
+        <tt>_STLP_WEAK_ATTRIBUTE. </tt>Unfortunately, this won't work unless you
+        are using GNU linker. To justify this, <tt>#define _STLP_WEAK_ATTRIBUTE
+        0 </tt>in <b><i>stlconf.h</i></b> and use <tt>__PUT_STATIC_DATA_MEMBERS_HERE</tt>
+        scheme described above.</p>
+        <p>You may have troubles getting _linker_ errors compiling complex cases
+        without <i>-frepo</i>. If that problem occurs, try <i>-frepo</i> flag.
+        This flag is generally preferred unless you are compiling really short
+        examples. Be sure to supply -frepo switch on the link stage, too.</p>
+        <p>&nbsp;</p>
+        <hr>
+        <h2><a name="Migration%20notes"></a>Migration notes</h2>
+        You may have to define operators ==() and &lt;() on all classes you are
+        using with most containers, even if they are not really used. That is
+        the gcc bug. Another bug is that gcc won't find this operators defined
+        in base class, you have to redefine them. Don't define any of
+        !=(),&gt;(),&lt;=(),&gt;=;() operators for your classes - gcc have bugs
+        in resolution and report that as ambiguity with templates in <i>function.h.</i>
+        <p>If you use <tt>&lt;string&gt;</tt> from <tt>libg++</tt> the described
+        problem of the definition of <tt>!=, &gt;, &lt;=</tt> and <tt>&gt;=</tt>
+        occurs: something like: "<tt>ambiguous template instantiation in
+        sinst.h</tt>" The concrete solution is to disable the definitions
+        of those operators in <tt>g++-include/std/sinst.h (line 59):</tt></p>
+        <p><tt>__DOB (==)</tt> <br>
+        <tt>//__DOB (!=)</tt> <br>
+        <tt>__DOB (&gt;)</tt> <br>
+        <tt>//__DOB (&gt;)</tt> <br>
+        <tt>//__DOB (&lt;=)</tt> <br>
+        <tt>//__DOB (&lt;=)</tt> <br>
+        <tt>//__DOB (&gt;=)</tt></p>
+        <p>This would be a general fix due to gcc problems. The other possible
+        solution is to <tt>#include &lt;string&gt;</tt> after STL headers.</p>
+
+</td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img src="images/trans.gif" border="0" height="20" width="50"><br><a href="index.html">Table of Contents</a><br></td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img src="images/trans.gif" border="0" height="40" width="80"><br><img src="images/black.gif" border="0" height="1" width="776"></td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img src="images/black.gif" border="0" height="1" width="776"></td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img src="images/trans.gif" border="0" height="5" width="50"><br><span class="copyright">Copyright 2001 by STLport</span><br><img src="images/trans.gif" border="0" height="50" width="80"></td></tr></table></body></html>

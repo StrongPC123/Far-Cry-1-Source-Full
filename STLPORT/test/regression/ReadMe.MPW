@@ -1,0 +1,356 @@
+#	MPW adaptation of STLport
+#	
+#	written by Tsutomu Yoshida, Minokamo, Japan. Aug/14/1998
+#	#*TY 05/23/1999 - updated for STLport-3.2
+#	#*TY 08/03/1999 - updated for STLport-3.2.1
+# 	#*TY 05/21/2000 - updated for STLport-4.0
+#	#*TY 05/13/2001 - updated for STLport-4.1
+#	
+#	this document describes the detailed instructions for building and running the STL testsuite (regression and eh) 
+#	as the mpw tools, as well as building STLportLib which provides the standard conforming iostream.
+
+
+#	*** IMPORTANT NOTES ON ENVIRONMENT CONFIGURATION
+#
+#	¥ STLport under MPW expects CIncludes folder (or alias of it) be presented at the same level as "stlport" folder.
+#	¥ C++ Compilers should be given the chance to search include files in "stlport" folder before searching in "CIncludes" folder.
+#	¥ If you use old style STL header (i.e., map.h, etc.), "stoport:old_hp" folder also has to be added in the include 
+#		search paths (old style headers are not verified to work. use them on your own risk).
+#	¥ This version of STLport uses <exception> header supplied with the package. <exception> supplied elsewhere is not used, 
+#		unlike the earlier version of STLport.
+#	¥ You may have to increase the stack size of MPW shell since MrCpp's backend uses a lot of stack space for code optimization. 
+#		Use a shell command shown below.
+	SetShellSize -s 1280k # relaunch of MPW shell required to take effect
+
+
+#	*** how to setup STL under MPW environment:
+#	===============================================================================================================
+#	(1) run the MPW script shown below to setup the shell variable {STL} to point to the STLport
+#	directory. to run this script, open this file (ReadMe.MPW) under MPW and select the script block below
+#	and then press "enter' key (not the 'return' key).
+#
+#	Note: 	this setup script will install a startup script named "!STL_Folder_SetUp" 
+#			under "{ShellDirectory}Startup Items:" directory.
+#	
+#(# INSTALL (1)
+begin
+	unset STL # to unconditionally re-setup STL variable
+	if !"{STL}"
+		Set exit 0
+		Set temp "{Boot}"
+		unset STL
+		if "{active}" =~ /(Å)¨1:Å/
+			directory "{¨1}:"
+			set temp "{¨1}:::"
+			(Set temp `ResolveAlias "{temp}stlport:"`)·dev:null
+		end
+		Loop
+			If  !"`Exists "{temp}stl:_config.h"`"
+				Alert "The folder you have chosen, ¶'{temp}¶', does not appear to be the correct STL folder."¶
+				"¶nPlease choose the main STLport folder (the folder which contains stl_config.h)."
+			Else
+				Break
+			End
+			Set temp "`(GetFileName "{temp}" -q -d -m "Where is your ¶"STLport¶" folder?")³dev:null`"
+			exit if !"{temp}"
+		End
+		Set -e STL "{temp}"
+		set STL > "{ShellDirectory}Startup Items:!STL_Folder_SetUp" # save the {STL} setting so that you do not have to run this script every time mpw is booted.
+		unset temp
+		Set exit 1
+	else
+		alert "the path to ¶"¶{STL¶}¶" has been set up as: ¶n'{STL}' .¶nMake sure this is up to date."
+	end
+end ·· "{worksheet}"
+#)#
+
+#	===============================================================================================================
+#	(2) make alias for the CIncludes folder at the same level as 'stlport' folder.
+#
+#(# INSTALL (2)
+begin
+	SendAE -e "FNDRsali" -t "Finder" -----alis "{CIncludes}:CIncludes" ·dev:null 	# create the alias
+	set alias_ `exists -a "{CIncludes}:"ÅCIncludesÅ` 								# get the exact name for the alias
+	duplicate -y "{alias_}" "{STL}:CIncludes" 										# copy it into the destination
+	delete -ay "{alias_}" 															# clean up
+end ·· "{worksheet}"
+#)#
+
+
+#	===============================================================================================================
+#	(3) OPTIONAL: change the creator of files to MPW, colorize them to Blue and set the default font information
+#
+#		WARNING: THIS STEP IS QUITE TIME CONSUMING
+#
+#(# INSTALL (3) OPTIONAL
+begin
+	set -e exit 0
+	if !"{Font}";set -e Font "Monaco";end
+	if !"{FontSize}";set -e FontSize 9;end
+	set self_ "{active}"
+	for f_ in	`exists -f ¶
+				"{stl}"[Â.]+ "{stl}"Å.[hc]Å ¶
+				"{stl}config:"Å.[hc]Å ¶
+				"{stl}old_hp:"Å.[hc]Å ¶
+				"{stl}stl:"[Â.]+ "{stl}stl:"Å.[hc]Å ¶
+				"{stl}stl:debug:"Å.[hc]Å ¶
+				"{stl}stl:wrappers:"Å.[hc]Å ¶
+				"{stl}wrap_std:"Å[Â.]+ ¶
+				"{stl}wrap_std:h:"Å.[hc]Å ¶
+				"{stl}using:"[Â.]+ ¶
+				"{stl}using:h:"Å.[hc]Å ¶
+				"{stl}:src:"Å.[hc]Å ¶
+				"{stl}:test:regression:"Å.[hc]Å ¶
+				"{stl}:test:eh:"Å.[hc]Å ¶
+				`
+		SetFile -a l "{f_}"
+		Open -h -r "{f_}"
+		Format -l 'C/C++/Objective-C'  -f "{Font}" -s "{FontSize}" "{f_}" 
+		Close "{f_}"
+		SetFile -c 'MPS ' -label 3 -a L "{f_}"
+	end
+	for f_ in	`exists -f ¶
+				"{stl}:src:"Å.mak ¶
+				"{stl}:test:regression:"Å.mak ¶
+				"{stl}:test:eh:"Å.mak ¶
+				`
+		SetFile -a l "{f_}"
+		Open -h -r "{f_}"
+		Format -l 'MPW Shell Script' -f "{Font}" -s "{FontSize}" "{f_}"
+		Close "{f_}"
+		SetFile -c 'MPS ' -label 4 -a L "{f_}" # blue color
+	end
+	open "{self_}"
+	SetFile -a l "{self_}"
+	Format -l 'MPW Shell Script' -f "{Font}" -s "{FontSize}" "{self_}"
+	SetFile -c 'MPS ' -label 6  "{self_}" # sky color
+	set -e exit 1
+end ·· "{worksheet}"
+#)#
+
+
+#	===============================================================================================================
+#	(4) build and install PPC version of STLportLib into "{stl}:lib:" folder. Both debugging and non-debugging versions will be built.
+#
+#	target compiler: apple's mpw MrCpp 5.0.0 or better
+#	
+#(# INSTALL (4) PPC STLportLib
+begin
+	set -e MrCpp `which MrCpp`	# ver.5.0.0 or better is required
+	save -a						# save all files (optional)
+	directory "{stl}:src:"		# setup the working directory
+	target "{worksheet}"
+	echo -n "¶n####### START BUILDING PPC VERSION OF STLportLib LIBRARY ####### "; date -s
+	unset fullbuild
+#	set -e fullbuild "-e"			# uncomment this line to force full build
+
+	for debug_build in '-d DEBUG' ''
+		make {fullbuild} {debug_build} install -f "{stl}:src:MrCpp.mak" > MrCpp.MakeIt; execute MrCpp.MakeIt
+	end
+	echo "Finished building STLportLib (PPC)¶n"
+end ·· "{worksheet}"
+#)#
+
+
+#	===============================================================================================================
+#	(5) build and install 68K version of STLportLib into "{stl}:lib:" folder. Both debugging and non-debugging versions will be built.
+#
+#	target compiler: apple's mpw SCpp 8.9.0 or better
+#	
+#(# INSTALL (5) 68K STLportLib
+begin
+	set -e SCpp `which SCpp`	# ver.8.9.0 or better is required
+	save -a						# save all files (optional)
+	directory "{stl}:src:"		# setup the working directory
+	target "{worksheet}"
+	echo -n "¶n####### START BUILDING 68K VERSION OF STLportLib LIBRARY ####### "; date -s
+	unset fullbuild
+#	set -e fullbuild "-e"			# uncomment this line to force full build
+
+	set -e other_SCpp_Options "-seg STLPortLib"
+	
+	for debug_build in '-d DEBUG' ''
+		make {fullbuild} {debug_build} install -f "{stl}:src:SCpp.mak" > SCpp.MakeIt; execute SCpp.MakeIt
+	end
+	unset other_SCpp_Options
+	echo "Finished building STLportLib (68K)¶n"
+end ·· "{worksheet}"
+#)#
+
+
+
+
+
+#	*** how to try out the regression testsuite (PPC version):
+#	===============================================================================================================
+#	target compiler: apple's mpw MrCpp 5.0.0
+#	
+#	(1) run the shell script listed below to compile and link the PPC version of testsuite as the mpw
+#	tool by selecting it and press enter.
+#
+#(# PPC (1) Regression Build
+begin
+	set -e MrCpp `which MrCpp` # ver.5.0.0 or better is required
+	save -a					# save all files (optional)
+	directory "{stl}:test:regression:"		# setup the working directory
+	target "{worksheet}"
+	echo -n "¶n####### START BUILDING PPC VERSION OF STL REGRESSION TEST SUITE ####### "; date -s
+	unset other_STL_Options
+	unset other_MrCpp_Options
+	unset fullbuild
+#	set -e fullbuild "-e"			# uncomment this line to force full build
+	unset debug_build
+	set -e debug_build '-d DEBUG'	# uncomment this line to build non-debug version
+	make -w {fullbuild} {debug_build} Regression_test -f "{stl}:test:regression:MrCpp.mak" > MrCpp.MakeIt
+	set -e exit 0
+	execute MrCpp.MakeIt
+	set -e exit 1
+end ·· "{worksheet}"
+#)#
+
+
+#	(2) run the shell script listed below to execute the PPC version of testsuite mpw tool and
+#	compare the output with the standard "stl_test.exp" output.
+#
+#(# PPC (2)
+	set proj "{stl}:test:regression:"
+	set obj "{proj}.PPC.DBG:"
+	set Regression_test.PPC.output "{obj}"MrCpp.exp		# output to separate file
+	#set Regression_test.PPC.output "dev:stdout"	# output to {worksheet}
+	directory "{proj}"
+	target "{worksheet}"
+	begin
+		echo 'a string' > "{proj}"stdin # prepare input
+		echo "###### START:    Regression_test.PPC"
+		"{obj}"Regression_test.PPC < "{proj}"stdin > "{Regression_test.PPC.output}"	# run
+		echo "###### FINISHED: Regression_test.PPC"
+	end ·· "{worksheet}"
+	if "{Regression_test.PPC.output}" != "dev:stdout"
+		set exit 0
+		comparefiles "{Regression_test.PPC.output}" "{proj}"stl_test.exp # compare output file
+		set exit 1
+	end ·· "{worksheet}"
+#)#
+
+
+#	*** how to try out the EH testsuite (PPC version):
+#	===============================================================================================================
+#	target compiler: apple's mpw MrCpp 5.0.0
+#	
+#	(3) run the shell script listed below to compile and link the PPC version of testsuite as the mpw
+#	tool by selecting it and press enter.
+#
+#	Note: MrCpp and SCpp still can not pass all eh tests. You will get failed assertion when run the test.
+#
+#(# PPC (3)
+begin
+	set -e MrCpp `which MrCpp` # ver.5.0.0 or better is required
+	save -a					# save all files (optional)
+	directory "{stl}:test:eh:"		# setup the working directory
+	target "{worksheet}"
+	echo -n "¶n####### START BUILDING PPC VERSION OF STL EH TEST SUITE ####### "; date -s
+	unset other_STL_Options
+	unset other_MrCpp_Options
+	unset fullbuild
+#	set -e fullbuild "-e"			# uncomment this line to force full build
+	unset debug_build
+#	set -e debug_build '-d DEBUG'	# debug flavor can not pass the eh test yet.
+	make -w {fullbuild} {debug_build} EH_test -f "{stl}:test:regression:MrCpp.mak" > MrCpp.MakeIt
+	set -e exit 0
+	execute MrCpp.MakeIt
+	set -e exit 1
+end ·· "{worksheet}"
+#)#
+
+
+
+
+
+#	*** how to try out the testsuite (68K version):
+#	===============================================================================================================
+#	target compiler: apple's mpw SCpp 8.9.0
+#
+#	(1) run the shell script listed below to compile and link the 68K version of testsuite as the mpw
+#	tool by selecting it and press enter.
+#
+#(# 68K (1)
+begin
+	set SCpp `which SCpp` # ver.8.9.0 or better is required
+	save -a					# save all files (optional)
+	directory "{stl}:test:regression:"		# setup the working directory
+	target "{worksheet}"
+	echo -n "¶n####### START BUILDING 68K VERSION OF STL REGRESSION TEST SUITE ####### "; date -s
+	unset other_STL_Options
+	unset other_SCpp_Options
+	unset fullbuild
+#		set fullbuild "-e"	# uncomment this line to force full build
+	unset debug_build
+	set -e debug_build '-d DEBUG'	# uncomment this line to build non-debug version
+	set -e other_SCpp_Options "-model far"
+	make -w {fullbuild}  {debug_build} Regression_test -f "{stl}:test:regression:SCpp.mak" > SCpp.MakeIt
+	set -e exit 0
+	execute SCpp.MakeIt
+	set -e exit 1
+	unset other_SCpp_Options
+end ·· "{worksheet}"
+#)#
+
+
+#	(2) run the shell script listed below to execute the 68K version of testsuite mpw tool and
+#	compare the output with the standard "stl_test.exp" output.
+#
+#(# 68K (2)
+	set -e proj "{stl}:test:regression:"
+	set -e obj "{proj}.68K.DBG:"
+	set Regression_test.68K.output "{obj}"SCpp.exp		# output to separate file
+	#set Regression_test.68K.output "dev:stdout"	# output to {worksheet}
+	if "{active}" =~ /(Å)¨1:Å/
+		directory "{¨1}:"	# setup the working directory
+	end
+	target "{worksheet}"
+	begin
+		echo 'a string' > "{proj}"stdin # prepare input
+		echo "###### START:    Regression_test.68K"
+		"{obj}"Regression_test.68K < "{proj}"stdin > "{Regression_test.68K.output}"	# run
+		echo "###### FINISHED: Regression_test.68K"
+	end ·· "{worksheet}"
+	if "{Regression_test.68K.output}" != "dev:stdout"
+		set exit 0
+		comparefiles "{Regression_test.68K.output}" "{proj}"stl_test.exp # compare output file
+		set exit 1
+	end ·· "{worksheet}"
+#)#
+
+
+#	*** how to try out the eh testsuite (68K version):
+#	===============================================================================================================
+#	target compiler: apple's mpw SCpp 8.9.0
+#
+#	(1) run the shell script listed below to compile and link the 68K version of testsuite as the mpw
+#	tool by selecting it and press enter. 
+#
+#	Note: MrCpp and SCpp still can not pass all eh tests. You will get failed assertion when run the test.
+#
+#(# 68K (1)
+begin
+	set SCpp `which SCpp` # ver.8.9.0 or better is required
+	save -a					# save all files (optional)
+	directory "{stl}:test:eh:"		# setup the working directory
+	target "{worksheet}"
+	echo -n "¶n####### START BUILDING 68K VERSION OF STL EH TEST SUITE ####### "; date -s
+	unset other_STL_Options
+	unset other_SCpp_Options
+	unset fullbuild
+#		set fullbuild "-e"	# uncomment this line to force full build
+	unset debug_build
+	set -e debug_build '-d DEBUG'
+	set -e other_SCpp_Options "-model far"
+	make -w {fullbuild} {debug_build} EH_test -f "{stl}:test:regression:SCpp.mak" > SCpp.MakeIt
+	set -e exit 0
+	execute SCpp.MakeIt 
+	set -e exit 1
+end ·· "{worksheet}"
+#)#
+
+
+# - end of ReadMe.MPW

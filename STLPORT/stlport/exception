@@ -1,0 +1,188 @@
+/*
+ * Copyright (c) 1996,1997
+ * Silicon Graphics Computer Systems, Inc.
+ *
+ * Copyright (c) 1999 
+ * Boris Fomitchev
+ *
+ * This material is provided "as is", with absolutely no warranty expressed
+ * or implied. Any use is at your own risk.
+ *
+ * Permission to use or copy this software for any purpose is hereby granted 
+ * without fee, provided the above notices are retained on all copies.
+ * Permission to modify the code and to distribute modified code is granted,
+ * provided the above notices are retained, and a notice that the code was
+ * modified is included with the above copyright notice.
+ *
+ */
+
+// This header exists solely for portability.  Normally it just includes
+// the native header <exception>.
+
+// The header <exception> contains low-level functions that interact
+// with a compiler's exception-handling mechanism.  It is assumed to
+// be supplied with the compiler, rather than with the library, because
+// it is inherently tied very closely to the compiler itself.
+
+// On platforms where <exception> does not exist, this header defines
+// an exception base class.  This is *not* a substitute for everything
+// in <exception>, but it suffices to support a bare minimum of STL
+// functionality.
+
+# if !defined (_STLP_OUTERMOST_HEADER_ID)
+#  define _STLP_OUTERMOST_HEADER_ID 0x423
+#  include <stl/_prolog.h>
+# elif (_STLP_OUTERMOST_HEADER_ID == 0x423) && ! defined (_STLP_DONT_POP_0x423)
+#  define _STLP_DONT_POP_0x423
+# endif
+
+# if   ! defined (_STLP_NO_EXCEPTION_HEADER)
+
+#  if defined ( _UNCAUGHT_EXCEPTION )
+#   undef _STLP_INCOMPLETE_EXCEPTION_HEADER
+#  endif
+
+# if defined(_STLP_BROKEN_EXCEPTION_CLASS)
+#  define exception     _STLP_NULLIFIED_BROKEN_EXCEPTION_CLASS
+#  define bad_exception _STLP_NULLIFIED_BROKEN_BAD_EXCEPTION_CLASS
+#  if defined (_STLP_NO_NEW_NEW_HEADER)
+#   include _STLP_NATIVE_CPP_RUNTIME_HEADER(Exception.h)
+#  else
+#   include _STLP_NATIVE_CPP_RUNTIME_HEADER(Exception)
+#  endif
+#  undef exception
+#  undef bad_exception
+# else
+
+# if defined (_STLP_NO_NEW_NEW_HEADER)
+#  include _STLP_NATIVE_CPP_RUNTIME_HEADER(exception.h)
+# else
+#   include _STLP_NATIVE_CPP_RUNTIME_HEADER(exception)
+# endif
+
+# endif
+
+#    if defined (_STLP_MSVC) || defined (__ICL)
+// dwa 02/04/00 - here I'm assuming that __ICL uses the same library headers as vc6.
+// the header <yvals.h> which ships with vc6 and is included by its native <exception>
+// actually turns on warnings, so we have to turn them back off.
+#      include <config/_msvc_warnings_off.h>
+#    endif
+
+
+#  ifdef _STLP_USE_OWN_NAMESPACE
+
+_STLP_BEGIN_NAMESPACE
+
+#if !defined(_STLP_BROKEN_EXCEPTION_CLASS)
+using _STLP_VENDOR_EXCEPT_STD::exception;
+using _STLP_VENDOR_EXCEPT_STD::bad_exception;
+#endif
+
+# if ! defined (_STLP_NO_USING_FOR_GLOBAL_FUNCTIONS)
+
+// fbp : many platforms present strange mix of
+// those in various namespaces
+#  if !defined(_STLP_VENDOR_UNEXPECTED_STD)
+#   define _STLP_VENDOR_UNEXPECTED_STD _STLP_VENDOR_EXCEPT_STD
+#  endif
+
+// weird errors
+# if (! defined (__BORLANDC__)) || (defined (__STD_EXCEPTION) && defined (__RWSTD_EXCEPTION_SEEN) && defined ( _STLP_DONT_POP_0x423))
+using _STLP_VENDOR_UNEXPECTED_STD::unexpected;
+using _STLP_VENDOR_UNEXPECTED_STD::unexpected_handler;
+using _STLP_VENDOR_UNEXPECTED_STD::set_unexpected;
+using _STLP_VENDOR_UNEXPECTED_STD::terminate;
+using _STLP_VENDOR_UNEXPECTED_STD::terminate_handler;
+using _STLP_VENDOR_UNEXPECTED_STD::set_terminate;
+# endif
+
+# if !defined (_STLP_INCOMPLETE_EXCEPTION_HEADER) 
+using _STLP_VENDOR_UNEXPECTED_STD::uncaught_exception;
+# endif
+
+#  endif
+
+_STLP_END_NAMESPACE
+
+#  endif /* _STLP_OWN_NAMESPACE */
+
+#else /* _STLP_NO_EXCEPTION_HEADER */
+
+// fbp : absence of <exception> usually means that those
+// functions are not going to be called by compiler.
+// Still, define them for the user.
+typedef void (*unexpected_handler)();
+unexpected_handler set_unexpected(unexpected_handler f) _STLP_NOTHROW_INHERENTLY;
+void unexpected();
+
+typedef void (*terminate_handler)();
+terminate_handler set_terminate(terminate_handler f) _STLP_NOTHROW_INHERENTLY;
+void terminate();
+
+bool uncaught_exception(); // not implemented under mpw as of Jan/1999
+
+#endif  /* _STLP_NO_EXCEPTION_HEADER */	
+
+# if   defined (_STLP_NO_EXCEPTION_HEADER) || defined(_STLP_BROKEN_EXCEPTION_CLASS)
+# ifndef _STLP_EXCEPTION_H
+#  define _STLP_EXCEPTION_H
+
+_STLP_BEGIN_NAMESPACE
+
+// section 18.6.1
+	class _STLP_CLASS_DECLSPEC exception 
+	{
+	public:
+# ifdef _STLP_OWN_IOSTREAMS
+	        exception() _STLP_NOTHROW;
+	        virtual ~exception() _STLP_NOTHROW;
+		virtual const char* what() const _STLP_NOTHROW;
+# else
+	        exception() _STLP_NOTHROW {}
+		virtual ~exception() _STLP_NOTHROW {}
+		virtual const char* what() const _STLP_NOTHROW {return "class exception";}
+# endif
+	};
+	
+	
+
+// section 18.6.2.1
+	class _STLP_CLASS_DECLSPEC bad_exception : public exception 
+	{
+	public:
+# ifdef _STLP_OWN_IOSTREAMS
+	  bad_exception() _STLP_NOTHROW;
+	  ~bad_exception() _STLP_NOTHROW;
+	  const char* what() const _STLP_NOTHROW;
+# else
+	  bad_exception() _STLP_NOTHROW {}
+	  ~bad_exception() _STLP_NOTHROW {}
+	  const char* what() const _STLP_NOTHROW {return "class bad_exception";}
+# endif
+	};
+
+_STLP_END_NAMESPACE
+
+#endif /* _STLP_NO_EXCEPTION_HEADER */
+
+_STLP_BEGIN_NAMESPACE
+// forward declaration
+class __Named_exception;
+_STLP_END_NAMESPACE
+#endif /* _STLP_EXCEPTION_H */
+
+# if (_STLP_OUTERMOST_HEADER_ID == 0x423)
+#  if ! defined (_STLP_DONT_POP_0x423)
+#   include <stl/_epilog.h>
+#   undef  _STLP_OUTERMOST_HEADER_ID
+#   endif
+#   undef  _STLP_DONT_POP_0x423
+# endif
+
+// Local Variables:
+// mode:C++
+// End:
+
+
+

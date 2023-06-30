@@ -1,0 +1,27 @@
+<html><head><META http-equiv="Content-Type" content="text/html; charset=iso-8859-1"><title>STLport: Getting Started: Compiling with STLport</title><link href="doc.css" type="text/css" rel="stylesheet"></head><body marginwidth="0" marginheight="0" leftmargin="0" topmargin="0" vlink="#314A30" link="#314A30" text="black" bgcolor="white"><table border="0" cellspacing="0" cellpadding="0"><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img border="0" height="14" width="1" src="images/trans.gif"><br><a href="../index.html"><img src="images/stl_logo_doc.gif" border="0" height="80" width="80"></a><a href="http://www.stlport.com"><img border="0" height="80" width="461" src="images/t_doc2.gif"></a><br><img src="images/trans.gif" border="0" height="24" width="1"><br><img src="images/black.gif" border="0" height="1" width="776"><br><img src="images/trans.gif" border="0" height="24" width="1"></td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img src="images/trans.gif" border="0" height="10" width="776"></td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776">
+
+   <span class="heading">Compiling Your Project with STLport</span>
+
+    <p>
+    Please make sure 
+    <b>"stlport"</b> directory containing header files
+    is the <b>first</b> one in your include search path when you compile the project</p>
+<p>
+    <i>Note: for SunPro CC 5.0 and higher, there is special directory <b>"stlport/SC5"</b>
+       to be set in search path due to specific SUNpro search rules)</i>
+		</p>
+
+   <h3>Special Notes for STLport as a dynamic library</h3>
+		<p>
+   When using STLport as a dynamic library, please make sure you put in the <b>PATH</b>
+   and distribute it together with your executable. This extra dependency is certainly
+   in favor of using static linking. However, if your project deploys any
+   Win DLL's using STLport, you <b>have</b> to use STLport as Win DLL, too. This is because
+   it contains some static variables (like <b>cerr</b> stream) which would otherwise be duplicated
+   in every DLL. This problem does not arise in Unix world.</p>
+   <p>
+   <i>[ Visual C++ specific ]</i> If using STLport as DLL, please be sure to use <b>/MD[d]</b> 
+   compiler option to pick up all dynamic libraries.
+		</p>
+
+</td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img src="images/trans.gif" border="0" height="20" width="50"><br><a href="index.html">Table of Contents</a><br></td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img src="images/trans.gif" border="0" height="40" width="80"><br><img src="images/black.gif" border="0" height="1" width="776"></td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img src="images/black.gif" border="0" height="1" width="776"></td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img src="images/trans.gif" border="0" height="5" width="50"><br><span class="copyright">Copyright 2001 by STLport</span><br><img src="images/trans.gif" border="0" height="50" width="80"></td></tr></table></body></html>

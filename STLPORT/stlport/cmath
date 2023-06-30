@@ -1,0 +1,93 @@
+/*
+ * Copyright (c) 1999 
+ * Boris Fomitchev
+ *
+ * This material is provided "as is", with absolutely no warranty expressed
+ * or implied. Any use is at your own risk.
+ *
+ * Permission to use or copy this software for any purpose is hereby granted 
+ * without fee, provided the above notices are retained on all copies.
+ * Permission to modify the code and to distribute modified code is granted,
+ * provided the above notices are retained, and a notice that the code was
+ * modified is included with the above copyright notice.
+ *
+ */
+
+#ifndef _STLP_CMATH
+# define _STLP_CMATH
+
+# ifndef _STLP_OUTERMOST_HEADER_ID
+#  define _STLP_OUTERMOST_HEADER_ID  0x109
+#  include <stl/_prolog.h>
+# endif
+
+# if defined (_STLP_USE_NEW_C_HEADERS)
+#  if defined (_STLP_HAS_NO_NAMESPACES) && ! defined (exception)
+#   define exception __math_exception
+#  endif
+#  include _STLP_NATIVE_CPP_C_HEADER(cmath)
+#  if defined (_STLP_HAS_NO_NAMESPACES)
+#   undef exception
+#  endif
+# else
+#  include <math.h>
+# endif
+
+#  if (defined (__SUNPRO_CC) && (__SUNPRO_CC > 0x500)) || \
+     !( defined (__IBMCPP__) && (__IBMCPP__ >= 500) || ! ( defined (__HP_aCC) && (__HP_aCC >= 30000) ))
+# ifndef _STLP_HAS_NO_NAMESPACES
+namespace std {
+# endif
+  extern "C" double hypot(double x, double y);
+# ifndef _STLP_HAS_NO_NAMESPACES
+}
+# endif
+
+#  endif
+
+#  ifdef _STLP_IMPORT_VENDOR_CSTD
+_STLP_BEGIN_NAMESPACE
+# if ! defined (_STLP_NO_CSTD_FUNCTION_IMPORTS)
+# ifdef _STLP_HAS_NATIVE_FLOAT_ABS
+using _STLP_VENDOR_CSTD::abs;
+# endif
+using _STLP_VENDOR_CSTD::acos;
+using _STLP_VENDOR_CSTD::asin;
+using _STLP_VENDOR_CSTD::atan2;
+using _STLP_VENDOR_CSTD::atan;
+using _STLP_VENDOR_CSTD::ceil;
+using _STLP_VENDOR_CSTD::cos;
+using _STLP_VENDOR_CSTD::cosh;
+using _STLP_VENDOR_CSTD::exp;
+using _STLP_VENDOR_CSTD::fabs;
+using _STLP_VENDOR_CSTD::floor;
+using _STLP_VENDOR_CSTD::fmod;
+using _STLP_VENDOR_CSTD::frexp;
+using _STLP_VENDOR_CSTD::ldexp;
+using _STLP_VENDOR_CSTD::log10;
+using _STLP_VENDOR_CSTD::log;
+using _STLP_VENDOR_CSTD::modf;
+using _STLP_VENDOR_CSTD::pow;
+using _STLP_VENDOR_CSTD::sin;
+using _STLP_VENDOR_CSTD::sinh;
+using _STLP_VENDOR_CSTD::sqrt;
+using _STLP_VENDOR_CSTD::tan;
+using _STLP_VENDOR_CSTD::tanh;
+# endif /* BUG */
+_STLP_END_NAMESPACE
+#  endif /* _STLP_IMPORT_VENDOR_CSTD */
+
+#ifndef _STLP_CMATH_H_HEADER
+#  include <stl/_cmath.h>
+#endif
+
+# if (_STLP_OUTERMOST_HEADER_ID ==  0x109 )
+#  include <stl/_epilog.h>
+#  undef _STLP_OUTERMOST_HEADER_ID
+# endif
+
+#endif /* _STLP_CMATH */
+
+// Local Variables:
+// mode:C++
+// End:

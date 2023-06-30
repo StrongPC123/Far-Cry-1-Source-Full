@@ -1,0 +1,150 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_TAB_SAVEFORMAT DIALOGEX 0, 0, 308, 55
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_SYSMENU
+EXSTYLE WS_EX_TRANSPARENT
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    COMBOBOX        IDC_PIXELFORMAT,4,10,69,230,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Static",IDC_PIXELFORMATDESC,76,8,226,18
+    LTEXT           "Pixelformat:",IDC_STATIC,5,2,40,8
+    COMBOBOX        IDC_MIPMAPS,4,35,69,230,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+    LTEXT           "Mipmaps:",IDC_STATIC,6,27,31,8
+    COMBOBOX        IDC_REDUCERES,80,35,69,230,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+    LTEXT           "Reduce Resolution:",IDC_STATIC,82,27,63,8
+    COMBOBOX        IDC_DITHERMODE,156,35,69,230,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Dithering:",IDC_STATIC,157,27,32,8
+END
+
+IDD_TAB_NORMALMAPGEN DIALOGEX 0, 0, 285, 42
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_SYSMENU
+EXSTYLE WS_EX_TRANSPARENT
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    COMBOBOX        IDC_NM_FILTERTYPE,4,4,78,30,CBS_DROPDOWN | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+END
+
+IDD_USERDIALOG DIALOGEX 0, 0, 347, 348
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,229,328,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,291,328,50,14
+    CONTROL         "Show UserDialog next time",IDC_SHOWUSERDIALOG,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,330,102,10
+    LTEXT           "Static",IDC_LEFTPREVIEWINFO,2,158,165,16
+    LTEXT           "Static",IDC_RIGHTPREVIEWINFO,178,158,165,16
+    GROUPBOX        "Preset (Current template preset file is defined in rc.ini)",
+                    IDC_STATIC,6,201,335,27
+    COMBOBOX        IDC_TEMPLATECOMBO,11,210,148,230,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL
+    PUSHBUTTON      "Zoom In",IDC_ZOOMIN,11,179,39,11
+    PUSHBUTTON      "Zoom Out",IDC_ZOOMOUT,52,179,39,11
+    CONTROL         "Preview Alpha",IDC_PREVIEWALPHA,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,96,180,61,10
+    CONTROL         "Bilinear Filter",IDC_PREVIEWFILTERED,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,163,180,57,10
+    CONTROL         "Tiled",IDC_PREVIEWTILED,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,224,180,31,10
+    CONTROL         "",IDC_PROPTAB,"SysTabControl32",0x0,7,233,334,83
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_TAB_SAVEFORMAT, DIALOG
+    BEGIN
+        RIGHTMARGIN, 302
+    END
+
+    IDD_TAB_NORMALMAPGEN, DIALOG
+    BEGIN
+        RIGHTMARGIN, 278
+    END
+
+    IDD_USERDIALOG, DIALOG
+    BEGIN
+        HORZGUIDE, 166
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

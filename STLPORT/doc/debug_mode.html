@@ -1,0 +1,125 @@
+<html><head><META http-equiv="Content-Type" content="text/html; charset=iso-8859-1"><title>STLport: Debug Mode</title><link href="doc.css" type="text/css" rel="stylesheet"></head><body marginwidth="0" marginheight="0" leftmargin="0" topmargin="0" vlink="#314A30" link="#314A30" text="black" bgcolor="white"><table border="0" cellspacing="0" cellpadding="0"><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img border="0" height="14" width="1" src="images/trans.gif"><br><a href="../index.html"><img src="images/stl_logo_doc.gif" border="0" height="80" width="80"></a><a href="http://www.stlport.com"><img border="0" height="80" width="461" src="images/t_doc2.gif"></a><br><img src="images/trans.gif" border="0" height="24" width="1"><br><img src="images/black.gif" border="0" height="1" width="776"><br><img src="images/trans.gif" border="0" height="24" width="1"></td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img src="images/trans.gif" border="0" height="10" width="776"></td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776">
+
+        <span class="heading">STLport : Debug Mode</span>
+
+        <p><i><font size="2">by Boris Fomitchev</font></i></p>
+        <h3>Abstract</h3>
+        <p>Debug mode lets you find very obscure bugs in application code which uses STL iterators and algorithms. <br>
+        It performs runtime checking of iterator <i>validity and ownership</i> and <i>algorithm
+        preconditions</i>. <br>
+        When debug check reveals the bug,&nbsp; it terminates the program
+        with detailed diagnostics.</p>
+        <p>STLport in debug mode is as much <i>exception-safe</i> and<i>
+        thread-safe</i> as in release mode.</p>
+        <h3>Debugging facilities provided</h3>
+        <ul>
+          <li><b>"Safe iterators" for all STL containers</b>. <br>
+            They report detailed diagnostics when being used in invalid ways.</li>
+        </ul>
+        <ul>
+          <li><b>Checking of preconditions for algorithms and container methods</b>.
+            STLport checks the following reasonable set of preconditions:</li>
+          <ul>
+            <li>Range preconditions for random-access iterators</li>
+            <li>Iterator's ownership, validity and deferenceability</li>
+            <li>Container-specific preconditions for methods</li>
+          </ul>
+        </ul>
+        <h3>Implementation</h3>
+        <p>Checked iterators keep track of their container while the container
+        keeps track of them. The idea was introduced in <b><a href="http://www.horstmann.com/safestl.html">Cay
+        Horstmann's "Safe STL"</a></b>.</p>
+        <ul>
+          <li>If the container goes out of scope, its iterators are being
+            invalidated;</li>
+          <li>If certain iterators are being invalidated because of mutating
+            operation, all instances of this iterator are invalidated.</li>
+        </ul>
+        <h3>Usage</h3>
+        <p>To turn on the debug mode, you should somehow <b><tt>#define _STLP_DEBUG</tt></b>
+        macro before including any STL header. You can either supply the
+        definition via compiler command-line or within CXXFLAGS in your makefile:</p>
+        <p><b><tt>$&gt; CC -g -D_STLP_DEBUG foo.cpp</tt></b></p>
+        <p>Naturally, you may also wrap it into your project configuration
+        header :</p>
+        <p><b><tt># ifdef _NDEBUG<br>
+        # undef _STLP_DEBUG<br>
+        # else<br>
+        # define _STLP_DEBUG 1<br>
+        # endif</tt></b></p>
+        <p><b>Important</b> : you must recompile your project after changing <b><tt>_STLP_DEBUG</tt></b>
+        definition.</p>
+        <h3>Examples</h3>
+        <p>Here are some error examples with corresponding runtime output:</p>
+        <p><tt>char string[23] = "A string to be copied.";<br>
+        char result[23]; <br>
+        copy(string+<u>20</u>, string+<u>10</u>, result);</tt> <br>
+        <b>_debug.h:168 STL error : Range [first,last) is invalid <br>
+        algobase.h:369 STL assertion failure: __check_range(first, last)</b></p>
+        <p><tt>vector&lt;char&gt;::iterator i; <br>
+        char ii = *i; <br>
+        </tt>s<b>tldebug.h:152 STL error : Uninitialized or invalidated (by
+        mutating operation) iterator used<br>
+        vector.h:158 STL assertion failure: __check_dereferenceable(*this)</b></p>
+        <p><tt>vector&lt;char&gt;::iterator i=v2.begin(); <br>
+        v2.insert(v2.begin(),'!'); <br>
+        char ii = *i; <br>
+        </tt><b>_debug.h:152 STL error : Uninitialized or invalidated (by
+        mutating operation) iterator used<br>
+        vector.h:158 STL assertion failure: __check_dereferenceable(*this)</b></p>
+        <p><tt>vector&lt;int&gt; v; v.pop_back();<br>
+        </tt><b>vector.h:482 STL error : Trying to extract an object out from
+        empty container <br>
+        vector.h:482 STL assertion failure: !empty()</b></p>
+        <p><tt>vector &lt;int&gt; v1(10);<br>
+        for(int i = 0; i &lt; v1.size(); i++) <br>
+        v1[i] = i; vector &lt;int&gt; v2(10); <br>
+        copy(v1.begin(), <u><blink>v2</blink></u>.end(), v2.begin());<br>
+        </tt><b>_debug.h:61 STL error : Iterators used in expression are from
+        different owners<br>
+        vector.h:182 STL assertion failure: __check_same_owner(*this,y)</b></p>
+        <p><tt>list&lt;int&gt; l1(array1, array1 + 3); <br>
+        l1.erase(l1.<u>end()</u>);</tt><b> <br>
+        list.h:398 STL error : Past-the-end iterator could not be erased <br>
+        list.h:398 STL assertion failure: position.node!=node </b></p>
+        <p><tt>list&lt;int&gt; l1(array1, array1 + 3); <br>
+        list&lt;int&gt; l2(array2, array2 + 2); <br>
+        l1.erase(<u>l2</u>.begin());</tt><b> <br>
+        _debug.h:70 STL error : Container doesn't own the iterator <br>
+        list.h:397 STL assertion failure: __check_if_owner(node,position) </b></p>
+        <h3>Notes</h3>
+        <ul>
+          <li>Application code using <tt>T*</tt> to store <tt>vector::iterator</tt>
+            would not compile in debug mode. Such code should be fixed - the
+            standard does not specify <tt>vector::iterator</tt>, so different implementations
+            can use different types for it.</li>
+          <li>Miscellanous stuff used by debug engine (<tt>_debug.h</tt>) is
+            not documented on purpose. Never explicitly include or otherwise use
+            it in your code - it's non-standard and is subject to change.</li>
+
+          <li>The ability to throw exceptions instead of calling <tt>abort()</tt>
+            is provided since 3.2. Please comment out _STLP_NO_DEBUG_EXCEPTIONS switch which 
+            disables it as default.</li>
+
+          <li> If those two defaults do not match your debugging needs,
+you may force all failed assertions to be executed through user-defined global function:<br> void __stl_debug_terminate(void). This allows you to take control of assertion behavior for debugging purposes.</li>
+
+          <li>You can control the way the debug checking messages are being printed out by defining 
+your own debug output function. To do so, you should define _STLP_DEBUG_MESSAGE switch in stl_user_config.h and
+provide your function with the following signature :<br>
+void __stl_debug_message(const char * format_str, ...). The parameters are printf()-like. 
+STLport will then use it to format debug message output.</li>
+
+          <li>Some preconditions that cannot be checked without partial class
+            template specialization still left alone. (<i>example : for
+            copy(InputIterator first, InputIterator last, OutputIterator result)
+            algorithm, result should not be in range [first,last).</i> )</li>
+
+          <li>Unfortunately, the file/line pairs reported by debug engine always
+            point to STL code, not to application code. I see no way to fix that
+            (&nbsp;although the diagnostic certainly may be refined ). There's
+            no substitute for good debugger to walk up the stack and locate the
+            error.</li>
+        </ul>
+
+</td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img src="images/trans.gif" border="0" height="20" width="50"><br><a href="index.html">Table of Contents</a><br></td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img src="images/trans.gif" border="0" height="40" width="80"><br><img src="images/black.gif" border="0" height="1" width="776"></td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img src="images/black.gif" border="0" height="1" width="776"></td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img src="images/trans.gif" border="0" height="5" width="50"><br><span class="copyright">Copyright 2001 by STLport</span><br><img src="images/trans.gif" border="0" height="50" width="80"></td></tr></table></body></html>

@@ -1,0 +1,45 @@
+<html><head><META http-equiv="Content-Type" content="text/html; charset=iso-8859-1"><title>STLport: Getting Started: Installing STLport</title><link href="doc.css" type="text/css" rel="stylesheet"></head><body marginwidth="0" marginheight="0" leftmargin="0" topmargin="0" vlink="#314A30" link="#314A30" text="black" bgcolor="white"><table border="0" cellspacing="0" cellpadding="0"><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img border="0" height="14" width="1" src="images/trans.gif"><br><a href="../index.html"><img src="images/stl_logo_doc.gif" border="0" height="80" width="80"></a><a href="http://www.stlport.com"><img border="0" height="80" width="461" src="images/t_doc2.gif"></a><br><img src="images/trans.gif" border="0" height="24" width="1"><br><img src="images/black.gif" border="0" height="1" width="776"><br><img src="images/trans.gif" border="0" height="24" width="1"></td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img src="images/trans.gif" border="0" height="10" width="776"></td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776">
+
+
+        <span class="heading">Getting Started: Installing STLport</span>
+
+        <h3><b><a name="download"></a>Download</b></h3>
+        To get STLport, please visit <a href="http://www.stlport.com/download.html">download page at stlport.com</a>.
+	It provides STLport releases from 2.x to the latest one as well as beta snapshots.
+        If you are interested in contributing to STLport development, please take a look at <a href="http://www.stlport.com/early_access.html">Early Access page</a>.
+
+        <h3><b><a name="unpack"></a>Unpack</b></h3>
+        <p>After downloading <b>STLport-XXX.tar.gz </b>[<b>zip</b>],&nbsp;
+        unpack it to some place where it is going to be accesible for all 
+        compilers you plan to use with this installation.
+	<br><b>Note</b> : <b>Never</b> overwrite header files that come with the compiler, 
+        even if you made a backup - this won't work! 
+        Also, please make sure you do not rename this <b>"stlport"</b> subdirectory 
+        into anything else - that may render installation unusable.
+</p>
+
+        <h3><b><a name="adjust"></a>Setup Preferences</b></h3>
+
+        <p>Look through <tt>&lt;<b>stl/_site_config.h</b>&gt;</tt> and <tt>&lt;<b>stl_user_config.h</b>&gt;</tt> 
+        to adjust <a href="configure.html">preferences</a>.</p>
+
+	<p>
+        <b>Do NOT</b> attempt to run "configure" script! 
+          It is deprecated, moved to safe standalone 
+          folder and should be used as a helper to create initial config for a new compiler only. 
+          Your compiler should be auto-recognized.
+	  Please edit appropriate configuration header for your compiler
+          directly if you have to make small compiler-specific configuration changes.
+	</p>
+
+        <p>Only if you recieve error message during compilation which explicitly says
+        <i><b>"Your compiler version is not recognized by STLport"</b></i>, you
+        will have to do major configuration of STLport before use. 
+        To learn how to configure STLport, please read 
+        <a href="configure.html">configuration manual</a>.
+        </p>
+
+	<p>Please be sure to read about <a href="select_io.html">STLport iostreams modes</a> 
+        and select the one appropriate for your project before using the library.</p>
+
+</td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img src="images/trans.gif" border="0" height="20" width="50"><br><a href="index.html">Table of Contents</a><br></td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img src="images/trans.gif" border="0" height="40" width="80"><br><img src="images/black.gif" border="0" height="1" width="776"></td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img src="images/black.gif" border="0" height="1" width="776"></td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img src="images/trans.gif" border="0" height="5" width="50"><br><span class="copyright">Copyright 2001 by STLport</span><br><img src="images/trans.gif" border="0" height="50" width="80"></td></tr></table></body></html>

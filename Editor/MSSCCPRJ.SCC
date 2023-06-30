@@ -1,0 +1,5 @@
+SCC = This is a source code control file
+
+[Editor.vcproj]
+SCC_Aux_Path = "P4SCC#perforce:1666##marcoc_code##PC018"
+SCC_Project_Name = Perforce Project

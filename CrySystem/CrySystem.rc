@@ -1,0 +1,267 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_CRITICAL_ERROR, DIALOG
+    BEGIN
+        LEFTMARGIN, 5
+        RIGHTMARGIN, 260
+        BOTTOMMARGIN, 296
+    END
+
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 103
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 88
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_CRITICAL_ERROR DIALOGEX 0, 0, 267, 303
+STYLE DS_SETFONT | DS_MODALFRAME | DS_SETFOREGROUND | DS_CENTER | WS_POPUP | 
+    WS_VISIBLE | WS_CAPTION
+CAPTION "Critical Exception"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "&Abort",IDB_EXIT,210,282,50,14
+    EDITTEXT        IDC_CALLSTACK,10,95,245,102,ES_MULTILINE | 
+                    ES_AUTOVSCROLL | WS_VSCROLL | WS_HSCROLL
+    EDITTEXT        IDC_EXCEPTION_CODE,10,25,50,12,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    LTEXT           "Call Stack Trace",IDC_STATIC,13,85,54,8
+    LTEXT           "Code",IDC_STATIC,10,15,18,8
+    LTEXT           "Address:",IDC_STATIC,66,15,28,8
+    EDITTEXT        IDC_EXCEPTION_ADDRESS,65,25,75,12,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    LTEXT           "Description",IDC_STATIC,10,40,36,8
+    GROUPBOX        "Exception Info",IDC_STATIC,5,5,255,200
+    EDITTEXT        IDC_EXCEPTION_MODULE,145,25,110,12,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    LTEXT           "Module",IDC_STATIC,145,15,24,8
+    EDITTEXT        IDC_EXCEPTION_DESC,10,50,245,30,ES_MULTILINE | 
+                    ES_AUTOHSCROLL | ES_READONLY
+    PUSHBUTTON      "&Send in Mail",IDB_MAIL,128,282,65,14
+    EDITTEXT        IDC_ERROR_TEXT,5,220,255,45,ES_MULTILINE | 
+                    ES_AUTOHSCROLL | ES_WANTRETURN
+    LTEXT           "Enter error description here:",IDC_STATIC,5,210,88,8
+    DEFPUSHBUTTON   "&Save Document",IDB_SAVE,58,282,65,14
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,5,274,255,1
+END
+
+IDD_EXCEPTION DIALOG  0, 0, 138, 52
+STYLE DS_SETFONT | DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_VISIBLE | 
+    WS_CAPTION | WS_SYSMENU
+CAPTION "Exception"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "Exception Intercepted\r\nRetrieving Info...",IDC_STATIC,
+                    33,18,71,19
+END
+
+IDD_ABOUTBOX DIALOGEX 0, 0, 110, 95
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "About"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,53,74,50,14
+    LTEXT           "Lua Debugger Version 1.0\n(C) 2002 Crytek\n\nWritten by\nAlberto Demichelis\nTim Schröder",
+                    IDC_STATIC,7,7,96,53
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_TREE_VIEW           BITMAP                  "LuaDebugger\\res\\TreeView.bmp"
+IDC_LUADBG              BITMAP                  "luadebugger\\res\\toolbar1.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_LUADBG              ICON                    "LuaDebugger\\LUADBG.ico"
+IDI_SMALL               ICON                    "LuaDebugger\\small.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDC_LUADBG MENU 
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "&Reload",                     ID_FILE_RELOAD
+    END
+    POPUP "&Debug"
+    BEGIN
+        MENUITEM "&Set Breakpoint\tF9",         ID_DEBUG_TOGGLEBREAKPOINT
+        MENUITEM "&Step Over\tF10",             ID_DEBUG_STEPOVER
+        MENUITEM "&Step Into\tF11",             ID_DEBUG_STEPINTO
+        MENUITEM SEPARATOR
+        MENUITEM "&Run\tF5",                    ID_DEBUG_RUN
+        MENUITEM SEPARATOR
+        MENUITEM "&Disable Debugging",          40014
+    END
+    POPUP "&Help"
+    BEGIN
+        MENUITEM "&About",                      109
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Toolbar
+//
+
+IDC_LUADBG TOOLBAR  16, 15
+BEGIN
+    BUTTON      ID_DEBUG_RUN
+    BUTTON      ID_DEBUG_BREAK
+    BUTTON      IDM_EXIT
+    SEPARATOR
+    BUTTON      ID_DEBUG_STEPINTO
+    BUTTON      ID_DEBUG_STEPOVER
+    BUTTON      ID_DEBUG_TOGGLEBREAKPOINT
+    BUTTON      ID_BUTTON40071
+    SEPARATOR
+    BUTTON      IDM_ABOUT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_LUADGB_ACCEL ACCELERATORS 
+BEGIN
+    VK_F5,          ID_DEBUG_RUN,           VIRTKEY, NOINVERT
+    VK_F11,         ID_DEBUG_STEPINTO,      VIRTKEY, NOINVERT
+    VK_F10,         ID_DEBUG_STEPOVER,      VIRTKEY, NOINVERT
+    VK_F9,          ID_DEBUG_TOGGLEBREAKPOINT, VIRTKEY, NOINVERT
+    VK_F5,          ID_DEBUG_DISABLE,       VIRTKEY, SHIFT, NOINVERT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,1,3,1395
+ PRODUCTVERSION 1,1,3,1395
+ FILEFLAGSMASK 0x17L
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x2L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904b0"
+        BEGIN
+            VALUE "CompanyName", "Crytek Studios"
+            VALUE "FileDescription", "CrySyste Dynamic Link Library"
+            VALUE "FileVersion", "1, 1, 3, 1395"
+            VALUE "InternalName", "CrySystem"
+            VALUE "LegalCopyright", "Copyright Crytek (C) 2003"
+            VALUE "OriginalFilename", "CrySystem.dll"
+            VALUE "ProductName", " CrySystem Dynamic Link Library"
+            VALUE "ProductVersion", "1, 1, 3, 1395"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

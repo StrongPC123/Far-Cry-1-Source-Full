@@ -1,0 +1,996 @@
+The following changes were made in 4.6 since 4.5.3 release:
+  ---
+  * A few ANSI conformance fixes (thanks Richard Peng)
+  
+  * Performance optimization for string::reserve (thanks Marc)
+	
+  ---
+	
+  * icc patches applied (Thanks Blaine Kubesh)
+	
+  * _thread.c, _thread.h: merged thread redesign from CVS (thanks Petr Ovchenkov)
+	
+  ----
+	
+  * iostream.cpp, locale_impl.cpp : static initialization made robust for case of 
+    dynamic loader circular depandancies (Thanks Alexey Sarytchev for the report)
+	
+  ----
+	
+  * _function.h : integration of a new workaround for mem_fun_* family 
+                  for compiler having return void bug (Thanks Pavel Kuznetsov).
+
+  * stl_solaris.h : v8plus compilation fix (Thanks Mukesh Kapoor)
+
+  * num_put_float.cpp : FreeBSD fix 
+
+  * _construct.h : fixed case for compilers with default integer
+  constructor bug
+	
+  ---
+	
+  * fstream.cpp : text file stream position bug correction (thanks Christopher Kohlert)
+  ---
+  * _num_put.c : Correction of the display of the min 64 bits signed integer values
+                 like numeric_limits<__int64>::min() on WIN32 for instance (thanks Anders Dalvander)
+  ---
+  * _num_put.c : Add of the '+' sign when requested for the unsigned integer display 
+                 (thanks Francois Dumont)
+  ---
+  * debug : many missing iterator invalidation corrected (thanks Detlev V.Davidson and Francois Dumont)
+  ---
+  * _new.h : introduction of a new config compiler switch for those which do define
+             bad_alloc but that do not throw it! (thanks ?)
+  ---
+  * _new.h : class nothrow_t changed to struct nothrow_t (Thanks Francois Dumont)
+	---
+	* _bvector.h : Addition of the |= and &= operator on the _Bit_reference struct (thanks Ed Rice)
+	---
+	* Performance bug in type_traits.h fixed (Thanks Francois Dumont)
+	---
+	* Added Linux spin lock code ()
+	---
+    * Added GCC-3.x configurations
+
+	* Fixed HP aCC support
+
+	* Added OpenWatcom support
+	
+	* version numbers bumped
+
+	* iostreams ported to EMX (gcc on OS/2) (Thanks Martin Schaffoener)
+
+	* iostreams ported to CRAY Unicos C90, T90, and J90 (Thanks Geir Johansen)
+	
+	* stl_sunpro.h : fixed mbstate definition for SUN 4.2 (thanks  lengzq)
+
+	* complex.cpp, _complex.h : template<> used for specializations
+
+	* _num_put.c : unised locale variable removed (thanks Petr Ovchenkov)
+
+	* _algo.h : __reverse beautified (thanks Kabanov)
+
+	* dll_main.cpp : force_link() forced to be linked in
+
+	* stl_msvc.h : config changes for .NET
+
+	* _auto_ptr.h : "struct" changed to "class"
+
+	* _istream.c : M_read_unbuffered fixed (thanks  Stefan Schwarzer )
+ 	
+	* stl_gcc.h : added missing inclusion for SCO platform (thanks Emmanuel Soden)
+
+	* _tree.c : optimized insert_unique (thanks Timothy)
+
+	* _algo.c : relaxed type requirements for lower_bound, upper_bound, binary_search
+
+	* _algo.h : adjacent_find() expressed with compare-function flavour
+
+	* cpp_runtime/typeinfo : made adjustments for .NET (Thanks Daniel)
+
+	* cstd/cassert : guard removed (thanks Evan Cheng)
+	
+The following changes were made in 4.5.3 since 4.5.1 release:
+
+	* iostreams ported to Windows CE (thanks Andrew Waters)
+
+	* iostreams ported to AmigaOS (thanks Steven Solie)
+
+	* iostreams ported to NCR 3.x (thanks Emmanuel Soden)
+	
+	* _hash_map::operator[] : enhanced to avoid calling default object constructor
+	 (Thanks Yuri Taranenko for the report)
+
+	* Identifier "__value" changed everywhere to "__val" to avoid clashes with Microsoft's "managed C++" keyword (thanks Crow for the report)
+
+	* Most containers : swap() fixed to swap non-stateless allocators correctly (thanks Scott Meyers)
+
+	* _sstream : fix to account for ios_base::app flag properly
+
+	* type_traits.h : _IsOKToMemCpy() fixed to only allow memcpy() for same type arguments (thanks  Ed Brey for the report)
+	
+	* stl/_num_put.c, stl/_list.c : workarounds for Debian gcc (thanks Levente Farkas)
+	
+	* <typeinfo> : fixed MS workaround (thanks  Wil Evers,  Andrew Ushakov)
+
+	* _pthread_alloc.h : added per_thread_allocator class; returns memory to the same thread it's been allocated in.
+
+	* _iterator_old.h : restored ->() operator for MSVC (thanks Daniel Anderson)
+
+	* a bunch of MPW fixes (thanks Tsutomu Yoshida)
+
+	* _config_compat.h : fixed compatibility definition for _STLP_NO_EXCEPTIONS (thanks Nicolas)
+
+	* _fstream.c : fixed bug in _M_seek_init (thanks Pavel Kuznetsov)
+	
+	* _rope.h : rope<>::swap() methods fixed for non-partial ordering case (thanks Eric Musser)
+ 	
+	* comlex_trig.cpp : fixed bug on SGI (thanks Mortis)
+
+	* A bunch of fixes for HP aCC compilation with -AA option (thanks  John Bossom)
+
+	* *.c files : added conditional inclusion of corresponding *.h file to fix xlC issues with -tempinc option (thanks Alla Bogolyubov for the report)
+
+	* _auto_ptr.h : "struct" changed to "class" (thanks Alex Pinsker for the report)
+
+	* _config.h/stl_user_config.h : handling of macro _STLP_WHOLE_VENDOR_STD rectified
+
+	* _num_put.c : do_put(const void*) changed to output pointers in hex format (thanks  Alex Rosenberg)
+
+	* test/eh/test_algobase.cpp : fixed alignment to work on 64-bit architectures
+
+The following changes were made in 4.5.1 beta 1 since 4.5 release:
+
+	* _config.h, _epilog.h : new namespace inclusion schema implemented for own iostreams mode
+	 (no std:: redefinition; _STL:: namespace imported into std::, instead of std:: imported to _STL.
+	  C library header files wrappers become obsolete if this mode is used and no own namespace is selected.
+	  They will be moved out to distinct directory in the next release, and default is going to be no own namespace 
+	  with own iostreams.)
+ 	  For some compilers (VC6), this only works with _STLP_NO_OWN_NAMESPACE and _STLP_OWN_IOSTREAMS settings. 
+	
+	* iostreams ported to SCO OpenServer (thanks Emmanuel Soden)
+
+	* sparc_atomic.s : added "stbar" to fix multiprocessor crashes on SPARC
+
+	* dll_main.cpp : forced link of Bs_G static data members (thanks  Sandy Martel). Function wrapped in STLport namespace.
+
+	* _alloc.c : fixed _STLP_CHUNK_MALLOC for debug malloc configuration (thanks  Markus Schöpflin)
+
+	* _config_compat.h : fixed compatibility section for _STLP_NO_OWN_IOSTREAMS
+
+	* fstram.cpp , vc6.unicode.mak : fixed bug in wide streams handling for VC6 (thanks Jim Dolter)
+
+	* etc/*.txt : files list broken up into several categories for future reorganization
+
+	* stl_msvc.h : fixed library selection for .NET (Thanks Franz Zetting)
+
+	* _ftsream.h, iostream.cpp : fixed compilation for _STLP_NO_EXTENSIONS case (thanks  Ben Dorman for the report)
+
+	* char_traits.h : fpos<> operators == made members (thanks  Thomas Witt)
+
+	* _threads.h : added using directive for Solaris x86 compile (thanks Mukesh Kapoor)
+
+	* _threads.h : fixed InterlockedXXX definitions for VC++ 6.0 SP5 (thanks AndreasM)
+
+	* gcc-install-apple-macosx.mak : INSTALL_STEP set to install_unix (Thanks Tron Thomas)
+
+	* common.mak : default install directory for Unix set to /usr/local
+
+	* _string.h : _M_null expressed via _STLP_DEFAULT_CONSTRUCTED (Thanks Anthony)
+
+	* _site_config.h : made sure _STLP_NO_THREADS are set if _NOTHREADS is on (Thanks Jeppe Madsen)
+
+	* _config.h : _STLP_WIN32THREADS is set (bugfix) ( thanks to Andreas Malzahn )
+
+	* _num_put.c, common_rules.mak : patches by Levente Farkas 
+
+	* etc/STLport-4.5.1.spec : spec file to build STLport-4.5.1 RPM added (thanks Levente Farkas)
+
+	* _auto_ptr.h , _debug.c, _debug.h : debug check for auto_ptr pointer added (thanks Gerd Hoeren for the idea)
+
+	* debug/_vector.h : invalidation for erase() corrected not to invalidate current iterator (Thanks ALberto Barbati)
+
+	* stl_bc.h : restored automatic library link directive for cases when STLport is not a native library
+
+
+	* _auto_ptr.h : template constructor conversion bug fixed (thanks mbergal)
+
+	* MIngw32 patches integrated (thanks Wu Yongwei)
+
+	* src/complex_impl.h : case for DEC CXX changed to general, instead of extension functions for float and long double, to get it compliled with CC 6.1 (thanks Tony McConnell) 
+
+	* dll_main.cpp : added __malloc_alloc instantiation (thanks Michael Ehrig)
+
+	* _debug.c : fixed race condition in _M_detach (thanks Achim Stremplat)
+
+	* test/*/hpacc.mak : fixed flags and libs (thanks  Michael Ehrig)
+
+	* typeinfo : added fix for MS VC ::bad_cast confusion (thanks Alberto Barbati)
+	
+	* debug/_vector.h : removed extra guard for MSCV around member template constructor (thanks Alberto Barbati)
+	
+	* _fstream.h : added extension basic_fstream<> constructors taking protection parameter (thanks Mukesh Kapoor for the idea)
+
+	* stl_sunpro.h : added additional C include directory choice for Solaris 6&7 (thanks John E. Bossom)
+	
+        * _vector.c : added _vector.h inclusion for _STLP_LINK_TIME_INSTANTIATION case (thanks Alex Vanic)
+
+
+	* _num_put.c : fixed overflow case with grouping (thanks Will Evers)
+	
+	* _istreambuf_iterator.h : fixed distance_type return type (thanks Anthony Williams)
+
+	* debug/_vector.h : debug version of push_back() added (thanks)
+
+	* Iostreams ported to LynxOS 3.0 (thanks Dmitry Azovtsev)
+ 	
+	* wrappers/*.h : added inclusions of the master header to fix xlC 3.x compile (Thanks Dmitry Azovtsev)
+
+	* Changes for BCB6 integration (thanks Nathan York)
+
+	* Removed all dead code blocks marked by #if OBSOLETE and #if 0
+
+	* Updates build spec file for Linux rpm (thanks Levene Farkas, Harold van Oostrom)
+
+	* complex_trig.cpp : limits changed to be static, for performance optimization (thanks Sergei Nikolaev)
+
+	* _algo.c : eliminated default-constructed iterators, to lift unnecessary restriction (thanks Tonci Tomic )
+ 	
+	* _vector.h : fixed bug in assign() : copy used instead of __copy_aux (Thanks Tim Finer)
+
+	* stl_sunpro.h : restored _STLP_HAS_NO_NEW_C_HEADERS switch for SUN CC 4.2
+
+	* <new> : __stl_new definition put into the namespace (thanks Satoshi Nakamura)
+
+	* bcb*.mak : fixed md command and DYN_LINK (thanks Kirby Zhou)
+
+	* stl_user_config.h : added _STLP_USE_CUSTOM_CHAR_TYPES_IO switch to optimize iostreams for default case
+	
+	* debug/_vector.h : fixed debug check bug (thanks Gerd Hoeren)
+
+	* _alloc.h : allocator::construct uses std::_Construct (thanks Gert Grossmann)
+
+	* stl/_alloc_old.h : restored (thanks Gert Grossmann)
+
+	* stl/_threads.h : fixed _STLP_ATOMIC_xxx macros for DEC (thanks Gert Grossman)
+
+	* src/_locale_impl.cpp : added missing guards for codecvt<> in _STLP_NO_MBSTATE_T case
+ 	
+	
+The following changes were made in 4.5 release since 4.5 beta 8 :
+	
+	* _threads.h, debug/_debug.h etc : STLport iostreams library made binary compatible with user code compiler w/o multithreaded switch, for some platforms
+	
+	* config/stl_msvc.h, <cmath> : corrected _STLP_NO_USING_FOR_GLOBAL_FUNCTIONS for VC++ 6.0 SP5 
+	  (Thanks Alberto Barbati)
+
+	* src/vc6.mak : RC macro definition restored (Thanks Graham)
+
+	* stl/_cmath.h, <cmath> : parts of code moved to <cmath> as <valarray> uses it (Thanks Synge Todo)
+
+	* stl/_tree.c : fixed insert_unique() with a hint bug (Thanks Serge Pashkov)
+ 	
+	* src/gcc-*.mak : removed -nostdinc++ option
+
+	* stl_solaris.h : definition of _STLP_SUNPRO_EXCLUDE made dependant on _XOPEN macro instead of SUN CC macros (Thanks ecohen for the report)
+
+	* fstream.cpp : mmap_chunk made to be 1M instead of 16M as was originally intended (thanks Alexey Starikovskiy)
+	* stl_sunpro.h : _STLP_LIMITED_DEFAULT_TEMPLATES not defined for compat mode anymore ( thanks Michael Kopp)
+	* dll_main.cpp : added instantiation for _Swap_lock_struct<> (thanks simonb)
+
+	* _ostream.c : fixed formatting bug for width()==1
+
+	* config/_epilog.h : added option pop section for Borland. 
+
+	* stl/_threads.h : fixed InterlockedXXX declarations for MS .NET (thanks Piers Haken)
+
+	* vc7.mak makefile added for MS VC++ 7.0 (.NET)
+
+	* fixed _STLP_ITERATOR_CATEGORY, etc. for Mwerks CodeWarrior 5.0
+
+	* stl/_num_put.c : fixed operator<<(void*) to use _STLP_LONG_LONG where available.
+
+	* _STLP_WHOLE_VENDOR_STD option is back supported (Thanks anton ephanov for the input)
+
+	* _cmath.h : added guard to mask additional overloads (thanks Tim Smith)
+
+	* stl_solaris.h : mbstate_t stuff defined here, old-style C headers used (Thanks Mukesh Kapoor)
+
+	* type_traits.h : __default_constructed() inlined (Thanks Matt Davies)
+
+	* new.h : fix for gcc-3.0 to look in backward directory (Thanks Ken) 
+
+	* stlport/using/h/streambuf.h added (Thanks Gennadiy)
+
+	* A bunch of changes for Borland static and DLL compile (Thanks Nathan York)
+
+	* stl/_algo.c : fixed find_end() bug (Thanks Alberto Barbati)
+
+	* stl/_queue.h : priority_queue<>::_comp renamed to "comp" as standard states (thanks Todd Greer)
+
+        * _limits.c : added correct data member representations for AS400 and Alpha machines (thanks Holger Stash)
+ 	
+	* _vector.h : added check to avoid calling allocator<>::deallocate(0) (thanks Stephen Cleary)
+
+	* config/_prolog.h, config/_epilog.h : added push/pop pack(8) pragmas for MSVC (thanks Todd Greer, Alberto Barbati)
+ 	
+	* gcc.mak's : default spelling for "-pthreads" option changed to "-pthread" as more platforms use that.
+	
+	
+The following changes were made in 4.5 beta 8 since 4.5 beta 7 :
+	
+	* stl/_fstream.c : _M_underflow bug fix for custom codecvt facets (thanks Alberto Barbati)
+	
+	* bcc55.mak : c_locale.c added to the link command (thanks Steve Loves)
+	
+	* _iterator_base.h & many other places : iterator tags are being accepted by const reference 
+	   instead of value, to fix segmentation faults experienced on certain platforms with beta7.
+	  That also should improve efficiency on same platforms (apparently, empty unreferenced 
+	  objects with no constructors/destructors were copied on the stack when passed by value).
+	  Accompanied change eliminates hardcoded deference hack used in previous beta.
+	  Thanks everybody who reported this.
+
+	* stl_user_config.h : added _STLP_GCC_USES_GNU_LD switch. This is for those platforms 
+	  where native linker does not let gcc to implement automatic instantiation of static 
+	  template data members (Tru64, AIX, HP-UX). 
+	  It is being put in this file as there is no automatic way to check if we are using GNU ld or not.
+	
+	* _range_erors.h : depandancy on <stdexcept> and <string> removed for own iostreams mode
+	(thanks Doug Gilbert)
+
+	* debug/_list.h : "typename" added in new methods (thanks Doug Gilbert)
+
+	* _config.h, src/common_macros.mak : beta version number bumped 
+		
+	* src/ftream.cpp, c_locale_win32.c : fixes for UNICODE compilation (thanks Valo)
+
+	* stl_gcc.h, etc : changes for GCC support on Tru64 (thanks Tobias Ernst)
+
+	* _alloc.c : for MS VC, malloc_dbg only used when _STLP_DEBUG_ALLOC is set, not for all debug configs
+ 	  (Thanks Anton Ephanov)
+
+	* test/eh/gcc.mak : directories stuff fixed (Thanks Brodie)
+
+	* stl/_complex.h : fixed declarations for long double specializations (Thanks Tsutomu Yoshida)
+
+	* locale_byname.cpp, etc. : fixes for Apple compilers by Tsutomu Yoshida.
+
+	* _ios_base.h : __evenk id changed not to clash with MS VC++ 7 (thanks Paul Ghezzi)
+
+	* _fstream.c : added basic_filebuf constructor workaround for compiler which do not initialize builtins
+	  to zero when default constructed (thanks Alberto Barbati)
+
+	* _locale.h : relaxed guerd around templated locale constructor (thanks Alberto Barbati)
+
+	* stl_mwerks.h : changes to accomodate CodeWarrior 6.2 (thanks cprosser)
+
+	* stl/_cmath.h : extracted from <cmath> for better decoupling
+
+	* stl/_std_prolog.h, stl/_std_epilog.h : hooks for future alternative namespace inclusion style.
+
+	* config/stl_gcc.h : gcc-3.0 now supported
+
+	* src/gcc-beos.h : only static library is being built (dynamic stil don't work) (thanks John Maddock)
+
+	* using/iostream : included using/istream and using/ostream
+
+	* dll_main.cpp : force_link() fix to prevent numeric_limits static members and 
+	  _M_increment/decrement from _tree.c from being optimized out by VC++
+	  (thanks Sofus Mortensen, Alberto Barbati )
+
+	* _alloc.c : added CHECK_NULL_ALLOC for _STLP_CHUNK_ALLOC with malloc, to throw exception if malloc returns 0 (thanks ghunt)
+
+	* stl_bc.h, <exception> : fixed Borland C++ import of unexpected handler stuff
+
+	* stl_ibm.h, etc. : fixes for IBM VisualAge 5.02 to compile
+
+	* type_traits.h : bool2type<> changed to be parameterized on int, to work around SUN CC bugs (probably others, too)
+	
+The following changes were made in 4.5 beta 7 since 4.1 beta 6 :
+
+	* sparc_atomic.s : file missing from the distribution restored
+
+	* etc/ subdirectory created; miscellanous files moved there
+
+	* STLport ported to BeOs, complete with iostreams (thanks John Maddock) 
+	
+	* Macro _STLP_NO_SGI_IOSTREAMS renamed to _STLP_NO_OWN_IOSTREAMS, old references to SGI removed; 
+	
+	* "prepare" target added to all makefiles in src/; should be run before using STLport;
+	  on most platforms it's empty, on some of them it creates necessary symbolic links, etc.
+	
+	* stl/_deque.h : deque<>::erase bug (introduced in 4.1b4) fixed (thanks to BruceFlorman) 
+	               : default parameter in constructor bug fixed (Thanks to Alex Vanic) 
+
+	* stl_msvc.h : explicit template function agruments enabled for VC++; 
+
+	* stl_wince.h : added <windows.h> inclusion
+
+	* stl/_limits.h : numeric_limits<bool>::digits changed from 0 to 1 (Thanks Mukesh Kapoor)
+
+	* stl/_function_base.h : added __identity_element() (extension name), _numeric.h : this one used instead of identity_element() (Thanks Hafeez)
+ 
+	* stl_msvc.h : explicit template function agruments enabled for VC++; 
+
+	  use_facet<> now fully conforms to the standard with VC++. (Thanks Jeff Kohn for the input)
+
+	* fstream.cpp : LARGE_INTEGER used to work around Intel shift instruction bug (thanks Thomas Meischner)
+	* fstream.cpp : ULL macro fixed for Win32
+	* fstream.cpp : Added test for for INVALID_HANDLE_VALUE and NULL base and _M_view_id,
+ 	  for _M_close on Win32 (Thanks Stephen Baker)
+	* fstream.cpp : Fixed corner case with mmap() on EOF (Thanks Jens Maurer)
+
+        * _istream.c : fixed _M_read_buffered sssso that it does not skip delimiters (Thanks Gerd Hoeren)
+	
+	* stl/_string.h : operator __std_string() uses constructor with a size to correctly initialize string containing null chars (Thanks Armin)
+	
+	* iomanip : added operator for setfill object and istream (was ostream only) (Thanks Mukesh Kapoor)
+	
+	* stl/_locale.h , stl_intel.h : fixes for Intel 5.0 compiler (Thanks Anton and Marcello Pietrobon)
+
+	* stl_solaris.h : added _STLP_NO_NATIVE_WIDE_FUNCTIONS
+	
+	* New makefiles added for Intel C++ 5.0 and VC++ 6.0 in src/, test/eh, test/regression (Thanks to Marcello Pietrobon)
+
+	* _STLP_NO_LONG_DOUBLE case handled for STLport iostreams as well (thanks John Daniel)
+	
+	* SUN CC compiler template cache is being properly cleaned up (Thanks Whitney Kew)
+
+	* dll_main.cpp : added extern "C" around DllMain() (Thanks Danny Smith)
+	
+	* type_traits.h : added bool parameter to shut up warnings on some compilers (Thanks glassman)
+	
+	* stl/_rope.h/.c, src/mrcpp.mak, src/mrc.mak, stl/_tree.h : MPW & MRC fixes by Tsutomu Yoshida
+
+	* stl_gcc.h : added path for <exceptions> et al for gcc-2.95.3 on FreeBSD (Thanks to 
+	
+	* _tree.h /_tree.c : pointers used as return values instead of iterators for implementation 
+	  functions, for efficiency.
+
+	* _algo.h/.c : added leading underscrore to some symbols (Thanks to Ed James-Beckerman for the report)
+	
+	* dll_main.cpp : fixed nothrow object initialization (Thanks to Dan Ingold)
+
+	* beta suffix in common_macros.mak updated (thanks to Whitney Kew)
+
+	* c_locale_win32.c : incomple fix for locale completed (thanks to Alberto Barbati)
+
+	* c_locale.h : _Locale_ALPHA definition for VC++ and mingw32 fixed (thanks Danny Smith)
+	
+	* _threads.h : fixed _DECTHREADS block to work on both DEC and HP
+
+	* _hash_set.h : fixed typo in MSVC++ bug workaround ( Thanks to Jon_Hanson for the report)
+
+	* stlport/strstream.h : fixed inclusion for MSVC 6 (Thanks  Joachim Achtzehnter)
+	
+	* _config.h : _STLP_RETHROW changed to avoid warnings with NO_EXCEPTIONS (thanks Richmond)	
+
+	* _hashtable.c : prime list definition made consistent (thanks Rainer Schnitker)
+
+	* stl_hpacc.h :  _STLP_FORCE_ALLOCATORS workaround used for Version 3.15 also (thanks Rainer Schnitker)
+
+	* stl/_string_io.c : fixed using directive in operator >>() (thanks Rainer Schnitker)
+
+	* debug/_deque.h : a check in erase() fixed (thanks Andreas Malzahn)
+
+	* debug/_list.h : added remove() to do iterator invalidation; range erase() fixed to do invalidation
+
+	* stl_watcom.h : added switches; disabled own iosterams by default; 
+	                 enabled ->() operator for iterators (thanks Steven Green)
+
+	* <exception> : added throw spec for what(); stl_sgi.h : made _STLP_NO_EXCEPTIONS depend on __EXCEPTIONS macro (Thanks Anton Ephanov)
+
+	* _string_io.c : operator << : fixed width() interpretation bug
+
+	* stl_hpacc.h/cmath : fixed HP aCC settings for -AA option (thanks Doug Gilbert) 
+
+
+	
+The following changes were made in 4.1 beta 6 since 4.1 beta 5 :
+
+	* _istream.h, _ostream.h, _ios.h, _fstream.h : guard macros fixed to not clash with .h files in "stlport" directory
+	  Also all uses of those macros fixed. (thanks to Gerd Hoeren for the report)
+
+	* _debug.c/_debug.h : fixed swap() for rb_tree and list (thanks to Gerd Hoeren for the report)
+	  swap() changed not to invalidate any iterators, as prescribed by the standard 
+
+	* forced _REENTRANT to be defined when compiling with STLport iostreams and _STLP_DEBUG
+	  (without _STLP_DEBUG it seems to be binary compatible even without that)
+	
+	* facets_byname.cpp source introduced to replace all xx_byname.cpp files;
+ 	  restored separate facets .cpp complilation (they used to be included in locale_impl.cpp)
+
+	* introduced _STLP_USE_PERTHREAD_ALLOC to optionally use per-thread allocator 
+	  (_Pthread_alloc from _pthread_alloc.h) as the deafult node allocator. Only works with pthreads for now.
+	  
+	* Switches _STLP_DONT_REDEFINE_STD and _STLP_WHOLE_VENOR_STD are back (thanks to  Anton Ephanov for the report)
+	
+	* _vector.h : fixed bug in template version of insert (Thanks to Yotam Medini for the report)
+	
+	* monetary.cpp : unneded hack for cygwin removed (thanks to Dean Sturtevant) 
+
+	* <iostream> : fixed _STLP_OUTERMOST_HEADER_ID macro
+
+	* cin/cout/cerr redefined if no namespaces and SGI iostreams are used, for all compilers, just in case. 
+	* _sparc_atomic.h : fixed and improved atomic ops for gcc
+
+	* test/regression : non-backward-compatible old-style __STL_xx macros use changed to _STLP_xx
+
+	* config/st_gcc.h : disabled non-standard "extern" use for non-DLL templates 
+
+	* mingw32 - used 'windows.h replacement' section in _threads.h (thanks to Danny Smith)
+
+	* locale Win32 bug fixed (thanks to Alberto Balbarti)
+
+	* mingw32 : _STLP_CONST_INIT_BUG defined for dll (thanks to Danny Smith)
+
+	* "make clean" glitches fixed (thanks to Whitney Kew for the report)
+
+	* _fstream.c : fixed codecvt bug for variable width encoding
+
+	* _STLP_ABORT macro introduced to avoid clashes with third-party sw redefining abort() (thanks to Jerry)
+
+	* c_locale_win32 : fixed parse bug in __ParseLocaleString (thanks to Danny Smith)
+
+	* extra declspecs removed from templates to fix VC++ 7.0 ; only concrete classes have specifiers (thanks to Holger Stasch for the report)
+
+	* stl_msvc.h, _hashtable.h/.c : fixes for IA64 compilation (thanks to Rainer Schnitker )
+
+	* fixed bugs in "make install" on Unix (thanks to Carlos Paniago)
+
+	* dll_main.cpp : DisableThreadLibraryCalls used for optimization (thanks to Alberto Barbati)
+	
+	* dll_main.cpp : a dummy function added to force <limits> guts for static VC++ link (thanks to Alberto Barbati)
+
+	* gcc-linux.mak : flags fixed (thanks to Levente Farkas )
+
+	* stl_msvc.h, stl_intel.h : fixed __ICL version test (thanks to Serge Pashkov)
+
+	* versioning schema changed on Windows to have .dll extension (thanks everybody for the feedback)
+
+	* NetBSD makefiles fixed
+
+	* A bunch of fixes by Tsutomu Yoshida : MPW fixes plus :
+	* stl/_config.h : I believe the definition for _STLP_STD under debug/non-debug configurations swapped.
+
+	* typeinfo.h : added check for _STLP_NO_NEW_HEADER for using declaration.
+          Otherwise three classes will not be included in the namespace std when #include <typeinfo>.
+
+	* _istream.c : use of bind2nd (which required _function.h inclusion) changed to use alternate functor (thanks to Sergei Nikolaev)
+ 	
+	* stl_msvc.h : removed erroneous _STLP_USE_TEMPLATE_EXPORT setting which caused major code bloat for native streams builds on VC++ (Thanks to Johannes Brunen for the report)
+
+	* _string_io.c : fixed Intel C++ compilation bug in native streams mode
+
+	* fstream.cpp : added write-sharing for fstream file handle (Thanks to Leland Best)
+
+	* stl_gcc.h : disabled wide function imports for linux (some xx_POSIX macro should be really used; disabled for all linuxes for now). Thanks everybody for the reports.
+
+	* KAI C++ 4.0 is now supported on SUN
+
+	* MAC OS X compilation fixed (thanks Patrick Luby for the patch)
+
+	* HP aCC fixes by Michael Tsirkin
+	
+	* "INF/NAN" string representation for uppercase changed to "Inf/NaN" to behave like printf() on most systems.
+	
+	* debug/_iterator.c : fixed SUN 6.0 compiler internal error 
+
+	* typeinfo.h : global scope used to import bad_cast, etc. (thanks to Val Melamed)
+	
+	* debug/_list.h : missing template versions of remove_if(), merge() added. Missing regular sort() added.
+	 (Thanks to dgehri)
+
+	* debug/_slist.h : missing sort() (template and regular) interface added
+
+	* _istream.h : eliminated warning about comparison with unsigned (Thanks to Gerd Hoeren for the report)
+
+	* template constructors for containers changed to be one version with default allocator agrument, where possible.
+	
+        * remaining _STL_ prefixes changed to _STLP_
+	
+	* Solaris 7 compilation fixed
+
+        * fstream.cpp : seek() allowed to seek past the end of the stream (Thanks to Phillip Toland for the input)
+The following changes were made in 4.1 beta 5 since 4.1 beta 4 :
+
+	* All internal macros changed to have prefix _STLP_ instead of __STL or __STLPORT or __SGI_STL.
+          That is to allow seamless wrapping on platforms that use SGI STL as native STL/iostreams.
+	  For backward compatibility, most of user-settable __STL_xxx macros are accepted.
+
+	* Versioning of shared libraries made UNIX-compliant
+	
+	* Some temporary lifetime problems in SGI iostreams which may introduce memory corruption, fixed.
+
+        * <new> : fixed memory leak bug due to unclever macro expansion in __stl_new (thanks to Joachim Achtzehnter)
+
+	* stl/_tree.h : fixed several bugs in new code for corner cases in insert_equal()/insert_unique() with a hint 
+	  (thanks to Micheal Tsirkin for the report and patch)
+
+	* _vector.h:284 : __copy call fixed to be __copy_aux (thanks to Alex Vanic)
+
+	* _config.h : fixed static build bug due to  __STL_EXPOSE_GLOBALS_IMPLEMENTATION typo (thanks to Serge Pashkov)
+	
+	* fstream.cpp: __pioinfo definition for mingw32 fixed (Thanks to Danny Smith)
+
+	* *.SUNWCCh files changed to regular files; moved to "stlport" directory
+
+	* pthread_alloc : split into <pthread_alloc>/<stl/_pthread_alloc.h>
+
+	* lightweight atomic ops used on SPARC v8plus and v9 (gcc and SUN CC)
+	
+	* Mac OS X support introduced (thanks to Patrick Luby) 
+
+	* SGI iostreams ported to DJGPP (thanks to Tanes Sriviroolchai)
+
+	* SGI iostreams ported to NetBSD (thanks to Michael Rauch)
+
+	* FreeBSD build fixed, now builds for wchar_t too
+
+	* DEC CXX build fixed; restricted to dynamic lib only
+
+	* SGI MIPSpro build fixed; GNU make has to be used
+
+	* Set of HP fixes by Michael Tsirkin
+
+	* Set of Watcom fixes by Ricardo Gayozo
+
+	* Bunch of Apple MRC/MPW fixes by Tsutomu Yoshida integrated
+	
+	* Bunch of iostream fixes for Cygwin, Borland and Intel 4.5, by Serge Pashkov	
+	
+	* debug/_list.h : added checking versions of pop_back/pop_front (thanks to Per Liboriussen)
+
+	* src/c_locale_win32.c : fix for VC5sp3 (thanks to Petr Ovchenkov), fix for day of week order (thanks to Danny Smith),
+	  fix for null-termination in my_ltoa (thanks to Serge Pashkov)
+	
+	* Some warnings in debug mode fixed (thanks to Marco)
+
+	* type_traits.h : IsP functions return types changed to be more portable (thanks to Serge Pashkov for the suggestion),
+	  __cdecl added for Win (thanks to Todd Wilson)
+
+	* debug/_tree.h : added owner check for erase() (thanks to Alberto Barbati)
+
+	* stl/_ostream.h : << operator specializations added for compilers w/o partial ordering 
+	  (thanks to Alberto Barbati for pointing this out).
+
+	* "make install" on UNIX : fixed the target not to remove lib directory; 
+	   default installdir restored to be /usr/local (thanks to Jeff de Vries for the input)
+	
+	* _construct.h : extra cast for __STL_SHRED_BYTE removed (thanks to khesin)
+	
+ 	* _relops.h header obsoleted; some extra includes removed
+
+	* __STL_STATIC_CONST_INIT_BUG use normalized; now it's used for all compilers not able
+	  to treat const members as coplile-time constants; enum used for them (e.g VC++).
+	  Thanks to  Dean Sturtevant and Gavin Collins for the ideas.
+	
+	* stlport/cmath : fixed SUN CC 5.0 compatibility mode bug (thanks to ade for the report)
+
+	* debug/_hashtable.h : fixed equal_range() bug (thanks to decraft for the report)
+
+	* streambuf.cpp/_streambuf.h : fixes xsgetn() bug (thanks to Vadim Egorov)
+	
+	* istreambuf_iterator<> : nonconforming behaviour fixed (thanks to Tom Widmer)
+
+	* _num_put.c : fixed corner case for 0x8000000 output.
+	
+        * num_get<> : extra get() and do_get() members for "int" and "short" removed; istream operators changed accordingly
+	
+        * _itreambuf_iterator.h/_ostreambuf_iterator.h introduced to decouple those from num_get/num_put
+
+	* gcc makefiles in src : "-fno-implement-inlines" removed
+
+	* Added workaround for gcc's limits.h and SUN Ultra with -mcpu=ultrasparc in 32-bit mode. 
+	
+	* ios_base:: type for constants  made "int" for all compilers, as it more efficient and perfectly compliant.
+	 	
+	* debug/_hashtable.h : fixed typo in swap() ( thanks to Gerd Hoeren for the report)
+
+	* debug/_string.h : +() operators defined unconditionally ( thanks to Gerd Hoeren for the report)
+
+	* _istream.c : removed dependancy on _function.h (thanks to Kenny Simpson for the report)
+
+	* _limits.c : fixed little-endian representation of infinity & NaN (thanks to Rene van Oostrum)
+
+	* _stdio_file.h : fixed postdecr macro for 64-bit Solaris (thanks to Jim Cole)
+
+	
+The following changes were made in 4.1 beta 4 since 4.1 beta 3 :
+	
+	* Simulation of class partial specialization (thanks to  Mat Marcus and Jesse Jones of Adobe)
+	  used to provide following enhancements :
+	
+	 - type_traits are automatically specialized for all pointer types for all compilers, 
+	   which makes them able to utilize type_traits-based optimizations when dealing with pointer types, 
+	   automatically.
+	
+	 - all functions specialized for pointers and optimized via __type_traits
+	   ( like copy()/copy_backward(), _uninitialized_xx) now enjoy this optimization for all compilers!
+        
+	- generic __value_type()/__difference_type()/__iterator_category() are written so user does not have
+	   to supply any of its own even when partial specialization is not available.
+	   (Note : gcc-2.7 and VC++ 5.x, 6.x have bugs which prevents them from using this enhancement, still)
+	
+	* <iterator> : by default, non-standard iterator query names like 
+	  value_type()/difference_type()/iterator_category() are not used
+	
+	* <algo> : major revision:
+	   - algorithms without explicit Compare() function expressed via the one that has it where possible.
+	     This considerably reduces header size and reduces code bloat for programs which use both flavours of
+	     those algorithms.
+	   - some function bodies moved between  .c and .h 
+	   - all functions used internally moved out to _algobase.h, so no other header includes <_algo.h> anymore
+	   - find() specialized for random access iterators regardless of partial spec.
+
+	* Dynamic libraries (.DLL and .so) : name versioning used to prevent clashes between STLport versions
+
+	* src/ : code regrouped between .cpp files to provide for less executable size with dumb linkers;
+
+	* locale subsystem initialization : startup changed to use statically allocated structures as much as possible;
+	
+	* <stl/_function.h> : basic stuff moved to _function_base.h ; 
+	  other STL headers now include _function_base.h instead
+
+	* _threads.h : MT support for OS/2 added (only tested with VAC++)
+
+	* _stdio_file.h : added support for Solaris in ELF64 mode (thanks to Holger Stasch)
+	
+	* stl/_hashtable.h : [] operator for hash_map optimized to take no more than find() when element is present
+	  (Thanks to Thomas Witt et al.)
+
+	* _ostream.h : fix for default unsigned char (thanks to  Holger Stasch)
+	
+	* all __STL_ABBREVS abbreviations moved aside in _abbrevs.h header.
+
+	* Fujitsu C++ Compiler support added (thanks to  Holger Stasch)
+	
+	* Initial SGI iostreams port to OS/390 introduced (thanks to  Holger Stasch).
+
+	* More on SGI iostreams port to xlC 5.0 (thanks to  Holger Stasch).
+
+	* Fixes for SGI MIPSpro compilers (Thanks to Ralph)
+
+	* Fixes for HP aCC compiler (Thanks to Michael Tsirkin)
+
+	* stlport/SC5 directory : removed C library .h files to fix circular inclusion problem with WS6.0 + C programs.
+	
+        *  hash_map::swap() in debug mode fixed (thanks to Anton) 
+	
+	* __STL_COMPILE_INSTANTIATE hack for DEC removed (thanks to Ralph)
+
+	* __STL_INLINE_STRING_LITERAL_BUG defined for HP aCC ( thanks to Jason Taylor)
+
+	* _bitset.h - member workaround operators made const (thanks to dzwick) 
+
+	* _bitset.h/.c, hashtable.h -- small bugfixes (thanks to Levente Farkas)
+	
+	* <exception> - now includes exception.h if only that is available.
+
+	* vector::assign() inplemented for vector::iterator when member templates are not available (Thanks to dzwick)
+
+	* fstream.cpp : __pioinfo used for MinGW32 (thanks to Danny Smith)
+	
+The following changes were made in 4.1 beta 3 since 4.1 beta 2 :
+
+	* list<>::clear() : protected access bug fixed
+
+	* __STL_MUTEX_INITIALIZER set back to PTHREAD_MUTEX_INITIALIZER for pthreads case, 
+	  as some platforms (eg AIX) do not treat zero-initialized mutex as valid one (thanks to Alex Vanic, Jack Andrews for help)
+	
+	* stl/_limits.c : fixed typo preventing numeric limits constants to be defined for __STL_LITTLE_ENDIAN,
+	  constants initialization fixed (thanks to Ingo Donasch)  
+
+	* real implementation of locales for Win32 contributed by Anton Lapach (thanks !) merged in.
+	
+	* stl_user_config.h, _config.h : changed default to not define relops:: operators
+	  in __STL_NO_NAMESPACES mode.
+
+	* _numeric_facets.c/num_put.cpp : printing of integer do not use sprintf() anymore
+
+	* "install" target implemented for UNIX & VC++ Makefiles. It now installs headers and libraries.
+
+	* "src" : files merged to get less compilation time and less space overhead for imperfect compilers
+
+	* "debug" flavour of STLport excluded from default build and auto-select ; 
+	  please use __STL_USE_DEBUG_LIB and build debug STLport lib explicitly with "make debug_dynamic" 
+	  if you really need it). "all" now builds 2 kinds : "release" and "STLdebug", for static and dynamic builds.  
+
+	* stlport_prefix.h : WIN32_LEAN_AND_MEAN set for Win32 build of STLport library, for speed.
+
+	* FreeBSD compile fixed; makefiles added.
+
+	* All "__init" changed to "_Init" to fix clashes with DEC conventions (thanks to Holger Stasch)
+
+	* _range_errors.h -- fixed to always set __STL_EXTERN_RANGE_ERRORS for SGI iostreams (thanks to Serge Pashkov)
+	
+	* *gcc* mak : some files renamed to gcc-platform mak 
+
+	* "extern template" extension used for gcc & standard i/o classes, to reduce code bloat in application's .o
+
+	* "extern template" extension used for VC++ & standard i/o classes (was for DLL only)
+
+	* _iterator.h : added template(and non-template) assignment operator for reverse_iterator<> (thanks to psw).  Obsolete HP-style code moved to _iterator_old.h 
+
+	* _alloc.h : obsolete code for raw SGI allocators support moved to separate header, for compile-time improvement
+
+	* More iostreams code conditionally moved out for clients who only use standard i/o and can set __STL_NO_CUSTOM_IO flag
+	
+	* <iostream>, <locale> : initialization of locale subsystem made independent of standard streams.
+	  sync_with_stdio call before iostream initialization now works.
+	
+	* <fstream>, <fstream.h> : added initialization code for locale , same as in <locale> 
+	  (thanks to George Trojan for the report)
+
+	* fstream.cpp : fixed resource leak in case memory map fails on Win32 (thanks to Mark Laffoon)
+	
+	* <cmath>, <cstdlib> : added additonal overload signatures required by chapter 26.5 of ANSI (thanks to Levente Farkas for
+	 the suggestion), plus "long long" flavour where applicable. 
+	
+	* __STL_LONG_LONG generalized to support __int64 on Win32 (thanks to Adam Gates for the suggestion)
+
+	* _fstream.h : added constructor from file descriptor, as extension (thanks to eric_a_benson)
+
+	* _fstream.h : added basic_filebuf<>::fd() file descriptor accessor, as extension (thanks to George Trojan)
+
+	* stl_sunpro.h : strstream masked for CC 4.2 to avoid virtual table clash (thanks to Ken)
+
+	* stl_msvc.h : member templates allowed for VC5, it's capable of hadling most of them (same restrictions as VC6 -- inline).
+	
+	* debug/_debug.c : slightly changed format of debug message to please VC++ IDE (thanks for Bruce Dawson for the suggestion)
+
+	* src/sgi_mipspro.mak added, for SGI MIPSPro compilation
+
+	* merged series of HP/SUN minor fixes by Petr Ovchenkov 
+	
+	* merged series of Intel 4.5 fixes by Serge 
+
+	* vc_common.mak : -Yd dropped, as obsolete (thanks to psw)
+
+	* _range_errors.h:95 : unused argument removed (thanks to George Trojan)
+
+	* _string_io.h : refined _WRTLING workaround for Watcom (thanks to Serge Pashkov)
+
+	* _threads.h : fixed SGI threads dafines for gcc on IRIX (thanks to Brett Denner for the report)
+
+	* <typeinfo.h>, <typeinfo> : mutually-exclusive machanism added to allow including both in same unit.
+
+	* Inclusion of SGI iostreams headers put to some order; _streambuf_iterator.h file introduced to resolve circular dependancies
+	
+The following changes were made in 4.1 beta 2 since 4.1 beta 1 :
+	
+	* _algobase.h : fixed __STL_DECLARE_COPY_TRIVIAL definition
+	(thanks to Charles Burfoot for the report)
+
+	* _algobase.h : added copy_backward specializations for builtin types for compilers w/o partial spec.
+
+	* _char_traits.h : fixed zero-length check for copy (thanks to Michael Tsirkin)
+
+	* msvc_warnings_off.h : fixed "and" typo
+	(thanks to Charles Burfoot for the report)
+
+        * num_put_float.cpp : fixed rounding for "g" format (thanks to Bernd Mohr for the report) 
+	
+	* Initial port of iostreams to xlC 5.0 added (thanks to Jack Andrews)
+	
+	* stl_sunpro.h : a fix for Forte config (Thanks to Alex Vanic for the report)
+
+	* old_hp/iterator.h : fixed iterator_category()/etc. import
+
+	* _threads.h : __stl_atomic_t used instead of "unsigned long" (thanks to Alex Vanic for the report)
+	* using/iomanip : old-streams path used for native iomanip.h (thanks to Michael Tsirkin for the report).
+
+	* _bitset.h , _bitset.c : direct STL_THROW replaced with __stl_throw_xxx calls (thanks to Michael Tsirkin for the report)
+
+	* range_errors.h/cpp : added functions to support throwing of  overflow_error and invalid_argument
+
+	* _threads.h : enganced HP-specific guards for HP-UX 11 (thanks to Matthew Collins for the report)
+
+	* _string.h : compare() bugfix (thanks to Anton Sergeev)
+
+	* moneypunct_byname_w.cpp : rolled back wrong bugfix (thanks to Ken)
+
+	* _vector.h, _deque.h, _list.h : nonstandard versions of push_back()/push_front() 
+	  moved under __STL_NO_ANACHRONISMS guard (thanks to Ed Brey)
+	
+	* _tree.c, _list.c, _slist.c, _debug.c : compile-time improvements
+	
+	* _tree.h/c, _list.h/c, _slist.h/c, _vector.h/c, _string.h/c : using directive for data members 
+	  changed to explicit "this->".
+	
+	* _complex.h : signatures of some methods changed to take value_type instead of const value_type&, 
+	   for better conformance (thanks to Petr Ovchenkov)
+
+	* Bunch of fixes to compile with gcc on HP-UX 10, 11 (thanks to Petr Ovchenkov)
+
+	* Code duplication for __STL_INLINE_MEMBER_TEMPLATES removed -- corresponding methods are always inlined
+
+	* stl_sunpro.h : fix for "-compat" mode (thanks to Vijay Ramachandran)
+
+	* pthread.h : new wrapper added
+
+	* Added custom prolog/epilog for HP aCC to select kthreads on HP-UX 11 (Thanks to Michael Tsirkin)
+
+	* <new> : fixed throw specification for bad_alloc (has to be inherited)
+
+	* Macro __STL_NATIVE_CPP_RUNTIME_INCLUDE_PATH introduced to specify separate path for <exception>, <typeinfo>, <new>.
+	  (thanks to Bryan Byrnes)
+	
+	* <stdio_streambuf> : moved from stlport/stl to stlport directory, for SGI compatibility
+	
+The following changes were made in 4.1 beta 1 since 4.0 :
+
+	*  Sun Forte 6.0 C++ configuration provided (thanks to Alexander Vanic for the input)
+	
+	* _threads.h/_config.h : added efficient support for atomic operations for
+	  DEC CXX and Watcom (thanks to Ricardo Gayoso for the input). 
+	  Macros __STL_ATOMIC_xxx introduced to facilitate this.
+
+	* _tree.h : optimizations to lower number of comparisons (thanks to Craig Powers for the patch)
+
+	* _tree.h, _hashtable.h and clients : added templated find() as an extension (thanks to Michael Tsirkin for the suggestion)
+
+	* _tree.h : changed some inlining for performance optimization
+	
+	* __node_alloc:: allocate broken into two functions for better inlining 
+
+	* _threads.h : added PTHREAD_MUTEX_INITIALIZER guard for HP workaround
+
+	* stl_bc.h : option set to control alignment and virtual table  behaviour to be consistent; 
+	 library name adjusted to stlport_bcc55_xxx
+
+	* _algobase.h, _uninitialized.h, char_traits.h -- optimized out empty memcpy() calls 
+	  (thanks to Michael Tsirkin for the report).
+	
+	* _iterator.h : fixed reverse_iterator::operator+(int, reverse_iterator) resolution
+	  (thanks to Anton Sergeev for the input)
+
+	* _bitset.h : bitset<>::test bugfix (thanks to Anton Sergeev for the patch)
+
+	* complex_trig.cpp : use of __STL_NO_LONG_DOUBLE made consistent, fixes for Borland on Linux
+	 (thanks to John Wiegley for the input)
+	
+	* moneypunct_byname_w.cpp : bugfixes for string copying (thanks to Anton Sergeev for the input)
+	
+	* Watcom-specific fixes (thanks to Ricardo Gayoso for the input)
+
+	* src/common_macros.mak : some intermediate targets added (thanks to Jeremy for the suggestion) 
+	
+	* _debug.c : fixes for Win CE (thanks to John Hynes for the patch)
+
+	* Intel CC 4.0-specific fixes (thanks to Sean Cavanaugh for the input)
+
+	* _list.c : workaround for Watcom C++ (thanks to Mike Steed for the report)
+
+	* __STL_NO_NATIVE_WIDE_STREAMS definition fixed (thanks to Glen Summers for the patch)
+
+	* cast macros fixed to be more robust (thanks to Geoff Oakham for the report)
+
+	* "strstream.h" native inclusion for VC 6.0 fixed (thanks to  Sathish T C for the report)
+	
+	* debug/_string.h : improvement to string with __STL_DEBUG w/o member templates 
+	  (thanks to Paul Furnanz for the report)
+
+	* debug/_string.h : fixed internal compiler error for VC++ 5.x (thanks to chvetsov for the report)
+	
+	* cstdio, stl/_streambuf.h : fixes to allow gcc compilation with -ansi flag
+
+	* workaround for cin/cout renaming on HPUX11 for -D_REENTRANT (thankf to Jeff Sparkes for the report)
+
+	* cin/cout/cerr/clog renaming in STLport for CC 4.0 and SGI iostreams, 
+	 to avoid symbol clashes with native ones (thanks to Dirk Schreib for the report)
+
+	* type_info scope fixes for VC++ 6.0 (thanks to Sathish T C for the report)
+
+	* typeinfo.h using fixes (thanks to Glen Summers for the input)
+	
+	* stlcomp.h : fixes to allow compilation of .c modules with VAC++, Sun CC, DEC CC, Watcom CC
+	 (thanks to Dmitry A.Steklenev, Jonathan Richardson for the report)
+	
+	* debug/_tree.h : fixed insert_unique() bug (thanks to Ben Liblit for the report)
+
+	* regression/gcc.mak made non-dependant on "." in the path 
+	  (thanks to Thomas Matelich for the report)
+	
+	* hmset1.cpp fixed to compile under OS390 ( thanks to Andrey Khovanskiy for the report)
+	

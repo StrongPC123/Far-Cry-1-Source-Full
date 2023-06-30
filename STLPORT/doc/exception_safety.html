@@ -1,0 +1,471 @@
+<html><head><META http-equiv="Content-Type" content="text/html; charset=iso-8859-1"><title>STLport: Exception Handling</title><link href="doc.css" type="text/css" rel="stylesheet"></head><body marginwidth="0" marginheight="0" leftmargin="0" topmargin="0" vlink="#314A30" link="#314A30" text="black" bgcolor="white"><table border="0" cellspacing="0" cellpadding="0"><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img border="0" height="14" width="1" src="images/trans.gif"><br><a href="../index.html"><img src="images/stl_logo_doc.gif" border="0" height="80" width="80"></a><a href="http://www.stlport.com"><img border="0" height="80" width="461" src="images/t_doc2.gif"></a><br><img src="images/trans.gif" border="0" height="24" width="1"><br><img src="images/black.gif" border="0" height="1" width="776"><br><img src="images/trans.gif" border="0" height="24" width="1"></td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img src="images/trans.gif" border="0" height="10" width="776"></td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776">
+
+        <span class="heading">Exception Safety in STLport</span>
+	<p>
+        <font size="2"><em><strong>by Dave Abrahams</strong></em></font>
+</p>
+        <h2><a name="guarantees"></a>Basic Library Guarantees</h2>
+        <p><b>STLport makes the guarantee that</b> <b>no resources are leaked in
+        the face of exceptions</b>.</p>
+        <p><b>This means:</b></p>
+        <ul>
+          <li>By the time a container's destructor completes:</li>
+          <ul>
+            <li>It has returned all memory it has allocated to the appropriate
+              deallocation function.</li>
+            <li>The destructor has been called for all objects constructed by
+              the container.</li>
+          </ul>
+          <li>Algorithms destroy all temporary objects and deallocate all
+            temporary memory even if the algorithm does not complete due to an
+            exception.</li>
+          <li>Algorithms which construct objects (e.g. <tt>uninitialized_fill</tt>)
+            either complete successfully or destroy any objects they have
+            constructed at the time of the exception.</li>
+          <li>Algorithms which destroy objects always succeed.</li>
+        </ul>
+        <h4>Additionally:</h4>
+        <ul>
+          <li>Algorithms which operate on ranges of objects leave only
+            fully-constructed objects in those ranges if they terminate due to
+            an exception.</li>
+          <li>Containers continue to fulfill all of their requirements, even
+            after an exception occurs during a mutating function. For example, a
+            map will never give an inaccurate report of its size, or fail to
+            meet its performance requirements because the tree that implements
+            it has become unbalanced.</li>
+          <li>A stronger guarantee is available for some operations: that <i>if
+            the operation terminates due to an exception, program state will
+            remain unchanged</i>. For example, <tt>vector&lt;T,A&gt;::push_back()</tt>
+            leaves the vector unchanged if an exception is thrown, provided the
+            library client fulfills the <a href="#basic_requirements">basic
+            requirements</a> below. For some operations, the "<a href="#Strong%20Guarantee">strong
+            guarantee</a>" is available if additional requirements are
+            filled.</li>
+        </ul>
+        <p>&nbsp;</p>
+        <p><a name="basic_requirements"></a><b><font size="+2">Basic Client
+        Requirements</font></b></p>
+        <p><b>The <a href="#guarantees">library guarantees</a> above are
+        conditional on some requirements that library clients must fulfill.</b></p>
+        <p><b>The following operations must return normally - they are forbidden
+        to terminate due to an exception:</b></p>
+        <ul>
+          <li>Destructors of any classes used by the library. This includes all
+            classes used as library template parameters. It also includes all
+            classes which fulfill "type requirements" of classes used
+            as library templates- an allocator's <tt>size_type</tt>, for
+            example.</li>
+          <li>Valid uses of any of the required functionality of the following
+            types. Note that invalid uses (e.g. comparison of two iterators from
+            different containers) are not prohibited from throwing an exception.
+            Presumably, invalid uses would cause worse problems than resource
+            leaks:</li>
+          <ul>
+            <li>The ForwardIterator arguments to the following:</li>
+            <ul>
+              <li><tt>uninitialized_copy(InputIterator first, InputIterator
+                last, ForwardIterator result)</tt></li>
+              <li><tt>uninitialized_fill(ForwardIterator first, ForwardIterator
+                last, const T&amp; x)</tt></li>
+              <li><tt>uninitialized_fill_n(ForwardIterator first, Size n, const
+                T&amp; x)</tt></li>
+              <li><tt>destroy(ForwardIterator first, ForwardIterator last)</tt></li>
+            </ul>
+            <li>An allocator's <tt>deallocate()</tt> function</li>
+            <li>Any of the required allocator types:</li>
+            <ul>
+              <li><tt>pointer</tt></li>
+              <li><tt>const_pointer</tt></li>
+              <li><tt>reference</tt></li>
+              <li><tt>const_reference</tt></li>
+              <li><tt>size_type</tt></li>
+              <li><tt>difference_type</tt></li>
+            </ul>
+          </ul>
+        </ul>
+        <p>&nbsp;</p>
+        <p>Note: Algorithms like <tt>copy()</tt> expect that they are copying
+        into real objects. The use of <tt>raw_storage_iterator</tt> with most
+        algorithms is inherently exception-unsafe:</p>
+        <ul>
+          <p><tt>// objects of the same type as *iterator1 may be leaked if a
+          failure occurs.<br>
+          copy( iterator1, iterator2, raw_storage_iterator( ptr ) ); </tt></p>
+        </ul>
+        <p>Furthermore, there is no way to properly recover from this using an
+        enclosing <tt>try</tt>/<tt>catch </tt>block, because <tt>raw_storage_iterator</tt>
+        has no function in its public interface to tell you how far it has been
+        advanced.</p>
+        <p>&nbsp;</p>
+        <h2><a name="Strong%20Guarantee"></a>The "Strong Guarantee"</h2>
+        <p>In many programs, some objects will be destroyed automatically during
+        exception-unwinding. For these, the basic guarantee that resources won't
+        be leaked is good enough. If a program hopes to survive an exception and
+        continue running, though, it probably also uses long-lived containers
+        which are expected to survive past exception-recovery in a known state.
+        For example, a program could maintain a list of objects representing
+        tasks it is working on. If adding a task to that list fails, the program
+        may still need to rely on the list. If the list must survive an
+        exception intact, we need the strong guarantee:</p>
+        <ul>
+          <p><i>If an exception is thrown, the operation has no effects.</i></p>
+        </ul>
+        <p>You can get the strong guarantee by "brute force" for any
+        container operation as follows, provided the container's <tt>swap()</tt>
+        member function can't fail (this is true for most real-world
+        containers):</p>
+        <p><tt>container_type container_copy( original_container ); <br>
+        container_copy.mutating_operation(...); <br>
+        original_container.swap( container_copy );</tt></p>
+        <p>Fortunately, many mutating operations give the strong guarantee with
+        no additional requirements on the client. To get the strong guarantee
+        for others, you can either use the above technique or conform to some <a href="#additional_requirements">additional
+        requirements</a>.</p>
+        <p>&nbsp;</p>
+        <h3>Operations that give the "strong guarantee" with no
+        additional requirements</h3>
+        <p><a name="1"></a><i>( Operations labelled with * are guaranteed to
+        return normally if all <a href="#basic_requirements">basic requirements</a>
+        have been met) </i></p>
+        <ul>
+          <li><tt>uninitialized_fill()</tt></li>
+          <li><tt>uninitialized_copy()</tt></li>
+          <li><tt>uninitialized_fill_n()</tt></li>
+          <li><tt>deque&lt;T,A&gt;</tt> member functions:</li>
+          <ul>
+            <li><tt>swap(deque&lt;T,A&gt;&amp;)</tt> <a href="#1">*</a></li>
+            <li><tt>push_back(const T&amp;)</tt></li>
+            <li><tt>pop_back()</tt> <a href="#1">*</a></li>
+            <li><tt>push_front(const T&amp;)</tt></li>
+            <li><tt>pop_front()</tt> <a href="#1">*</a></li>
+          </ul>
+          <li><tt>list&lt;T,A&gt;</tt> member functions:</li>
+          <ul>
+            <li><tt>insert(iterator position, const T&amp; x = T())</tt></li>
+            <li><tt>insert(iterator position)</tt></li>
+            <li><tt>push_back(const T&amp;)</tt></li>
+            <li><tt>pop_back()</tt> <a href="#1">*</a></li>
+            <li><tt>push_front(const T&amp;)</tt></li>
+            <li><tt>pop_front()</tt> <a href="#1">*</a></li>
+            <li><tt>splice(iterator position, list&lt;T,Allocator&gt;&amp; x)</tt>
+              <a href="#1">*</a></li>
+            <li><tt>splice(iterator position, list&lt;T,Allocator&gt;&amp; x,
+              iterator i)</tt> <a href="#1">*</a></li>
+            <li><tt>splice(iterator position, list&lt;T,Allocator&gt;&amp; x,
+              iterator first, iterator last)</tt> <a href="#1">*</a></li>
+            <li><tt>swap(list&lt;T,A&gt;&amp;)</tt> <a href="#1">*</a></li>
+            <li><tt>reverse()</tt> <a href="#1">*</a></li>
+            <li><tt>erase(iterator position)</tt> <a href="#1">* </a></li>
+            <li><tt>erase(iterator first, iterator last)</tt> <a href="#1">* </a></li>
+          </ul>
+          <li><tt>vector&lt;T, A&gt;</tt> member functions:</li>
+          <ul>
+            <li><tt>reserve(size_type n)</tt></li>
+            <li><tt>swap(vector&lt;T,A&gt;&amp;)</tt> <a href="#1">*</a></li>
+            <li><tt>push_back(const T&amp;) </tt></li>
+            <li><tt>pop_back()</tt> <a href="#1">*</a></li>
+          </ul>
+          <li><tt>bit_vector&lt;A&gt;</tt> member functions:</li>
+          <ul>
+            <li><tt>reserve(size_type n)</tt></li>
+            <li><tt>swap(bit_vector&amp;)</tt> <a href="#1">*</a></li>
+            <li><tt>push_back(const T&amp;) </tt></li>
+            <li><tt>pop_back()</tt> <a href="#1">*</a></li>
+            <li><tt>insert(iterator position, bool x = bool())</tt></li>
+            <li><tt>insert(iterator position)</tt></li>
+            <li>insert(iterator position, const_iterator first, const_iterator
+              last)</li>
+            <li>insert(iterator position, const bool* first, const bool* last)</li>
+            <li>insert(iterator position, size_type n, bool x)</li>
+            <li><tt>erase(iterator position)</tt> <a href="#1">* </a></li>
+            <li><tt>erase(iterator first, iterator last)</tt> <a href="#1">* </a></li>
+          </ul>
+          <li><tt>map&lt;K, T, C, A&gt;</tt> member functions:</li>
+          <ul>
+            <li><tt>operator[](const key_type&amp; k)</tt></li>
+            <li><tt>insert(iterator position, const value_type&amp; x)</tt></li>
+            <li><tt>insert(const value_type&amp; x) </tt></li>
+            <li><tt>erase(const key_type&amp; x) <a href="#1">*</a> </tt></li>
+            <li><tt>erase(iterator position)</tt> <a href="#1">* </a></li>
+            <li><tt>erase(iterator first, iterator last)</tt> <a href="#1">* </a></li>
+          </ul>
+          <li><tt>set&lt;K, C, A&gt;</tt> member functions:</li>
+          <ul>
+            <li><tt>insert(iterator position, const value_type&amp; x)</tt></li>
+            <li><tt>insert(const value_type&amp; x)</tt></li>
+            <li><tt>erase(const key_type&amp; x)</tt> <a href="#1">*</a></li>
+            <li><tt>erase(iterator position)</tt> <a href="#1">* </a></li>
+            <li><tt>erase(iterator first, iterator last)</tt> <a href="#1">* </a></li>
+          </ul>
+          <li><tt>multimap&lt;K, T, C, A&gt;</tt> member functions:</li>
+          <ul>
+            <li><tt>insert(iterator position, const value_type&amp; x)</tt></li>
+            <li><tt>insert(const value_type&amp; x)</tt></li>
+            <li><tt>erase(const key_type&amp; x) </tt><a href="#1">*</a></li>
+            <li><tt>erase(iterator position)</tt> <a href="#1">* </a></li>
+            <li><tt>erase(iterator first, iterator last)</tt> <a href="#1">* </a></li>
+          </ul>
+          <li><tt>multiset&lt;K, C, A&gt;</tt> member functions:</li>
+          <ul>
+            <li><tt>insert(iterator position, const value_type&amp; x)</tt></li>
+            <li><tt>insert(const value_type&amp; x)</tt></li>
+            <li><tt>erase(const key_type&amp; x) </tt><a href="#1">*</a></li>
+            <li><tt>erase(iterator position)</tt> <a href="#1">* </a></li>
+            <li><tt>erase(iterator first, iterator last)</tt> <a href="#1">* </a></li>
+          </ul>
+          <li><tt>hash_map&lt;K, T, H, E, A&gt;</tt> member functions:</li>
+          <ul>
+            <li><tt>insert_noresize(const value_type&amp; obj)</tt></li>
+            <li><tt>erase(const key_type&amp; key)</tt> <a href="#1">*</a></li>
+            <li><tt>erase(iterator position)</tt> <a href="#1">* </a></li>
+            <li><tt>erase(iterator first, iterator last)</tt> <a href="#1">* </a></li>
+          </ul>
+          <li><tt>hash_multimap&lt;K, T, H, E, A&gt;</tt> member functions:</li>
+          <ul>
+            <li><tt>insert_noresize(const value_type&amp; obj)</tt></li>
+            <li><tt>erase(const key_type&amp; key)</tt> <a href="#1">*</a></li>
+            <li><tt>erase(iterator position)</tt> <a href="#1">* </a></li>
+            <li><tt>erase(iterator first, iterator last)</tt> <a href="#1">* </a></li>
+          </ul>
+          <li><tt>hash_set&lt;T, H, E, A&gt;</tt> member functions:</li>
+          <ul>
+            <li><tt>insert_noresize(const value_type&amp; obj)</tt></li>
+            <li><tt>erase(const key_type&amp; key)</tt> <a href="#1">*</a></li>
+            <li><tt>erase(iterator position)</tt> <a href="#1">* </a></li>
+            <li><tt>erase(iterator first, iterator last)</tt> <a href="#1">* </a></li>
+          </ul>
+          <li><tt>hash_multiset&lt;T, H, E, A&gt;</tt> member functions:</li>
+          <ul>
+            <li><tt>insert_noresize(const value_type&amp; obj)</tt></li>
+            <li><tt>erase(const key_type&amp; key) </tt><a href="#1">*</a></li>
+            <li><tt>erase(iterator position)</tt> <a href="#1">* </a></li>
+            <li><tt>erase(iterator first, iterator last)</tt> <a href="#1">* </a></li>
+          </ul>
+          <li><tt>clear()</tt> for all containers <a href="#1">* </a></li>
+          <li>all container const member functions <a href="#1">*</a></li>
+          <li>all constructors, by language definition (included for
+            completeness)</li>
+        </ul>
+        <p>&nbsp;</p>
+        <h3><a name="additional_requirements"></a><b><font size="+2">Strong
+        guarantee requirements for other mutating container operations</font></b></h3>
+        <p><a name="2"></a><i>Operations labelled with * are guaranteed to
+        return normally if all additional requirements have been met) </i></p>
+        <table border="2" cellspacing="2" cellpadding="2" width="80%">
+          <caption><b>Definition of terms</b></caption>
+          <tr>
+            <td valign="TOP"><b><i>Term</i></b></td>
+            <td><b><i>Meaning, when applied to a type <tt>T<br>
+              </tt></i></b><i>(<tt>x</tt> and <tt>y</tt>of type <tt>T</tt>)</i></td>
+          </tr>
+          <tr>
+            <td valign="TOP">"guaranteed copyable"</td>
+            <td valign="TOP"><tt>T z(x)</tt> and <tt>x = y</tt> may not exit via
+              exception.</td>
+          </tr>
+          <tr>
+            <td>"guaranteed equality-comparable"</td>
+            <td valign="TOP"><tt>x == y</tt> may not exit via exception.</td>
+          </tr>
+          <tr>
+            <td>"guaranteed comparable"</td>
+            <td><tt>x &lt; y</tt> may not exit via exception.</td>
+          </tr>
+        </table>
+        <p>&nbsp;</p>
+        <table border="2" cellspacing="2" cellpadding="2" width="95%">
+          <caption><b><tt>deque&lt;T,A&gt;</tt> member functions</b></caption>
+          <tr>
+            <td valign="TOP"><b><i>Function</i></b></td>
+            <td><b><i>Requirements</i></b></td>
+          </tr>
+          <tr>
+            <td valign="TOP"><tt>insert(iterator position, const T&amp; x)<br>
+              insert(iterator position)</tt></td>
+            <td valign="TOP"><tt>position == begin() || position == end()<br>
+              </tt><b>OR </b><tt>T</tt> guaranteed copyable</td>
+          </tr>
+          <tr>
+            <td><tt>erase(iterator position)</tt></td>
+            <td><tt>position == begin() || position == end() - 1<br>
+              </tt><b>OR </b><tt>T</tt> guaranteed copyable</td>
+          </tr>
+          <tr>
+            <td><tt>erase(iterator first, iterator last)</tt></td>
+            <td><tt>first == begin() || last == end()<br>
+              </tt><b>OR </b><tt>T</tt> guaranteed copyable</td>
+          </tr>
+          <tr>
+            <td><tt>resize(size_type new_size, const T&amp; x)<br>
+              resize(size_type new_size)</tt></td>
+            <td valign="TOP"><tt>new_size == size() + 1<br>
+              </tt><b>OR </b><tt>new_size &lt;= size()</tt> <a href="#2">*</a></td>
+          </tr>
+        </table>
+        <p>&nbsp;</p>
+        <table border="2" cellspacing="2" cellpadding="2" width="95%">
+          <caption><b><tt>list&lt;T,A&gt;</tt> member functions</b></caption>
+          <tr>
+            <td valign="TOP"><b><i>Function</i></b></td>
+            <td><b><i>Requirements</i></b></td>
+          </tr>
+          <tr>
+            <td valign="TOP"><tt>remove(const T&amp; value)</tt></td>
+            <td valign="TOP"><tt>T</tt> guaranteed equality-comparable</td>
+          </tr>
+          <tr>
+            <td><tt>unique()</tt></td>
+            <td valign="TOP"><tt>T</tt> guaranteed equality-comparable</td>
+          </tr>
+          <tr>
+            <td><tt>merge(list&lt;T, Alloc&gt;&amp; x)</tt></td>
+            <td><tt>T</tt> guaranteed comparable</td>
+          </tr>
+          <tr>
+            <td><tt>sort()</tt></td>
+            <td><tt>T</tt> guaranteed comparable</td>
+          </tr>
+        </table>
+        <p>&nbsp;</p>
+        <table border="2" cellspacing="2" cellpadding="2" width="95%">
+          <caption><b><tt>vector&lt;T,A&gt;</tt> member functions</b></caption>
+          <tr>
+            <td valign="TOP"><b><i>Function</i></b></td>
+            <td><b><i>Requirements</i></b></td>
+          </tr>
+          <tr>
+            <td valign="TOP"><tt>insert(iterator position, const T&amp; x)<br>
+              insert(iterator position)</tt></td>
+            <td valign="TOP"><tt>position == end()<br>
+              </tt><b>OR </b><tt>T</tt> guaranteed copyable</td>
+          </tr>
+          <tr>
+            <td><tt>insert (iterator position, const_iterator first,
+              const_iterator last);</tt>
+              <br><tt>void insert (iterator position, size_type n, const T&amp;
+              x);</tt></td>
+            <td valign="TOP"><tt>T</tt> guaranteed copyable</td>
+          </tr>
+          <tr>
+            <td><tt>erase(iterator position)</tt></td>
+            <td><tt>position == end() - 1<br>
+              </tt><b>OR </b><tt>T</tt> guaranteed copyable</td>
+          </tr>
+          <tr>
+            <td><tt>erase(iterator first, iterator last)</tt></td>
+            <td><tt>last == end()<br>
+              </tt><b>OR </b><tt>T</tt> guaranteed copyable</td>
+          </tr>
+          <tr valign="TOP">
+            <td><tt>resize(size_type new_size, const T&amp; x)<br>
+              resize(size_type new_size)</tt></td>
+            <td><tt>new_size == size() + 1<br>
+              </tt><b>OR </b><tt>T</tt> guaranteed copyable<br>
+              <b>OR </b><tt>new_size &lt;= size()</tt> <a href="#2">*</a></td>
+          </tr>
+        </table>
+        <p>&nbsp;</p>
+        <table border="2" cellspacing="2" cellpadding="2" width="95%">
+          <caption><b>Basic Associative Container member functions</b></caption>
+          <tr>
+            <td valign="TOP"><b><i>Function</i></b></td>
+            <td><b><i>Requirements</i></b></td>
+          </tr>
+          <tr>
+            <td valign="TOP"><tt>map&lt;Key,T,Compare,A&gt;::swap(map&lt;Key,T,Compare,A&gt;&amp;
+              amp; amp;)</tt></td>
+            <td valign="TOP"><tt>Compare </tt>guaranteed copyable <a href="#2">*</a></td>
+          </tr>
+          <tr>
+            <td><tt>multimap&lt;Key,T,Compare,A&gt;::swap(multimap&lt;Key,T,Compare,A&amp;a
+              mp;g t;&amp;)</tt></td>
+            <td valign="TOP"><tt>Compare </tt>guaranteed copyable <a href="#2">*</a></td>
+          </tr>
+          <tr valign="TOP">
+            <td><tt>set&lt;T,Compare,A&gt;::swap(set&lt;T,Compare,A&gt;&amp;)</tt></td>
+            <td><tt>Compare </tt>guaranteed copyable <a href="#2">*</a></td>
+          </tr>
+          <tr>
+            <td><tt>multiset&lt;T,Compare,A&gt;::swap(multiset&lt;T,Compare,A&gt;&amp;)
+              </tt></td>
+            <td><tt>Compare </tt>guaranteed copyable <a href="#2">*</a></td>
+          </tr>
+        </table>
+        <p>&nbsp;</p>
+        <table border="2" cellspacing="2" cellpadding="2" width="95%">
+          <caption><b>hash_map&lt;K, T, HashFcn, EqualKey, A&gt; member
+            functions</b></caption>
+          <tr>
+            <td valign="TOP"><b><i>Function</i></b></td>
+            <td><b><i>Requirements</i></b></td>
+          </tr>
+          <tr>
+            <td valign="TOP"><tt>swap(hash_map&lt;K, T, HashFcn, EqualKey,
+              A&gt;&amp;)</tt></td>
+            <td valign="TOP"><tt>HashFcn and EqualKey </tt>guaranteed copyable <a href="#2">*</a></td>
+          </tr>
+          <tr>
+            <td><tt>insert(const value_type&amp; obj)</tt></td>
+            <td valign="TOP"><tt>bucket_count() &gt;= size() + 1</tt></td>
+          </tr>
+          <tr valign="TOP">
+            <td><tt>operator[](const key_type&amp; k)</tt></td>
+            <td><tt>bucket_count() &gt;= size() + 1</tt></td>
+          </tr>
+        </table>
+        <p>&nbsp;</p>
+        <table border="2" cellspacing="2" cellpadding="2" width="95%">
+          <caption><b>hash_multimap&lt;K, T, HashFcn, EqualKey, A&gt; member
+            functions</b></caption>
+          <tr>
+            <td valign="TOP"><b><i>Function</i></b></td>
+            <td><b><i>Requirements</i></b></td>
+          </tr>
+          <tr>
+            <td valign="TOP"><tt>swap(hash_multimap&lt;K, T, HashFcn, EqualKey,
+              A&gt;&amp;)</tt></td>
+            <td valign="TOP"><tt>HashFcn and EqualKey </tt>guaranteed copyable <a href="#2">*</a></td>
+          </tr>
+          <tr>
+            <td><tt>insert(const value_type&amp; obj)</tt></td>
+            <td valign="TOP"><tt>bucket_count() &gt;= size() + 1</tt></td>
+          </tr>
+        </table>
+        <p>&nbsp;</p>
+        <table border="2" cellspacing="2" cellpadding="2" width="95%">
+          <caption><b>hash_set&lt;T, HashFcn, EqualKey, A&gt; member functions</b></caption>
+          <tr>
+            <td valign="TOP"><b><i>Function</i></b></td>
+            <td><b><i>Requirements</i></b></td>
+          </tr>
+          <tr>
+            <td valign="TOP"><tt>swap(hash_set&lt;K, T, HashFcn, EqualKey,
+              A&gt;&amp;)</tt></td>
+            <td valign="TOP"><tt>HashFcn and EqualKey </tt>guaranteed copyable <a href="#2">*</a></td>
+          </tr>
+          <tr>
+            <td><tt>insert(const value_type&amp; obj)</tt></td>
+            <td valign="TOP"><tt>bucket_count() &gt;= size() + 1</tt></td>
+          </tr>
+        </table>
+        <p>&nbsp;</p>
+        <table border="2" cellspacing="2" cellpadding="2" width="95%">
+          <caption><b>hash_multiset&lt;T, HashFcn, EqualKey, A&gt; member
+            functions</b></caption>
+          <tr>
+            <td valign="TOP"><b><i>Function</i></b></td>
+            <td><b><i>Requirements</i></b></td>
+          </tr>
+          <tr>
+            <td valign="TOP"><tt>swap(hash_multiset&lt;K, T, HashFcn, EqualKey,
+              A&gt;&amp;)</tt></td>
+            <td valign="TOP"><tt>HashFcn and EqualKey </tt>guaranteed copyable <a href="#2">*</a></td>
+          </tr>
+          <tr>
+            <td><tt>insert(const value_type&amp; obj)</tt></td>
+            <td valign="TOP"><tt>bucket_count() &gt;= size() + 1</tt></td>
+          </tr>
+        </table>
+
+</td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img src="images/trans.gif" border="0" height="20" width="50"><br><a href="index.html">Table of Contents</a><br></td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img src="images/trans.gif" border="0" height="40" width="80"><br><img src="images/black.gif" border="0" height="1" width="776"></td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img src="images/black.gif" border="0" height="1" width="776"></td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img src="images/trans.gif" border="0" height="5" width="50"><br><span class="copyright">Copyright 2001 by STLport</span><br><img src="images/trans.gif" border="0" height="50" width="80"></td></tr></table></body></html>

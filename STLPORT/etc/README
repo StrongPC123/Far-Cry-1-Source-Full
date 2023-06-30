@@ -1,0 +1,36 @@
+***********************************************
+
+This directory contains miscellanous files for STLport-4.6 release.
+
+***********************************************
+
+                 PROJECT COORDINATION FILES
+
+ * ChangeLog            - Log of changes since  STLport 4.0 release
+ * ChangeLog-4.0        - Log of changes before STLport 4.0 release
+
+ * TODO                 - Some future plans and directions 
+
+                 CVS HOUSEKEEPING, SCRIPTS
+
+ * cvsignore            - ignore patterns to use with GNU 'tar' command
+ * scvs                 - script to use CVS through SSH tunneling (the default 
+                          method at cvs.stlport.com)
+
+                 INDEPENDENT PACKAGING SUPPORT
+ * STLport-4.5.1.spec : spec file to build RPM for STLport-4.5.1
+
+                INTERNAL INSTALLATION SUPPORT
+
+ * std_headers_xxx.txt      - a list of headers to be placed in various dirs
+
+                         LOGOS
+
+ * stlport_powered_red.gif     Those are "Powered by STLport" logos. You are more than welcome
+   stlport_powered_white.gif   to put those logos on webpages for your product if it uses STLport.
+
+                         GOODIES
+
+ * msvcincl.dat         - the file to be placed in Windows directory 
+                          to exclude STLport files from VC++ dependancy checks
+

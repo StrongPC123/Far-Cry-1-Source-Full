@@ -1,0 +1,11 @@
+We don't have any tools for getting around Firewalls or NATs but we can offer some suggestions.  The only way guaranteed to work is to have the ports that need to be opened listed in the Game Docs so the user can read them and open the ports on their firewall or setup Port forwarding in the case of a NAT.
+
+Lets assume that the Client opens UDP port 2000 and the Server opens port 3000.
+
+If we assume that most personal Firewalls and NATs allow all outgoing connections then you can try to get around them.  When it comes to UDP, Firewalls/NATS will generally only allow incoming UDP packets from an IP and Port that an outgoing UDP packet had been recently sent to.
+
+If there is a firewall in front of the Client there isn't a problem.  The Client starts send UDP packets from port 2000 to the Servers port 3000.  The firewall sends these packets to the Server and starts to allow incoming UDP packets from the Servers port 3000.  The Server receives the packets from the Client and starts sending UDP packets back from port 3000 to the Clients port 2000.  The firewall sees these incoming packets and sends them to the Client because it has sent some UDP packets to that Servers Port recently.
+
+If there were a firewall in front of the Server this wouldn't work because the Servers firewall wouldn't allow the incoming UDP packets since there weren't any outgoing packets to match.  To get around this the Server should also be sending UDP packets to the Client in order to open its own firewall.  The server knows the IP address of the client from the CBRegServerRcv_LobbyServerMemberNew or CBLobbyRcv_MemberJoined callbacks.
+
+If the game requires a TCP connection things are even more difficult because Firewalls generally never allow incoming TCP connections.  If there is only one firewall then a connection can be established.  The side that has the firewall opens the connection to the other side.  So if the client has a firewall it has to open the TCP connection to the Servers TCP Port.  If the Server has a firewall then it has to open a TCP connection to the Client.  If both the server and the client have a firewall then there is no way to establish a TCP connection with out changing at least one of the firewalls.

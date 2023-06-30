@@ -1,0 +1,191 @@
+<html><head><META http-equiv="Content-Type" content="text/html; charset=iso-8859-1"><title>STLport: Notes for SUNPro C++ Users</title><link href="doc.css" type="text/css" rel="stylesheet"></head><body marginwidth="0" marginheight="0" leftmargin="0" topmargin="0" vlink="#314A30" link="#314A30" text="black" bgcolor="white"><table border="0" cellspacing="0" cellpadding="0"><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img border="0" height="14" width="1" src="images/trans.gif"><br><a href="../index.html"><img src="images/stl_logo_doc.gif" border="0" height="80" width="80"></a><a href="http://www.stlport.com"><img border="0" height="80" width="461" src="images/t_doc2.gif"></a><br><img src="images/trans.gif" border="0" height="24" width="1"><br><img src="images/black.gif" border="0" height="1" width="776"><br><img src="images/trans.gif" border="0" height="24" width="1"></td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img src="images/trans.gif" border="0" height="10" width="776"></td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776">
+
+        <span class="heading">Notes for SUNPro C++ Users</span>
+        <p>&nbsp;</p>
+	<h2>Common Notes</h2>
+	For all SUN compilers, STLport nables separate compilation with 
+        non-inline template members defined in .c file. That is supposed to
+        help with code bloat, but does not make a big difference for SUN compilers.
+        So, if having any problems with this mode, just turn off _STLP_LINK_TIME_INSTANTIATION switch.
+	Installation: please note that even if you do not use STLport iostreams, you still have to go to "src" subdirectory and do "make" or at least "make prepare" to produce additional .SUNWCCh files necessary for compilation)
+
+        <h2>Notes for SUNPro C++ users</h2>
+        <h2>Known problems</h2>
+        <h4>Compiling</h4>
+        <h2>Known problems</h2>
+        <h4>Bugs (Note for SUNPro C++ 4.2 or before)</h4>
+	<br><b>Note: proposed workaround is implemented for this bug for all relevant STLport code. 
+        However, please be aware of this bug because it might affect your own code.</b>
+        <br>Perry R. Ross 3/12/99<br>
+        pross@platinum.com<br>
+        <p>
+        The SunPro 4.2 compiler has a serious problem handling string literals<br>
+        passed as arguments to inline functions. Each time the dummy argument
+        representing the string literal appears in the function, it receives a
+        new address, just as if you'd typed the literal at that spot in the
+        function. Normally this is harmless except for wasting a bit of<br>
+        memory, but if the function attempts to do any pointer arithmetic, it
+        fails horribly. Here is a small program that duplicates the problem:<br>
+        <br>
+        #include &lt;iostream.h&gt;<br>
+        <br>
+        inline void func(char *s) {<br>
+        // Each of these will print a different address for s<br>
+        // if the arg was a string literal.<br>
+        cout &lt;&lt; "address of " &lt;&lt; s &lt;&lt; " is
+        " &lt;&lt; (int) s &lt;&lt; endl;<br>
+        cout &lt;&lt; "address of " &lt;&lt; s &lt;&lt; " is
+        " &lt;&lt; (int) s &lt;&lt; endl;<br>
+        cout &lt;&lt; "address of " &lt;&lt; s &lt;&lt; " is
+        " &lt;&lt; (int) s &lt;&lt; endl;<br>
+        <br>
+        // This will print a negative number if the arg is a literal.<br>
+        cout &lt;&lt; "the difference between (s+1) and s is "
+        &lt;&lt; ( (s+1) - s) &lt;&lt; endl;<br>
+        }</p>
+        <p>int<br>
+        main(int argc, char *argv[]) {<br>
+        func("hello");<br>
+        char *bye = "goodbye";<br>
+        func(bye);<br>
+        return 0;<br>
+        }<br>
+        <br>
+        Here is a demo program that shows how this impacts STL:<br>
+        <br>
+        #include &lt;iostream.h&gt;<br>
+        #include &lt;string&gt;<br>
+        <br>
+        string str("hello");<br>
+        <br>
+        int main(int argc, char *argv[]) {<br>
+        cout &lt;&lt; str &lt;&lt; endl;<br>
+        return 0;<br>
+        }<br>
+        <br>
+        This will print "hellohello" on a broken compiler version.<br>
+        <br>
+        The fix for this is to add this line to the beginning of func():<br>
+        <br>
+        s = s;<br>
+        <br>
+        This somehow makes the compiler stop creating new copies of the string,<br>
+        and if you compile with -O, it seems to completely optimize away,<br>
+        so there is no runtime penalty. There is a substantial ugliness<br>
+        penalty, though, as this line has to be in every inline function that <br>
+        can be called with a string constant.<br>
+        The fix could be done with the preprocessor macro
+        __SUN_INLINE_STRING_LITERAL_BUG, which should be empty on all platforms
+        but SUNPRO version 4.2 or before (/<b>fbp</b>/this change is not in 3.12
+        yet, as I still hope to find less ugly solution, maybe with compiler
+        flags /<b>fbp</b>/):</p>
+        <ul>
+          <li><b>#define __SUN_INLINE_STRING_LITERAL_BUG(x) x=x;</b>&nbsp; (for
+            Sun CC)</li>
+          <li><b>#define __SUN_INLINE_STRING_LITERAL_BUG(x) ( </b>for other
+            compilers)</li>
+        </ul>
+        <p>.<br>
+        You should be careful passing string literals with SunPro CC (frankly -
+        NEVER do that), as the above bug appear in any inline function (not only
+        template ones).</p>
+        <h4>Compiling</h4>
+        <ul>
+          <li>If your program is multi-threaded, make sure you defined macro <b><tt>_REENTRANT
+            </tt></b>to enable proper synchronization .&nbsp; That will enable
+            use of Solaris threads synchronization support. If you are usizg
+            Pthreads in your program, define <b>_PTHREADS</b> for STLport.</li>
+          <li>If your project has multiple directories structure, it is better
+            to use <b>-ptr</b> option to keep all template databese in one
+            place.</li>
+        </ul>
+        <hr>
+        <h2>Note for SUNPro C++ 4.1 users</h2>
+        <h2>Known problems</h2>
+        <h4>Compiling</h4>
+        C++ 4.1 have problems recognizing types nested in template classes when
+        parsing declarations. For example , the following construct fails
+        (suppose STL vector is a base type for derived_vector ):
+        <p><tt>derived_vector&lt;int&gt; years;</tt> <br>
+        <tt>derived_vector&lt;int&gt;::iterator i;</tt></p>
+        <p>To work around this problem completely, you should repeat those
+        typedefs from base class that you are going to use in any way:</p>
+        <p><tt>template &lt;class T&gt; class derived_vector : public
+        vector&lt;T&gt; {</tt> <br>
+        <tt>typedef vector&lt;T&gt;::iterator iterator;</tt> <br>
+        <tt>...</tt></p>
+        <p>STL code itself is now free of this problem.</p>
+        <p>C++ 4.1 may also suffer from optimization bugs when using exception
+        handling. If your application doesn't use exceptions, you'd better use <tt>-noex</tt>
+        option along with <tt>_STLP_NO_EXCEPTIONS</tt> flag.</p>
+        <h4>Linking</h4>
+        You may have troubles getting linker errors compiling multiple targets
+        in one directory ( for example, running cygnus testsuite). That is a bug
+        in handling Templates.DB dependencies. Known solutions are :
+        <p>a) for one-file tests, specify option <b>-pto</b> <i>(one-file-mode)</i>
+        option to turn off database completely. Option <b>-pts</b><i>(single-file-mode)</i>
+        doesn't fix all problems.</p>
+        <p>b) for complex projects, use separate Templates.DB directories for
+        different targets.</p>
+        <p>&nbsp;</p>
+        <hr width="100%">
+        <h2>Notes for SUNPro C++ 4.0.1 users</h2>
+        <h2>Known problems</h2>
+        <h4>Version problems</h4>
+        If your CC 4.0.1 cannot compile <a href="testsuite.html">testsuite</a>,
+        most likely you are using out-of date version. You should download
+        patches for 4.0.1 (SparcCompilers WorkShop 3.0.1) from SunPro site :
+        <p><b>Solaris 2.x :</b></p>
+        <p><a href="http://www.sun.com/workshop/tnb/sparc2x/patch.html">http://www.sun.com/workshop/tnb/sparc2x/patch.html</a>
+        (SPARC/Solaris 2.x) . You should look for patches 101242-12 &amp;
+        101242-14 ( 101242-12 is required to work with 101242-12).</p>
+        <p><b>Sunos 4.1.x:</b></p>
+        <p><a href="http://www.sun.com/smcc/solaris-migration/cmc.products.970709/XCM/101914-14.tar.Z">http://www.sun.com/smcc/solaris-migration/cmc.products.970709/XCM/101914-14.tar.Z</a><a href="http://www.sun.com/workshop/tnb/sparc1x/patch.html">
+        (SPARC/SunOS 4.1.x)</a></p>
+        <p><a href="http://www.sun.com/workshop/tnb/sparc1x/patch.html">http://www.sun.com/workshop/tnb/sparc1x/patch.html</a>
+        (SPARC/SunOS 4.1.x). Look for 101914-20.</p>
+        <h4>Compiling</h4>
+        C++ 4.0.1 have problems recognizing types nested in template classes
+        when parsing declarations. For example , the following construct fails
+        (suppose STL vector is a base type for derived_vector ):
+        <p><tt><font size="-1">derived_vector&lt;int&gt; years;</font></tt> <br>
+        <tt><font size="-1">derived_vector&lt;int&gt;::iterator i;</font></tt></p>
+        <p>To work around this problem completely, you should repeat those
+        typedefs from base class that you are going to use in any way:</p>
+        <p><tt><font size="-1">template &lt;class T&gt; class derived_vector :
+        public vector&lt;T&gt; {</font></tt> <br>
+        <tt><font size="-1">typedef vector&lt;T&gt;::iterator iterator;</font></tt>
+        <br>
+        <tt><font size="-1">...</font></tt></p>
+        <p>More severe problems arise when given template argument's typedefs
+        are used as template arguments for base class. The example is function
+        adaptors from <b>function.h</b> . Refer to workarounds for binders &amp;
+        composers to see how it can be hanled ( proposed by "Martin
+        Abernethy" &lt;gma@paston.co.uk&gt; ).</p>
+        <p>C++ 4.01 may also suffer from optimization bugs when using exception
+        handling. If your application doesn't use exceptions, you'd better use <tt>-noex</tt>
+        option along with <tt>_STLP_NO_EXCEPTIONS</tt> flag.</p>
+        <h4>Linking</h4>
+        You may still have to use explicit instantiations and/or specific
+        template database controls for complex cases to avoid "<i>unresolved
+        symbol</i>" linker errors.
+        <p>You may have troubles getting linker errors compiling multiple
+        targets in one directory ( for example, running cygnus testsuite). That
+        is a bug in handling Templates.DB dependencies. Known solutions are :</p>
+        <p>a) for one-file tests, specify option <b>-pto</b> <i>(one-file-mode)</i>
+        option to turn off database completely. Option <b>-pts</b><i>(single-file-mode)</i>
+        doesn't fix all problems.</p>
+        <p>b) for complex projects, use separate Templates.DB directories for
+        different targets.</p>
+        <p>&nbsp;</p>
+        <hr>
+        <h2>Migration notes</h2>
+        You should experience no other problems migrating from HP STL to SGI
+        STL.
+        <p>&nbsp;</p>
+        <hr>
+        <h4>Versions prior to 4.1</h4>
+        For info on SUNPro C++ 4.0.1, see README.sunpro401. SUNPro C++ older
+        than 4.0.1 won't compile STL. You have to upgrade.
+
+</td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img src="images/trans.gif" border="0" height="20" width="50"><br><a href="index.html">Table of Contents</a><br></td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img src="images/trans.gif" border="0" height="40" width="80"><br><img src="images/black.gif" border="0" height="1" width="776"></td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img src="images/black.gif" border="0" height="1" width="776"></td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img src="images/trans.gif" border="0" height="5" width="50"><br><span class="copyright">Copyright 2001 by STLport</span><br><img src="images/trans.gif" border="0" height="50" width="80"></td></tr></table></body></html>

@@ -1,0 +1,81 @@
+/*
+ * Copyright (c) 1999 
+ * Boris Fomitchev
+ *
+ * This material is provided "as is", with absolutely no warranty expressed
+ * or implied. Any use is at your own risk.
+ *
+ * Permission to use or copy this software for any purpose is hereby granted 
+ * without fee, provided the above notices are retained on all copies.
+ * Permission to modify the code and to distribute modified code is granted,
+ * provided the above notices are retained, and a notice that the code was
+ * modified is included with the above copyright notice.
+ *
+ */
+
+#ifndef _STLP_CWCTYPE
+# define _STLP_CWCTYPE
+
+# ifndef _STLP_OUTERMOST_HEADER_ID
+#  define _STLP_OUTERMOST_HEADER_ID 0x121
+#  include <stl/_prolog.h>
+# endif
+
+#ifdef __BORLANDC__
+# include <cctype>
+#endif
+
+# if defined (_STLP_USE_NEW_C_HEADERS)
+#  include _STLP_NATIVE_CPP_C_HEADER(cwctype)
+#  if defined  (__MSL__)
+namespace std {
+	typedef wchar_t wctrans_t;
+	wint_t 		towctrans(wint_t c, wctrans_t value);
+	wctrans_t 	wctrans(const char *name);
+}
+#  endif
+# else
+#  include _STLP_NATIVE_C_HEADER(wctype.h)
+# endif
+
+# ifdef _STLP_IMPORT_VENDOR_CSTD
+_STLP_BEGIN_NAMESPACE
+using _STLP_VENDOR_CSTD::wctype_t;
+using _STLP_VENDOR_CSTD::wint_t;
+# ifndef _STLP_NO_CSTD_FUNCTION_IMPORTS
+#  if ! defined (__BORLANDC__)
+using _STLP_VENDOR_CSTD::wctrans_t;
+using _STLP_VENDOR_CSTD::towctrans;
+using _STLP_VENDOR_CSTD::wctrans;
+using _STLP_VENDOR_CSTD::wctype;
+using _STLP_VENDOR_CSTD::iswctype;
+#  endif
+using _STLP_VENDOR_CSTD::iswalnum;
+using _STLP_VENDOR_CSTD::iswalpha;
+using _STLP_VENDOR_CSTD::iswcntrl;
+
+using _STLP_VENDOR_CSTD::iswdigit;
+using _STLP_VENDOR_CSTD::iswgraph;
+using _STLP_VENDOR_CSTD::iswlower;
+using _STLP_VENDOR_CSTD::iswprint;
+using _STLP_VENDOR_CSTD::iswpunct;
+using _STLP_VENDOR_CSTD::iswspace;
+using _STLP_VENDOR_CSTD::iswupper;
+using _STLP_VENDOR_CSTD::iswxdigit;
+
+using _STLP_VENDOR_CSTD::towlower;
+using _STLP_VENDOR_CSTD::towupper;
+#  endif /* _STLP_NO_CSTD_FUNCTION_IMPORTS */
+_STLP_END_NAMESPACE
+#endif /* _STLP_IMPORT_VENDOR_CSTD */
+
+# if (_STLP_OUTERMOST_HEADER_ID == 0x121)
+#  include <stl/_epilog.h>
+#  undef _STLP_OUTERMOST_HEADER_ID
+# endif
+
+#endif /* _STLP_CWCTYPE */
+
+// Local Variables:
+// mode:C++
+// End:

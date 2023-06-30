@@ -1,0 +1,852 @@
+Results of accum1_test:
+sum = 15
+Results of accum2_test:
+prod = 120
+Results of adjdiff0_test:
+1 2 4 8 16 
+1 1 2 4 8 
+Results of adjdiff1_test:
+0 1 4 9 16 25 36 49 64 81 
+0 1 3 5 7 9 11 13 15 17 
+Results of adjdiff2_test:
+1 2 3 4 5 6 7 8 9 10 
+1 2 6 12 20 30 42 56 72 90 
+Results of adjfind0_test:
+No adjacent pairs
+Found adjacent pair of: 1 at offset 3
+Results of adjfind1_test:
+No adjacent pairs
+Found adjacent pair of: 7
+Results of adjfind2_test:
+Found two adjacent strings of equal length: Jack -and- Mike
+Results of advance_test:
+At Beginning: 0
+At Beginning + 5: 5
+Results of alg1_test:
+min(4, 7) = 4
+max('a', 'z') = z
+Results of alg2_test:
+Count of 2s = 3
+Results of alg3_test:
+Count of 2s = 3
+Results of alg4_test:
+1962
+1992
+1999
+2001
+Results of alg5_test:
+1962
+1992
+2001
+1999
+Results of bcompos1_test:
+1 is odd and positive
+Results of bcompos2_test:
+1 is odd and positive
+Results of bind1st1_test:
+1
+2
+Results of bind1st2_test:
+1
+2
+Results of bind2nd1_test:
+1
+2
+4
+Results of bind2nd2_test:
+1
+2
+4
+Results of binsert1_test:
+laurie
+jennifer
+leisa
+Results of binsert2_test:
+laurie
+jennifer
+leisa
+Results of binsrch1_test:
+found 42
+Results of binsrch2_test:
+ff is in labels.
+Results of bnegate1_test:
+1
+4
+7
+9
+Results of bnegate2_test:
+1
+4
+7
+9
+Results of bvec1_test:
+000
+101
+Results of copy1_test:
+ Src: A string to be copied.
+Dest: A string to be copied.
+Results of copy2_test:
+0 1 2 3 4 5 6 7 8 9 
+Results of copy3_test:
+0 1 2 3 4 5 6 7 8 9 
+Results of copy4_test:
+0 1 2 3 4 5 6 7 8 9 
+Results of copyb_test:
+0 1 2 3 4 5 6 7 8 9 
+Results of copyb0_test:
+1 2 3 4 5 
+1 2 3 4 5 
+Results of count0_test:
+Found 4 1's.
+Results of count1_test:
+Found 33 2's.
+Results of countif1_test:
+Found 33 odd elements.
+Results of deque1_test:
+d[0] = 1
+d[1] = 4
+d[2] = 9
+d[3] = 16
+
+d[0] = 4
+d[1] = 9
+d[2] = 25
+Results of divides_test:
+result = 2
+Results of eqlrnge0_test:
+2 can be inserted from before index 4 to before index 8
+Results of eqlrnge1_test:
+Within the collection:
+	0 0 0 1 1 1 2 2 2 3 
+2 can be inserted from before index 6 to before index 9
+Results of eqlrnge2_test:
+Within the collection:
+	aabbccddggghhklllmqqqqssyyzz
+q can be inserted from before index 18 to before index 22
+Results of equal0_test:
+numbers1 is not equal to numbers2
+numbers3 is equal to numbers1
+Results of equal1_test:
+v1 is not equal to v2
+v1 is equal to v2
+Results of equal2_test:
+v2[i] == v1[i] * v1[i]
+Results of equalto_test:
+1
+0
+1
+0
+Results of fill1_test:
+42 42 42 42 42 42 42 42 42 42 
+Results of filln1_test:
+42 42 42 42 42 42 42 42 42 42 
+Results of find0_test:
+Found 25 at offset 5
+Results of find1_test:
+Found 1972 at offset 3
+Results of findif0_test:
+Value 15 at offset 3 is odd
+Results of findif1_test:
+Value 9 at offset 2 is divisible by 3
+Results of finsert1_test:
+leisa
+jennifer
+laurie
+Results of finsert2_test:
+leisa
+jennifer
+laurie
+Results of foreach0_test:
+1 1 2 3 5 8 13 21 34 55 
+Results of foreach1_test:
+0 1 4 9 16 25 36 49 64 81 
+Results of func1_test:
+Number greater than 3 = 2
+Results of func2_test:
+5
+4
+1
+Results of func3_test:
+5
+4
+1
+Results of gener1_test:
+16838 5758 10113 17515 31051 5627 23010 7419 16212 4086 
+Results of gener2_test:
+1 1 2 3 5 8 13 21 34 55 
+Results of genern1_test:
+2749 12767 9084 12060 32225 17543 25089 21183 25137 25566 
+Results of genern2_test:
+1 1 2 3 5 8 13 21 34 55 
+Results of greateq_test:
+4
+3
+2
+1
+Results of greater_test:
+4
+3
+2
+1
+Results of incl0_test:
+numbers1 does not include numbers3
+numbers2 includes numbers3
+Results of incl1_test:
+v1 does not include v2
+v1 includes v2
+Results of incl2_test:
+v1 does not include v2
+v1 includes v2
+Results of inplmrg1_test:
+1 10 42 3 16 32 
+1 3 10 16 32 42 
+Results of inplmrg2_test:
+4 3 2 1 0 4 3 2 1 0 
+4 4 3 3 2 2 1 1 0 0 
+Results of inrprod0_test:
+Inner product = 55
+Results of inrprod1_test:
+Inner product(sum of products) of:
+	1 2 3 
+	3 2 1 
+is: 10
+Results of inrprod2_test:
+Inner product(product of sums):
+	1 2 3 
+	3 2 1 
+is: 64
+Results of insert1_test:
+laurie
+jennifer
+amanda
+saskia
+carrie
+leisa
+Results of insert2_test:
+laurie
+jennifer
+amanda
+saskia
+carrie
+leisa
+Results of iota1_test:
+42 43 44 45 46 47 48 49 50 51 
+Results of istmit1_test:
+Please enter a string: read a string
+Results of iter1_test:
+zippy
+motorboy
+Results of iter2_test:
+zippy
+motorboy
+Results of iter3_test:
+motorboy
+zippy
+Results of iter4_test:
+last element is 3
+first element is 1
+Results of iterswp0_test:
+3 1 2 0 4 5 
+Results of iterswp1_test:
+3 1 2 0 4 5 
+Results of less_test:
+1
+2
+3
+4
+Results of lesseq_test:
+1
+2
+3
+4
+Results of lexcmp1_test:
+shine is before shoe
+Results of lexcmp2_test:
+shoe is after shine
+Results of list1_test:
+1
+4
+9
+16
+36
+Results of list2_test:
+1
+4
+9
+16
+Results of list3_test:
+original: xlxtss
+reversed: sstxlx
+removed: sstl
+uniqued: stl
+sorted: lst
+Results of list4_test:
+123467
+Results of logicand_test:
+0
+1
+0
+0
+Results of logicnot_test:
+count = 2
+Results of logicor_test:
+1
+1
+0
+1
+Results of lwrbnd1_test:
+0 0 0 0 1 1 1 1 2 2 2 2 3 3 3 3 4 4 4 4 
+3 can be inserted at index: 12
+Results of lwrbnd2_test:
+d can be inserted at index: 4
+Results of map1_test:
+m['x'] = 20
+m['x'] = 10
+m['z'] = 0
+m.count('z') = 1
+First insertion successful
+Existing pair c -> 100
+Results of max1_test:
+100
+Results of max2_test:
+shoe
+Results of maxelem1_test:
+56
+Results of maxelem2_test:
+Todd
+Results of merge0_test:
+-5 1 6 13 25 26 36 46 99 101 
+Results of merge1_test:
+0 1 2 3 4 
+3 4 5 6 7 
+0 1 2 3 3 4 4 5 6 7 
+Results of merge2_test:
+10 9 8 7 6 
+7 6 5 4 3 
+10 9 8 7 7 6 6 5 4 3 
+Results of min1_test:
+42
+Results of min2_test:
+shine
+Results of minelem1_test:
+-242
+Results of minelem2_test:
+Brett
+Results of minus_test:
+0
+1
+-1
+5
+Results of mismtch0_test:
+n1 and n2 are the same
+Mismatch at offset: 3
+Results of mismtch1_test:
+v1 and v2 are the same
+mismatch at index: 5
+Results of mismtch2_test:
+n1 and n2 are the same
+mismatch at index: 2
+Results of mkheap0_test:
+19
+13
+11
+10
+5
+4
+Results of mkheap1_test:
+4
+5
+10
+11
+13
+19
+Results of mmap1_test:
+count('X') = 0
+count('X') = 1
+count('X') = 2
+X -> 10
+X -> 20
+Y -> 32
+Erased 2 items
+Results of mmap2_test:
+lower bound:
+3 -> c
+upper bound:
+6 -> f
+Results of modulus_test:
+2
+0
+10
+2
+Results of mset1_test:
+count(42) = 0
+count(42) = 1
+count(42) = 2
+40 Not found
+Found 42
+Erased 2 instances
+Results of mset3_test:
+lower bound = 3
+upper bound = 6
+Results of mset4_test:
+lower bound = 3
+upper bound = 6
+Results of mset5_test:
+Using less_than: 
+1
+3
+6
+9
+Using greater_than: 
+9
+6
+3
+1
+Results of negate_test:
+-1
+-2
+-3
+Results of nequal_test:
+0
+1
+0
+1
+Results of nextprm0_test:
+0 2 1 
+Results of nextprm1_test:
+0 1 2 
+0 2 1 
+1 0 2 
+1 2 0 
+2 0 1 
+2 1 0 
+0 1 2 
+0 2 1 
+1 0 2 
+1 2 0 
+Results of nextprm2_test:
+ABC
+ACB
+BAC
+BCA
+CAB
+CBA
+ABC
+ACB
+BAC
+BCA
+Results of nthelem0_test:
+1 0 2 3 4 5 
+Results of nthelem1_test:
+6 8 5 1 7 4 1 5 2 6 
+1 1 4 2 5 5 6 7 8 6 
+Results of nthelem2_test:
+4 5 4 2 1 7 4 3 1 6 
+6 7 4 4 5 4 3 2 1 1 
+Results of ostmit_test:
+hello
+1524
+Results of pair0_test:
+p.first = 1, p.second = 10
+Results of pair1_test:
+p.first = 1, p.second = 10
+Results of pair2_test:
+p.first = 1
+p.second = 10
+Results of parsrt0_test:
+1 2 3 5 4 6 
+Results of parsrt1_test:
+8 8 5 3 7 6 5 3 2 4 
+2 3 3 4 5 8 8 7 6 5 
+Results of parsrt2_test:
+aa ff dd ee cc bb 
+aa bb cc ff ee dd 
+Results of parsrtc0_test:
+1 2 3 
+Results of parsrtc1_test:
+3 0 4 3 2 8 2 7 7 5 
+0 2 2 3 3 
+Results of parsrtc2_test:
+aa ff dd ee cc bb 
+aa ff dd ee cc bb 
+Results of partsrt0_test:
+1 2 3 5 4 6 
+Results of partsum0_test:
+1 3 6 10 15 21 
+Results of partsum1_test:
+0 1 2 3 4 5 6 7 8 9 
+0 1 3 6 10 15 21 28 36 45 
+Results of partsum2_test:
+1 2 3 4 5 
+1 2 6 24 120 
+Results of pheap1_test:
+1 4 7 20 
+Results of pheap2_test:
+20 7 4 1 
+Results of plus_test:
+total = 77
+Results of pqueue1_test:
+101
+69
+42
+Results of prevprm0_test:
+2 1 0 
+Results of prevprm1_test:
+0 1 2 
+2 1 0 
+2 0 1 
+1 2 0 
+1 0 2 
+0 2 1 
+0 1 2 
+2 1 0 
+2 0 1 
+1 2 0 
+Results of prevprm2_test:
+0 1 2 
+0 2 1 
+1 0 2 
+1 2 0 
+2 0 1 
+2 1 0 
+0 1 2 
+0 2 1 
+1 0 2 
+1 2 0 
+Results of ptition0_test:
+6 1 3 10 12 20 
+Results of ptition1_test:
+19 3 11 14 10 19 8 17 9 6 
+6 3 9 8 10 19 14 17 11 19 
+Results of ptrbinf1_test:
+8
+7
+8
+13
+Results of ptrbinf2_test:
+8
+7
+8
+13
+Results of ptrunf1_test:
+2 is even
+Results of ptrunf2_test:
+2 is even
+Results of queue1_test:
+42
+101
+69
+Results of rawiter_test:
+0
+1
+2
+3
+4
+Results of remcopy1_test:
+1 3 1 3 0 0 
+Results of remcpif1_test:
+2 2 0 0 0 0 
+Results of remif1_test:
+0 0 2 2 2 2 
+Results of remove1_test:
+2 3 2 3 2 3 
+Results of repcpif1_test:
+0 1 2 3 4 0 1 2 3 4 
+0 1 2 3 4 0 1 2 3 4 
+0 42 2 42 4 0 42 2 42 4 
+Results of replace0_test:
+0 1 42 0 1 42 
+Results of replace1_test:
+0 1 2 3 4 0 1 2 3 4 
+0 1 42 3 4 0 1 42 3 4 
+Results of replcpy1_test:
+0 1 42 0 1 42 
+Results of replif1_test:
+0 1 2 3 4 0 1 2 3 4 
+0 42 2 42 4 0 42 2 42 4 
+Results of revbit1_test:
+Results of revbit2_test:
+3
+2
+5
+1
+Results of revcopy1_test:
+0 1 2 3 4 5 
+5 4 3 2 1 0 
+Results of reverse1_test:
+5 4 3 2 1 0 
+Results of reviter1_test:
+Results of reviter2_test:
+3
+2
+5
+1
+Results of rndshuf0_test:
+2 5 4 1 6 3 
+Results of rndshuf1_test:
+0 1 2 3 4 5 6 7 8 9 
+5 8 0 6 3 1 9 2 4 7 
+2 3 4 6 0 8 9 1 5 7 
+5 7 2 9 0 4 8 6 3 1 
+Results of rndshuf2_test:
+0 1 2 3 4 5 6 7 8 9 
+6 9 7 1 2 3 4 5 0 8 
+9 6 5 4 3 7 2 0 1 8 
+6 9 3 5 4 2 8 0 1 7 
+Results of rotate0_test:
+3 4 5 0 1 2 
+Results of rotate1_test:
+0 1 2 3 4 5 6 7 8 9 
+0 1 2 3 4 5 6 7 8 9 
+1 2 3 4 5 6 7 8 9 0 
+3 4 5 6 7 8 9 0 1 2 
+6 7 8 9 0 1 2 3 4 5 
+0 1 2 3 4 5 6 7 8 9 
+5 6 7 8 9 0 1 2 3 4 
+1 2 3 4 5 6 7 8 9 0 
+8 9 0 1 2 3 4 5 6 7 
+6 7 8 9 0 1 2 3 4 5 
+5 6 7 8 9 0 1 2 3 4 
+
+Results of rotcopy0_test:
+3 4 5 0 1 2 
+Results of rotcopy1_test:
+0 1 2 3 4 5 6 7 8 9 
+0 1 2 3 4 5 6 7 8 9 
+1 2 3 4 5 6 7 8 9 0 
+2 3 4 5 6 7 8 9 0 1 
+3 4 5 6 7 8 9 0 1 2 
+4 5 6 7 8 9 0 1 2 3 
+5 6 7 8 9 0 1 2 3 4 
+6 7 8 9 0 1 2 3 4 5 
+7 8 9 0 1 2 3 4 5 6 
+8 9 0 1 2 3 4 5 6 7 
+9 0 1 2 3 4 5 6 7 8 
+
+Results of search0_test:
+v3 not contained in v1
+Found v3 in v2 at offset: 3
+Results of search1_test:
+v1: 0 1 2 3 4 5 6 7 8 9 
+v2: 50 51 52 
+v2 not contained in v1
+v1: 0 1 2 3 4 5 6 7 8 9 
+v2: 4 5 6 
+Found v2 in v1 at offset: 4
+Results of search2_test:
+grades: A B C D F 
+letters:Q E D 
+letters not found in grades
+grades: A B C D F 
+letters:B C D 
+letters found in grades at offset: 1
+Results of set1_test:
+count(42) = 0
+count(42) = 1
+count(42) = 1
+1 elements erased
+Results of set2_test:
+Inserted new element 42
+Existing element = 42
+Results of setdiff0_test:
+18 0 0 0 
+10 17 23 0 
+Results of setdiff1_test:
+v1: 0 1 2 3 4 5 6 7 8 9 
+v2: 7 8 9 10 11 12 13 14 15 16 
+0 1 2 3 4 5 6 
+Results of setdiff2_test:
+word1: A B C D E F G H I J K L M N O 
+word2: L M N O P Q R S T U V W X Y Z 
+A B C D E F G H I J K 
+Results of setintr0_test:
+13 23 0 0 
+Results of setintr1_test:
+v1: 0 1 2 3 4 5 6 7 8 9 
+v2: 7 8 9 10 11 12 13 14 15 16 
+7 8 9 
+Results of setintr2_test:
+word1: A B C D E F G H I J K L M N O 
+word2: L M N O P Q R S T U V W X Y Z 
+L M N O 
+Results of setsymd0_test:
+10 17 18 0 
+Results of setsymd1_test:
+v1: 0 1 2 3 4 5 6 7 8 9 
+v2: 7 8 9 10 11 12 13 14 15 16 
+0 1 2 3 4 5 6 10 11 12 13 14 15 16 
+Results of setsymd2_test:
+word1: A B C D E F G H I J K L M N O 
+word2: L M N O P Q R S T U V W X Y Z 
+A B C D E F G H I J K P Q R S T U V W X Y Z 
+Results of setunon0_test:
+10 13 17 18 23 0 0 
+Results of setunon1_test:
+v1: 0 1 2 3 4 5 6 7 8 9 
+v2: 7 8 9 10 11 12 13 14 15 16 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 
+Results of setunon2_test:
+word1: A B C D E F G H I J K L M N O 
+word2: L M N O P Q R S T U V W X Y Z 
+A B C D E F G H I J K L M N O P Q R S T U V W X Y Z 
+Results of sort1_test:
+-10 1 11 19 42 50 
+Results of sort2_test:
+before: 1 50 -10 11 42 19 
+after: 50 42 19 11 1 -10 
+Results of stack1_test:
+69
+101
+42
+Results of stack2_test:
+69
+101
+42
+Results of stblptn0_test:
+5 6 -2 10 11 20 
+Results of stblptn1_test:
+5 5 2 10 0 12 5 0 0 19 
+5 5 2 10 0 5 0 0 12 19 
+Results of stblsrt1_test:
+-10 1 11 19 42 50 
+Results of stblsrt2_test:
+aa bb cc dd ll qq 
+Results of swap1_test:
+a = 42 b = 19
+a = 19 b = 42
+Results of swprnge1_test:
+World Hello
+Hello World
+Results of times_test:
+total = 70
+Results of trnsfrm1_test:
+5 1 0 -1 -6 -11 
+Results of trnsfrm2_test:
+Hello World!
+Results of ucompos1_test:
+1
+2
+4
+Results of ucompos2_test:
+1
+2
+4
+Results of unegate1_test:
+2
+Results of unegate2_test:
+2
+Results of uniqcpy1_test:
+0 1 2 3 4 0 0 0 
+Results of uniqcpy2_test:
+QQWWEERTTYY
+QQWWEERTTYY
+QWERTY
+Results of unique1_test:
+0 1 2 3 4 2 3 4 
+Results of unique2_test:
+QQWWEERTTYY
+QWERTYRTTYY
+Results of uprbnd1_test:
+0 0 0 0 1 1 1 1 2 2 2 2 3 3 3 3 4 4 4 4 
+3 can be inserted at index: 16
+Results of uprbnd2_test:
+d can be inserted at index: 4
+Results of vec1_test:
+empty = 1
+size = 0
+max_size = 1073741823
+size = 1
+v1[0] = 42
+Results of vec2_test:
+v1 = 32.1 40.5 
+v2 = 3.56 
+v1 = 3.56 
+v2 = 32.1 40.5 
+v2 = 3.56 
+Results of vec3_test:
+v1 = hi
+v2 = ho
+(v1 == v2) = 0
+(v1 < v2) = 1
+Results of vec4_test:
+front = 1
+back = 16, size = 4
+back = 25, size = 5
+back = 16, size = 4
+Results of vec5_test:
+v[0] = 1
+v[1] = 4
+v[2] = 9
+v[3] = 16
+Results of vec6_test:
+v[0] = 1
+v[1] = 4
+v[2] = 9
+v[3] = 16
+v[4] = 25
+v[5] = 36
+
+v[0] = 4
+v[1] = 9
+v[2] = 16
+v[3] = 25
+v[4] = 36
+
+v[0] = 4
+v[1] = 9
+v[2] = 16
+v[3] = 25
+
+v[0] = 4
+v[1] = 25
+
+Results of vec7_test:
+v[0] = 0
+v[1] = 1
+v[2] = 4
+v[3] = 25
+v[4] = 36
+
+v[0] = 0
+v[1] = 1
+v[2] = 4
+v[3] = 9
+v[4] = 16
+v[5] = 25
+v[6] = 36
+
+Results of vec8_test:
+capacity = 0
+capacity = 1
+capacity = 5000
+Results of hmap1_test:
+m['x'] = 20
+m['x'] = 10
+m['z'] = 
+m.count('z') = 1
+First insertion successful
+Existing pair c -> 100
+Results of hmmap1_test:
+count('X') = 0
+count('X') = 1
+count('X') = 2
+X -> 10
+X -> 20
+Y -> 32
+Erased 2 items
+Results of hset2_test:
+Inserted new element 42
+Existing element = 42
+Results of hmset1_test:
+count(42) = 0
+count(42) = 1
+count(42) = 2
+40 Not found
+Found *
+Erased 2 instances
+Results of slist1_test:
+original: xlxtss
+reversed: sstxlx
+removed: sstl
+uniqued: stl
+sorted: lst

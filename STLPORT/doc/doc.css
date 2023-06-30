@@ -1,0 +1,12 @@
+BODY { margin: 0 0; background: #FFFFFF; font-family: "Tahoma", "Helvetica", "Arial", "sans-serif"; }
+
+A:link {font-size: 14px; text-decoration:none; color: #0c70b6;}
+
+A:visited {font-size: 14px; text-decoration:none; color: #0c70b6;}
+
+.copyright { font-size: 10px; font-family: "Tahoma", "Helvetica", "Arial", "sans-serif"; line-height: 12px; color: #999999; }
+
+.bottomNav { font-size: 11px; font-family: "Tahoma", "Helvetica", "Arial", "sans-serif"; text-decoration: none; font-weight: bold; color: #325A30; }
+
+.heading { font-size: 18px; font-family: "Tahoma", "Helvetica", "Arial", "sans-serif";  line-height: 14px; color: #e35a23; }
+

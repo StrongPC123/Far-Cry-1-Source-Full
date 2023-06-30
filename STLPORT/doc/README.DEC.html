@@ -1,0 +1,37 @@
+<html><head><META http-equiv="Content-Type" content="text/html; charset=iso-8859-1"><title>STLport: Notes for DEC CXX Users</title><link href="doc.css" type="text/css" rel="stylesheet"></head><body marginwidth="0" marginheight="0" leftmargin="0" topmargin="0" vlink="#314A30" link="#314A30" text="black" bgcolor="white"><table border="0" cellspacing="0" cellpadding="0"><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img border="0" height="14" width="1" src="images/trans.gif"><br><a href="../index.html"><img src="images/stl_logo_doc.gif" border="0" height="80" width="80"></a><a href="http://www.stlport.com"><img border="0" height="80" width="461" src="images/t_doc2.gif"></a><br><img src="images/trans.gif" border="0" height="24" width="1"><br><img src="images/black.gif" border="0" height="1" width="776"><br><img src="images/trans.gif" border="0" height="24" width="1"></td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img src="images/trans.gif" border="0" height="10" width="776"></td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776">
+
+        <span class="heading">Note for DEC CXX users</span>
+        <hr>
+        <h2>Known problems</h2>
+        <h4>Compiling</h4>
+        DEC CXX require explicit template notation such as <tt>template_class&lt;Param&gt;</tt>
+        where most others (conformant) accept just <tt>template_class</tt>
+        (inside template method bodies, etc):
+        <p><tt>template &lt;class Param&gt; class template_class {</tt> <br>
+        <tt>template_class foo() ; // error for DEC</tt> <br>
+        <tt>template_class&lt;Param&gt; foo() // OK</tt> <br>
+        <tt>.....</tt> <br>
+        <tt>}</tt></p>
+        <p>That is being worked around in this adaptation, but may cause
+        problems when porting template code from other platforms. Use the same
+        name of formal parameter : <tt>Param </tt>in all method's outside
+        definitions.</p>
+        <h4>Linking</h4>
+        Repository handling of this compiler is imperfect, so you may experience
+        various problems on link stage. Linker problems problems are generally
+        of two kinds : unresolved symbols and duplicate symbols. The latter
+        problem was never reported to occur with DEC CXX. The problem with
+        undefined symbols is also may require manual intervention. General rule
+        is : if you get "unresolved symbol" errors, explicit
+        instantiation will most likely help, for example:
+        <p><tt>Unresolved:</tt> <br>
+        <tt>__default_alloc_template&lt;0, 0&gt;::allocate(unsigned long)</tt> <br>
+        <tt>__default_alloc_template&lt;0, 0&gt;::deallocate(void*, unsigned
+        long) &gt;</tt></p>
+        <p>To work around this problem, just instantiate <tt>__alloc&lt;0,0&gt;</tt>
+        explicitly in some module:</p>
+        <p><tt>template class __default_alloc_template&lt;0,0&gt;;</tt></p>
+        <p>Another way to solve this problem may be use of <tt>-pts </tt>compiler
+        option, but I'm not sure it works in all cases.</p>
+
+</td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img src="images/trans.gif" border="0" height="20" width="50"><br><a href="index.html">Table of Contents</a><br></td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img src="images/trans.gif" border="0" height="40" width="80"><br><img src="images/black.gif" border="0" height="1" width="776"></td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img src="images/black.gif" border="0" height="1" width="776"></td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img src="images/trans.gif" border="0" height="5" width="50"><br><span class="copyright">Copyright 2001 by STLport</span><br><img src="images/trans.gif" border="0" height="50" width="80"></td></tr></table></body></html>

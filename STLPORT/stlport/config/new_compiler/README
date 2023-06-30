@@ -1,0 +1,12 @@
+
+README file for "stlport/config/new_compiler"
+
+
+This directory contains "configure" script which will help you to 
+create config file for a new compiler. Please refer to HTML documentation
+at www.stlport.org/doc for details. 
+NOTE : stlconf.h produced by "configure" is NOT suitable for immediate use
+as platform-specific configuration file as it does not set several important
+macros. However, it is a good starting point.
+
+Boris Fomitchev.

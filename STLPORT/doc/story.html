@@ -1,0 +1,43 @@
+<html><head><META http-equiv="Content-Type" content="text/html; charset=iso-8859-1"><title>STLport: History</title><link href="doc.css" type="text/css" rel="stylesheet"></head><body marginwidth="0" marginheight="0" leftmargin="0" topmargin="0" vlink="#314A30" link="#314A30" text="black" bgcolor="white"><table border="0" cellspacing="0" cellpadding="0"><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img border="0" height="14" width="1" src="images/trans.gif"><br><a href="../index.html"><img src="images/stl_logo_doc.gif" border="0" height="80" width="80"></a><a href="http://www.stlport.com"><img border="0" height="80" width="461" src="images/t_doc2.gif"></a><br><img src="images/trans.gif" border="0" height="24" width="1"><br><img src="images/black.gif" border="0" height="1" width="776"><br><img src="images/trans.gif" border="0" height="24" width="1"></td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img src="images/trans.gif" border="0" height="10" width="776"></td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776">
+
+<span class="heading">STLport Story</span>
+
+<address class="FOOTNOTE">by Boris Fomitchev</address>
+
+<h3>First Step</h3>
+
+I started STLport project in Jan'97, shortly after first release of SGI STL.
+Back then, I was working for <a href="http://www.elbrus.ru">Moscow Center for SPARC Technology</a>.
+I made a quick-and-dirty port of SGI STL for gcc-2.7.2 and SUN CC 4.2 for internal use. 
+Very proud of myself, I submitted my changes back to SGI team. 
+Matt Austern (still leading library developer) was kind enough to respond to me. 
+However, I realized SGI team were not interested at all in extra portability. So I built my own Web page and started distributing my humble port from there.
+I named it "Adapted SGI STL" (weird, huh ?). Reasonable name appeared only a few months later.
+
+
+<h3>"With a little help..."</h3>
+
+Once the initial port availability was announced, I started to receive strong feedback from
+users. Many people happened to be interested and willing to contribute to this development.
+With their help, it only took me a few months to port it to most popular compilers.
+At the same time, I started to realize infinite potential for improvements in this library.   
+
+<h3>Going Ahead</h3>
+
+The first time STLport went ahead of SGI STL was introduction of exception handling support. Dave Abrahams implemented exception-safe standard containers and algorithms on the base of SGI STL to present to ANSI C++ Commitee. At the time, no EH guarantees/requirements were present in the draft standard. Dave proposed to merge his changes into STLport, for maintenance reasons, which I happily did. In the meantime, SGI somewhat independently implemented the exception-safety guarantees in the proposal Dave brought before the committee with Greg Colvin. The STLport exception-handling testsuite was instrumental in getting these implementations right. Dave and Greg managed to get the proposal approved by the standards commitee, due in part to the existence of two working implementations. 
+
+<h3>Making the Difference</h3>
+
+Debug Mode was implemented after "Safe STL" (debug version of HP STL, by Cay Horstmann) in 1997. It is still the feature which makes STLport different from all other standard libraries. No matter how simple the idea of this mode might look, it took several complete redesigns to get it to its current level. I am very pleased to be able to present this unique feature.
+ 
+<h3>Letting Go</h3>
+
+I have to confess that there was a time when I was serious about selling STLport as a commercial library.
+It took me two years to get a slight idea of how the industry works. So I decided to stick with open source.
+
+<h3>Growing Up</h3>
+Using open source component does not necessarily mean relying on self-maintenance and volunteers good will. 
+In 1999, STLport Consulting, Inc. was founded. We offer STLport support contracts as well as custom development and
+other consulting services. You may reach us at <a href="mailto:consulting@stlport.com">consulting@stlport.com</a>.
+
+</td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img src="images/trans.gif" border="0" height="20" width="50"><br><a href="index.html">Table of Contents</a><br></td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img src="images/trans.gif" border="0" height="40" width="80"><br><img src="images/black.gif" border="0" height="1" width="776"></td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img src="images/black.gif" border="0" height="1" width="776"></td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img src="images/trans.gif" border="0" height="5" width="50"><br><span class="copyright">Copyright 2001 by STLport</span><br><img src="images/trans.gif" border="0" height="50" width="80"></td></tr></table></body></html>

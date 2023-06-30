@@ -1,0 +1,246 @@
+/******************************************************************/
+/*                                                                */
+/*  File.........: gs-sdk-doc.css                                 */
+/*  Author.......: Guillaume Plante <gplante@ubisoft.com>         */
+/*  Description..: Cascading style sheet description file for     */
+/*                 the GameService SDKs documentation generation. */
+/******************************************************************/
+
+BODY { 
+	font-family: Verdana,Helvetica;
+	font-size: 12px;
+	background: white; 
+	color: black
+	}
+
+/* target links */
+A:link	   { BACKGROUND: none; COLOR: #273C56; FONT-FAMILY: Verdana, Helvetica; TEXT-DECORATION: underline}
+A:active   { BACKGROUND: none; COLOR: #273C56; FONT-FAMILY: Verdana, Helvetica; TEXT-DECORATION: underline}
+A:visited  { BACKGROUND: none; COLOR: #273C56; FONT-FAMILY: Verdana, Helvetica; TEXT-DECORATION: underline}
+A:hover    { BACKGROUND: none; COLOR: #7B7B7B; FONT-FAMILY: Verdana, Helvetica; TEXT-DECORATION: underline}
+
+/* Header 1 */
+H1 {
+	text-align: center;
+	color: #273C56;
+	font-family: Verdana,Helvetica;
+	font-size : 14px
+}
+
+/* Header 2 */
+H2 {
+	font-family: Verdana,Helvetica;
+	color: #273C56;
+	font-size : 14px
+}
+
+/* Header 3 */
+H3 {
+	font-family: Verdana,Helvetica;
+	color: #273C56;
+	font-size : 10px
+}
+
+
+
+CAPTION { font-weight: bold }
+
+DIV.qindex { width: 100%;
+             background-color: #AAAEC4;
+             border: 4px solid #AAAEC4;
+             text-align: center;
+             margin-bottom: 2px;
+             color: #2A2F61;
+             font-size : 12px
+}
+
+A.qindex { text-decoration: none; font-weight: bold; color: #2A2F61 }
+A.qindex:visited { text-decoration: none; font-weight: bold; color: #2A2F61 }
+A.qindex:hover { text-decoration: none; background-color: #DEE0EC }
+
+A.qindexHL { text-decoration: none; font-weight: bold; background-color: #ACAFC6; color: #ffffff }
+A.qindexHL:hover { text-decoration: none; background-color: #ACAFC6; color: #ffffff }
+A.qindexHL:visited { text-decoration: none; background-color: #ACAFC6; color: #ffffff }
+
+A.el { text-decoration: none; font-weight: bold }
+A.elRef { font-weight: bold }
+A.code { text-decoration: none; font-weight: normal; color: #4444ee }
+A.codeRef { font-weight: normal; color: #4444ee }
+
+DL.el { margin-left: -1cm }
+DIV.fragment {
+	width: 98%;
+	border: 1px solid #CCCCCC;
+	background-color: #f5f5f5;
+	padding-left: 4px;
+	margin: 4px
+}
+
+DIV.ah { background-color: black; font-weight: bold; color: #ffffff; margin-bottom: 3px; margin-top: 3px }
+
+/* function prototype */
+TD.md { font-size: 12px; background-color: #f2f2ff; font-weight: bold }
+
+/* arguments name */
+TD.mdname {font-size: 11px; background-color: #f2f2ff; font-weight: bold; color: #7B7B7B }
+
+/* arguments name (from a predefined type) */
+TD.mdname1 {font-size: 11px; background-color: #f2f2ff; font-weight: bold; color: #7B7B7B }
+
+DIV.groupHeader {color: #476A91; margin-left: 14px; margin-top: 12px; margin-bottom: 6px; font-weight: bold;font-family: Verdana,Helvetica;font-size: 12px }
+DIV.groupText { color: black; margin-left: 12px; font-style: italic; font-size: smaller; font-family: Verdana,Helvetica;font-size: 12px }
+
+
+/* file list - file names */	
+TD.indexkey { 
+   background-color: #eeeeff; 
+   font-weight: bold; 
+   padding-right  : 10px;
+   font-size	  : 12px; 
+   padding-top    : 2px; 
+   padding-left   : 10px; 
+   padding-bottom : 2px; 
+   margin-left    : 0px; 
+   margin-right   : 0px; 
+   margin-top     : 2px; 
+   margin-bottom  : 2px  
+}
+
+/* file list - file description */
+TD.indexvalue { 
+   background-color: #eeeeff; 
+   font-style: italic; 
+   padding-right  : 10px; 
+   padding-top    : 2px; 
+   font-size	  : 12px; 
+   padding-left   : 10px; 
+   padding-bottom : 2px; 
+   margin-left    : 0px; 
+   margin-right   : 0px; 
+   margin-top     : 2px; 
+   margin-bottom  : 2px  
+}
+
+TR.memlist {
+   font-size	   : 12px; 
+   background-color: #f0f0f0
+}
+
+
+/* source code definitions */
+P.formulaDsp { text-align: center; }
+IMG.formulaDsp { }
+IMG.formulaInl { vertical-align: middle; }
+SPAN.keyword       { color: #008000 }
+SPAN.keywordtype   { color: #604020 }
+SPAN.keywordflow   { color: #e08000 }
+SPAN.comment       { color: #800000 }
+SPAN.preprocessor  { color: #806020 }
+SPAN.stringliteral { color: #002080 }
+SPAN.charliteral   { color: #008080 }
+
+
+.mdTable {
+	border: 1px solid #868686;
+	background-color: #f2f2ff;
+	font-size	  : 12px
+}
+
+.mdRow {
+	padding: 8px 20px;
+	font-size	  : 12px
+}
+
+.mdescLeft {
+	font-size: 11px;
+	font-family: Verdana,Helvetica;
+	background-color: #FAFAFA;
+	padding-left: 8px;
+	border-top: 1px none #E0E0E0;
+	border-right: 1px none #E0E0E0;
+	border-bottom: 1px none #E0E0E0;
+	border-left: 1px none #E0E0E0;
+	margin: 0px
+}
+
+
+.mdescRight {
+	font-size: 11px;
+	font-family: Verdana,Helvetica;
+	font-style: italic;
+	background-color: #FAFAFA;
+	padding-left: 4px;
+	border-top: 1px none #E0E0E0;
+	border-right: 1px none #E0E0E0;
+	border-bottom: 1px none #E0E0E0;
+	border-left: 1px none #E0E0E0;
+	margin: 0px;
+	padding-bottom: 0px;
+	padding-right: 8px
+}
+
+
+.memItemLeft {
+	padding: 1px 0px 0px 8px;
+	margin: 4px;
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	border-top-style: solid;
+	border-top-color: #E0E0E0;
+	border-right-color: #E0E0E0;
+	border-bottom-color: #E0E0E0;
+	border-left-color: #E0E0E0;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	background-color: #FAFAFA;
+	font-family: Verdana,Helvetica;
+	font-size: 11px
+}
+
+
+.memItemRight {
+	padding: 1px 0px 0px 8px;
+	margin: 4px;
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	border-top-style: solid;
+	border-top-color: #E0E0E0;
+	border-right-color: #E0E0E0;
+	border-bottom-color: #E0E0E0;
+	border-left-color: #E0E0E0;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	background-color: #FAFAFA;
+	font-family: Verdana,Helvetica;
+	font-size: 11px
+}
+
+
+.search     { color: #0000ee;
+              font-weight: bold;
+              font-size: 11px
+}
+
+
+FORM.search { font-size: 10px;
+              margin-bottom: 0px;
+              margin-top: 0px
+}
+
+
+INPUT.search { font-size: 10px;
+               color: #000080;
+               font-weight: normal;
+               background-color: #eeeeff
+}
+
+TD.tiny      { font-size: 10px
+}
+
+

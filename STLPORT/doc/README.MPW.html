@@ -1,0 +1,35 @@
+<html><head><META http-equiv="Content-Type" content="text/html; charset=iso-8859-1"><title>STLport: Note for Apple MPW users</title><link href="doc.css" type="text/css" rel="stylesheet"></head><body marginwidth="0" marginheight="0" leftmargin="0" topmargin="0" vlink="#314A30" link="#314A30" text="black" bgcolor="white"><table border="0" cellspacing="0" cellpadding="0"><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img border="0" height="14" width="1" src="images/trans.gif"><br><a href="../index.html"><img src="images/stl_logo_doc.gif" border="0" height="80" width="80"></a><a href="http://www.stlport.com"><img border="0" height="80" width="461" src="images/t_doc2.gif"></a><br><img src="images/trans.gif" border="0" height="24" width="1"><br><img src="images/black.gif" border="0" height="1" width="776"><br><img src="images/trans.gif" border="0" height="24" width="1"></td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img src="images/trans.gif" border="0" height="10" width="776"></td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776">
+
+<span class="heading">Note for Apple MPW users</span>
+
+<p align="right">
+03/22/2001<br>
+Tsutomu Yoshida<br>
+Minokamo, Japan
+</p>
+
+<h2>Installation</h2>
+For the installation of STLport package, please follow the instruction contained in <b>"ReadMe.MPW"</b> located in <b>"test:regression:"</b> folder. 
+The MPW shell scripts embedded in this document will set up the shell variable <b>"{STL}"</b> which points to the main STLport package folder "stlport:". 
+A small MPW shell script named <b>"!STL_Folder_SetUp"</b> will be placed in "{MPW}StartUp Items:" so that this "{STL}" will be automatically reestablished 
+at the subsequent MPW startups.
+The script also set up <b>an alias to MPW's "{CIncludes}"</b> at the same level as "stlport:" which is used to look up the native C headers refered from STLport.
+
+<p>The installation script will build and install stlport library binary which contains iostreams code and other commonly used class binaries.
+The library binaries are stored in <b>"{STL}:lib:"</b> folder with the names:<br>
+<ul>
+<li><b>"STLportLib.68K.DBG.o"</b> :  68K (SCpp) with debugging code</li>
+<li><b>"STLportLib.68K.o"</b> :  68K (SCpp) without debugging code</li>
+<li><b>"STLportLib.PPC.DBG.o"</b> :  PPC (MrCpp) with debugging code</li>
+<li><b>"STLportLib.PPC.o"</b> :  PPC (MrCpp) without debugging code</li>
+</ul>
+<br>
+For the sample setup of makefile utilizing STLport and accompanying library binary, please refer to:<br>
+<ul>
+<li>"{STL}:src:MrCpp.mak" </li>
+<li>"{STL}:test:regression:MrCpp.mak"</li>
+<li>"{STL}:src:SCpp.mak"</li>
+<li>"{STL}:test:regression:SCpp.mak"</li>
+</ul>
+</p>
+</td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img src="images/trans.gif" border="0" height="20" width="50"><br><a href="index.html">Table of Contents</a><br></td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img src="images/trans.gif" border="0" height="40" width="80"><br><img src="images/black.gif" border="0" height="1" width="776"></td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img src="images/black.gif" border="0" height="1" width="776"></td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img src="images/trans.gif" border="0" height="5" width="50"><br><span class="copyright">Copyright 2001 by STLport</span><br><img src="images/trans.gif" border="0" height="50" width="80"></td></tr></table></body></html>

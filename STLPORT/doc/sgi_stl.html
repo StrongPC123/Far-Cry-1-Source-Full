@@ -1,0 +1,86 @@
+<html><head><META http-equiv="Content-Type" content="text/html; charset=iso-8859-1"><title>STLport: SGI STL Overview</title><link href="doc.css" type="text/css" rel="stylesheet"></head><body marginwidth="0" marginheight="0" leftmargin="0" topmargin="0" vlink="#314A30" link="#314A30" text="black" bgcolor="white"><table border="0" cellspacing="0" cellpadding="0"><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img border="0" height="14" width="1" src="images/trans.gif"><br><a href="../index.html"><img src="images/stl_logo_doc.gif" border="0" height="80" width="80"></a><a href="http://www.stlport.com"><img border="0" height="80" width="461" src="images/t_doc2.gif"></a><br><img src="images/trans.gif" border="0" height="24" width="1"><br><img src="images/black.gif" border="0" height="1" width="776"><br><img src="images/trans.gif" border="0" height="24" width="1"></td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img src="images/trans.gif" border="0" height="10" width="776"></td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776">
+
+        <span class="heading">SGI Standard Template Library</span>
+
+        <h3>Overview</h3>
+        <p class="FOOTNOTE"><i>Silicon Graphics has made its implementation of the C++
+        Standard Template Library freely available to the public. The SGI
+        Standard Template Library features thread safety, improved memory
+        utilization, improved run-time efficiency, and new data structures,
+        including hash tables; it also includes a comprehensive conceptual
+        taxonomy of generic software components.</i></p>
+        <p><font size="1">cite from SF BA <a href="http://www.centeradv.com">Center
+        for Advanced Technology</a>&nbsp; C++&nbsp; ISG presentation</font></p>
+        Visit SGI <a href="http://www.sgi.com/Technology/STL">Standard
+        Template Library User's Guide</a> page to learn more about SGI STL. That
+        excellent site contain full STL documentation, distribution to download
+        and useful links.
+        <h3><a name="efficiency"></a>Efficiency</h3>
+        <p>These are major improvements that make SGI STL the most efficient:</p>
+        <ul>
+          <li><b>Rich set of algorithm specializations.</b> What everybody is
+            looking for in generic library,&nbsp; it's the <b>generic interface</b>,
+            not the <b>same code</b> for every type instantiated. Utilizing&nbsp;
+            <b>__type_traits</b> technique, SGI STL optimizes <b>copy(T*, T*, T*
+            )</b> call for <b>T</b> being builtin type into a single <b>memmove()</b>
+            call, and so on.</li>
+          <li><b>Node allocators.</b> SGI STL implements allocator&lt;T&gt; as a
+            wrapper over&nbsp; thread-safe node allocator engine which is
+            fine-tuned to handle allocation of relatively small chunks of memory
+            very efficiently.</li>
+        </ul>
+        <h3><b><a name="thread_safety"></a>Thread safety </b></h3>
+        <p>Please refer to SGI site for <a href="http://www.sgi.com/Technology/STL/thread_safety.html">detailed
+        document on thread safety</a>. Basic points are:</p>
+        <ul>
+          <li><b>simultaneous read access to the same container from within
+            separate threads is safe;</b></li>
+          <li><b>simultaneous access to distinct containers (not shared between
+            threads) is safe;</b></li>
+          <li><b>user must provide synchronization for all accesses if any
+            thread may modify shared container.</b></li>
+        </ul>
+        <h3><b>Exception safety</b></h3>
+        <p>SGI STL is exception-safe. STLport <a href="exception_safety.html">document
+        on exception safety</a> describes STL guarantees and client requirements.</p>
+
+        <h3><b>Standard compliance</b></h3>
+        <p>SGI STL is committed to close compliance to C++ Standard. With the
+        latest release in Feb 99 and experimental effort continued through 2000, 
+        it incorporates the latest "word of the standard".</p>
+        <h3><b>Reliability</b></h3>
+        <p>SGI STL is being shipped with GNU C++ since 2.8.x.<br>
+        That is enormous amount of installations which provide solid feedback to
+        get bugs fixed.</p>
+        <h3><b>Important extensions</b></h3>
+        <p>SGI STL provides the following extensions compared to the C++
+        standard:</p>
+        <ul>
+          <li><b>hashed containers:</b> hash_set, hash_multiset, hash_map,
+            hash_multimap.</li>
+	  <li><b>single-linked lists</b> - often very reasonable tradeoff.</li>
+          <li><b>ropes:</b> alternative representation of strings which scale
+            well to very large strings</li>
+        </ul>
+        <h3>Public distribution</h3>
+        <p>SGI STL is being distributed free of charge and restrictions:</p>
+        <p><b><i>Copyright (c) 1994 Hewlett-Packard Company</i></b></p>
+        <p><b><i>Copyright (c) 1996,97 Silicon Graphics Computer Systems, Inc.</i></b></p>
+        <p><i><font size="2">Permission to use, copy, modify, distribute and
+        sell this software and its documentation for any purpose is hereby
+        granted without fee, provided that the above copyright notice appear in
+        all copies and that both that copyright notice and this permission
+        notice appear in supporting documentation. Hewlett-Packard Company makes
+        no representations about the suitability of this software for any
+        purpose. It is provided "as is" without express or implied
+        warranty.</font></i></p>
+        <p><i><font size="2">Permission to use, copy, modify, distribute and
+        sell this software and its documentation for any purpose is hereby
+        granted without fee, provided that the above copyright notice appear in
+        all copies and that both that copyright notice and this permission
+        notice appear in supporting documentation. Silicon Graphics makes no
+        representations about the suitability of this software for any purpose.
+        It is provided "as is" without express or implied warranty.</font></i>
+		</p>
+
+</td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img src="images/trans.gif" border="0" height="20" width="50"><br><a href="index.html">Table of Contents</a><br></td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img src="images/trans.gif" border="0" height="40" width="80"><br><img src="images/black.gif" border="0" height="1" width="776"></td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img src="images/black.gif" border="0" height="1" width="776"></td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img src="images/trans.gif" border="0" height="5" width="50"><br><span class="copyright">Copyright 2001 by STLport</span><br><img src="images/trans.gif" border="0" height="50" width="80"></td></tr></table></body></html>

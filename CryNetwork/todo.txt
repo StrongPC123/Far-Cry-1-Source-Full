@@ -1,0 +1,10 @@
+//CRYNET TODO
+DONE !! -disconnection timeout(echo request)
+DONE !! -level loading stuff
+done-server search routine
+we can say...done-integration with the framework
+-test and finish ping computation
+-lag test ,"rate adaptive" packet building, "ping adaptive" timeouts
+-implement unrealiable only packets(not acknwoleged)
+-master server
+

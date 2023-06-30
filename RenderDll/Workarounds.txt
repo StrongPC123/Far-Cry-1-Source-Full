@@ -1,0 +1,34 @@
+NVidia bad things in Direct3D9:
+1. Clip planes aren't nativelly supported by GPU/Driver
+   --- WorkAround solution in FarCry: using texkill PS instructions to emulate clip-planes
+2. Fog should be calculated in Vertex shader. Otherwise fog doesn't work at all.
+   --- WorkAround solution in FarCry: automatic modificating of vertex shader - adding subroutine for fog calculation (depth based)
+3. D3DRS_FOGSTART and D3DRS_FOGEND should be set to 0 and 1 respectivelly in case of programmable pipeline (otherwise fog calculations in vertex shader aren't correct)
+   --- WorkAround solution in FarCry: automatic set fog range to [0,1] if vertex shader is using
+4. Depth textures aren't working properly (for some reason several depth textures work but other ones don't work (randomly)
+   --- WorkAround solution in FarCry: use 2D projected shadow maps or mixed Depth/2D shadow maps with pixel shader 2.0
+5. non-power of two dynamic DEFAULTPOOL textures aren't working properly (after locking this texture Direct3D returns pointer to non-valid buffer)
+   --- WorkAround solution in FarCry: do not use DEFAULTPOOL textures for video playing (using MANAGED textures instead)
+6. On GF2 MX if we create non-power of two 32 bit texture (doesn't matter MANAGED or DEFAULT pool) alpha-blending stops working everywhere
+   --- WorkAround solution in FarCry: use 16 bit textures instead of 32 bit to play video
+7. On GF3 (NV20) projected textures aren't supported with EMBM
+   --- WorkAround solution in FarCry: use projection dividing on per-vertex level in vertex shader for GF3 GPU's instead of per-pixel projection (geometry should be highly tesselated)
+8. On GF2 MX stream offset cannot excites 65536 (undocumented). Otherwise geometry cannot be rendered (just disappears)
+   --- WorkAround solution in FarCry: limit vertex pools by size 65536 bytes
+9. Performance of pixel shaders 2.0 is very poor in compare to ps.1.1 performance on NV3X GPU's (especially if float variable types are used)
+   --- WorkAround solution in FarCry: use ps.1.1 shaders on NV3X whenever it possible and using half types instead of floats
+10. Full scene AA isn't visible in windowed mode, though it slowdowns a lot. So definetelly it's enabled but just not visible
+   --- WorkAround solution in FarCry: use FSAA only in fullscreen mode
+11. NVidia CG compiler is very buggy (produces wrong assembly code sometime for pixel shaders 1.1 and 2.0). The same problems in Microsoft's HLSL compiler
+   --- WorkAround solution in FarCry: in some cases we have to write assembly shaders instead of CG (currently we have 66 hand-written assembly shaders because of bugs in compilers),
+                                      some time just reordering of operations in CG code helps to produce proper output assembly pixel-shader code
+
+ATI bad things in OpenGL:
+1. GL_EXT_texture_rectangle extension doesn't work (though driver reports about supporting it,
+   when we try to enable it we get error message invalid enum)
+   --- WorkAround solution in FarCry: no solution currently. We have to disable playing of video files on ATI in OpenGL
+2. OpenGL driver is much slower then Direct3D 
+   --- WorkAround solution in FarCry: Use Direct3D renderer only on ATI video cards
+3. Fog doesn't work when we use programmable pipeline
+   --- WorkAround solution in FarCry: no solution currently (Using Direct3D renderer only on ATI video cards)
+   

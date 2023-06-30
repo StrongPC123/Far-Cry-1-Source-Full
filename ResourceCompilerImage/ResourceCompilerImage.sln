@@ -1,0 +1,43 @@
+Microsoft Visual Studio Solution File, Format Version 7.00
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ResourceCompilerImage", "ResourceCompilerImage.vcproj", "{D14A0696-91EE-4B82-A07C-895871E9DE13}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ResourceCompiler", "..\ResourceCompiler\ResourceCompiler.vcproj", "{2F21D2A8-925B-4A73-A32B-D111580614C3}"
+EndProject
+Global
+	GlobalSection(SourceCodeControl) = preSolution
+		SccNumberOfProjects = 3
+		SccProjectUniqueName0 = ..\\ResourceCompiler\\ResourceCompiler.vcproj
+		SccProjectName0 = \u0022$/Tools\u0022,\u0020UPQBAAAA
+		SccLocalPath0 = ..
+		CanCheckoutShared = false
+		SccProjectFilePathRelativizedFromConnection0 = ResourceCompiler\\
+		SccProjectName1 = \u0022$/Tools/ResourceCompilerImage\u0022,\u0020IQYBAAAA
+		SccLocalPath1 = .
+		SccProvider1 = MSSCCI:Microsoft\u0020Visual\u0020SourceSafe
+		CanCheckoutShared = false
+		SolutionUniqueID = {24EA7B82-80F7-44C1-91EF-EAC2382F4C8C}
+		SccProjectUniqueName2 = ResourceCompilerImage.vcproj
+		SccLocalPath2 = .
+		CanCheckoutShared = false
+	EndGlobalSection
+	GlobalSection(SolutionConfiguration) = preSolution
+		ConfigName.0 = Debug
+		ConfigName.1 = Release
+	EndGlobalSection
+	GlobalSection(ProjectDependencies) = postSolution
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{D14A0696-91EE-4B82-A07C-895871E9DE13}.Debug.ActiveCfg = Debug|Win32
+		{D14A0696-91EE-4B82-A07C-895871E9DE13}.Debug.Build.0 = Debug|Win32
+		{D14A0696-91EE-4B82-A07C-895871E9DE13}.Release.ActiveCfg = Release|Win32
+		{D14A0696-91EE-4B82-A07C-895871E9DE13}.Release.Build.0 = Release|Win32
+		{2F21D2A8-925B-4A73-A32B-D111580614C3}.Debug.ActiveCfg = Debug|Win32
+		{2F21D2A8-925B-4A73-A32B-D111580614C3}.Debug.Build.0 = Debug|Win32
+		{2F21D2A8-925B-4A73-A32B-D111580614C3}.Release.ActiveCfg = Release|Win32
+		{2F21D2A8-925B-4A73-A32B-D111580614C3}.Release.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

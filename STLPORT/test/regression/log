@@ -1,0 +1,746 @@
+MAKE Version 5.2  Copyright (c) 1987, 2000 Borland
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c vec6.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+vec6.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c vec5.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+vec5.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c vec4.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+vec4.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c vec3.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+vec3.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c vec8.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+vec8.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c stat.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+stat.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c uprbnd2.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+uprbnd2.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c uprbnd1.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+uprbnd1.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c unique2.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+unique2.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c unique1.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+unique1.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c uniqcpy2.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+uniqcpy2.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c uniqcpy1.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+uniqcpy1.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c unegate2.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+unegate2.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c unegate1.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+unegate1.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c ucompos2.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+ucompos2.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c ucompos1.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+ucompos1.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c trnsfrm2.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+trnsfrm2.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c trnsfrm1.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+trnsfrm1.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c times.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+times.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c swprnge1.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+swprnge1.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c swap1.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+swap1.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c stl_test.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+stl_test.cpp:
+Error ..\..\stlport\stl/_deque.h 132: Not an allowed type in template _STL::_Buf_size_traits<_Tp,_BufSize>
+Error ..\..\stlport\stl/_deque.h 132: Too many error or warning messages in template _STL::_Buf_size_traits<_Tp,_BufSize>
+*** 2 errors in Compile ***
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c stblsrt2.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+stblsrt2.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c stblsrt1.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+stblsrt1.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c stblptn1.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+stblptn1.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c stblptn0.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+stblptn0.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c vec1.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+vec1.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c rotcopy0.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+rotcopy0.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c stack1.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+stack1.cpp:
+Error ..\..\stlport\stl/_deque.h 132: Not an allowed type in template _STL::_Buf_size_traits<_Tp,_BufSize>
+Error ..\..\stlport\stl/_deque.h 132: Too many error or warning messages in template _STL::_Buf_size_traits<_Tp,_BufSize>
+*** 2 errors in Compile ***
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c sort2.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+sort2.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c sort1.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+sort1.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c setunon2.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+setunon2.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c setunon1.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+setunon1.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c setunon0.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+setunon0.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c setsymd2.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+setsymd2.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c setsymd1.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+setsymd1.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c setsymd0.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+setsymd0.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c setintr2.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+setintr2.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c setintr1.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+setintr1.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c setintr0.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+setintr0.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c setdiff2.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+setdiff2.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c setdiff1.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+setdiff1.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c setdiff0.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+setdiff0.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c set2.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+set2.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c set1.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+set1.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c search2.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+search2.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c search1.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+search1.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c search0.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+search0.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c rotcopy1.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+rotcopy1.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c stack2.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+stack2.cpp:
+Error ..\..\stlport\stl/_deque.h 132: Not an allowed type in template _STL::_Buf_size_traits<_Tp,_BufSize>
+Error ..\..\stlport\stl/_deque.h 132: Too many error or warning messages in template _STL::_Buf_size_traits<_Tp,_BufSize>
+*** 2 errors in Compile ***
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c ptrunf1.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+ptrunf1.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c rotate0.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+rotate0.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c rndshuf2.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+rndshuf2.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c rndshuf1.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+rndshuf1.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c rndshuf0.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+rndshuf0.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c reviter2.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+reviter2.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c reviter1.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+reviter1.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c reverse1.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+reverse1.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c revcopy1.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+revcopy1.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c revbit2.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+revbit2.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c revbit1.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+revbit1.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c replif1.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+replif1.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c replcpy1.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+replcpy1.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c replace1.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+replace1.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c replace0.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+replace0.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c repcpif1.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+repcpif1.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c remove1.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+remove1.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c remif1.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+remif1.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c remcpif1.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+remcpif1.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c remcopy1.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+remcopy1.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c rawiter.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+rawiter.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c queue1.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+queue1.cpp:
+Error ..\..\stlport\stl/_deque.h 132: Not an allowed type in template _STL::_Buf_size_traits<_Tp,_BufSize>
+Error ..\..\stlport\stl/_deque.h 132: Too many error or warning messages in template _STL::_Buf_size_traits<_Tp,_BufSize>
+*** 2 errors in Compile ***
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c ptrunf2.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+ptrunf2.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c rotate1.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+rotate1.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c pair0.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+pair0.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c ptrbinf1.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+ptrbinf1.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c ptition1.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+ptition1.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c ptition0.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+ptition0.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c prevprm2.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+prevprm2.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c prevprm1.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+prevprm1.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c prevprm0.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+prevprm0.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c pqueue1.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+pqueue1.cpp:
+Error ..\..\stlport\stl/_deque.h 132: Not an allowed type in template _STL::_Buf_size_traits<_Tp,_BufSize>
+Error ..\..\stlport\stl/_deque.h 132: Too many error or warning messages in template _STL::_Buf_size_traits<_Tp,_BufSize>
+*** 2 errors in Compile ***
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c plus.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+plus.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c pheap2.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+pheap2.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c pheap1.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+pheap1.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c partsum2.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+partsum2.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c partsum1.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+partsum1.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c partsum0.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+partsum0.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c partsrt0.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+partsrt0.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c parsrtc2.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+parsrtc2.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c parsrtc1.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+parsrtc1.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c parsrtc0.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+parsrtc0.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c parsrt2.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+parsrt2.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c parsrt1.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+parsrt1.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c parsrt0.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+parsrt0.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c pair2.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+pair2.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c pair1.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+pair1.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c ptrbinf2.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+ptrbinf2.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c minelem1.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+minelem1.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c nthelem2.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+nthelem2.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c nthelem1.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+nthelem1.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c nthelem0.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+nthelem0.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c nextprm2.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+nextprm2.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c nextprm1.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+nextprm1.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c nextprm0.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+nextprm0.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c nequal.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+nequal.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c negate.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+negate.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c mset5.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+mset5.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c mset4.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+mset4.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c mset3.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+mset3.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c mset1.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+mset1.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c modulus.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+modulus.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c mmap2.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+mmap2.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c mmap1.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+mmap1.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c mkheap1.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+mkheap1.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c mkheap0.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+mkheap0.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c mismtch2.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+mismtch2.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c mismtch1.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+mismtch1.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c mismtch0.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+mismtch0.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c minus.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+minus.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c minelem2.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+minelem2.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c ostmit.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+ostmit.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c iterswp1.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+iterswp1.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c min1.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+min1.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c merge2.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+merge2.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c merge1.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+merge1.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c merge0.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+merge0.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c maxelem2.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+maxelem2.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c maxelem1.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+maxelem1.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c max2.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+max2.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c max1.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+max1.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c map1.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+map1.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c lwrbnd2.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+lwrbnd2.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c lwrbnd1.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+lwrbnd1.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c logicor.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+logicor.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c logicnot.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+logicnot.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c logicand.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+logicand.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c list4.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+list4.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c list3.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+list3.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c list2.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+list2.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c list1.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+list1.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c lexcmp2.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+lexcmp2.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c lexcmp1.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+lexcmp1.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c lesseq.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+lesseq.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c less.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+less.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c min2.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+min2.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c greater.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+greater.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c iter4.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+iter4.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c iter3.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+iter3.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c iter2.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+iter2.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c iter1.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+iter1.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c istmit1.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+istmit1.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c iota1.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+iota1.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c insert2.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+insert2.cpp:
+Error ..\..\stlport\stl/_deque.h 132: Not an allowed type in template _STL::_Buf_size_traits<_Tp,_BufSize>
+Error ..\..\stlport\stl/_deque.h 132: Too many error or warning messages in template _STL::_Buf_size_traits<_Tp,_BufSize>
+*** 2 errors in Compile ***
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c insert1.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+insert1.cpp:
+Error ..\..\stlport\stl/_deque.h 132: Not an allowed type in template _STL::_Buf_size_traits<_Tp,_BufSize>
+Error ..\..\stlport\stl/_deque.h 132: Too many error or warning messages in template _STL::_Buf_size_traits<_Tp,_BufSize>
+*** 2 errors in Compile ***
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c inrprod2.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+inrprod2.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c inrprod1.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+inrprod1.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c inrprod0.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+inrprod0.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c inplmrg2.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+inplmrg2.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c inplmrg1.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+inplmrg1.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c incl2.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+incl2.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c incl1.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+incl1.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c incl0.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+incl0.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c iterswp0.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+iterswp0.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c eqlrnge2.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+eqlrnge2.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c genern2.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+genern2.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c genern1.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+genern1.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c gener2.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+gener2.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c gener1.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+gener1.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c func3.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+func3.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c func2.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+func2.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c func1.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+func1.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c foreach1.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+foreach1.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c foreach0.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+foreach0.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c finsert2.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+finsert2.cpp:
+Error ..\..\stlport\stl/_deque.h 132: Not an allowed type in template _STL::_Buf_size_traits<_Tp,_BufSize>
+Error ..\..\stlport\stl/_deque.h 132: Too many error or warning messages in template _STL::_Buf_size_traits<_Tp,_BufSize>
+*** 2 errors in Compile ***
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c finsert1.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+finsert1.cpp:
+Error ..\..\stlport\stl/_deque.h 132: Not an allowed type in template _STL::_Buf_size_traits<_Tp,_BufSize>
+Error ..\..\stlport\stl/_deque.h 132: Too many error or warning messages in template _STL::_Buf_size_traits<_Tp,_BufSize>
+*** 2 errors in Compile ***
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c findif1.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+findif1.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c findif0.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+findif0.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c find1.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+find1.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c find0.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+find0.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c filln1.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+filln1.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c fill1.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+fill1.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c equalto.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+equalto.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c equal2.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+equal2.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c equal1.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+equal1.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c equal0.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+equal0.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c greateq.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+greateq.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c binsrch1.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+binsrch1.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c eqlrnge0.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+eqlrnge0.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c divides.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+divides.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c deque1.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+deque1.cpp:
+Error ..\..\stlport\stl/_deque.h 132: Not an allowed type in template _STL::_Buf_size_traits<_Tp,_BufSize>
+Error ..\..\stlport\stl/_deque.h 132: Too many error or warning messages in template _STL::_Buf_size_traits<_Tp,_BufSize>
+*** 2 errors in Compile ***
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c countif1.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+countif1.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c count1.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+count1.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c count0.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+count0.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c copyb0.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+copyb0.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c copyb.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+copyb.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c copy4.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+copy4.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c copy3.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+copy3.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c copy2.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+copy2.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c copy1.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+copy1.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c bvec1.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+bvec1.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c bnegate2.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+bnegate2.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c bnegate1.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+bnegate1.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c binsrch2.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+binsrch2.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c eqlrnge1.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+eqlrnge1.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c accum1.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+accum1.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c binsert1.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+binsert1.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c bind2nd2.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+bind2nd2.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c bind2nd1.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+bind2nd1.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c bind1st1.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+bind1st1.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c bind1st2.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+bind1st2.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c bcompos2.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+bcompos2.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c bcompos1.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+bcompos1.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c alg5.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+alg5.cpp:
+Error ..\..\stlport\stl/_deque.h 132: Not an allowed type in template _STL::_Buf_size_traits<_Tp,_BufSize>
+Error ..\..\stlport\stl/_deque.h 132: Too many error or warning messages in template _STL::_Buf_size_traits<_Tp,_BufSize>
+*** 2 errors in Compile ***
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c alg4.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+alg4.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c alg3.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+alg3.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c alg2.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+alg2.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c alg1.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+alg1.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c advance.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+advance.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c adjfind2.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+adjfind2.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c adjfind1.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+adjfind1.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c adjfind0.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+adjfind0.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c adjdiff2.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+adjdiff2.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c adjdiff1.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+adjdiff1.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c adjdiff0.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+adjdiff0.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c accum2.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+accum2.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c binsert2.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+binsert2.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c hmap1.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+hmap1.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c hmmap1.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+hmmap1.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c hset2.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+hset2.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib -n -c hmset1.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+hmset1.cpp:
+	c:\lang\Borland\Bc502\bin\..\BIN\bcc32 -estl_test.exe -w- -j1 -I.;..\..\stlport\BC50;..\..\stlport;c:\lang\Borland\Bc502\bin\..\include; -Od -v -N -x -xp -tWC -D_RTLDLL;NO_STRICT;USEPACKAGES;_DEBUG; -L..\..\lib vec2.obj  vec7.obj  vec6.obj  vec5.obj  vec4.obj  vec3.obj  vec8.obj  stat.obj  uprbnd2.obj  uprbnd1.obj  unique2.obj  unique1.obj  uniqcpy2.obj  uniqcpy1.obj  unegate2.obj  unegate1.obj  ucompos2.obj  ucompos1.obj  trnsfrm2.obj  trnsfrm1.obj  times.obj  swprnge1.obj  swap1.obj  stl_test.obj  stblsrt2.obj  stblsrt1.obj  stblptn1.obj  stblptn0.obj  vec1.obj  rotcopy0.obj  stack1.obj  sort2.obj  sort1.obj  setunon2.obj  setunon1.obj  setunon0.obj  setsymd2.obj  setsymd1.obj  setsymd0.obj  setintr2.obj  setintr1.obj  setintr0.obj  setdiff2.obj  setdiff1.obj  setdiff0.obj  set2.obj  set1.obj  search2.obj  search1.obj  search0.obj  rotcopy1.obj  stack2.obj  ptrunf1.obj  rotate0.obj  rndshuf2.obj  rndshuf1.obj  rndshuf0.obj  reviter2.obj  reviter1.obj  reverse1.obj  revcopy1.obj  revbit2.obj  revbit1.obj  replif1.obj  replcpy1.obj  replace1.obj  replace0.obj  repcpif1.obj  remove1.obj  remif1.obj  remcpif1.obj  remcopy1.obj  rawiter.obj  queue1.obj  ptrunf2.obj  rotate1.obj  pair0.obj  ptrbinf1.obj  ptition1.obj  ptition0.obj  prevprm2.obj  prevprm1.obj  prevprm0.obj  pqueue1.obj  plus.obj  pheap2.obj  pheap1.obj  partsum2.obj  partsum1.obj  partsum0.obj  partsrt0.obj  parsrtc2.obj  parsrtc1.obj  parsrtc0.obj  parsrt2.obj  parsrt1.obj  parsrt0.obj  pair2.obj  pair1.obj  ptrbinf2.obj  minelem1.obj  nthelem2.obj  nthelem1.obj  nthelem0.obj  nextprm2.obj  nextprm1.obj  nextprm0.obj  nequal.obj  negate.obj  mset5.obj  mset4.obj  mset3.obj  mset1.obj  modulus.obj  mmap2.obj  mmap1.obj  mkheap1.obj  mkheap0.obj  mismtch2.obj  mismtch1.obj  mismtch0.obj  minus.obj  minelem2.obj  ostmit.obj  iterswp1.obj  min1.obj  merge2.obj  merge1.obj  merge0.obj  maxelem2.obj  maxelem1.obj  max2.obj  max1.obj  map1.obj  lwrbnd2.obj  lwrbnd1.obj  logicor.obj  logicnot.obj  logicand.obj  list4.obj  list3.obj  list2.obj  list1.obj  lexcmp2.obj  lexcmp1.obj  lesseq.obj  less.obj  min2.obj  greater.obj  iter4.obj  iter3.obj  iter2.obj  iter1.obj  istmit1.obj  iota1.obj  insert2.obj  insert1.obj  inrprod2.obj  inrprod1.obj  inrprod0.obj  inplmrg2.obj  inplmrg1.obj  incl2.obj  incl1.obj  incl0.obj  iterswp0.obj  eqlrnge2.obj  genern2.obj  genern1.obj  gener2.obj  gener1.obj  func3.obj  func2.obj  func1.obj  foreach1.obj  foreach0.obj  finsert2.obj  finsert1.obj  findif1.obj  findif0.obj  find1.obj  find0.obj  filln1.obj  fill1.obj  equalto.obj  equal2.obj  equal1.obj  equal0.obj  greateq.obj  binsrch1.obj  eqlrnge0.obj  divides.obj  deque1.obj  countif1.obj  count1.obj  count0.obj  copyb0.obj  copyb.obj  copy4.obj  copy3.obj  copy2.obj  copy1.obj  bvec1.obj  bnegate2.obj  bnegate1.obj  binsrch2.obj  eqlrnge1.obj  accum1.obj  binsert1.obj  bind2nd2.obj  bind2nd1.obj  bind1st1.obj  bind1st2.obj  bcompos2.obj  bcompos1.obj  alg5.obj  alg4.obj  alg3.obj  alg2.obj  alg1.obj  advance.obj  adjfind2.obj  adjfind1.obj  adjfind0.obj  adjdiff2.obj  adjdiff1.obj  adjdiff0.obj  accum2.obj  binsert2.obj  hmap1.obj hmmap1.obj hset2.obj hmset1.obj   slist1.cpp string1.cpp bitset1.cpp
+Borland C++ 5.2 for Win32 Copyright (c) 1993, 1997 Borland International
+Error: Could not find file 'stl_test.obj'
+Error: Could not find file 'stack1.obj'
+Error: Could not find file 'stack2.obj'
+Error: Could not find file 'queue1.obj'
+Error: Could not find file 'pqueue1.obj'
+Error: Could not find file 'insert2.obj'
+Error: Could not find file 'insert1.obj'
+Error: Could not find file 'finsert2.obj'
+Error: Could not find file 'finsert1.obj'
+Error: Could not find file 'deque1.obj'
+Error: Could not find file 'alg5.obj'
+slist1.cpp:
+string1.cpp:
+bitset1.cpp:
+Error ..\..\stlport\stl/_bitset.h 339: Not an allowed type in template _STL::__bitset<_Nb,_WordT>
+Error ..\..\stlport\stl/_bitset.h 339: Too many error or warning messages in template _STL::__bitset<_Nb,_WordT>
+*** 2 errors in Compile ***

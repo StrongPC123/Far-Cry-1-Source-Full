@@ -1,0 +1,49 @@
+/*
+ * Copyright (c) 1999 
+ * Boris Fomitchev
+ *
+ * This material is provided "as is", with absolutely no warranty expressed
+ * or implied. Any use is at your own risk.
+ *
+ * Permission to use or copy this software for any purpose is hereby granted 
+ * without fee, provided the above notices are retained on all copies.
+ * Permission to modify the code and to distribute modified code is granted,
+ * provided the above notices are retained, and a notice that the code was
+ * modified is included with the above copyright notice.
+ *
+ */
+
+# include _STLP_NATIVE_HEADER(complex)
+
+# if defined (_STLP_USE_OWN_NAMESPACE)
+_STLP_BEGIN_NAMESPACE
+
+using _STLP_COMPLEX_NAMESPACE::complex;
+
+using _STLP_COMPLEX_NAMESPACE::real;
+using _STLP_COMPLEX_NAMESPACE::imag;
+using _STLP_COMPLEX_NAMESPACE::abs;
+using _STLP_COMPLEX_NAMESPACE::arg;
+using _STLP_COMPLEX_NAMESPACE::norm;
+
+using _STLP_COMPLEX_NAMESPACE::conj;
+using _STLP_COMPLEX_NAMESPACE::polar;
+
+using _STLP_COMPLEX_NAMESPACE::cos;
+using _STLP_COMPLEX_NAMESPACE::cosh;
+using _STLP_COMPLEX_NAMESPACE::exp;
+using _STLP_COMPLEX_NAMESPACE::log;
+using _STLP_COMPLEX_NAMESPACE::log10;
+using _STLP_COMPLEX_NAMESPACE::pow;
+using _STLP_COMPLEX_NAMESPACE::sin;
+using _STLP_COMPLEX_NAMESPACE::sinh;
+using _STLP_COMPLEX_NAMESPACE::sqrt;
+using _STLP_COMPLEX_NAMESPACE::tan;
+using _STLP_COMPLEX_NAMESPACE::tanh;
+
+_STLP_END_NAMESPACE
+# endif /* USE_OWN_NAMESPACE */
+
+// Local Variables:
+// mode:C++
+// End:

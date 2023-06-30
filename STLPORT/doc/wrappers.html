@@ -1,0 +1,52 @@
+<html><head><META http-equiv="Content-Type" content="text/html; charset=iso-8859-1"><title>STLport: Wrappers Technique</title><link href="doc.css" type="text/css" rel="stylesheet"></head><body marginwidth="0" marginheight="0" leftmargin="0" topmargin="0" vlink="#314A30" link="#314A30" text="black" bgcolor="white"><table border="0" cellspacing="0" cellpadding="0"><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img border="0" height="14" width="1" src="images/trans.gif"><br><a href="../index.html"><img src="images/stl_logo_doc.gif" border="0" height="80" width="80"></a><a href="http://www.stlport.com"><img border="0" height="80" width="461" src="images/t_doc2.gif"></a><br><img src="images/trans.gif" border="0" height="24" width="1"><br><img src="images/black.gif" border="0" height="1" width="776"><br><img src="images/trans.gif" border="0" height="24" width="1"></td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img src="images/trans.gif" border="0" height="10" width="776"></td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776">
+
+
+        <span class="heading">Wrapper Technique in STLport</span>
+<p>
+        Considerable point of non-portability was the lack of default
+        template class parameters in many compilers. C++ template syntax doesn't
+        allow an easy way to hide that behind any macro magic.
+        <br>STLport uses wrapper technique to work around that:<br>
+        Full functionality for <i>'container'</i> is implemented via class <i>'__container__'</i>.
+</p>
+        <p>For example:</p>
+        <pre><tt>#ifdef _STLP_DEFAULT_TYPE_PARAM
+template &lt;class T, class Alloc = alloc&gt;
+#else
+#&nbsp; define vector __vector
+template &lt;class T, class Alloc&gt;
+#endif
+class vector {
+public:
+......
+#ifdef _STLP_DEFAULT_TYPE_PARAM
+define __vector__ vector
+# else
+template &lt;class T&gt;
+class vector : public __vector__&lt;T,alloc&gt;&nbsp;
+{
+.....
+#define __vector__ __vector
+# endif /* _STLP_DEFAULT_TYPE_PARAM */</tt></pre>
+        So, you are provided with two versions of container: with and without
+        default parameters. It buys you a way to access full functionality while
+        not breaking code using the short notation. <br>
+        If you wish to specify the allocator parameter, use <tt>__vector__</tt>.
+        For default alloc parameter, use <tt>vector</tt>. <br>
+        I would recommend that you <tt>#define</tt> some alias for <tt>__vector__</tt>,
+        to be able to switch easily. <br>
+        If you don't use different allocators, don't bother.
+	<p><b>New in STLport 3.2:</b><br>
+	<tt>_STLP_MINIMUM_DEFAULT_TEMPLATE_PARAMS</tt> switch is introduced for user to take control
+        of wrappers behavior with classes that have more than one default template argument. With this switch defined,
+	STLport will use minimum set of default arguments on  template classes that have more than one - 
+        for example map&lt;&gt;, set&lt;&gt;. 
+        This is supposed to help compiling existing standard code which use shortest notation.</p>
+
+        <p>Here is the list of compilers that cannot handle <b>dependant</b>
+        default template parameters:<br>
+        SunPro CC, BC++ 4.52, VC++ 4.2, xlC 3.1.4, DEC C++ 5.5, Visual Age C++
+        3.0.</p>
+
+
+</td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img src="images/trans.gif" border="0" height="20" width="50"><br><a href="index.html">Table of Contents</a><br></td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img src="images/trans.gif" border="0" height="40" width="80"><br><img src="images/black.gif" border="0" height="1" width="776"></td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img src="images/black.gif" border="0" height="1" width="776"></td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img src="images/trans.gif" border="0" height="5" width="50"><br><span class="copyright">Copyright 2001 by STLport</span><br><img src="images/trans.gif" border="0" height="50" width="80"></td></tr></table></body></html>

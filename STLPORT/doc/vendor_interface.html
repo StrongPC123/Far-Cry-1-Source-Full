@@ -1,0 +1,48 @@
+<html><head><META http-equiv="Content-Type" content="text/html; charset=iso-8859-1"><title>STLport: Native C++ Library Interface</title><link href="doc.css" type="text/css" rel="stylesheet"></head><body marginwidth="0" marginheight="0" leftmargin="0" topmargin="0" vlink="#314A30" link="#314A30" text="black" bgcolor="white"><table border="0" cellspacing="0" cellpadding="0"><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img border="0" height="14" width="1" src="images/trans.gif"><br><a href="../index.html"><img src="images/stl_logo_doc.gif" border="0" height="80" width="80"></a><a href="http://www.stlport.com"><img border="0" height="80" width="461" src="images/t_doc2.gif"></a><br><img src="images/trans.gif" border="0" height="24" width="1"><br><img src="images/black.gif" border="0" height="1" width="776"><br><img src="images/trans.gif" border="0" height="24" width="1"></td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img src="images/trans.gif" border="0" height="10" width="776"></td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776">
+
+
+        <span class="heading">STLport and Vendor's C++ Library</span>
+        <p>Modern compilers come with more or less complete ANSI standard C++
+        library.&nbsp; <a name="native"></a>Below, term "<b>native</b>"
+        is being used to refer to standard C++ headers and object code libraries
+        supplied with the compiler.</p>
+
+        <p>The problem that arises when you want to use STLport with them, is
+        that putting STLport into namespace <b>std::</b> may violate <b>ODR</b>(One
+        Definition Rule). This can happen if some parts of <a href="#native">native</a>
+        library (such as <b>string</b>, <b>locale, iostream</b>) are
+        instantiated already and <b>compiled into</b> native runtime C++ support
+        libraries.</p> <br>
+
+        Example : Visual C++ 6.x
+
+        <p> In practice, if the compiler supplies&nbsp; new-style <b>&lt;iostream&gt;,</b>
+        you have this problem almost for sure - typically that means you have
+        some <b>&lt;string&gt;</b> stuff compiled into native C++ object
+        library. The clash can happen even if you do not utilize new-style
+        iostreams.</p>
+
+	<p>Even if you use STLport with its own iostreams, which means your code do not 
+	use any part of native C++ standard library, you may still encounter clashes at
+	link stage. Just magine using 3rd-party lib which was compiled with
+	native library.<br> </p>
+	<p><b>To resolve this namespace conflict, after long experiments,
+	it was decided to put STLport into its own namespace "_STL::"</b>.
+	<br>
+        This provides seamless drop-in compatibility and ensures no conflicts 
+       are ever possible.</p>
+
+        <p>To provide more portability for your code and to make sure 
+        you use <b>_STL::</b> components,
+	not the native <b>std::</b> one, <i>STLport provides macro redefinition 
+        of <b>std::</b> into <b>_STL::</b></i>. 
+        This is completely transparent to the user. </p>
+	<p>
+        As STLport code uses namespace different from <b>std::</b>, 
+        it never clashes with native library - neither at compile nor at link time.
+	</p>
+       <p>For the most modern compilers which implements Koenig lookup properly, "wrapper mode" w/o STLport iostreams may not be available due to ambiguities during namespace lookup. Example: gcc-3.0.
+		</p>
+
+
+</td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img src="images/trans.gif" border="0" height="20" width="50"><br><a href="index.html">Table of Contents</a><br></td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img src="images/trans.gif" border="0" height="40" width="80"><br><img src="images/black.gif" border="0" height="1" width="776"></td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img src="images/black.gif" border="0" height="1" width="776"></td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img src="images/trans.gif" border="0" height="5" width="50"><br><span class="copyright">Copyright 2001 by STLport</span><br><img src="images/trans.gif" border="0" height="50" width="80"></td></tr></table></body></html>

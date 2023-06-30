@@ -1,0 +1,52 @@
+<html><head><META http-equiv="Content-Type" content="text/html; charset=iso-8859-1"><title>STLport: Testsuite</title><link href="doc.css" type="text/css" rel="stylesheet"></head><body marginwidth="0" marginheight="0" leftmargin="0" topmargin="0" vlink="#314A30" link="#314A30" text="black" bgcolor="white"><table border="0" cellspacing="0" cellpadding="0"><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img border="0" height="14" width="1" src="images/trans.gif"><br><a href="../index.html"><img src="images/stl_logo_doc.gif" border="0" height="80" width="80"></a><a href="http://www.stlport.com"><img border="0" height="80" width="461" src="images/t_doc2.gif"></a><br><img src="images/trans.gif" border="0" height="24" width="1"><br><img src="images/black.gif" border="0" height="1" width="776"><br><img src="images/trans.gif" border="0" height="24" width="1"></td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img src="images/trans.gif" border="0" height="10" width="776"></td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776">
+
+        <span class="heading">STLport Test Suite</span>
+<p>
+        <font size="1"><em><strong>by Boris Fomitchev</strong></em></font>
+</p>
+        <h2>Abstract</h2>
+        <p><b>STLport test suite performs extensive test of</b> <b>basic STLport
+        functionality</b>.<br>
+        One of the problems one is faced when deciding whether using STL is the
+        question of reliability. It's a common place when compiler crashes on
+        templates.<br>
+        Obvious question is - how can I be sure the compiler produces valid code
+        when it does <b>not</b> crash ?&nbsp; <br>
+        This test suite answers to this question. It doesn't use too complex
+        construct with STL items. But it does instantiate about every item and
+        checks if it works properly.</p>
+        <h2>The Story</h2>
+        <p>This test suite is derived from <a href="http://www.cygnus.com">Cygnus
+        Solutions</a> STL test suite, which is based on <a href="http://www.objectspace.com">ObjectSpace
+        </a>STL examples. The changes that have been made mostly involve
+        restructuring. You can run a single short test for particular STL
+        construct , or try to compile them all and link to single executable.
+        You may also test if your compiler can handle extremely long source
+        files by compiling a single source including all others.</p>
+        <h2>Portability</h2>
+        <p>Makefiles for most supported compilers are provided with the suite. Look for <i>.mak</i>
+        files in the distribution. It should be not difficult to adjust one of
+        them to your compiler.</p>
+        <h2>How To</h2>
+        <p>The test suite comes in directory <b>test/eh</b> with your STLport
+        distribution.<br>
+        You may have to edit appropriate makefile to fit your compiler and
+        include directories . <br>
+        After you've done, try "<i>make check</i>". This target is
+        output (<i>stl_test.out</i>) of single executable containing all the
+        tests. <br>
+        Compare it with <i>stl_test.exp</i> output. There should be no
+        differences. Note that some tests use random number generators. <i>stl_test.exp</i>
+        is for those having <b>lrand48()</b> function. If your configuration
+        uses <b>rand() </b>function, you should compare the result with <i>stl_test.rand.exp</i>.
+        Obviously, <b>there is no guarantee for matching of different rand()
+        implementations</b>.<br>
+        If some test fails to compile, you may try "make <i>test_name</i>.out"
+        to produce single test executable and run it.</p>
+        <h3>Linux (glibc)&nbsp;note</h3>
+        <p>GNU&nbsp;libc, being used widely on Linux platforms, has different
+        random generator implementation than one used on most UNIX platforms.
+        You should ignore the output difference of tests using random generator.
+				</p>
+
+</td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img src="images/trans.gif" border="0" height="20" width="50"><br><a href="index.html">Table of Contents</a><br></td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img src="images/trans.gif" border="0" height="40" width="80"><br><img src="images/black.gif" border="0" height="1" width="776"></td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img src="images/black.gif" border="0" height="1" width="776"></td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img src="images/trans.gif" border="0" height="5" width="50"><br><span class="copyright">Copyright 2001 by STLport</span><br><img src="images/trans.gif" border="0" height="50" width="80"></td></tr></table></body></html>

@@ -1,0 +1,76 @@
+<html><head><META http-equiv="Content-Type" content="text/html; charset=iso-8859-1"><title>STLport: Note for PowerSoft's Power++ Users</title><link href="doc.css" type="text/css" rel="stylesheet"></head><body marginwidth="0" marginheight="0" leftmargin="0" topmargin="0" vlink="#314A30" link="#314A30" text="black" bgcolor="white"><table border="0" cellspacing="0" cellpadding="0"><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img border="0" height="14" width="1" src="images/trans.gif"><br><a href="../index.html"><img src="images/stl_logo_doc.gif" border="0" height="80" width="80"></a><a href="http://www.stlport.com"><img border="0" height="80" width="461" src="images/t_doc2.gif"></a><br><img src="images/trans.gif" border="0" height="24" width="1"><br><img src="images/black.gif" border="0" height="1" width="776"><br><img src="images/trans.gif" border="0" height="24" width="1"></td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img src="images/trans.gif" border="0" height="10" width="776"></td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776">
+
+        <span class="heading">Note for PowerSoft's Power++ Users</span>
+
+        <hr>
+        <h2>Known problems</h2>
+        <p><tt>Subject: Re: SGI STL Adaptation Page updated (STLport 2.031
+        release) <br>
+        Date: Wed, 1 Oct 1997 16:30:48 -0400 <br>
+        From: Doni_Grande@ethyl.com (Doni Grande) </tt><br>
+        </p>
+        <p><tt>This version (2.031) seems to work with Powersoft's Power++ 2.0
+        compiler, which is based on the Watcom C/C++ 11.0 compiler. The STL
+        debug mode still won't compile, but everything else seems to work.
+        Power++ does some memory management in debug mode that needs to be
+        worked around, and there is a nuisance warning message that needs to be
+        suppressed. I generally load all the STL headers I use in a single
+        header file, and do the workarounds needed there. The STL.HPP file I use
+        is below. </tt></p>
+        <p><tt>// Power++ 2.0 include file <br>
+        // <br>
+        // stl.hpp -- Include all the files in the standard SGI STL distribution
+        <br>
+        // </tt></p>
+        <p><tt>#ifndef _STL_HPP_INCLUDED <br>
+        #define _STL_HPP_INCLUDED</tt></p>
+        <p><tt>// Define symbol to indicate SGI STL <br>
+        #ifndef __SGISTL <br>
+        #define __SGISTL <br>
+        #endif</tt></p>
+        <p><tt>// The following turns off warning 549: <br>
+        // 'sizeof' operand contains compiler generated information // This
+        warning remains disabled after loading this file.</tt></p>
+        <p><tt>#pragma warning 549 9;</tt></p>
+        <p><tt>/* Redefine the C++ "new" and "delete"
+        operators to not go through the component library's memory checker. */ <br>
+        #if defined( _DEBUG ) &amp;&amp; defined( new ) <br>
+        # undef new <br>
+        # undef delete <br>
+        # define _REDEFINE_WNEW <br>
+        #endif</tt></p>
+        <p><tt>// If can get STL debug working, use the following <br>
+        // #if defined( _DEBUG ) <br>
+        // # define _STLP_DEBUG 1 // #endif</tt></p>
+        <p><tt>// Get rid of Watcom's min and max macros <br>
+        #undef min <br>
+        #undef max</tt></p>
+        <p><tt>// Get configuration defines #include "stlcomp.h"</tt></p>
+        <p><tt>#include "algo.h" <br>
+        #include "bvector.h" <br>
+        #include "deque.h" <br>
+        #include "heap.h" <br>
+        #include "list.h" <br>
+        #include "map.h" <br>
+        #include "multimap.h" <br>
+        #include "multiset.h" <br>
+        #include "pair.h" <br>
+        #include "set.h" <br>
+        #include "stack.h" <br>
+        #include "tempbuf.h" <br>
+        #include "vector.h"</tt></p>
+        <p><tt>// SGI-specific additions <br>
+        #include "rope.h" <br>
+        #include "slist.h" <br>
+        #include "function.h" <br>
+        #include "hash_map.h" <br>
+        #include "hash_set.h"</tt></p>
+        <p><tt>#ifdef _REDEFINE_WNEW <br>
+        # include "wnew.hpp" <br>
+        # undef _REDEFINE_WNEW <br>
+        #endif</tt></p>
+        <p><tt>#endif</tt></p>
+        <p>&nbsp;</p>
+        <hr>
+
+</td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img src="images/trans.gif" border="0" height="20" width="50"><br><a href="index.html">Table of Contents</a><br></td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img src="images/trans.gif" border="0" height="40" width="80"><br><img src="images/black.gif" border="0" height="1" width="776"></td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img src="images/black.gif" border="0" height="1" width="776"></td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img src="images/trans.gif" border="0" height="5" width="50"><br><span class="copyright">Copyright 2001 by STLport</span><br><img src="images/trans.gif" border="0" height="50" width="80"></td></tr></table></body></html>

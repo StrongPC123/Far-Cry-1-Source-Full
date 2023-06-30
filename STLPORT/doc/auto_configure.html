@@ -1,0 +1,88 @@
+<html><head><META http-equiv="Content-Type" content="text/html; charset=iso-8859-1"><title>STLport: Running configure</title><link href="doc.css" type="text/css" rel="stylesheet"></head><body marginwidth="0" marginheight="0" leftmargin="0" topmargin="0" vlink="#314A30" link="#314A30" text="black" bgcolor="white"><table border="0" cellspacing="0" cellpadding="0"><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img border="0" height="14" width="1" src="images/trans.gif"><br><a href="../index.html"><img src="images/stl_logo_doc.gif" border="0" height="80" width="80"></a><a href="http://www.stlport.com"><img border="0" height="80" width="461" src="images/t_doc2.gif"></a><br><img src="images/trans.gif" border="0" height="24" width="1"><br><img src="images/black.gif" border="0" height="1" width="776"><br><img src="images/trans.gif" border="0" height="24" width="1"></td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img src="images/trans.gif" border="0" height="10" width="776"></td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776">
+
+        <span class="heading">Running "configure"</span>
+
+        <font size="1"><em><strong>by Boris Fomitchev</strong></em></font>
+
+        <h3>Configuring STLport for new compiler with UNIX shell</h3>
+
+        <p><i>Note: this document describes the procedure ot tuning STLport for
+        new compiler, not the one that is already supported. If your compiler is listed
+        as supported, this is absolutely unnecessary.</i></p>
+        
+	<p>STLport comes with "configure" shell script to help in the
+	initial step to tune the library for a new compiler. 
+	It sets up stlconf.h configuration header
+        with proper flags depending on features of the compiler and user-defined
+        options. 
+	Recommended way to create new configuration is to run "configure"
+	in "config/new_compiler" directory and create <b>stl_yourcompiler.h</b> in "config"
+	directory based on switches defined by "configure" in stlconf.h.
+	<b>Do not</b> expect STLport to be configured just by running "configure".
+</p>
+
+        <p>Here is an example how to specify the parameters to "configure" (for Bourne-like
+        shells): <b><br>
+        host&gt; cd STLport/config<br>
+        host&gt; CXX=CC CXXFLAGS="-xwe -noex" ./configure --enable-malloc</b></p>
+        <p>This will set up workarounds necessary for "<b>CC</b>"
+        compiler as well as specify malloc-based allocator as the default one. <br>
+
+        
+	Run "<b>configure --help</b>" to see list of options
+        available. For most reliable results, you should specify <b>CXXFLAGS</b>
+        to contain the option turning warnings into errors.
+        "configure" tries to scan warnings, but that not always works.
+        After testing your compiler features and setting options specified,
+        "configure" creates <b>stlconf.h</b> file using <b>config/stlconf.h</b>
+        as input. Macro <b>__AUTO_CONFIGURED</b> indicates that the package has
+        been configured. If it is not set (before you run configure), <b>stlconf.h</b>
+        includes <b>stlcomp.h</b> header to set up conservative configuration
+        and recognize the compiler version. <b>config/stlconf.h</b> can be
+        safely copied to stlconf.h to restore unconfigured status-quo.</p>
+        
+	<h3>Configuring STLport on other platforms</h3>
+        
+	The above may also work on other systems with UNIX-like toolsets on&nbsp;
+        them.&nbsp; <br>
+        
+	For example, the <a href="http://www.cygnus.com">cygwin32</a>&nbsp;
+        suite for Windows 95/NT runs "configure" just fine.&nbsp;&nbsp;&nbsp;
+        <br>
+        
+	You can also change &lt;stlcomp.h&gt; for your system manually.<br>
+        Please consider contributing your changes back to the&nbsp; STLport
+        project!
+        
+	<h3>"configure" synopsys (Bourne shells):</h3>
+        
+	<p>&gt; [environment] <b>./configure</b> [user-defined options]</p>
+        
+	<h3>"configure" synopsys (C-shells):</h3>
+        <p>&gt; <b>env </b>[environment] <b>./configure</b> [user-defined
+        options]</p>
+        
+	<p><b>"configure" script runs series of tests to determine
+        detailed characteristics of your compiler.</b></p>
+        <p>In [environment] , you may specify the following parameters</p>
+        <p><b>CXX=&lt;compiler_name&gt;, </b>default is <b>c++</b></p>
+        <p><b>CXXFLAGS=&lt;<i>cxx compiler flags you will most likely use</i>&gt;
+        . <br>
+        </b>That may be needed to set up some features correctly. That is, if
+        you plan to use exception handling, and your compiler doesn't enable
+        them by default, specify the option enabling EH there. <br>
+        It is also helpful to specify an option turning warnings into errors
+        here to get most reliable configuration ( For example, warnings could be
+        like that : <i>"Warning: namespaces are mostly broken in this
+        release"</i>, and they're indeed broken. ).</p>
+
+        <p>In case you are not able to run configure, you might have to know
+        internal STLport macros describing compiler features/bugs
+	Please refer to the <a href="configure.html">Configuration Manual</a> for the values.
+</p>
+
+        <h3>Modifying the configuration engine</h3>
+        <p>Don't edit the "configure" script directly, use <b>config/configure.in</b>
+        source + <b>GNU autoconf</b> instead.</p>
+
+</td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img src="images/trans.gif" border="0" height="20" width="50"><br><a href="index.html">Table of Contents</a><br></td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img src="images/trans.gif" border="0" height="40" width="80"><br><img src="images/black.gif" border="0" height="1" width="776"></td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img src="images/black.gif" border="0" height="1" width="776"></td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img src="images/trans.gif" border="0" height="5" width="50"><br><span class="copyright">Copyright 2001 by STLport</span><br><img src="images/trans.gif" border="0" height="50" width="80"></td></tr></table></body></html>

@@ -1,0 +1,26 @@
+//-------------------------------------------------------------------------------------------------
+[x] multipass rendering
+[x] fixed a bug where child widgets were being draw twice
+[ ] add row color
+[x] clip cryfont
+[x] remove all scissor rect stuff
+[x] test the scissor rect thingie
+//-------------------------------------------------------------------------------------------------
+[x] fix reload bug
+[x] Bink video and audio decoder integration
+[x] create a lua OnSwitch callback
+[x] fix the tilling problems
+[x] fast scrollbar scrolling
+[x] add character rendering
+[x] add a scrollbar to the combobox
+[x] fix oninit / onupdate bug
+[x] mouse input for editbox
+[x] keyboard repeat
+[x] fix sorting problem
+[x] change so it won't sort every frame
+[x] fix the scrollbar problem, where the skin looks dark
+[x] fix scrollbar scrolling, when you move the mouve out of the control, it should only change the salider again when back to the same position
+[ ] add non-smooth scrolling, scrolling to fixed values
+[x] fix the hud bug!
+[x] change console to use the same repeat scheme as UISystem
+//-------------------------------------------------------------------------------------------------

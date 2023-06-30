@@ -1,0 +1,132 @@
+<html><head><META http-equiv="Content-Type" content="text/html; charset=iso-8859-1"><title>STLport: Note for IBM OS/390 C/C++ Users</title><link href="doc.css" type="text/css" rel="stylesheet"></head><body marginwidth="0" marginheight="0" leftmargin="0" topmargin="0" vlink="#314A30" link="#314A30" text="black" bgcolor="white"><table border="0" cellspacing="0" cellpadding="0"><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img border="0" height="14" width="1" src="images/trans.gif"><br><a href="../index.html"><img src="images/stl_logo_doc.gif" border="0" height="80" width="80"></a><a href="http://www.stlport.com"><img border="0" height="80" width="461" src="images/t_doc2.gif"></a><br><img src="images/trans.gif" border="0" height="24" width="1"><br><img src="images/black.gif" border="0" height="1" width="776"><br><img src="images/trans.gif" border="0" height="24" width="1"></td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img src="images/trans.gif" border="0" height="10" width="776"></td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776">
+
+        <span class="heading">Note for IBM OS/390 C/C++ Users</span>
+        <p>&nbsp;</p>
+        <hr>
+        <br>
+        <b><i><font face="Arial,Helvetica,Geneva"><font size="+1">Known Problems</font></font></i></b>
+        <p><b>Compiling:</b></p>
+        <ol>
+          <li>OS/390 C/C++ requires explicit template notation such as
+            template_class&lt;Param&gt; where most other conformant compilers
+            only accept template_class (inside template method bodies, etc.):</li>
+          <p><br>
+          <br>
+          <font size="+0">&nbsp; template &lt;class Param&gt; class
+          template_class {<br>
+          <br>
+          &nbsp;&nbsp;&nbsp; template_class foo();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          // error for OS390 C/C++<br>
+          <br>
+          &nbsp;&nbsp;&nbsp; template_class&lt;Param&gt; foo();&nbsp;&nbsp;&nbsp;&nbsp;
+          // OK<br>
+          <br>
+          &nbsp;&nbsp;&nbsp; ...<br>
+          <br>
+          &nbsp; };</font></p>
+          This adaptation works around the above OS/390 C/C++ requirement, but
+          may cause compatibility problems when porting template code from other
+          platforms.
+          <li>OS/390 C++, does not allow passing an extern "C"
+            function pointer as an argument to a C++ function. For example:</li>
+          <p><br>
+          <br>
+          <font size="+0">&nbsp; template &lt;class Result&gt;&nbsp;<br>
+          <br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; pointer_to_void_function&lt;Result&gt;
+          ptr_gen(Result (*x)());<br>
+          <br>
+          &nbsp;&nbsp;<br>
+          <br>
+          &nbsp; p = ptr_gen(rand);&nbsp;&nbsp; // error for OS/390 C/C++</font></p>
+          In the above template, <i>ptr_gen</i> takes a function pointer as its
+          argument and returns a function pointer adaptor (a type of function
+          object), and <i>rand</i> is an extern "C" library pointer.
+          This is not allowed because C and C++ linkage is different on OS/390
+          C/C++.
+          <p>To work around this problem, provide a C++ wrapper around the
+          extern "C" function and pass the C++ wrapper instead:</p>
+          <p><br>
+          <br>
+          <font size="+0">&nbsp; int cxxrand(void) { return rand();}<br>
+          <br>
+          &nbsp; p = ptr_gen(cxxrand);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          // OK</font></p>
+          <li>OS/390 C++ does not allow functions to be declared with a function
+            or an array as its return type:</li>
+          <p><br>
+          <br>
+          <font size="+0">&nbsp; template &lt;class InputIterator, class
+          OutputIterator,class result)<br>
+          <br>
+          &nbsp;&nbsp;&nbsp;&nbsp; OutputIterator
+          adjacent_difference(InputIterator first,&nbsp;<br>
+          <br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; InputIterator
+          last,&nbsp;<br>
+          <br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; OutputIterator
+          result);<br>
+          <br>
+          &nbsp;&nbsp;<br>
+          <br>
+          &nbsp; main() {<br>
+          <br>
+          &nbsp;&nbsp;&nbsp;&nbsp; int number[10];<br>
+          <br>
+          &nbsp;&nbsp;&nbsp;&nbsp; int different[5];<br>
+          <br>
+          &nbsp;&nbsp;&nbsp;&nbsp; adjacent_difference(number,<br>
+          <br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; number
+          + 5,<br>
+          <br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; different);&nbsp;&nbsp;
+          // error for OS/390 C/C++<br>
+          <br>
+          &nbsp; }</font></p>
+          In the above example, the compiler attempts to create an instantiation
+          that returns an array <i>int[]</i>, which is not allowed in OS/390
+          C/C++:
+          <p><br>
+          <br>
+          <font size="+0">&nbsp; int[] adjacent_difference(int*, int*,&nbsp; int*)</font></p>
+          To work around this problem, cast the <i>int</i> array to pointer to <i>int</i>:
+          <p><br>
+          <br>
+          <font size="+0">&nbsp; adjacent_difference(number,number + 5, (int *)
+          different);&nbsp;&nbsp; // OK</font></p>
+        </ol>
+        <b>Linking:</b>
+        <p>Repository handling in the compiler is imperfect, so you may
+        experience various problems during the link step. The problems are
+        generally of two kinds: duplicate symbols or unresolved symbols. The
+        duplicate symbol problem is not fatal, since the symbols are weak
+        (compiler generated) in that case. When it comes to large projects,
+        however, it may cause unacceptable code bloat (extra code generated by
+        the compiler when it separates the template instantiation files into the
+        TEMPINC directory). To overcome this problem, this adaptation simulates <i>separate
+        template implementation</i>. Compiling templates using the tempinc
+        compile option, minimizes code bloat as there are less duplicate
+        symbols. The problem with undefined symbols is also caused by imperfect
+        repository handling, but may require manual intervention. The general
+        rule is: <b>if you get <i>unresolved symbol</i> errors, explicit
+        instantiation will most likely help</b>. For example:</p>
+        <p><i>Unresolved:</i></p>
+        <p><br>
+        <br>
+        <font size="+0">&nbsp; __default_alloc_template&lt;0,0&gt;::allocate(unsigned
+        long)<br>
+        <br>
+        &nbsp; __default_alloc_template&lt;0,0&gt;::deallocate(void *, unsigned
+        long)</font></p>
+        To work around this problem, just instantiate __default_alloc_template&lt;0,0&gt;
+        explicitly in a module:
+        <p><br>
+        <br>
+        <font size="+0">&nbsp; template class __default_alloc_template&lt;0,0&gt;;</font></p>
+        <h2><font size="+0">Useful Links</font></h2>
+        <p><font size="+0">Check out :</font></p>
+        <p><a href="http://www.software.ibm.com/ad/c390/cmvsstlp.htm">http://www.software.ibm.com/ad/c390/cmvsstlp.htm</a></p>
+
+</td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img src="images/trans.gif" border="0" height="20" width="50"><br><a href="index.html">Table of Contents</a><br></td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img src="images/trans.gif" border="0" height="40" width="80"><br><img src="images/black.gif" border="0" height="1" width="776"></td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img src="images/black.gif" border="0" height="1" width="776"></td></tr><tr valign="top" align="left"><td width="24"><img src="images/trans.gif" border="0" height="1" width="24"></td><td width="776"><img src="images/trans.gif" border="0" height="5" width="50"><br><span class="copyright">Copyright 2001 by STLport</span><br><img src="images/trans.gif" border="0" height="50" width="80"></td></tr></table></body></html>
