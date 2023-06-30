@@ -1,0 +1,62 @@
+<!-- This page was created with the RAD auto-doc generator. -->
+<!doctype html public "-//w3c//dtd html 3.2 final//en">
+<html>
+<head>
+<title>BinkBufferCheckWinPos</title>
+<meta http-equiv="content-type" content="text/html; charset=iso8859-1">
+<meta name="ms.locale" content="en-us">
+<meta name="description" content="adjusts the specified window position coordinates for validity with the current BinkBuffer type.">
+<meta name="ms-hkwd" content="BinkBufferCheckWinPos">
+<link rel="stylesheet" title="default" href="reference.css" type="text/css" media="screen">
+</head>
+<body topmargin="0">
+<table cellspacing=0 cellpadding=0 class=bar width=100% height=25>
+<tr class=bar>
+<td class=bar>
+<i>&nbsp;<a href="index.html" class=trn>Bink SDK 1.5v</a></i>
+</td>
+</tr>
+</table>
+<h1>BinkBufferCheckWinPos</h1>
+<p>The function  <b>BinkBufferCheckWinPos</b> adjusts the specified window position coordinates for validity with the current BinkBuffer type.</p>
+<table width=100% cellspacing=0 class=pre>
+<tr class=pre>
+<td class=pre>
+<pre><b><a href="void.html" class=trn>void</a> <a href="BinkBufferCheckWinPos.html" class=trn>BinkBufferCheckWinPos</a>(</b>
+<b>&nbsp&nbsp<a href="HBINKBUFFER.html" class=trn>HBINKBUFFER</a>&nbsp</b><i>bink_buf</i><b>,</b>
+<b>&nbsp&nbsp<a href="S32.html" class=trn>S32</a>&nbsp*</b><i>new_window_x</i><b>,</b>
+<b>&nbsp&nbsp<a href="S32.html" class=trn>S32</a>&nbsp*</b><i>new_window_y</i>
+<b>);</b></pre>
+</td>
+</tr>
+</table>
+<h4>In Parameters</h4>
+<dl>
+<dt><i>bink_buf</i></dt>
+<dd>Specifies the BinkBuffer handle.</dd>
+</dl>
+<h4>Out Parameters</h4>
+<dl>
+<dt><i>new_window_x</i></dt>
+<dd>Specifies the X (left) coordinate that you want to check.</dd>
+<dt><i>new_window_y</i></dt>
+<dd>Specifies the Y (top) coordinate that you want to check.</dd>
+</dl>
+<h4>Discussion</h4>
+<p>This function will adjust the supplied window position coordinates for validity with the current BinkBuffer blitting style. Because different blitting styles have different constraints (the primary surface blitting style can't be positioned partially off-screen, some overlay hardware doesn't allow partially off-screen surfaces, etc), this function will let the playback window be dragged safely. Normally under Win32, you should call this function in your WM_WINDOWPOSCHANGING message handler to prevent the window from <b>ever</b> moving to an invalid location. The NewWindowX and NewWindowY coordinates are global screen coordinates, so your default processing logic for WM_WINDOWPOSCHANGING should look something like this: </p><code><font size=3 color=#006000><pre>case WM_WINDOWPOSCHANGING:  if ( ( ( ( WINDOWPOS* ) lparam )->flags & SWP_NOMOVE ) == 0 )  {    if ( bink_buf )    {      S32 x,y;<br>      x = ( ( WINDOWPOS* ) lparam )->x;      y = ( ( WINDOWPOS* ) lparam )->y;      BinkBufferCheckWinPos( bink_buf, &x, &y );      ( ( WINDOWPOS* )lparam )->x = x;      ( ( WINDOWPOS* )lparam )->y = y;    }  }  break;</pre></font></code><p></p>
+<p>
+<br>
+<b>Group:</b>
+<a href="BinkBuffer API.html">BinkBuffer API</a><br>
+<b>Related Functions:</b>
+<a href="BinkBufferSetOffset.html">BinkBufferSetOffset</a><br>
+<b>Related Basic Types:</b>
+<a href="HBINKBUFFER.html">HBINKBUFFER</a>, <a href="S32.html">S32</a>, <a href="void.html">void</a></p>
+<p align=center>
+<a href="mailto:Bink1@radgametools.com">For technical support, e-mail Bink1@radgametools.com</a>
+<br>
+<a href="http://www.radgametools.com/bnkmain.htm?from=help1.5v">&#169; Copyright 1994-2003 RAD Game Tools, Inc. All Rights Reserved.</a>
+</p>
+<br>
+</body>
+</html>

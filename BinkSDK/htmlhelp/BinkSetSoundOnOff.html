@@ -1,0 +1,58 @@
+<!-- This page was created with the RAD auto-doc generator. -->
+<!doctype html public "-//w3c//dtd html 3.2 final//en">
+<html>
+<head>
+<title>BinkSetSoundOnOff</title>
+<meta http-equiv="content-type" content="text/html; charset=iso8859-1">
+<meta name="ms.locale" content="en-us">
+<meta name="description" content="tells Bink not to decompress the audio and release any audio resources.">
+<meta name="ms-hkwd" content="BinkSetSoundOnOff">
+<link rel="stylesheet" title="default" href="reference.css" type="text/css" media="screen">
+</head>
+<body topmargin="0">
+<table cellspacing=0 cellpadding=0 class=bar width=100% height=25>
+<tr class=bar>
+<td class=bar>
+<i>&nbsp;<a href="index.html" class=trn>Bink SDK 1.5v</a></i>
+</td>
+</tr>
+</table>
+<h1>BinkSetSoundOnOff</h1>
+<p>The function  <b>BinkSetSoundOnOff</b> tells Bink not to decompress the audio and release any audio resources.</p>
+<table width=100% cellspacing=0 class=pre>
+<tr class=pre>
+<td class=pre>
+<pre><b><a href="S32.html" class=trn>S32</a> <a href="BinkSetSoundOnOff.html" class=trn>BinkSetSoundOnOff</a>(</b>
+<b>&nbsp&nbsp<a href="HBINK.html" class=trn>HBINK</a>&nbsp</b><i>bink</i><b>,</b>
+<b>&nbsp&nbsp<a href="S32.html" class=trn>S32</a>&nbsp</b><i>on_off</i>
+<b>);</b></pre>
+</td>
+</tr>
+</table>
+<h4>In Parameters</h4>
+<dl>
+<dt><i>bink</i></dt>
+<dd>Specifies the Bink handle.</dd>
+<dt><i>on_off</i></dt>
+<dd>Specifies the whether the sound track should be processed (non-zero), or whether Bink skip decompressing the audio.</dd>
+</dl>
+<h4>Returns</h4>
+<p>Returns whether the sound is currently on (non-zero) or off (zero).</p>
+<h4>Discussion</h4>
+<p>This function allows you to shut off the audio playback of a Bink file. This is useful if you want to stop all sound completely, or if you need to release the digital sound resource handles to play a wave or AVI file. Note that this function is <b>not</b> a mute function! If you want to mute the audio, call <a href="BinkSetVolume.html">BinkSetVolume</a> with zero for the volume level. If you know that you are never going to play the audio, then don't use this function and instead call <a href="BinkSetSoundTrack.html">BinkSetSoundTrack</a> with zero for both parameters before opening the Bink file with the <a href="BINK_OPEN_FLAGS.html#BINKSNDTRACK">BINKSNDTRACK</a> flag. This function is a toggle, so you call it once with zero to turn off the sound, and then you call it again with a non-zero value to start the audio playback again. This function returns non-zero if the audio is on, and zero if the audio is turned off. </p>
+<p>
+<br>
+<b>Group:</b>
+<a href="Bink API.html">Bink API</a><br>
+<b>Related Functions:</b>
+<a href="BinkSetSoundTrack.html">BinkSetSoundTrack</a>, <a href="BinkSetVideoOnOff.html">BinkSetVideoOnOff</a>, <a href="BinkSetVolume.html">BinkSetVolume</a><br>
+<b>Related Basic Types:</b>
+<a href="BINK_OPEN_FLAGS.html">BINK_OPEN_FLAGS</a>, <a href="HBINK.html">HBINK</a>, <a href="S32.html">S32</a></p>
+<p align=center>
+<a href="mailto:Bink1@radgametools.com">For technical support, e-mail Bink1@radgametools.com</a>
+<br>
+<a href="http://www.radgametools.com/bnkmain.htm?from=help1.5v">&#169; Copyright 1994-2003 RAD Game Tools, Inc. All Rights Reserved.</a>
+</p>
+<br>
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!-- This page was created with the RAD auto-doc generator. -->
+<!doctype html public "-//w3c//dtd html 3.2 final//en">
+<html>
+<head>
+<title>BINKBUFFER_OPEN_FLAGS</title>
+<meta http-equiv="content-type" content="text/html; charset=iso8859-1">
+<meta name="ms.locale" content="en-us">
+<meta name="description" content="describes the type and capabilities of the BinkBuffer that you wish to open.">
+<meta name="ms-hkwd" content="BINKBUFFER_OPEN_FLAGS">
+<link rel="stylesheet" title="default" href="reference.css" type="text/css" media="screen">
+</head>
+<body topmargin="0">
+<table cellspacing=0 cellpadding=0 class=bar width=100% height=25>
+<tr class=bar>
+<td class=bar>
+<i>&nbsp;<a href="index.html" class=trn>Bink SDK 1.5v</a></i>
+</td>
+</tr>
+</table>
+<h1>BINKBUFFER_OPEN_FLAGS</h1>
+<p>The basic type <b>BINKBUFFER_OPEN_FLAGS</b> describes the type and capabilities of the BinkBuffer that you wish to open.</p>
+<h4>Fundamental Values</h4>
+<table class=list width=90%>
+<tr valign=top class=list>
+<th width=29% height=25 valign=middle class=list>&nbsp;Value</th>
+<th width=71% height=25 valign=middle class=list>&nbsp;Description</th>
+</tr>
+<tr valign=top class=list>
+<td width=29% height=25 valign=middle class=list><a name="#BINKBUFFERAUTO" href="#BINKBUFFERAUTO" class=trn>&nbsp;BINKBUFFERAUTO</a></td>
+<td width=71% height=25 valign=middle class=list>Chooses the best BinkBuffer blitting style available. On Win32, Bink will try to open each of the blitting styles from <a href="BINKBUFFER_OPEN_FLAGS.html#BINKBUFFERPRIMARY">BINKBUFFERPRIMARY</a> to <a href="BINKBUFFER_OPEN_FLAGS.html#BINKBUFFERRGBOFFSCREENSYSTEM">BINKBUFFERRGBOFFSCREENSYSTEM</a>, looking for the best blitting style that matches your resolution and scaling requirements. On MacOS, Bink will try the <a href="BINKBUFFER_OPEN_FLAGS.html#BINKBUFFERDIRECT">BINKBUFFERDIRECT</a> and the <a href="BINKBUFFER_OPEN_FLAGS.html#BINKBUFFERGWORLD">BINKBUFFERGWORLD</a>, looking for the best style that matches your specifications.</td>
+</tr>
+<tr valign=top class=list>
+<td width=29% height=25 valign=middle class=list><a name="#BINKBUFFERPRIMARY" href="#BINKBUFFERPRIMARY" class=trn>&nbsp;BINKBUFFERPRIMARY</a></td>
+<td width=71% height=25 valign=middle class=list><b>Win32:</b> Opens a BinkBuffer to the primary surface. This blitting style uses the built-in Bink YUV to RGB conversions, so it is guaranteed to look perfect - it just might be a little slower than hardware conversion styles. The primary surface blitting style is unable to perform any scaling or clipping (but you can use the 2x stretching flags as a parameter to <a href="BinkCopyToBuffer.html">BinkCopyToBuffer</a> to get simple 2x stretching). <a href="BinkBufferBlit.html">BinkBufferBlit</a> doesn't have to do any work with this blitting style, because the pixels are put directly on-screen inside the <a href="BinkBufferLock.html">BinkBufferLock</a>/<a href="BinkBufferUnlock.html">BinkBufferUnlock</a> block).</td>
+</tr>
+<tr valign=top class=list>
+<td width=29% height=25 valign=middle class=list><a name="#BINKBUFFERDIBSECTION" href="#BINKBUFFERDIBSECTION" class=trn>&nbsp;BINKBUFFERDIBSECTION</a></td>
+<td width=71% height=25 valign=middle class=list><b>Win32:</b> Opens a BinkBuffer that is just a thin layer on top of a Windows DIBSection. This is the only blitting style that doesn't require DirectDraw. The BinkBuffer DIB will be created in the same format as the desktop for the fastest possible blitting. You can still use the <a href="BINKBUFFER_OPEN_FLAGS.html#BINKBUFFERRESOLUTION">BINKBUFFERRESOLUTION</a> flag with this blit type - it will use ChangeDisplaySettings instead of DirectDraw to switch modes.</td>
+</tr>
+<tr valign=top class=list>
+<td width=29% height=25 valign=middle class=list><a name="#BINKBUFFERYV12OVERLAY" href="#BINKBUFFERYV12OVERLAY" class=trn>&nbsp;BINKBUFFERYV12OVERLAY</a></td>
+<td width=71% height=25 valign=middle class=list><b>Win32:</b> Opens a BinkBuffer to a YV12 overlay surface. This is the fastest possible blitting style, but it is also the rarest for a video card to support (some ATI and nVidia cards support it). This blitting style may or may not be able to perform scaling and clipping. <a href="BinkBufferBlit.html">BinkBufferBlit</a> doesn't copy the pixels to the screen with this blitting style, rather, it blits color-keyed pixels onto the screen (which causes the overlay pixels to show through). If the color-keyed pixels are already on the screen, then the converted pixels will appear as soon as they are written to inside the <a href="BinkBufferLock.html">BinkBufferLock</a>/<a href="BinkBufferUnlock.html">BinkBufferUnlock</a> block - just like the primary surface blitting style.</td>
+</tr>
+<tr valign=top class=list>
+<td width=29% height=25 valign=middle class=list><a name="#BINKBUFFERUYVYOVERLAY" href="#BINKBUFFERUYVYOVERLAY" class=trn>&nbsp;BINKBUFFERUYVYOVERLAY</a></td>
+<td width=71% height=25 valign=middle class=list>See next...</td>
+</tr>
+<tr valign=top class=list>
+<td width=29% height=25 valign=middle class=list><a name="#BINKBUFFERYUY2OVERLAY" href="#BINKBUFFERYUY2OVERLAY" class=trn>&nbsp;BINKBUFFERYUY2OVERLAY</a></td>
+<td width=71% height=25 valign=middle class=list><b>Win32:</b> These two flags open a BinkBuffer to a YUY2 or UYVY overlay surface. These are the most common overlay surfaces and are supported by almost all video cards. This blitting style may or may not be able to perform scaling and clipping. <a href="BinkBufferBlit.html">BinkBufferBlit</a> doesn't copy the pixels to the screen with this blitting style, rather, it blits color-keyed pixels onto the screen (which causes the overlay pixels to show through). If the color-keyed pixels are already on the screen, then the converted pixels will appear as soon as they are written to inside the <a href="BinkBufferLock.html">BinkBufferLock</a>/<a href="BinkBufferUnlock.html">BinkBufferUnlock</a> block - just like the primary surface blitting style.</td>
+</tr>
+<tr valign=top class=list>
+<td width=29% height=25 valign=middle class=list><a name="#BINKBUFFERYV12OFFSCREEN" href="#BINKBUFFERYV12OFFSCREEN" class=trn>&nbsp;BINKBUFFERYV12OFFSCREEN</a></td>
+<td width=71% height=25 valign=middle class=list><b>Win32:</b> Opens a BinkBuffer to a YV12 off-screen buffer. With this blitting style, the video driver converts the YUV data to RGB during the blitting stage. This blitting style may or may not perform scaling or clipping. <a href="BinkBufferBlit.html">BinkBufferBlit</a> copies the pixels onto the screen - the <a href="BinkBufferLock.html">BinkBufferLock</a>/<a href="BinkBufferUnlock.html">BinkBufferUnlock</a> block just loads the Bink pixels into the off-screen buffer. The Bink software blitters are usually faster than this blitting style.</td>
+</tr>
+<tr valign=top class=list>
+<td width=29% height=25 valign=middle class=list><a name="#BINKBUFFERUYVYOFFSCREEN" href="#BINKBUFFERUYVYOFFSCREEN" class=trn>&nbsp;BINKBUFFERUYVYOFFSCREEN</a></td>
+<td width=71% height=25 valign=middle class=list>See next...</td>
+</tr>
+<tr valign=top class=list>
+<td width=29% height=25 valign=middle class=list><a name="#BINKBUFFERYUY2OFFSCREEN" href="#BINKBUFFERYUY2OFFSCREEN" class=trn>&nbsp;BINKBUFFERYUY2OFFSCREEN</a></td>
+<td width=71% height=25 valign=middle class=list><b>Win32:</b> These two flags open a BinkBuffer to a YUY2 or UYVY off-screen buffer. With this blitting style, the video driver converts the YUV data to RGB during the blitting stage. This blitting style may or may not perform scaling or clipping. <a href="BinkBufferBlit.html">BinkBufferBlit</a> copies the pixels onto the screen - the <a href="BinkBufferLock.html">BinkBufferLock</a>/<a href="BinkBufferUnlock.html">BinkBufferUnlock</a> block just loads the Bink pixels into the off-screen buffer. Pretty much all video cards support at least this level of hardware YUV to RGB conversion. The Bink software blitters are usually faster than this blitting style.</td>
+</tr>
+<tr valign=top class=list>
+<td width=29% height=25 valign=middle class=list><a name="#BINKBUFFERRGBOFFSCREENVIDEO" href="#BINKBUFFERRGBOFFSCREENVIDEO" class=trn>&nbsp;BINKBUFFERRGBOFFSCREENVIDEO</a></td>
+<td width=71% height=25 valign=middle class=list><b>Win32:</b> Opens a BinkBuffer to an off-screen RGB buffer that resides in the video card RAM. With this blitting style, Bink converts the YUV data to an off-screen RGB format. This blitting style is almost always able to perform scaling and clipping. <a href="BinkBufferBlit.html">BinkBufferBlit</a> copies the pixels onto the screen - the <a href="BinkBufferLock.html">BinkBufferLock</a>/<a href="BinkBufferUnlock.html">BinkBufferUnlock</a> block just gets the RGB Bink pixels into the off-screen buffer.</td>
+</tr>
+<tr valign=top class=list>
+<td width=29% height=25 valign=middle class=list><a name="#BINKBUFFERRGBOFFSCREENSYSTEM" href="#BINKBUFFERRGBOFFSCREENSYSTEM" class=trn>&nbsp;BINKBUFFERRGBOFFSCREENSYSTEM</a></td>
+<td width=71% height=25 valign=middle class=list><b>Win32:</b> Opens a BinkBuffer to an off-screen RGB buffer that resides in the system card RAM. With this blitting style, Bink converts the YUV data to an off-screen RGB format in system memory. This blitting style supports scaling and clipping, but it is the slowest of all of the blitting styles. <a href="BinkBufferBlit.html">BinkBufferBlit</a> copies the pixels onto the screen - the <a href="BinkBufferLock.html">BinkBufferLock</a>/<a href="BinkBufferUnlock.html">BinkBufferUnlock</a> block just gets the RGB Bink pixels into the off-screen buffer. You should almost always use the <a href="BINKBUFFER_OPEN_FLAGS.html#BINKBUFFERDIBSECTION">BINKBUFFERDIBSECTION</a> style instead of this option - it will have the same or better capabilities and is more more widely compatible.</td>
+</tr>
+<tr valign=top class=list>
+<td width=29% height=25 valign=middle class=list><a name="#BINKBUFFERDIRECT" href="#BINKBUFFERDIRECT" class=trn>&nbsp;BINKBUFFERDIRECT</a></td>
+<td width=71% height=25 valign=middle class=list><b>MacOS:</b> Opens a BinkBuffer in direct-to-screen mode. This blitting style uses the built-in Bink YUV to RGB conversions, so it is guaranteed to look perfect and will run very fast. The direct-to-screen blitting style is unable to perform any scaling or clipping (but you can use the 2x stretching flags as a parameter to <a href="BinkCopyToBuffer.html">BinkCopyToBuffer</a> to get simple 2x stretching). <a href="BinkBufferBlit.html">BinkBufferBlit</a> doesn't have to do any work with this blitting style, because the pixels are put directly on-screen inside the <a href="BinkBufferLock.html">BinkBufferLock</a>/<a href="BinkBufferUnlock.html">BinkBufferUnlock</a> block).</td>
+</tr>
+<tr valign=top class=list>
+<td width=29% height=25 valign=middle class=list><a name="#BINKBUFFERGWORLD" href="#BINKBUFFERGWORLD" class=trn>&nbsp;BINKBUFFERGWORLD</a></td>
+<td width=71% height=25 valign=middle class=list><b>MacOS:</b> Opens a BinkBuffer to a standard MacOS GWorld graphics buffer. This blitting style is the most compatible on MacOS machines, but it will be slower than BINKBUFFERDIRECT. This blitting style is capable of both clipping and scaling. With this blitting style, <a href="BinkCopyToBuffer.html">BinkCopyToBuffer</a> copies into the GWorld and you use <a href="BinkBufferBlit.html">BinkBufferBlit</a> to blit the pixels onto the screen.</td>
+</tr>
+<tr valign=top class=list>
+<td width=29% height=25 valign=middle class=list><a name="#BINKBUFFERRESOLUTION" href="#BINKBUFFERRESOLUTION" class=trn>&nbsp;BINKBUFFERRESOLUTION</a></td>
+<td width=71% height=25 valign=middle class=list>Add this flag to one of the above blitting styles to force Bink to switch video mode resolutions when the BinkBuffer is opened. You must call the <a href="BinkBufferSetResolution.html">BinkBufferSetResolution</a> function before using this flag to tell Bink what resolution to switch into. Note that the BinkBuffer will still be opened even if Bink was unable to switch to your requested mode. You should examine the ScreenWidth, ScreenHeight and ScreenDepth fields of the BinkBuffer structure to see if your requested mode was successfully set.</td>
+</tr>
+<tr valign=top class=list>
+<td width=29% height=25 valign=middle class=list><a name="#BINKBUFFERSTRETCHXINT" href="#BINKBUFFERSTRETCHXINT" class=trn>&nbsp;BINKBUFFERSTRETCHXINT</a></td>
+<td width=71% height=25 valign=middle class=list>See next...</td>
+</tr>
+<tr valign=top class=list>
+<td width=29% height=25 valign=middle class=list><a name="#BINKBUFFERSTRETCHX" href="#BINKBUFFERSTRETCHX" class=trn>&nbsp;BINKBUFFERSTRETCHX</a></td>
+<td width=71% height=25 valign=middle class=list>See next...</td>
+</tr>
+<tr valign=top class=list>
+<td width=29% height=25 valign=middle class=list><a name="#BINKBUFFERSHRINKXINT" href="#BINKBUFFERSHRINKXINT" class=trn>&nbsp;BINKBUFFERSHRINKXINT</a></td>
+<td width=71% height=25 valign=middle class=list>See next...</td>
+</tr>
+<tr valign=top class=list>
+<td width=29% height=25 valign=middle class=list><a name="#BINKBUFFERSHRINKX" href="#BINKBUFFERSHRINKX" class=trn>&nbsp;BINKBUFFERSHRINKX</a></td>
+<td width=71% height=25 valign=middle class=list>Add one or more of these flags to request the type of X (width) stretching and/or shrinking that you require. The flags with "INT" on the end mean integral stretching or shrinking (a 2x zoom, or a half-size shrink, for example). Many cards can only do integral scaling, so be sure to use the integral flag if that's all you need, or the BinkBuffer could otherwise fail to open.</td>
+</tr>
+<tr valign=top class=list>
+<td width=29% height=25 valign=middle class=list><a name="#BINKBUFFERSTRETCHYINT" href="#BINKBUFFERSTRETCHYINT" class=trn>&nbsp;BINKBUFFERSTRETCHYINT</a></td>
+<td width=71% height=25 valign=middle class=list>See next...</td>
+</tr>
+<tr valign=top class=list>
+<td width=29% height=25 valign=middle class=list><a name="#BINKBUFFERSTRETCHY" href="#BINKBUFFERSTRETCHY" class=trn>&nbsp;BINKBUFFERSTRETCHY</a></td>
+<td width=71% height=25 valign=middle class=list>See next...</td>
+</tr>
+<tr valign=top class=list>
+<td width=29% height=25 valign=middle class=list><a name="#BINKBUFFERSHRINKYINT" href="#BINKBUFFERSHRINKYINT" class=trn>&nbsp;BINKBUFFERSHRINKYINT</a></td>
+<td width=71% height=25 valign=middle class=list>See next...</td>
+</tr>
+<tr valign=top class=list>
+<td width=29% height=25 valign=middle class=list><a name="#BINKBUFFERSHRINKY" href="#BINKBUFFERSHRINKY" class=trn>&nbsp;BINKBUFFERSHRINKY</a></td>
+<td width=71% height=25 valign=middle class=list>Add one or more of these flags to request the type of Y (height) stretching and/or shrinking that you require. The flags with "INT" on the end mean integral stretching or shrinking (a 2x zoom, or a half-size shrink, for example). Many cards can only do integral scaling, so be sure to use the integral flag if that's all you need, or the BinkBuffer could otherwise fail to open.</td>
+</tr>
+</table>
+<h4>Discussion</h4>
+<p>Use these flags as the open_flags parameter in the <a href="BinkBufferOpen.html">BinkBufferOpen</a> function. They specify the type and capabilities of the YUV blitting buffer that you require. Note that if you don't specify any of the various scaling flags, then you might still get a blitting style that allows scaling with <a href="BinkBufferSetScale.html">BinkBufferSetScale</a> function - <b>but probably not!</b> So, if you know that you're going to be scaling, then you should always use one of the scaling flags when calling <a href="BinkBufferOpen.html">BinkBufferOpen</a>.</p>
+<p>
+<br>
+<b>Group:</b>
+<a href="BinkBuffer API.html">BinkBuffer API</a><br>
+<b>Related Sections:</b>
+<a href="Locking and Unlocking.html">Locking and Unlocking</a>, <a href="Scaling.html">Scaling</a><br>
+<b>Related Functions:</b>
+<a href="BinkBufferBlit.html">BinkBufferBlit</a>, <a href="BinkBufferGetDescription.html">BinkBufferGetDescription</a>, <a href="BinkBufferLock.html">BinkBufferLock</a>, <a href="BinkBufferOpen.html">BinkBufferOpen</a>, <a href="BinkBufferSetResolution.html">BinkBufferSetResolution</a>, <a href="BinkBufferSetScale.html">BinkBufferSetScale</a>, <a href="BinkBufferUnlock.html">BinkBufferUnlock</a>, <a href="BinkCopyToBuffer.html">BinkCopyToBuffer</a><br>
+<b>Related Basic Types:</b>
+<a href="BINKBUFFER_OPEN_FLAGS.html">BINKBUFFER_OPEN_FLAGS</a></p>
+<p align=center>
+<a href="mailto:Bink1@radgametools.com">For technical support, e-mail Bink1@radgametools.com</a>
+<br>
+<a href="http://www.radgametools.com/bnkmain.htm?from=help1.5v">&#169; Copyright 1994-2003 RAD Game Tools, Inc. All Rights Reserved.</a>
+</p>
+<br>
+</body>
+</html>

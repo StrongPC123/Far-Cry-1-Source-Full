@@ -1,0 +1,56 @@
+<!-- This page was created with the RAD auto-doc generator. -->
+<!doctype html public "-//w3c//dtd html 3.2 final//en">
+<html>
+<head>
+<title>BINK_GOTO_FLAGS</title>
+<meta http-equiv="content-type" content="text/html; charset=iso8859-1">
+<meta name="ms.locale" content="en-us">
+<meta name="description" content="Specifies the type of jump to perform.">
+<meta name="ms-hkwd" content="BINK_GOTO_FLAGS">
+<link rel="stylesheet" title="default" href="reference.css" type="text/css" media="screen">
+</head>
+<body topmargin="0">
+<table cellspacing=0 cellpadding=0 class=bar width=100% height=25>
+<tr class=bar>
+<td class=bar>
+<i>&nbsp;<a href="index.html" class=trn>Bink SDK 1.5v</a></i>
+</td>
+</tr>
+</table>
+<h1>BINK_GOTO_FLAGS</h1>
+<p>The basic type <b>BINK_GOTO_FLAGS</b> Specifies the type of jump to perform.</p>
+<h4>Fundamental Values</h4>
+<table class=list width=90%>
+<tr valign=top class=list>
+<th width=29% height=25 valign=middle class=list>&nbsp;Value</th>
+<th width=71% height=25 valign=middle class=list>&nbsp;Description</th>
+</tr>
+<tr valign=top class=list>
+<td width=29% height=25 valign=middle class=list><a name="#NULL" href="#NULL" class=trn>&nbsp;NULL</a></td>
+<td width=71% height=25 valign=middle class=list>By default (using no flags), Bink performs a jump by seeking to the nearest key frame and then decompressing up to your specified frame.</td>
+</tr>
+<tr valign=top class=list>
+<td width=29% height=25 valign=middle class=list><a name="#BINKGOTOQUICK" href="#BINKGOTOQUICK" class=trn>&nbsp;BINKGOTOQUICK</a></td>
+<td width=71% height=25 valign=middle class=list>Use this flag to force Bink to jump directly to the frame, and not bother with the key frame seek first (this may cause the frames after a jump to be displayed incorrectly).</td>
+</tr>
+<tr valign=top class=list>
+<td width=29% height=25 valign=middle class=list><a name="#BINKGOTOQUICKSOUND" href="#BINKGOTOQUICKSOUND" class=trn>&nbsp;BINKGOTOQUICKSOUND</a></td>
+<td width=71% height=25 valign=middle class=list>Bink stores the first 750 milliseconds of audio in the first frame of the movie. That means if you go to, say, frame 500, Bink has to internally jump to frame 500 minus 750 milliseconds so that the sound starts immediately when you begin playing again. <br><br>All of these internal gymnastics to start the sound exactly at your frame is transparent to you, except that extra I/O is performed as well as a little extra CPU is consumed to make it all happen. <br><br>However, if you use the BINKGOTOQUICKSOUND flag, then you save this I/O and CPU - Bink just doesn't skip back the 750 milliseconds, so the first 750 ms after the <a href="BinkGoto.html">BinkGoto</a> will be just silence. This is handy when you need the fastest possible jump without concern for the sound.</td>
+</tr>
+</table>
+<h4>Discussion</h4>
+<p>These flags are used with the <a href="BinkGoto.html">BinkGoto</a> function to specify which type of jump you want to perform. You can also find the nearest key frame manually with the <a href="BinkGetKeyFrame.html">BinkGetKeyFrame</a> function.</p>
+<p>
+<br>
+<b>Group:</b>
+<a href="Basic Types.html">Basic Types</a>, <a href="Bink API.html">Bink API</a><br>
+<b>Related Functions:</b>
+<a href="BinkGetKeyFrame.html">BinkGetKeyFrame</a>, <a href="BinkGoto.html">BinkGoto</a></p>
+<p align=center>
+<a href="mailto:Bink1@radgametools.com">For technical support, e-mail Bink1@radgametools.com</a>
+<br>
+<a href="http://www.radgametools.com/bnkmain.htm?from=help1.5v">&#169; Copyright 1994-2003 RAD Game Tools, Inc. All Rights Reserved.</a>
+</p>
+<br>
+</body>
+</html>

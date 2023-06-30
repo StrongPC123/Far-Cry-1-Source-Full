@@ -1,0 +1,60 @@
+<!-- This page was created with the RAD auto-doc generator. -->
+<!doctype html public "-//w3c//dtd html 3.2 final//en">
+<html>
+<head>
+<title>BinkIsSoftwareCursor</title>
+<meta http-equiv="content-type" content="text/html; charset=iso8859-1">
+<meta name="ms.locale" content="en-us">
+<meta name="description" content="determines whether the specified mouse cursor is software-based on the specified DirectDraw surface pointer.">
+<meta name="ms-hkwd" content="BinkIsSoftwareCursor">
+<link rel="stylesheet" title="default" href="reference.css" type="text/css" media="screen">
+</head>
+<body topmargin="0">
+<table cellspacing=0 cellpadding=0 class=bar width=100% height=25>
+<tr class=bar>
+<td class=bar>
+<i>&nbsp;<a href="index.html" class=trn>Bink SDK 1.5v</a></i>
+</td>
+</tr>
+</table>
+<h1>BinkIsSoftwareCursor</h1>
+<p>The function  <b>BinkIsSoftwareCursor</b> determines whether the specified mouse cursor is software-based on the specified DirectDraw surface pointer.</p>
+<table width=100% cellspacing=0 class=pre>
+<tr class=pre>
+<td class=pre>
+<pre><b><a href="S32.html" class=trn>S32</a> <a href="BinkIsSoftwareCursor.html" class=trn>BinkIsSoftwareCursor</a>(</b>
+<b>&nbsp&nbsp<a href="LPDIRECTDRAWSURFACE.html" class=trn>LPDIRECTDRAWSURFACE</a>&nbsp</b><i>lpDirectDrawSurface</i><b>,</b>
+<b>&nbsp&nbsp<a href="HCURSOR.html" class=trn>HCURSOR</a>&nbsp</b><i>cursor</i>
+<b>);</b></pre>
+</td>
+</tr>
+</table>
+<h4>In Parameters</h4>
+<dl>
+<dt><i>lpDirectDrawSurface</i></dt>
+<dd>Specifies the surface that you want to check.</dd>
+<dt><i>cursor</i></dt>
+<dd>Specifies the cursor to test.</dd>
+</dl>
+<h4>Returns</h4>
+<p>Returns non-zero if the cursor is software-based, zero if the cursor is hardware-based.</p>
+<h4>Discussion</h4>
+<p>This function will figure out if the specified mouse cursor is software-based on the given primary surface pointer. If the cursor is software-based, then you must hide the cursor before drawing on the primary surface (or you get mouse trails on the screen). If the cursor is hardware-based, then you don't need to hide it (hiding and showing the mouse will cause the pointer to flash annoyingly - we should avoid it if we can). This is a pretty slow function (you wouldn't believe how complicated the source code is), so try to call it only once at startup time. For example, to manage the cursor when drawing directly to the primary surface under Win32, do something like this: </p><code><font size=3 color=#006000><pre>HCURSOR Cursor = LoadCursor( 0, IDC_ARROW );S32 Soft_cursor = BinkIsSoftwareCursor( lpDDprim, Cursor );<br>void Blit_frame( HWND wnd, S32 x, S32 y, S32 w, S32 h ){  S32 count;  DDSURFACEDESC DDSdesc;<br>  if ( Soft_cursor )    count = BinkCheckCursor( wnd, x, y, w, h );<br>  lpDDprim->Lock( NULL, &DDSdesc, DDLOCK_WAIT, 0 );<br>  <i>// do whatever to the primary surface here</i><br>  lpDDprim->Unlock( DDSdesc.lpSurface );<br>  if ( Soft_cursor )    BinkRestoreCursor( count );}</pre></font></code><p>Note that under Win32 if you don't know the HCURSOR, but you do know the HWND, you can use the GetClassLong Windows function with the GCL_HCURSOR flag to find the correct HCURSOR value. This function is automatically called inside the high-level BinkBuffer API. </p>
+<p>
+<br>
+<b>Group:</b>
+<a href="BinkBuffer API.html">BinkBuffer API</a><br>
+<b>Related Sections:</b>
+<a href="Mouse Cursors.html">Mouse Cursors</a><br>
+<b>Related Functions:</b>
+<a href="BinkCheckCursor.html">BinkCheckCursor</a>, <a href="BinkRestoreCursor.html">BinkRestoreCursor</a><br>
+<b>Related Basic Types:</b>
+<a href="HCURSOR.html">HCURSOR</a>, <a href="LPDIRECTDRAWSURFACE.html">LPDIRECTDRAWSURFACE</a>, <a href="S32.html">S32</a></p>
+<p align=center>
+<a href="mailto:Bink1@radgametools.com">For technical support, e-mail Bink1@radgametools.com</a>
+<br>
+<a href="http://www.radgametools.com/bnkmain.htm?from=help1.5v">&#169; Copyright 1994-2003 RAD Game Tools, Inc. All Rights Reserved.</a>
+</p>
+<br>
+</body>
+</html>

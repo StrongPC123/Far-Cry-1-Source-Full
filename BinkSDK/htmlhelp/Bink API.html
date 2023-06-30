@@ -1,0 +1,296 @@
+<!-- This page was created with the RAD auto-doc generator. -->
+<!doctype html public "-//w3c//dtd html 3.2 final//en">
+<html>
+<head>
+<title>Bink API</title>
+<meta http-equiv="content-type" content="text/html; charset=iso8859-1">
+<meta name="ms.locale" content="en-us">
+<meta name="description" content="">
+<meta name="ms-hkwd" content="Bink API">
+<link rel="stylesheet" title="default" href="reference.css" type="text/css" media="screen">
+</head>
+<body topmargin="0">
+<table cellspacing=0 cellpadding=0 class=bar width=100% height=25>
+<tr class=bar>
+<td class=bar>
+<i>&nbsp;<a href="index.html" class=trn>Bink SDK 1.5v</a></i>
+</td>
+</tr>
+</table>
+<h1>Bink API</h1>
+<h4>Discussion</h4>
+<p>The Bink API is the API that you use to decompress each frame of a Bink file. The Bink API is used to open the file, decompress video frames, wait for the next frame, skip to the next frame, etc. The Bink API doesn't, however, draw anything onto the screen. All the Bink API does is place data into a linear memory buffer. This buffer can be a DirectDraw surface, a DIBSection, or even a plain old malloc-ed chunk of memory. The Bink API doesn't know or care about where it places the data. Because Bink doesn't blit directly to the screen, you have a lot more flexibility - you can use Bink to compress not just to compress videos, but bitmaps, textures, light maps, height maps, etc. Any rectangular data set can be compressed. Blitting is, however, a complicated situation on most platforms (especially Win32), so we also supply a ready-made blitting API (called the BinkBuffer API). This API is separate from the Bink API, though, so it is up to you whether you use it or not. The BinkBuffer API is described later in this manual. </p>
+<table class=toc width=90%>
+<tr class=toc>
+<th height=25 valign=top class=toc><a href="Bink API.html">Bink API</a></th>
+</tr>
+<tr class=grid>
+<td height=25 valign=top class=toc ><a href="BinkOpen.html">BinkOpen</a></td>
+<td height=25 valign=top class=toc>opens the specified Bink file for decompression.</td>
+</tr>
+<tr class=grid>
+<td height=25 valign=top class=toc ><a href="BinkMacOpen.html">BinkMacOpen</a></td>
+<td height=25 valign=top class=toc>opens the specified Bink file for decompression.</td>
+</tr>
+<tr class=grid>
+<td height=25 valign=top class=toc ><a href="BINK.html">BINK</a></td>
+<td height=25 valign=top class=toc>is a structure returned from BinkOpen.</td>
+</tr>
+<tr class=grid>
+<td height=25 valign=top class=toc ><a href="BINK_OPEN_FLAGS.html">BINK_OPEN_FLAGS</a></td>
+<td height=25 valign=top class=toc>describes the special or unusual ways of opening a
+Bink file.</td>
+</tr>
+<tr class=grid>
+<td height=25 valign=top class=toc ><a href="BinkClose.html">BinkClose</a></td>
+<td height=25 valign=top class=toc>closes the specified Bink handle.</td>
+</tr>
+<tr class=grid>
+<td height=25 valign=top class=toc ><a href="BinkDoFrame.html">BinkDoFrame</a></td>
+<td height=25 valign=top class=toc>decompresses the next frame of video.</td>
+</tr>
+<tr class=grid>
+<td height=25 valign=top class=toc ><a href="BinkCopyToBuffer.html">BinkCopyToBuffer</a></td>
+<td height=25 valign=top class=toc>copies a video frame from the internal Bink memory
+buffers to a specified memory address.</td>
+</tr>
+<tr class=grid>
+<td height=25 valign=top class=toc ><a href="BinkCopyToBufferRect.html">BinkCopyToBufferRect</a></td>
+<td height=25 valign=top class=toc>copies a piece of the video frame from the internal Bink memory
+buffers to a specified memory address.</td>
+</tr>
+<tr class=grid>
+<td height=25 valign=top class=toc ><a href="BINK_COPY_FLAGS.html">BINK_COPY_FLAGS</a></td>
+<td height=25 valign=top class=toc>describes the destination buffer type as well as
+special or unusual ways of converting Bink's internal YUV data.</td>
+</tr>
+<tr class=grid>
+<td height=25 valign=top class=toc ><a href="BinkNextFrame.html">BinkNextFrame</a></td>
+<td height=25 valign=top class=toc>moves to the next video frame in the Bink file.</td>
+</tr>
+<tr class=grid>
+<td height=25 valign=top class=toc ><a href="BinkWait.html">BinkWait</a></td>
+<td height=25 valign=top class=toc>tells you when to move to the next Bink frame (based on the
+frame rate of the file).</td>
+</tr>
+<tr class=grid>
+<td height=25 valign=top class=toc ><a href="BinkPause.html">BinkPause</a></td>
+<td height=25 valign=top class=toc>pauses and resumes playback of a Bink file.</td>
+</tr>
+<tr class=grid>
+<td height=25 valign=top class=toc ><a href="BinkGetRects.html">BinkGetRects</a></td>
+<td height=25 valign=top class=toc>returns the dirty rectangles of the last decompressed video frame.</td>
+</tr>
+<tr class=grid>
+<td height=25 valign=top class=toc ><a href="BINK_GETRECTS_FLAGS.html">BINK_GETRECTS_FLAGS</a></td>
+<td height=25 valign=top class=toc>Specifies the type of rectangle list
+you'd prefer from the BinkGetRects function.</td>
+</tr>
+<tr class=grid>
+<td height=25 valign=top class=toc ><a href="BinkGoto.html">BinkGoto</a></td>
+<td height=25 valign=top class=toc>jumps to a new frame inside the Bink file.</td>
+</tr>
+<tr class=grid>
+<td height=25 valign=top class=toc ><a href="BINK_GOTO_FLAGS.html">BINK_GOTO_FLAGS</a></td>
+<td height=25 valign=top class=toc>Specifies the type of jump to perform.</td>
+</tr>
+<tr class=grid>
+<td height=25 valign=top class=toc ><a href="BinkGetKeyFrame.html">BinkGetKeyFrame</a></td>
+<td height=25 valign=top class=toc>finds a key frame near another specified frame.</td>
+</tr>
+<tr class=grid>
+<td height=25 valign=top class=toc ><a href="BINK_GETKEY_FLAGS.html">BINK_GETKEY_FLAGS</a></td>
+<td height=25 valign=top class=toc>Specifies the type of key frame search to perform.</td>
+</tr>
+<tr class=grid>
+<td height=25 valign=top class=toc ><a href="BinkService.html">BinkService</a></td>
+<td height=25 valign=top class=toc>gives some explicit idle time to Bink to
+service any of its internal tasks.</td>
+</tr>
+<tr class=grid>
+<td height=25 valign=top class=toc ><a href="BinkSoundUseMiles.html">BinkSoundUseMiles</a></td>
+<td height=25 valign=top class=toc>tells Bink to use the Miles Sound System as its sound
+output system.</td>
+</tr>
+<tr class=grid>
+<td height=25 valign=top class=toc ><a href="BinkSoundUseDirectSound.html">BinkSoundUseDirectSound</a></td>
+<td height=25 valign=top class=toc>tells Bink to use DirectSound as its sound
+output system.</td>
+</tr>
+<tr class=grid>
+<td height=25 valign=top class=toc ><a href="BinkSoundUseSoundManager.html">BinkSoundUseSoundManager</a></td>
+<td height=25 valign=top class=toc>tells Bink to use the MacOS Sound Manager as its sound
+output system.</td>
+</tr>
+<tr class=grid>
+<td height=25 valign=top class=toc ><a href="BinkSoundUseAX.html">BinkSoundUseAX</a></td>
+<td height=25 valign=top class=toc>tells Bink to use AX as its sound
+output system on the Nintendo GameCube.</td>
+</tr>
+<tr class=grid>
+<td height=25 valign=top class=toc ><a href="BinkSoundUseMusyX.html">BinkSoundUseMusyX</a></td>
+<td height=25 valign=top class=toc>tells Bink to use MusyX as its sound
+output system on the Nintendo GameCube.</td>
+</tr>
+<tr class=grid>
+<td height=25 valign=top class=toc ><a href="RADARAMCALLBACKS.html">RADARAMCALLBACKS</a></td>
+<td height=25 valign=top class=toc>specifies a set of replacement audio RAM memory management functions for use with AX on the Nintendo GameCube.</td>
+</tr>
+<tr class=grid>
+<td height=25 valign=top class=toc ><a href="RADARAMALLOC.html">RADARAMALLOC</a></td>
+<td height=25 valign=top class=toc>points to a function that will allocate audio memory on Bink's
+behalf when using AX on the Nintendo GameCube.</td>
+</tr>
+<tr class=grid>
+<td height=25 valign=top class=toc ><a href="RADARAMFREE.html">RADARAMFREE</a></td>
+<td height=25 valign=top class=toc>points to a function that will free memory allocated by
+a previous call to the RADARAMALLOC function.</td>
+</tr>
+<tr class=grid>
+<td height=25 valign=top class=toc ><a href="BinkSetSoundSystem.html">BinkSetSoundSystem</a></td>
+<td height=25 valign=top class=toc>tells Bink to use a custom sound provider as its
+sound output system.</td>
+</tr>
+<tr class=grid>
+<td height=25 valign=top class=toc ><a href="BinkSetVolume.html">BinkSetVolume</a></td>
+<td height=25 valign=top class=toc>sets the volume of a Bink sound track.</td>
+</tr>
+<tr class=grid>
+<td height=25 valign=top class=toc ><a href="BinkSetPan.html">BinkSetPan</a></td>
+<td height=25 valign=top class=toc>sets the speaker pan (left to right balance) of a Bink
+sound track.</td>
+</tr>
+<tr class=grid>
+<td height=25 valign=top class=toc ><a href="BinkSetMixBins.html">BinkSetMixBins</a></td>
+<td height=25 valign=top class=toc>sets the mix bin destination of the sound track on an Xbox.</td>
+</tr>
+<tr class=grid>
+<td height=25 valign=top class=toc ><a href="BinkSetMixBinVolumes.html">BinkSetMixBinVolumes</a></td>
+<td height=25 valign=top class=toc>sets the volumes of the individual mix bins on an Xbox.</td>
+</tr>
+<tr class=grid>
+<td height=25 valign=top class=toc ><a href="BinkSetVideoOnOff.html">BinkSetVideoOnOff</a></td>
+<td height=25 valign=top class=toc>tells Bink not to decompress the video frames when
+BinkDoFrame is called.</td>
+</tr>
+<tr class=grid>
+<td height=25 valign=top class=toc ><a href="BinkSetSoundOnOff.html">BinkSetSoundOnOff</a></td>
+<td height=25 valign=top class=toc>tells Bink not to decompress the audio and
+release any audio resources.</td>
+</tr>
+<tr class=grid>
+<td height=25 valign=top class=toc ><a href="BinkGetSummary.html">BinkGetSummary</a></td>
+<td height=25 valign=top class=toc>returns playback information about the specified Bink
+handle.</td>
+</tr>
+<tr class=grid>
+<td height=25 valign=top class=toc ><a href="BINKSUMMARY.html">BINKSUMMARY</a></td>
+<td height=25 valign=top class=toc>is a structure used to return playback summary
+information from BinkGetSummary.</td>
+</tr>
+<tr class=grid>
+<td height=25 valign=top class=toc ><a href="BinkGetRealtime.html">BinkGetRealtime</a></td>
+<td height=25 valign=top class=toc>returns realtime playback information about the specified Bink
+handle.</td>
+</tr>
+<tr class=grid>
+<td height=25 valign=top class=toc ><a href="BINKREALTIME.html">BINKREALTIME</a></td>
+<td height=25 valign=top class=toc>is a structure used to return realtime playback
+information from BinkGetRealtime.</td>
+</tr>
+<tr class=grid>
+<td height=25 valign=top class=toc ><a href="BinkGetTrackID.html">BinkGetTrackID</a></td>
+<td height=25 valign=top class=toc>returns the track ID for the specified track index.</td>
+</tr>
+<tr class=grid>
+<td height=25 valign=top class=toc ><a href="BinkOpenTrack.html">BinkOpenTrack</a></td>
+<td height=25 valign=top class=toc>opens a handle to the low-level audio track decoder.</td>
+</tr>
+<tr class=grid>
+<td height=25 valign=top class=toc ><a href="BINKTRACK.html">BINKTRACK</a></td>
+<td height=25 valign=top class=toc>is a structure returned from BinkOpenTrack.</td>
+</tr>
+<tr class=grid>
+<td height=25 valign=top class=toc ><a href="BinkCloseTrack.html">BinkCloseTrack</a></td>
+<td height=25 valign=top class=toc>closes a low-level audio track decoder handle.</td>
+</tr>
+<tr class=grid>
+<td height=25 valign=top class=toc ><a href="BinkGetTrackData.html">BinkGetTrackData</a></td>
+<td height=25 valign=top class=toc>extracts all of the sound in the current video
+frame.</td>
+</tr>
+<tr class=grid>
+<td height=25 valign=top class=toc ><a href="BinkSetFrameRate.html">BinkSetFrameRate</a></td>
+<td height=25 valign=top class=toc>overrides the Bink file's built-in frame rate.</td>
+</tr>
+<tr class=grid>
+<td height=25 valign=top class=toc ><a href="BinkSetSoundTrack.html">BinkSetSoundTrack</a></td>
+<td height=25 valign=top class=toc>overrides the Bink file's default sound track.</td>
+</tr>
+<tr class=grid>
+<td height=25 valign=top class=toc ><a href="BinkSetSimulate.html">BinkSetSimulate</a></td>
+<td height=25 valign=top class=toc>tells Bink to simulate a specified device I/O speed.</td>
+</tr>
+<tr class=grid>
+<td height=25 valign=top class=toc ><a href="BinkSetIOSize.html">BinkSetIOSize</a></td>
+<td height=25 valign=top class=toc>Specifies the size of the I/O memory buffer that Bink reads
+into.</td>
+</tr>
+<tr class=grid>
+<td height=25 valign=top class=toc ><a href="BinkSetIO.html">BinkSetIO</a></td>
+<td height=25 valign=top class=toc>specifies a set of replacement file I/O functions.</td>
+</tr>
+<tr class=grid>
+<td height=25 valign=top class=toc ><a href="RADSetMemory.html">RADSetMemory</a></td>
+<td height=25 valign=top class=toc>specifies a set of replacement memory management functions.</td>
+</tr>
+<tr class=grid>
+<td height=25 valign=top class=toc ><a href="RADMEMALLOC.html">RADMEMALLOC</a></td>
+<td height=25 valign=top class=toc>points to a function that will allocate memory on Bink's
+behalf.</td>
+</tr>
+<tr class=grid>
+<td height=25 valign=top class=toc ><a href="RADMEMFREE.html">RADMEMFREE</a></td>
+<td height=25 valign=top class=toc>points to a function that will free memory allocated by
+a previous call to the RADMEMALLOC function.</td>
+</tr>
+<tr class=grid>
+<td height=25 valign=top class=toc ><a href="BinkGetError.html">BinkGetError</a></td>
+<td height=25 valign=top class=toc>returns a string that describes the last global Bink error.</td>
+</tr>
+<tr class=grid>
+<td height=25 valign=top class=toc ><a href="BinkGetLogoAddress.html">BinkGetLogoAddress</a></td>
+<td height=25 valign=top class=toc>returns a pointer to an embedded Bink logo file.</td>
+</tr>
+<tr class=grid>
+<td height=25 valign=top class=toc ><a href="BinkLoad.html">BinkLoad</a></td>
+<td height=25 valign=top class=toc>reloads the Bink sections on an Xbox (if it had been unloaded by BinkUnload).</td>
+</tr>
+<tr class=grid>
+<td height=25 valign=top class=toc ><a href="BinkUnload.html">BinkUnload</a></td>
+<td height=25 valign=top class=toc>unloads the Bink sections on an Xbox.</td>
+</tr>
+<tr class=grid>
+<td height=25 valign=top class=toc ><a href="BinkLoadConverter.html">BinkLoadConverter</a></td>
+<td height=25 valign=top class=toc>reloads one or more of the Bink YUV to RGB
+converters (if they had been unloaded by BinkUnloadConverter).</td>
+</tr>
+<tr class=grid>
+<td height=25 valign=top class=toc ><a href="BinkUnloadConverter.html">BinkUnloadConverter</a></td>
+<td height=25 valign=top class=toc>unloads one or more of the Bink YUV to RGB
+converters.</td>
+</tr>
+<tr class=grid>
+<td height=25 valign=top class=toc ><a href="BINK_CONVERTER_FLAGS.html">BINK_CONVERTER_FLAGS</a></td>
+<td height=25 valign=top class=toc>Specifies the class of Bink YUV converters to
+load or unload.</td>
+</tr>
+</table>
+<p align=center>
+<a href="mailto:Bink1@radgametools.com">For technical support, e-mail Bink1@radgametools.com</a>
+<br>
+<a href="http://www.radgametools.com/bnkmain.htm?from=help1.5v">&#169; Copyright 1994-2003 RAD Game Tools, Inc. All Rights Reserved.</a>
+</p>
+<br>
+</body>
+</html>

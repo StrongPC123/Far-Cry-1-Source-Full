@@ -1,0 +1,68 @@
+<!-- This page was created with the RAD auto-doc generator. -->
+<!doctype html public "-//w3c//dtd html 3.2 final//en">
+<html>
+<head>
+<title>BinkBufferOpen</title>
+<meta http-equiv="content-type" content="text/html; charset=iso8859-1">
+<meta name="ms.locale" content="en-us">
+<meta name="description" content="opens a BinkBuffer (which simplifies blitting YUV data onto the screen).">
+<meta name="ms-hkwd" content="BinkBufferOpen">
+<link rel="stylesheet" title="default" href="reference.css" type="text/css" media="screen">
+</head>
+<body topmargin="0">
+<table cellspacing=0 cellpadding=0 class=bar width=100% height=25>
+<tr class=bar>
+<td class=bar>
+<i>&nbsp;<a href="index.html" class=trn>Bink SDK 1.5v</a></i>
+</td>
+</tr>
+</table>
+<h1>BinkBufferOpen</h1>
+<p>The function  <b>BinkBufferOpen</b> opens a BinkBuffer (which simplifies blitting YUV data onto the screen).</p>
+<table width=100% cellspacing=0 class=pre>
+<tr class=pre>
+<td class=pre>
+<pre><b><a href="HBINKBUFFER.html" class=trn>HBINKBUFFER</a> <a href="BinkBufferOpen.html" class=trn>BinkBufferOpen</a>(</b>
+<b>&nbsp&nbsp<a href="OS_WND.html" class=trn>OS_WND</a>&nbsp</b><i>window</i><b>,</b>
+<b>&nbsp&nbsp<a href="U32.html" class=trn>U32</a>&nbsp</b><i>width</i><b>,</b>
+<b>&nbsp&nbsp<a href="U32.html" class=trn>U32</a>&nbsp</b><i>height</i><b>,</b>
+<b>&nbsp&nbsp<a href="BINKBUFFER_OPEN_FLAGS.html" class=trn>BINKBUFFER_OPEN_FLAGS</a>&nbsp</b><i>open_flags</i>
+<b>);</b></pre>
+</td>
+</tr>
+</table>
+<h4>In Parameters</h4>
+<dl>
+<dt><i>window</i></dt>
+<dd>Specifies the window handle (under Win32) or window pointer (under MacOs) that the Bink file will be playing into. If you are using DirectDraw under Win32, this should be the HWND passed to SetCooperativeLevel.</dd>
+<dt><i>width</i></dt>
+<dd>Specifies the non-scaled width of the BinkBuffer (this is usually bink->Width).</dd>
+<dt><i>height</i></dt>
+<dd>Specifies the non-scaled height of the BinkBuffer (this is usually bink->Height).</dd>
+<dt><i>open_flags</i></dt>
+<dd>Specifies the type of blitting style and blitting functionality that you need. You will almost always just use <a href="BINKBUFFER_OPEN_FLAGS.html#BINKBUFFERAUTO">BINKBUFFERAUTO</a> for the open_flags parameter.</dd>
+</dl>
+<h4>Returns</h4>
+<p>Returns an HBINKBUFFER handle that the other BinkBuffer API functions require. Returns zero if an error occurs.</p>
+<h4>Discussion</h4>
+<p>The BinkBuffer API simply provides an easy, abstracted way to access most of the YUV blitting techniques that are available under Win32 or MacOS. You will usually open a BinkBuffer like: </p><code><font size=3 color=#006000><pre>bink_buf = BinkBufferOpen( ourwind, bink->Width, bink->Height, BINKBUFFERAUTO );</pre></font></code><p>Once the BinkBuffer is open, you must then resize your playback window to fit the Bink output (unless you are running full-screen or under DirectDraw and you've already set up your HWND). To do this under Win32, use a call like this: </p><code><font size=3 color=#006000><pre>SetWindowPos( hwnd, 0, 0, 0, bink_buf->WindowWidth, bink_buf->WindowHeight, SWP_NOMOVE );</pre></font></code><p>To blit a frame onto the screen, you lock the buffer, copy from the Bink internal buffers into the BinkBuffer, unlock the buffer, and then blit the BinkBuffer onto the screen. So, to blit a frame of a Bink file onto the screen, you'll use code something like this: </p><code><font size=3 color=#006000><pre>BinkDoFrame( bink );                <i>// decompress a frame</i><br>if ( BinkBufferLock( bink_buf ) ){  BinkCopyToBuffer( bink,                 <i>// copy into the BinkBuffer</i>                    bink_buf->Buffer,                    bink_buf->BufferPitch,                    bink_buf->Height,                    0, 0,                    bink_buf->SurfaceType );<br>  BinkBufferUnlock( bink_buf );}<br><i>// blit the data onto the screen</i>BinkBufferBlit( bink_buf,                bink->FrameRects,                BinkGetRects( bink, bink_buf->SurfaceType ) );</pre></font></code><p>Depending on the blitting style, the video's pixels may appear on the screen during the <a href="BinkCopyToBuffer.html">BinkCopyToBuffer</a> call, or later, during the <a href="BinkBufferBlit.html">BinkBufferBlit</a> call. If DirectDraw is installed and your aren't scaling, then you will usually be given a BinkBuffer that abstracts the DirectDraw primary video surface. In almost all other cases, you will be given a BinkBuffer that is an abstracted Windows DIBSection. If you want to use a YUV overlay or a YUV off-screen, then you must use the appropriate, specific BinkBuffer flag. Note that if you don't specify any of the various scaling flags, then you might still get a blitting style that allows scaling with <a href="BinkBufferSetScale.html">BinkBufferSetScale</a> function - <b>but probably not!</b> So, if you know that you're going to be scaling, then you should always use one of the scaling flags when calling BinkBufferOpen. If the BinkBuffer couldn't be created (lack of memory, low resources, etc), then this function will return zero. You must make sure to call <a href="BinkBufferClose.html">BinkBufferClose</a> on any buffer allocated by BinkBufferOpen. </p>
+<p>
+<br>
+<b>Group:</b>
+<a href="BinkBuffer API.html">BinkBuffer API</a><br>
+<b>Related Sections:</b>
+<a href="Locking and Unlocking.html">Locking and Unlocking</a>, <a href="Open and Close.html">Open and Close</a>, <a href="Scaling.html">Scaling</a><br>
+<b>Related Functions:</b>
+<a href="BinkBufferBlit.html">BinkBufferBlit</a>, <a href="BinkBufferClose.html">BinkBufferClose</a>, <a href="BinkBufferGetError.html">BinkBufferGetError</a>, <a href="BinkBufferSetDirectDraw.html">BinkBufferSetDirectDraw</a>, <a href="BinkBufferSetResolution.html">BinkBufferSetResolution</a>, <a href="BinkBufferSetScale.html">BinkBufferSetScale</a>, <a href="BinkCopyToBuffer.html">BinkCopyToBuffer</a><br>
+<b>Related Basic Types:</b>
+<a href="BINKBUFFER_OPEN_FLAGS.html">BINKBUFFER_OPEN_FLAGS</a>, <a href="HBINKBUFFER.html">HBINKBUFFER</a>, <a href="OS_WND.html">OS_WND</a>, <a href="U32.html">U32</a><br>
+<b>Related Structures:</b>
+<a href="BINKBUFFER.html">BINKBUFFER</a></p>
+<p align=center>
+<a href="mailto:Bink1@radgametools.com">For technical support, e-mail Bink1@radgametools.com</a>
+<br>
+<a href="http://www.radgametools.com/bnkmain.htm?from=help1.5v">&#169; Copyright 1994-2003 RAD Game Tools, Inc. All Rights Reserved.</a>
+</p>
+<br>
+</body>
+</html>

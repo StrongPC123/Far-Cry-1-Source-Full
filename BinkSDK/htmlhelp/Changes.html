@@ -1,0 +1,610 @@
+<!-- This page was created with the RAD auto-doc generator. -->
+<!doctype html public "-//w3c//dtd html 3.2 final//en">
+<html>
+<head>
+<title>Change Log</title>
+<meta http-equiv="content-type" content="text/html; charset=iso8859-1">
+<meta name="ms.locale" content="en-us">
+<meta name="description" content="">
+<meta name="ms-hkwd" content="Change Log">
+<link rel="stylesheet" title="default" href="reference.css" type="text/css" media="screen">
+</head>
+<body topmargin="0">
+<table cellspacing=0 cellpadding=0 class=bar width=100% height=25>
+<tr class=bar>
+<td class=bar>
+<i>&nbsp;<a href="index.html" class=trn>Bink SDK 1.5v</a></i>
+</td>
+</tr>
+</table>
+<h4>Discussion</h4>
+<p>This change log includes the entire Bink development history. </p>
+<h1>Changes from version 1.5u to 1.5v (04-12-2003)</h1>
+<ul>
+<li>Fixed a bug where the Bink player for Mac couldn't highlight pre-compiled EXE video files.</li>
+<li>Fixed a bug on the Mac in the BINKSURFACE32R and BINKSURFACE32RA YUV to RGB pixel converters where a non-divisible by 4 right edge would draw with the wrong colors.</li>
+<li>Fixed a bug in the Mac Classic versions of the library and player where RemoveTimeTask couldn't be found on pre-9.0 MacOS.</li>
+<li>Added Mach-O format Carbon dynamic libraries for building Project Builder or CodeWarrior Mach-O applications without thunking.</li>
+<li>Brought Bink Mac up to the latest PC source base (now uses Perforce and command line building just like the PC, so it will always stay in sync).</li>
+</ul>
+<h1>Changes from version 1.5t to 1.5u (03-16-2003)</h1>
+<ul>
+<li>Bink playback is now much smoother on medium to low-end machines running Win 9x, due to working around a multi-threaded bug in the system function, timeGetTime, that was eating up to 30% of the CPU!</li>
+<li>Now properly handle the window being minimized when using DirectDraw primary surface blitting in the Bink player.</li>
+<li>Fixed an edge bug when using BinkCopyToBufferRect with a non-visible-by-4 width or height and a non-zero left or top offset.</li>
+</ul>
+<h1>Changes from version 1.5s to 1.5t (02-06-2003)</h1>
+<ul>
+<li>Fixed the Smack and SmackMix tools when using old format Bink audio tracks.</li>
+<li>We more support more dialects of TGA import files. This means we resort to QuickTime less often (which is good because QuickTime is slooow).</li>
+<li>Fixed an debug assert in the Xbox SDK when setting very quiet (or silent) mix bin volume levels.</li>
+<li>Fixed a crash when using waveOut audio output and the "play as fast as possible" frame rate option.</li>
+</ul>
+<h1>Changes from version 1.5r to 1.5s (01-14-2003)</h1>
+<ul>
+<li>Allowed the Smack and SmackMix tools to create old format Bink audio tracks.</li>
+<li>Increased the Bink I/O block size from 8K to 16K (since Bink videos are slowly using higher data rates).</li>
+<li>Fixed a setting in the Bink SDK help where the navigation tab would disappear when the focus was lost. One stupid downside is that WinHelp remembers what the setting used to be, so if you have no nagivation tab at all, then choose "Options... Show Tabs" on the menu bar.</li>
+</ul>
+<h1>Changes from version 1.5q to 1.5r (01-01-2003)</h1>
+<ul>
+<li>Fixed the accidental exclusion of the RADSetMemory function header file from the Bink SDKs.</li>
+<li>Made the Bink Player only ask to check for updates if it is in the same directory as the RAD Video Tools. This means that the free Bink Player can be distributed without popping up update requests.</li>
+<li>We now poll the DirectSound buffer positions much less frequently to handle sound drivers that report these positions slowly.</li>
+<li>We added a non-LTCG version of Bink for Xbox, so that "Edit and Continue" can be used again.</li>
+</ul>
+<h1>Changes from version 1.5p to 1.5q (11-18-2002)</h1>
+<ul>
+<li>Fixed a problem where our JPEG reader was detecting motion-JPEG QuickTime movies as a single frame JPEG. This had the effect of making motion-JPEG movies only 	appear to be one frame, so only the first frame of the movie was ever converted. 	We now force the use of QuickTime when the JPEG file is over 1.5 MB in size, or when the 	extension is .QT or .MOV.</li>
+<li>Fixed a bug when using the old Bink audio codec where stereo sound files would get converted to mono during compression. Note that there was no problem if you were using the 	new Bink audio codec (which you should be anyway).</li>
+<li>Fixed a bug when compiling a Smacker for DOS or Win16 video executable.</li>
+<li>Did the big switch over to Perforce source code control.</li>
+</ul>
+<h1>Changes from version 1.5m to 1.5p (10-18-2002)</h1>
+<ul>
+<li>Added MusyX audio output support for the GameCube SDK. This caused a few API changes on the GameCube (even for non-MusyX games) because we no longer automatically assume you are using AX. So, you must now call BinkSoundUseAX or BinkSoundUseMusyX before the first call to BinkOpen, or you won't get any sound. Also, RADSetAudioMemory has been removed (because only AX used it) - instead, you now pass in the ARAM callbacks to the BinkSoundUseAX function.</li>
+<li>Updated all of the GameCude examples to let them be built AX or MusyX.</li>
+</ul>
+<h1>Changes from version 1.5L to 1.5m (10-04-2002)</h1>
+<ul>
+<li>Made the lower Bink audio compression levels less lossy (the levels less than 4).</li>
+<li>Changed the GameCube I/O code to check the global DVD status (vs. the file status) so that errors are still reported even if other async I/O intervenes.</li>
+<li>Worked around buggy Windows XP sound drivers that report bogus playback positions (which was causing occasional skips).</li>
+<li>Switched to using QuickTime to load PNGs when compressing alpha planes.</li>
+</ul>
+<h1>Changes from version 1.5k to 1.5L (09-25-2002)</h1>
+<ul>
+<li>Fixed a problem on the GameCube where stereo audio playback was overly noisy.</li>
+<li>Fixed a few subtle timing issues to allow seamless audio looping.</li>
+</ul>
+<h1>Changes from version 1.5J to 1.5k (09-09-2002)</h1>
+<ul>
+<li>Added batch functionality to the RAD Video Tools! Now you can highlight a group of input files and process them all one by one.</li>
+<li>The RAD Video Tools now has built-in support for TGA and TIFF alpha planes (previously QuickTime was used for alpha input). Our built-in support is almost 20 times faster than QuickTime, so compressing large numbers of still images is now much, much faster!</li>
+<li>Fixed a bug in the DirectSound support where changing the volume could be ignored.</li>
+<li>Bumped up the default compression data rate to 400 kps.</li>
+<li>Added a warning when you ask to compress an alpha plane and the input file has no alpha plane.</li>
+<li>Switched to .NET for building the tools (a little faster compiled code, but the debugger is frustrating).</li>
+<li>Changed the sound support so that we only reset the sound system every 2 minutes of video (less popping at loop points). We also do the reset on the first frame (previously we did it on the last frame which occasionally popped).</li>
+<li>Moved the end of file logic in the Xbox and GameCube example source to fix a problem where playback could stop one frame early.</li>
+<li>Show 2 decimal places when displaying frame rates in the RAD Video Tools.</li>
+<li>We now free the 2x height doubled YUV scanline buffers in BinkClose (vs. shutdown in previous versions). This only saves about 1500 bytes, but it helps with fragmentation.</li>
+<li>Changed the GameCube SDK to account for the slightly faster rate that the NGC DSP <i>really</i> runs at. Fixes sync problems with longer movies on the GameCube.</li>
+<li>Changed the Xbox and PC SDK to allocate the sound sample buffer on the stack - saves 16K of global memory.</li>
+<li>Now build the Xbox library using VC7's link time code generation. This will generate both faster and smaller code. The file size of the library is large because the linker does the compilation - the link size in bytes will be 10K to 50K smaller.</li>
+</ul>
+<h1>Changes from version 1.5i to 1.5J (06-24-2002)</h1>
+<ul>
+<li>Updated the sound code for the Miles Sound System to work with Miles 6.5.</li>
+<li>Updated the sound code for DirectSound to be loudness based (vs. amplitude based).</li>
+<li>Updated the Nintendo GameCube examples to work with Patch 3.</li>
+</ul>
+<h1>Changes from version 1.5h to 1.5i (06-15-2002)</h1>
+<ul>
+<li>Fixed a no-volume problem when using the latest GameCube audio libraries.</li>
+</ul>
+<h1>Changes from version 1.5g to 1.5h (06-12-2002)</h1>
+<ul>
+<li>Made BinkOpen use async reads on the GameCube to avoid lock ups when opening the door at the wrong time.</li>
+<li>Re-enabled the BinkDX8SurfaceType function on the Xbox.</li>
+</ul>
+<h1>Changes from version 1.5f to 1.5g (05-15-2002)</h1>
+<ul>
+<li>Fixed the GameCube not playing some soundtracks.</li>
+<li>Fixed two ugly bugs on the GameCube when closing a Bink file.</li>
+<li>Fixed an periodic clicking on the GameCube with some audio sample rates.</li>
+<li>Fixed the little glitch of audio when playing 8-bit data on the GameCube.</li>
+</ul>
+<h1>Changes from version 1.5e to 1.5f (05-08-2002)</h1>
+<ul>
+<li>Fixed a crash when compressing some audio files.</li>
+</ul>
+<h1>Changes from version 1.5d to 1.5e (04-29-2002)</h1>
+<ul>
+<li>Fixed a bug when compressing or mixing using the old Bink audio compressor.</li>
+<li>Fixed a debug message that displayed while compressing.</li>
+</ul>
+<h1>Changes from version 1.5c to 1.5d (04-27-2002)</h1>
+<ul>
+<li>Fixed a few linker errors on GameCube when using CodeWarrior.</li>
+</ul>
+<h1>Changes from version 1.5b to 1.5c (04-17-2002)</h1>
+<ul>
+<li>Worked around a compiler bug that could cause the Bink compressor to crash on some input files.</li>
+</ul>
+<h1>Changes from version 1.5a to 1.5b (04-03-2002)</h1>
+<ul>
+<li>Added the BinkCopyToBufferRect function to the Bink SDK. This function allows you to partially copy a Bink frame to another buffer. You can draw with tiled Direct3D textures much faster with this function.</li>
+<li>Updated the DX8 and DX7 example programs to use the BinkCopyToBufferRect function.</li>
+<li>Changed the RAD 3D wrapper API slightly on PC to handle direct locking of tiled textures. You now need to call Lock_RAD_3D_image in a loop to obtain each buffer pointer to copy into. See ExamAlph.c for the updated example.</li>
+<li>Released a new Carbon version of the Mac player (compatible with MacOS X and 9)!</li>
+<li>Fixed a false positive condition when writing out an AVI that could cause the 'Windows has crashed' message to appear when everything was fine.</li>
+<li>Updated the Mac version to the latest codebase.</li>
+<li>Fixed an offset bug on the Mac in BinkBufferLock when running on certain multi-monitor configurations.</li>
+<li>Switched to an all new internal task sharing model on the Mac - replaces all the cooperative thread stuff with timers and critical sections. Much better IO and sound performance (fixes the MacOS X multi-CPU sound skips).</li>
+<li>On MacOS X, switched to using normal IO on a background thread instead of async IO.</li>
+<li>Fixed a few bugs on the GameCube when playing videos with no sound.</li>
+<li>Fixed the mixer to accept lossy levels greater than 100 (to specify the old Bink encoder format).</li>
+<li>Fixed the delay when using BinkGoto on a video without sound.</li>
+</ul>
+<h1>Changes from version 1.2J to 1.5a (03-15-2002)</h1>
+<ul>
+<li>Added an all new Bink audio encoder! Sounds much better and can compress up to half the old data rate!</li>
+<li>Added crash protection around all calls to Windows or QuickTime - we should now withstand crashes in buggy 3rd party codecs. The specific frame that was being decompressed will be blank, but the rest of the movie should survive.</li>
+<li>Added several new Xbox SDK examples showing overlay and back buffer support. Overlays are really cool - they are definitely the best way to play most videos on the Xbox.</li>
+<li>Added YUY2 blitting support to the Xbox SDK - this allows the Xbox hardware to do the YUV to RGB conversion (which is usually much faster). Most of the examples now use YUY2 as the default texture format.</li>
+<li>Added support for 3D Studio Max's RLA file format. This format supports RGB, alpha, Z-depth info, UV-coordinates, and normals - all per pixel! This lets you do some amazing post-process stuff with video that you'd swear couldn't be pre-rendered. We'll put up some demos of this soon!</li>
+<li>Added lots of new configuration detection to the System Info button in the RAD Video Tools (Duron, P4, Celeron, Itanium, Me, 2000, XP, video card, audio card, memory, and disk space).</li>
+<li>Detect larger than 2 GB AVI files and warn the user that they are not supported by the Windows reader.</li>
+</ul>
+<h1>Changes from version 1.2i to 1.2J (02-18-2002)</h1>
+<ul>
+<li>Released the all new Nintendo GameCube support! The platforms keep coming!</li>
+<li>Fixed a stupid memory leak in BinkOpen - everyone using 1.2i should upgrade.</li>
+<li>Rewrote BinkGoto completely - you can now jump directly to a frame and the sound will begin immediately (vs. the old 750 millisecond silence delay).</li>
+<li>Added new Direct3D 8 example texture support code. Includes support for dynamic and non-power of 2 textures (both of which can improve playback dramatically).</li>
+</ul>
+<h1>Changes from version 1.2h to 1.2i (01-18-2002)</h1>
+<ul>
+<li>Detected when DirectDraw can't lock the primary surface and switch to DIBSections. This fixes the problem with blank video windows on XP or when NetMeeting was running.</li>
+<li>Fixed a rare deadlock problem when a movie would loop (or when you called BinkSetSoundOnOff).</li>
+<li>Fixed a data overrun that could cause pauses when playing a movie that had no sound.</li>
+<li>Made BinkGoto start the audio from the "gone-to" frame instead of whatever filled up the sound buffer first.</li>
+<li>Fixed BinkGoto to not unpause the movie if it was previously paused.</li>
+<li>Removed Windows.h from the Bink header file (for faster compilation).</li>
+</ul>
+<h1>Changes from version 1.2g to 1.2h (11-07-2001)</h1>
+<ul>
+<li>Made the default mix bins on the Xbox to be all speakers (instead of the normal Xbox default of just the front-left and front-right speakers).</li>
+</ul>
+<h1>Changes from version 1.2f to 1.2g (11-06-2001)</h1>
+<ul>
+<li>Switched to the November Xbox SDK which required slightly changing the BinkSetMixBins and BinkSetMixBinVolumes functions.</li>
+</ul>
+<h1>Changes from version 1.2e to 1.2f (10-26-2001)</h1>
+<ul>
+<li>Fixed a silly regression bug where videos without audio would play with the wrong frame rate.</li>
+</ul>
+<h1>Changes from version 1.2d to 1.2e (10-19-2001)</h1>
+<ul>
+<li>Bink can now play multiple sound tracks at once. This means that the BinkSetSoundTrack function now takes an array of track IDs to play instead of a single value. Also, the BINKNOSOUND constant has been removed - to play without any sound, pass a zero for the track count in BinkSetSoundTrack.</li>
+<li>Added example code in ExamXbox.cpp that shows how to play 5.1 audio on an Xbox.</li>
+<li>Added the BinkSetMixBinVolumes function to adjust the mix bin volumes individually on the Xbox.</li>
+<li>BinkSetVolume, BinkSetPan, BinkSetMixBins functions all now take a track ID to control which sound track is changed.</li>
+<li>Worked around a DirectSound bug on the Xbox where the audio tracks sometimes wouldn't start. If we notice the sound positions aren't updating, we restart the audio track.</li>
+</ul>
+<h1>Changes from version 1.2c to 1.2d (10-02-2001)</h1>
+<ul>
+<li>Fixed a bug in the Miles sound module where sound wouldn't restart after a skip.</li>
+</ul>
+<h1>Changes from version 1.2b to 1.2c (09-30-2001)</h1>
+<ul>
+<li>Worked around a nasty bug in the Xbox system software where the machine can occasionally get in a state where QueryPerformanceCounter actually runs backwards.</li>
+<li>Fixed a bug where Bink wouldn't play the audio track of very short videos (the entire video had to be less than 250 milliseconds long).</li>
+</ul>
+<h1>Changes from version 1.2a to 1.2b (09-24-2001)</h1>
+<ul>
+<li>Put all of Bink in separate sections, so that it can be loaded and unloaded on an Xbox. Use the new BinkUnload and BinkUnloadConverters to manage Bink's sections.</li>
+<li>Set the headroom on the Bink DirectSound buffer to zero (the default is too quiet on the Xbox).</li>
+<li>Added a new BinkSetMixBins function to allow the management of Xbox mix bin destination buffers.</li>
+</ul>
+<h1>Changes from version 1.1d to 1.2a (08-28-2001)</h1>
+<ul>
+<li><b>Huge quality improvements</b> on videos with color gradiants, washes, or fades as a result of cleaning up noise contamination all the way through the Bink pixel pipeline. In some cases, equivalent quality can be obtained at 1/4 the bandwidth! If you need highest possible quality, <b>we recommend recompressing</b> all your Bink videos. The only downside is that video compression time is longer when using super-high data rates (which you may not need any more). These improvements aren't hype - the quality difference is amazing in most cases!</li>
+<li>Added a new denoising video filter (which is now rarely necessary with the new quality improvements).</li>
+<li>Fixed a front-end problem in the video converter where half-toning was being applied if you selected "half-tone always" in the 256-color section.</li>
+</ul>
+<h1>Changes from version 1.1c to 1.1d (08-21-2001)</h1>
+<ul>
+<li>Worked around an Xbox DirectSound bug that caused movies to skip or slip out of synch at the start of a movie.</li>
+<li>Fixed a bug that caused Bink's DirectSound code to take lock the DirectSound buffer too frequently.</li>
+<li>Bink for Xbox now allocates it's sound buffer from the RAD memory allocation functions.</li>
+<li>Bink's threads now use 12K of stack space instead of the executable default. This can save a fair amount of memory on the Xbox.</li>
+<li>Added a workaround in the Bink timer code for buggy motherboards that advance the QueryPerformanceCounter incorrectly under heavy loads.</li>
+</ul>
+<h1>Changes from version 1.1b to 1.1c (07-12-2001)</h1>
+<ul>
+<li>Added new QuickTime importing code to support the video track of MPEG and Flash movies. QuickTime doesn't support audio exporting from either of these file types yet, unfortunately.</li>
+<li>Added new QuickTime importing code to support AVIs that Windows can't open (like DV formatted AVIs).</li>
+<li>Switched to the July version of the Xbox SDK.</li>
+</ul>
+<h1>Changes from version 1.1a to 1.1b (06-18-2001)</h1>
+<ul>
+<li>Fixed bug when opening a Bink file with multi-threaded I/O turned off. This caused several of the tools to lock up when processing Bink files as input files.</li>
+</ul>
+<h1>Changes from version 1.0x to 1.1a (06-14-2001)</h1>
+<ul>
+<li>Added new audio encoder that provides much higher quality sound on deep tones (may still have to use 0 lossy level on some files, though).</li>
+<li>Rewritten DirectSound layer - much more tolerant of CPU starvation. Also worked around buggy SBLive drivers that would cause periodic skipping under Windows 2000.</li>
+<li>All new threading model - instead of one thread per open Bink, there are simply two global threads for all open Bink files. Also fixed a few very rare thread deadlocks on multi-CPU machines (typically exhibited after more than 12 hours of looped playback).</li>
+<li>Built with new beta versions of the Xbox system software - fixes crash in BinkOpen on beta 1 and 2 Xbox hardware.</li>
+<li>Fixed compression of unusual AVIs where the video stream format doesn't match the file format (usually seen in Debabilizer AVI files).</li>
+<li>Fixed a bug compressing unusual QuickTime movies where the audio started at a non-zero offset.</li>
+<li>Improved the Bink I/O system to give better playback when playing files that are very close to the data rate limit of the playback device.</li>
+<li>Added a new BinkDX8SurfaceType function that returns the type of a DirectX 8 surface.</li>
+</ul>
+<h1>Changes from version 1.0w to 1.0x (02-15-2001)</h1>
+<ul>
+<li>First release of the Bink SDK for Xbox! Use Bink files on the Xbox!</li>
+<li>Fixed a several precision issues in the front-end tools that caused a variety of odd problems when working with very long video files.</li>
+<li>Updated the 3D example files to support scaling the video while blitting.</li>
+<li>Fixed a thread deadlock when running under Windows 98 and another background application was pounding on the DirectSound device.</li>
+<li>Fixed a bug on the Mac when using the BINKSURFACE32A surface type.</li>
+</ul>
+<h1>Changes from version 1.0v to 1.0w (11-26-2000)</h1>
+<ul>
+<li>All Bink example files have been rewritten - much cleaner and easier to understand.</li>
+<li>The example programs for performing alpha on OpenGL or Direct3D have been merged into one file (ExamAlph.C). The example now uses a simple wrapper API to both OpenGL (GLRAD3D.C) and Direct3D (D3DRAD3D.CPP).</li>
+<li>Added a Carbon version of the Bink library for MacOS X.</li>
+<li>Made the Bink Mac player show double-clicked or dropped files from the Finder.</li>
+<li>Fixed a few bugs in the video resizer - should look better when using small resize ratios (like resizing a 320x240 video to 352x256, for example).</li>
+<li>Fixed a bug in the video smoother where small artifacts could appear.</li>
+<li>Allow more video files to be added to a single compiled executable.</li>
+<li>Fixed a bug where bi-linear filtering was forced on when compressing an alpha plane.</li>
+<li>When adding three or more files to a list file, the files are sorted as they are placed into the list.</li>
+<li>List files now store complete pathnames internally, so you can copy them to other locations and the list file will still work.</li>
+</ul>
+<h1>Changes from version 1.0u to 1.0v (10-03-2000)</h1>
+<ul>
+<li>Fixed a silly bug in the still image importer where the frame range was used incorrectly.</li>
+</ul>
+<h1>Changes from version 1.0t to 1.0u (09-28-2000)</h1>
+<ul>
+<li>Fixed a bug in Smacker's lossless mode where it wasn't lossless if the input file had a very high data rate.</li>
+<li>Fixed a bug when using a list file containing a series of still images with local start and end frame offsets.</li>
+<li>Fixed a display bug in file information window where large file sizes could be displayed as negative numbers.</li>
+<li>Switched to the new RAD make tool - very cool.</li>
+</ul>
+<h1>Changes from version 1.0s to 1.0t (09-09-2000)</h1>
+<ul>
+<li>Added video resizing! You can now shrink or zooming during compression or conversion. We use bi-cubic interpolation for extremely high quality scaling.</li>
+<li>Added a bunch of digital video filters for use during compression and conversion - contrast, smoothing, brightness, clamp to black, gamma correction, and video de-interlacing are all now available!</li>
+<li>Fixed a subtle bug in the QuickTime importer where the first frame was sometimes duplicated.</li>
+<li>Added new 256-color small and large icons for Bink and Smacker.</li>
+<li>Added a workaround to a SBLive driver bug that was causing waveOut mode not to work under Win98.</li>
+<li>Fixed some thread contention problems that were causing audio decompression to take a bit more CPU than necessary.</li>
+<li>Fixed the non-client area not being redrawn in the players after a window resize under Win2K.</li>
+<li>Changed a few variable names in RAD.H to avoid conflicts with AMD's 3DNow header file.</li>
+<li>Fixed a bug where a list file containing files with different original frame rates would wrap around if an adjusted frame rate was used on the list file.</li>
+</ul>
+<h1>Changes from version 1.0r to 1.0s (08-08-2000)</h1>
+<ul>
+<li>Made the player periodically ask to check for updates (since many users just double-click in Explorer and never run the tools).</li>
+<li>Fixed a stupid bug where Bink videos without sound would play as fast possible.</li>
+</ul>
+<h1>Changes from version 1.0q to 1.0r (08-03-2000)</h1>
+<ul>
+<li>Sped up the decompressor by 12% on Mac and 5% on PC.</li>
+<li>Fixed a audio problem on the Mac where audio playback was noisy.</li>
+<li>An error is now shown when the audio track of a locked QuickTime file is opened (rather than just converting silence).</li>
+<li>When executing an internal video utility and the control key is held down, we now put the command onto the clipboard (this makes it easy to copy the command line into a batch file).</li>
+<li>An hourglass is displayed when reading long series of image files.</li>
+<li>Fixed a bug where the wrong window style was used in the Bink player.</li>
+<li>Fixed a goofy bug where BinkSetSoundOnOff only allowed zero or one (vs. zero or non-zero).</li>
+</ul>
+<h1>Changes from version 1.0p to 1.0q (07-10-2000)</h1>
+<ul>
+<li>Fixed a subtle aliasing error when using the 'adjust to frame rate' option with non-integral multiples.</li>
+<li>Fixed a bug where the alpha plane of an imported Bink file was ignored.</li>
+<li>Fixed a bug where the alpha plane of a TGA file was ignored if you imported the file as one of a series of still images.</li>
+<li>Switched to a new EXE compressor (UPX) under Win32 that gets better compression and that should be more widely compatible.</li>
+</ul>
+<h1>Changes from version 1.0n to 1.0p (06-26-2000)</h1>
+<ul>
+<li>Switched to the real FFT instead of the complex FFT which can double audio decompression performance on some CPUs!</li>
+<li>Made the RAD Video Tools must better at detecting series of numbered files.</li>
+</ul>
+<h1>Changes from version 1.0m to 1.0n (06-12-2000)</h1>
+<ul>
+<li>Compiled EXE Bink and Smacker files can now be used by most of the tools - you can convert them into AVIs, recompress them, remix audio from them, click on advanced play to change the built-in playback settings, etc.</li>
+<li>You can now use the Bink and Smacker sound mixers to remove an audio track - just use '-' for the sound filename to mix.</li>
+<li>The Mac player can now play PC EXE compiled videos - just highlight EXE file and hit Play!</li>
+<li>Video playback is now centered by default on the Mac.</li>
+<li>The background screen is cleared to black by default on the Mac.</li>
+<li>Added options to not clear the background screen and to hide the mouse during playback on the Mac.</li>
+<li>The Smacker player can now hide the mouse cursor during playback.</li>
+<li>Fixed crash when encountering a file IO error (such as the CD being ejected during playback) on both PC and Mac.</li>
+<li>Fixed an offset bug when using negative X offsets in the RAD graphics file importer when outputting true-color files.</li>
+<li>Added the new RADSetMemory function that allows you to replace Bink's or Smacker's memory allocation and freeing routines on both PC and Mac.</li>
+</ul>
+<h1>Changes from version 1.0k to 1.0m (06-02-2000)</h1>
+<ul>
+<li>Switched to a faster FFT routine (speeds up audio decompression).</li>
+<li>Fixed BinkCopyToBuffer to return a 1, if the blit was skipped.</li>
+<li>Exported the BinkSetIO function correctly.</li>
+<li>Fixed a wrap around bug when converting long wave files with the Bink converter.</li>
+</ul>
+<h1>Changes from version 1.0j to 1.0k (05-22-2000)</h1>
+<ul>
+<li>Fixed some surface byte ordering issues on MacOS - BINKSURFACE32 is now the correct format for the MacOS desktop.</li>
+<li>Fixed a millisecond overflow problem on MacOS.</li>
+<li>Buffer more sound data on MacOS - should give smoother playback.</li>
+<li>Use less aggressive frame skipping on both PC and Mac.</li>
+<li>Fixed a bug in the Bink IO speed simulator.</li>
+<li>Fixed a crash when importing a Smacker file with Bink audio.</li>
+<li>Added waveOut support to Bink - it can now run completely without DirectX.</li>
+</ul>
+<h1>Changes from version 1.0i to 1.0j (04-30-2000)</h1>
+<ul>
+<li>First version of Bink for Mac! The full Bink SDK and player is now available for MacOS!</li>
+<li>Fixed a bug when pausing a video before a single frame had been decompressed.</li>
+</ul>
+<h1>Changes from version 1.0h to 1.0i (04-05-2000)</h1>
+<ul>
+<li>Added three new display color depth options to the Bink player - "at least high-color" (tries 16-bit, then 32-bit, and then 24-bit), "try true-color" (tries 32-bit, then 24-bit, and then 16-bit), and "true-color only" (tries 32-bit, and then tries 24-bit).</li>
+<li>Checks the actual bit depth set after a call to ChangeDisplaySettings to work around a bug in the NVidia drivers.</li>
+<li>Bink player doesn't decompress sound that is going to be skipped when playing in "as fast as possible" mode.</li>
+<li>Fixed a bug in the 5551 merged alpha blitters.</li>
+<li>Added two Bink alpha plane playback examples - DXALPHA.CPP for Direct3D and GLALPHA.C for OpenGL.</li>
+<li>First version of Smacker 4.0 for the Mac! PowerPC and 68K are both supported (you should avoid using Bink audio in Smacker files that will be played on 68K machines, though).</li>
+<li>Fixed a bug in the Smacker encoder where files compressed with Bink audio tracks would be aligned incorrectly. This led to too slow Smacker files on the PC and unplayable files on the Mac. You have to recompress the Smacker file to fix the problem, though.</li>
+<li>Renamed the SmackTimerRead function to RADTimerRead and switched to using QueryPerformanceCounter (from timeGetTime) on Win32 - should make movies play a little more smoothly on Windows NT and 2000.</li>
+<li>Fixed a bug in the SmackGetRects function where an extra bogus rectangle would be returned on a frame where a palette change occurred, but no pixels changed.</li>
+<li>In the Smacker player and SDK, broke out the time spent in the audio and video decoders into separate values.</li>
+<li>Fixed a bug in the Smacker player that cause an extra millisecond of sleep for every frame.</li>
+<li>Fixed a bug where the Bink encoder wouldn't read the alpha channel out of an input Bink file.</li>
+<li>Fixed a crash in the Mac SmackBuffer API when a NULL rectangle was passing to SmackBufferBlit.</li>
+<li>You can now override settings on the command line with a remove switch. For example, if you run "BinkPlay test /L", you can tell Bink to ignore the loop switch with "BinkPlay test /L /-L". The "slash-minus-L" tells Bink to skip the earlier L switch. This is mostly useful for overriding the switches that are compiled into a self-playing Bink or Smacker file.</li>
+</ul>
+<h1>Changes from version 1.0g to 1.0h (03-14-2000)</h1>
+<ul>
+<li>Under NT, sped up mixing time dramatically by flushing the file less often.</li>
+<li>Fixed a problem where a user-specified DirectSound object could cause audio not to play.</li>
+<li>Fixed a bug in the Smacker mixer where forcing a frame rate would cause the audio to be mixed incorrectly.</li>
+</ul>
+<h1>Changes from version 1.0f to 1.0g (03-08-2000)</h1>
+<ul>
+<li>Added multi-CPU support to the Bink compressor! Compression scales close to linearly with multiple CPUs - twice as fast for two CPUs, four times as fast for four CPUs, etc.</li>
+<li>Added reversed order blitters (BINKSURFACE24R and BINKSURFACE32R). These are convenient under OpenGL where the reversed byte path is more optimized.</li>
+<li>Added merging alpha blitters (BINKSURFACE32A, BINKSURFACE32RA, and BINKSURFACE4444). These are used with Bink files that are compressed with an alpha plane to get the merged formats commonly used by the 3D APIs.</li>
+<li>Added the new online documentation system (with the system that Casey created for Granny).</li>
+<li>Fixed a bug in the BinkBuffer API where the YUV formats were never tried if the DIBSection blitter failed.</li>
+</ul>
+<h1>Changes from version 1.0e to 1.0f (02-08-2000)</h1>
+<ul>
+<li>Made the Bink compressor up to 25% faster with better video quality.</li>
+<li>Made the core Bink decompressor about 12% faster on all CPUs.</li>
+<li>Made the decompressor another 5% faster if you recompress your Bink files.</li>
+<li>When compressing with alpha, we now use QuickTime to load the files first (which lets us read the alpha planes out of most files - including TGAs).</li>
+<li>Fixed a few bugs in the alpha plane compressor and decompressor.</li>
+<li>Switched to a new internal frame format as a precursor to multi-CPU (SMP) decompression.</li>
+<li>Merged the Bink for PC and Mac into one code base (for the upcoming Mac release).</li>
+<li>Fixed a crash in the Bink DLL when shutting down under NT 4.</li>
+<li>Made the Bink and Smacker players for Win32 take longer lists of filenames (up to 50 files can now be compiled into an EXE).</li>
+</ul>
+<h1>Changes from version 1.0d to 1.0e (02-01-2000)</h1>
+<ul>
+<li>Worked around a Windows buffer limit that was causing doubled-clicked files in the RAD Video Tools not to play.</li>
+<li>Fixed a potential crash when decompressing alpha plane data.</li>
+</ul>
+<h1>Changes from version 1.0c to 1.0d (01-27-2000)</h1>
+<ul>
+<li>Fixed a bug in the QuickTime sound importer - there should be no more glitches with compressed MOV soundtracks, MP3 files or other compressed wave files.</li>
+<li>Fixed the Bink converter using the wrong value when displaying percent complete during a sound file conversion.</li>
+<li>Fixed some YUV conversion problems when using non-zero offsets to the BinkCopyToBuffer function.</li>
+<li>Sped up mono 2x blitting on non-MMX CPUs.</li>
+<li>Fixed a bug where DirectDraw was still required even when using DIBSections.</li>
+<li>Fixed a bug in the standalone player where the DirectSound object was deadlocking when being released under NT 4 at shutdown time.</li>
+<li>Fixed some bugs in the measuring of total read time (and added reporting of idle reading time and background thread reading time in both the summary and the real time statistics).</li>
+<li>Fixed a bug when simulating a device speed where the device speed was overestimated.</li>
+<li>Made the list file button handle lists as large as Windows itself can handle.</li>
+<li>Made the list file button much faster when used with huge lists of files.</li>
+<li>Made the file info button display the true color depth of an AVI file (8, 16, 24, or 32 instead of always 8 or 24).</li>
+</ul>
+<h1>Changes from version 1.0c to 1.0b (01-04-2000)</h1>
+<ul>
+<li>Sped up mono blitting on non-MMX CPUs.</li>
+<li>Fixed a bug in the YUY2 and UYVY 2X stretchers.</li>
+</ul>
+<h1>Changes from version 1.0a to 1.0b (12-28-1999)</h1>
+<ul>
+<li>Added 2x height, 2x width, and 2x width and height stretching software blitters - up to four times faster than Windows.</li>
+<li>Added scaling compression support for 2x height, 2x width, and 2x width and height.</li>
+<li>Fixed the Bink colorspace conversion to match YUV hardware exactly (Bink videos should look identical whether displayed with the hardware or our optimized software blitters now). This also had the nice side effect of making videos with lots of reddish hues compress better.</li>
+<li>Added much faster blitter support for non-aligned destination memory addresses.</li>
+<li>Made the Bink compressor display more information when loading lists and runs of files.</li>
+<li>Fixed a bug in the Smacker player for DOS when playing new Smacker 4.0 files.</li>
+<li>Fixed a bug in the Smacker player for DOS when playing an audio track compressed with the Bink audio codec.</li>
+<li>Fixed edge support for mono and 2x blitters.</li>
+<li>Fixed a bug in both the Bink and Smacker compressors, where the start sound offset would be wrong if you adjusted the output frame rate.</li>
+<li>Fixed a bug where the Bink player would wait the first frame's time before beginning playback.</li>
+<li>Fixed a bug in the Bink player where the final frame wasn't displayed long enough.</li>
+</ul>
+<h1>Changes from version 0.9n to 1.0a (12-01-1999)</h1>
+<ul>
+<li>Bink compression is now twice as fast! Compress your movies in half the time.</li>
+<li>Bink player now shares the CPU much more nicely.</li>
+<li>Added video smoothing and contrast control to the Bink compressor (usually makes a huge difference in video quality).</li>
+<li>Smacker has been upgraded to version 4.0 and has been fully integrated.</li>
+<li>New Smacker 4.0 compression - double the quality of your Smacker movies!</li>
+<li>Smacker 4.0 now includes optional Bink audio compression. You can now use Bink's perceptually-lossless 8 to 1 audio compressor.</li>
+<li>Smacker 4.0 player now shares the CPU much more nicely.</li>
+<li>Smacker 4.0 player now correctly shows the logo if the movie was paused.</li>
+<li>Smacker 4.0 DOS player now uses Miles 6.0 (smaller compiled DOS EXEs).</li>
+<li>Smacker 4.0 uses the Bink bandwidth allocation routines to intelligently reallocate bandwidth to the frames that need it most.</li>
+<li>Added a SmackGetKeyFrame function to the Smacker 4.0 SDK.</li>
+<li>The analyze window now tags key frames in Bink and Smacker 4 files.</li>
+<li>Added an always-on-top option to both the Bink and Smacker players.</li>
+<li>The Bink compressor can now compress to grayscale-only Bink files.</li>
+<li>Added an option for the Bink compressor to compress the alpha plane of the input file (only Bink SDK users can access the alpha plane currently).</li>
+<li>Made window alignment dependent on pixel size (rather than always 4) in Bink.</li>
+<li>Made the compressors, converter, and mixers front-ends more consistent.</li>
+<li>Bink video window isn't cleared to black before playback begins.</li>
+<li>Fixed a nasty bug in the masking YUV blitter that would cause some unusual frames not to be completely copied (leaving little artifacts behind).</li>
+<li>Fixed a crash when looping short Bink movies.</li>
+<li>Fixed a bug in the Bink converter when converting RAW sound files into wave files.</li>
+<li>Fixed a bug in Bink where the first frame would be skipped after a go to or a loop around (which also fixed a weird problem when Smacking a Bink file).</li>
+</ul>
+<h1>Changes from version 0.9m to 0.9n (11-02-1999)</h1>
+<ul>
+<li>Added new YUV to RGB blitters specifically for video memory - up to 100% faster when converting directly into video memory.</li>
+<li>Fixed a memory leak in BinkClose.</li>
+<li>Fixed a bug when playing multiple files when using the fill-screen-to-black option.</li>
+</ul>
+<h1>Changes from version 0.9k to 0.9m (10-14-1999)</h1>
+<ul>
+<li>Added a grayscale blitting mode (much faster - useful on slow machines).</li>
+<li>Further tweaked the frame skipping logic for slower machines.</li>
+<li>Made the DIBSection blitter chosen before the overlay and off-screen surfaces (should be more compatible).</li>
+</ul>
+<h1>Changes from version 0.9j to 0.9k (10-13-1999)</h1>
+<ul>
+<li>Made sound synchronization much more accurate after a frame skip or a pause - we should recover from frame skips on low end machines much cleaner now.</li>
+<li>Fixed a problem with videos stopping with the SDK when using Miles.</li>
+</ul>
+<h1>Changes from version 0.9i to 0.9j (10-11-1999)</h1>
+<ul>
+<li>Further optimized the 24-bit and 32-bit non-MMX blitting routines.</li>
+<li>Fixed the background of the Bink Tools dialog boxes under NT.</li>
+<li>Fixed a bug with compiled EXE Bink files not playing under NT.</li>
+</ul>
+<h1>Changes from version 0.9h to 0.9i (09-09-1999)</h1>
+<ul>
+<li>Added DIB Section support for non-DirectX blitting.</li>
+<li>Changed DirectDraw off-screen system blitter to check the DirectDraw scale flags to see if it supported stretching.</li>
+<li>Added new non-MMX 16-bit, 24-bit, and 32-bit blitters that are all much faster on Pentium Pros.</li>
+<li>Added additional optimized data alignment paths in the 16-bit non-MMX blitters.</li>
+<li>Fixed a bug in the sound mixer where key frame markers would be lost.</li>
+<li>Fixed a bug in the compressor where the hint file frame numbers were off by one.</li>
+<li>Added a switch (/C) to hide the Windows mouse cursor inside the Bink window.</li>
+</ul>
+<h1>Changes from version 0.9g to 0.9h (09-02-1999)</h1>
+<ul>
+<li>Fixed a stupid, but pesky audio mixing bug where the "mix at what frame" setting could be ignored.</li>
+<li>Fixed a sporadic crash when compressing file with more than 50000 frames.</li>
+<li>Fixed a bug where the left edge of the desktop could peek through when using the "clear screen to black" setting.</li>
+<li>Fixed a bug in the SDK when BinkCopyToBuffer wouldn't work inside when the Bink file was paused.</li>
+</ul>
+<h1>Changes from version 0.9f to 0.9g (08-05-1999)</h1>
+<ul>
+<li>Added a new P5-scheduled version of the 24-bit RGB blitter.</li>
+<li>Fixed bug when canceling a Bink compression, but keeping the existing frames.</li>
+<li>Fixed a bug when skipping into a Bink file inside a list file.</li>
+</ul>
+<h1>Changes from version 0.9e to 0.9f (08-03-1999)</h1>
+<ul>
+<li>Fixed a goofy bug in the Bink player that causes video EXE files not to use the embedded options.</li>
+</ul>
+<h1>Changes from version 0.9d to 0.9e (07-30-1999)</h1>
+<ul>
+<li>Added Compile to EXE support for both Bink and Smacker files.</li>
+<li>Adjusted the Bink data rate algorithms to minimize periodic data spikes and data drop outs. It's usually worthwhile to recompress your videos.</li>
+<li>Added peak data rate control in the Bink compressor - this allows you to keep the peak rates under control when applying bandwidth reallocation.</li>
+<li>You can now highlight and play multiple files at once (both in quick mode and advanced).</li>
+<li>Added a View button to the Bink and Smacker mixers.</li>
+<li>The players now also adjust the sound playback rate when playing back at a forced frame rate. This keeps the audio in sync on forced frame rates.</li>
+<li>Added new optimized MMX 24-bit and 32-bit blitters - up to 50% faster blitting in these modes.</li>
+<li>Added a periodic reminder to check for a new Bink version.</li>
+</ul>
+<h1>Changes from version 0.9c to 0.9d (07-12-1999)</h1>
+<ul>
+<li>Add detection for the AMD Athlon processor (which is pretty awesome, by the way).</li>
+<li>Fixed a stupid bug when playing Bink or Smacker files from the front-end that had spaces in the filename.</li>
+<li>Fixed a bug when pressing Escape while the video was paused.</li>
+</ul>
+<h1>Changes from version 0.9b to 0.9c (07-01-1999)</h1>
+<ul>
+<li>Made the front-end always call the Bink and Smacker players directly.</li>
+<li>Fixed the Bink player credits window with playing in 320x200 or 320x240 mode.</li>
+<li>Fixed a crash in the player when trying to play a non-Smacker file.</li>
+</ul>
+<h1>Changes from version 0.9a to 0.9b (06-29-1999)</h1>
+<ul>
+<li>Fixed a DirectDraw related bug where the video frames would never be displayed if full screen mode was requested.</li>
+<li>Split out video decompression time and audio decompression time in the runtime and summary info.</li>
+</ul>
+<h1>Changes from version 0.8i to 0.9a (06-25-1999)</h1>
+<ul>
+<li>Added separate "Advanced play" windows for Bink and Smacker.</li>
+<li>Added a button to check for the latest version of the RAD Video Tools.</li>
+<li>Added the Video Analysis window to the Bink Tools.</li>
+<li>Fixed looping so that the movie would remain in sync.</li>
+<li>Added the BinkSetSoundOnOff command to the SDK.</li>
+<li>Added the Smacker Player and Smacker Mixer to the front-end (just the compressor to go).</li>
+<li>Wrote and implemented the new Bink help system.</li>
+<li>Much faster (up to twice as fast) 16-bit RGB blitting on MMX machines.</li>
+<li>Fixed a bug where the background I/O task would consume too much CPU time when the movie was done streaming (or close to done streaming).</li>
+<li>Added the BinkBufferSetDDPrimary function call to the SDK to allow BinkBuffers to be used with full-screen DirectDraw applications.</li>
+<li>Fixed an end-of-movie sound glitch when using DirectSound.</li>
+</ul>
+<h1>Changes from version 0.8h to 0.8i (05-12-1999)</h1>
+<ul>
+<li>Added the Bink converter which replaces the Graphics and Sound Processor in Smacker.</li>
+<li>The Bink converter can now convert video *and* audio at the same time - allowing direct conversions from Bink or QuickTime into AVIs.</li>
+<li>Fixed a threading crash if rapidly opening and closing Bink files.</li>
+<li>Fixed the importing of 16-bit BMP files.</li>
+<li>Added importing and exporting of PNG files.</li>
+<li>Fixed monotonous multiple prompting for series of files when creating a list when a run of files are selected.</li>
+</ul>
+<h1>Changes from version 0.8g to 0.8h (04-21-1999)</h1>
+<ul>
+<li>Added a frame rate adjustment feature. Unlike the existing frame rate changer, this feature will add or remove frames to maintain your specified frame rate. So, if you have a 15 fps animation and you adjust it to 30 fps, then every frame will be copied twice.</li>
+<li>Added decoding of Bink audio tracks to the utilities (you can now Bink or Smack a Bink file). This allows you to archive your videos in much, much less space than uncompressed AVIs (just use a really high data rate for archival purposes, say 2000000).</li>
+</ul>
+<h1>Changes from version 0.8f to 0.8g (04-16-1999)</h1>
+<ul>
+<li>Fixed an overwrite bug when compressing small resolution videos.</li>
+</ul>
+<h1>Changes from version 0.8e to 0.8f (04-12-1999)</h1>
+<ul>
+<li>Added the Bink SDK manual and cleaned up a few problems in the SDK.</li>
+<li>Fixed a bug when playing under NT close to the max data rate of the device.</li>
+</ul>
+<h1>Changes from version 0.8d to 0.8e (04-02-1999)</h1>
+<ul>
+<li>Fixed a nasty overflow in the data rate parameters which could cause the data rate to grow linearly during a compression. If the data rate of your movies seems too high, then you probably ran into this bug.</li>
+<li>Smoothed playback somewhat for movies that are playing very close to the maximum data rate of the playback device.</li>
+</ul>
+<h1>Changes from version 0.8c to 0.8d (03-31-1999)</h1>
+<ul>
+<li>Added much better background IO routines - can approach 100% background IO even on Windows 95/98.</li>
+<li>Made audio decompression much faster.</li>
+<li>Added better frame skipping techniques.</li>
+<li>Improved Bink compression speed somewhat.</li>
+<li>Added a new redistributable Bink player (with no RAD credits) for licensing.</li>
+</ul>
+<h1>Changes from version 0.8b to 0.8c (03-24-1999)</h1>
+<ul>
+<li>Added a list file editor.</li>
+<li>Fixed a bug when Binking a wave file.</li>
+<li>Can detect pretty much any type of CPU now (used the Scitech code).</li>
+</ul>
+<h1>Changes from version 0.8a to 0.8b (03-23-1999)</h1>
+<ul>
+<li>Rebuilt the Bink installation program to include the mixer.</li>
+</ul>
+<h1>Changes from version 0.0 to 0.8a (03-22-1999)</h1>
+<ul>
+<li>The first version of Bink for general testing is released (Bink Release Candidate 1)!</li>
+<li>File format changed from earlier betas, this came with an almost 2x quality improvement however - especially on low-bandwidth materials.</li>
+<li>Codec technology is completely finished - tools still need minor polishing, including the integration of Smacker.</li>
+<li>This version of Bink requires DirectX to be installed.</li>
+</ul>
+<p align=center>
+<a href="mailto:Bink1@radgametools.com">For technical support, e-mail Bink1@radgametools.com</a>
+<br>
+<a href="http://www.radgametools.com/bnkmain.htm?from=help1.5v">&#169; Copyright 1994-2003 RAD Game Tools, Inc. All Rights Reserved.</a>
+</p>
+<br>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!-- This page was created with the RAD auto-doc generator. -->
+<!doctype html public "-//w3c//dtd html 3.2 final//en">
+<html>
+<head>
+<title>Sound on the Nintendo GameCube</title>
+<meta http-equiv="content-type" content="text/html; charset=iso8859-1">
+<meta name="ms.locale" content="en-us">
+<meta name="description" content="">
+<meta name="ms-hkwd" content="Sound on the Nintendo GameCube">
+<link rel="stylesheet" title="default" href="reference.css" type="text/css" media="screen">
+</head>
+<body topmargin="0">
+<table cellspacing=0 cellpadding=0 class=bar width=100% height=25>
+<tr class=bar>
+<td class=bar>
+<i>&nbsp;<a href="index.html" class=trn>Bink SDK 1.5v</a></i>
+</td>
+</tr>
+</table>
+<h1>Sound on the Nintendo GameCube</h1>
+<h4>Discussion</h4>
+<p>For sound support on the Nintendo GameCube, Bink can talk to either the AX audio library or MusyX audio library which in turn talks to the GameCube hardware. Note that the GameCube's hardware DSP runs at 32028 Hz, so any audio frequencies higher than that simply get filtered out. This means you should usually preconvert your audio tracks down to 32028 Hz at authoring time (but Bink can down-convert audio tracks at runtime for a small CPU hit, though). Now let's describe the steps to get AX or MusyX support working (you should also check out ExamNbb.C - it's a simple example that can support AX or MusyX). To use Bink's built-in AX support, you have to perform these three steps (only the third step if you are already playing audio with AX): 1) You have to set up the audio hardware subsystems prior to calling into Bink. This means calling the following code: </p><code><font size=3 color=#006000><pre><br>  ARInit( aramMemArray, MAX_ARAM_BLOCKS );  ARQInit( );  AIInit( 0 );</pre></font></code><p>2) Next, you must set up the AX library prior to calling Bink. You also usually want to turn the dynamic compressor off for pre-authored. This code looks like this: </p><code><font size=3 color=#006000><pre><br>  AXInit( );  AXSetCompressor( AX_COMPRESSOR_OFF );</pre></font></code><p>3) Finally, you need to tell Bink to actually use AX by calling the <a href="BinkSoundUseAX.html">BinkSoundUseAX</a> function. This function also needs the two callbacks to use for requesting audio buffer RAM. So, the code for this step looks something like this: </p><code><font size=3 color=#006000><pre><br>  void *aram_malloc( U32 num_bytes )  {    return( ( void * ) ARAlloc( num_bytes ) );  }<br>  void aram_free( void * ptr )  {    U32 length;    ptr = ptr; // ARFree always frees the last pointer allocated    ARFree( &length );  }<br>  RADARAMCALLBACKS aram_callbacks = { aram_malloc, aram_free };  BinkSoundUseAX( &aram_callbacks );</pre></font></code><p>And that's it - the AX users should be hearing sound now! The setup for MusyX users is just as easy. To start Bink's support for MusyX, follow these similar 3 steps (again, only the third step is necessary if you are already playing audio with MusyX): 1) You have to set up the audio hardware subsystems prior to calling into Bink. This means calling the following code: </p><code><font size=3 color=#006000><pre><br>  ARInit( aramMemArray, MAX_ARAM_BLOCKS );  ARQInit();  AIInit( 0 );</pre></font></code><p>2) Next, you must set up the MusyX library prior to calling Bink. This code looks something like this: </p><code><font size=3 color=#006000><pre><br>  sndSetHooks( &ram_callbacks );  sndInit( 16, 8, 8, 1, SND_FLAGS_DEFAULT, 8 * 1024 * 1024 );</pre></font></code><p>3) Finally, you need to tell Bink to actually use MusyX by calling the <a href="BinkSoundUseMusyX.html">BinkSoundUseMusyX</a> function. The code for this step is simply: </p><code><font size=3 color=#006000><pre><br>  BinkSoundUseMusyX( );</pre></font></code><p>And that's it - Bink takes care of everything else! </p>
+<p><a href="Memory management on8uyiaz.html">Next Topic (Memory management on the Nintendo GameCube)</a>  </p><p><a href="Gamma on the Nintendyrr8cb.html">Previous Topic (Gamma on the Nintendo GameCube)</a>  </p><p>
+<br>
+<b>Group:</b>
+<a href="The Nintendo GameCubm0rzpb.html">The Nintendo GameCube Platform</a><br>
+<b>Related Sections:</b>
+<a href="Audio Tracks in Bink.html">Audio Tracks in Bink</a><br>
+<b>Related Functions:</b>
+<a href="BinkSoundUseAX.html">BinkSoundUseAX</a>, <a href="BinkSoundUseMusyX.html">BinkSoundUseMusyX</a></p>
+<p align=center>
+<a href="mailto:Bink1@radgametools.com">For technical support, e-mail Bink1@radgametools.com</a>
+<br>
+<a href="http://www.radgametools.com/bnkmain.htm?from=help1.5v">&#169; Copyright 1994-2003 RAD Game Tools, Inc. All Rights Reserved.</a>
+</p>
+<br>
+</body>
+</html>

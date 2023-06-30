@@ -1,0 +1,144 @@
+<!-- This page was created with the RAD auto-doc generator. -->
+<!doctype html public "-//w3c//dtd html 3.2 final//en">
+<html>
+<head>
+<title>BINKSUMMARY</title>
+<meta http-equiv="content-type" content="text/html; charset=iso8859-1">
+<meta name="ms.locale" content="en-us">
+<meta name="description" content="is a structure used to return playback summary information from BinkGetSummary.">
+<meta name="ms-hkwd" content="BINKSUMMARY">
+<link rel="stylesheet" title="default" href="reference.css" type="text/css" media="screen">
+</head>
+<body topmargin="0">
+<table cellspacing=0 cellpadding=0 class=bar width=100% height=25>
+<tr class=bar>
+<td class=bar>
+<i>&nbsp;<a href="index.html" class=trn>Bink SDK 1.5v</a></i>
+</td>
+</tr>
+</table>
+<h1>BINKSUMMARY</h1>
+<p>The structure  <b>BINKSUMMARY</b> is a structure used to return playback summary information from BinkGetSummary.</p>
+<table width=100% cellspacing=0 class=pre>
+<tr class=pre>
+<td class=pre>
+<pre><b>struct <a href="BINKSUMMARY.html" class=trn>BINKSUMMARY</a>
+{
+&nbsp&nbsp<a href="U32.html" class=trn>U32</a></b><i> Width</i><b>;
+&nbsp&nbsp<a href="U32.html" class=trn>U32</a></b><i> Height</i><b>;
+&nbsp&nbsp<a href="U32.html" class=trn>U32</a></b><i> TotalTime</i><b>;
+&nbsp&nbsp<a href="U32.html" class=trn>U32</a></b><i> FileFrameRate</i><b>;
+&nbsp&nbsp<a href="U32.html" class=trn>U32</a></b><i> FileFrameRateDiv</i><b>;
+&nbsp&nbsp<a href="U32.html" class=trn>U32</a></b><i> FrameRate</i><b>;
+&nbsp&nbsp<a href="U32.html" class=trn>U32</a></b><i> FrameRateDiv</i><b>;
+&nbsp&nbsp<a href="U32.html" class=trn>U32</a></b><i> TotalOpenTime</i><b>;
+&nbsp&nbsp<a href="U32.html" class=trn>U32</a></b><i> TotalFrames</i><b>;
+&nbsp&nbsp<a href="U32.html" class=trn>U32</a></b><i> TotalPlayedFrames</i><b>;
+&nbsp&nbsp<a href="U32.html" class=trn>U32</a></b><i> SkippedFrames</i><b>;
+&nbsp&nbsp<a href="U32.html" class=trn>U32</a></b><i> SkippedBlits</i><b>;
+&nbsp&nbsp<a href="U32.html" class=trn>U32</a></b><i> SoundSkips</i><b>;
+&nbsp&nbsp<a href="U32.html" class=trn>U32</a></b><i> TotalBlitTime</i><b>;
+&nbsp&nbsp<a href="U32.html" class=trn>U32</a></b><i> TotalReadTime</i><b>;
+&nbsp&nbsp<a href="U32.html" class=trn>U32</a></b><i> TotalVideoDecompTime</i><b>;
+&nbsp&nbsp<a href="U32.html" class=trn>U32</a></b><i> TotalAudioDecompTime</i><b>;
+&nbsp&nbsp<a href="U32.html" class=trn>U32</a></b><i> TotalIdleReadTime</i><b>;
+&nbsp&nbsp<a href="U32.html" class=trn>U32</a></b><i> TotalBackReadTime</i><b>;
+&nbsp&nbsp<a href="U32.html" class=trn>U32</a></b><i> TotalReadSpeed</i><b>;
+&nbsp&nbsp<a href="U32.html" class=trn>U32</a></b><i> SlowestFrameTime</i><b>;
+&nbsp&nbsp<a href="U32.html" class=trn>U32</a></b><i> Slowest2FrameTime</i><b>;
+&nbsp&nbsp<a href="U32.html" class=trn>U32</a></b><i> SlowestFrameNum</i><b>;
+&nbsp&nbsp<a href="U32.html" class=trn>U32</a></b><i> Slowest2FrameNum</i><b>;
+&nbsp&nbsp<a href="U32.html" class=trn>U32</a></b><i> AverageDataRate</i><b>;
+&nbsp&nbsp<a href="U32.html" class=trn>U32</a></b><i> AverageFrameSize</i><b>;
+&nbsp&nbsp<a href="U32.html" class=trn>U32</a></b><i> HighestMemAmount</i><b>;
+&nbsp&nbsp<a href="U32.html" class=trn>U32</a></b><i> TotalIOMemory</i><b>;
+&nbsp&nbsp<a href="U32.html" class=trn>U32</a></b><i> HighestIOUsed</i><b>;
+&nbsp&nbsp<a href="U32.html" class=trn>U32</a></b><i> Highest1SecRate</i><b>;
+&nbsp&nbsp<a href="U32.html" class=trn>U32</a></b><i> Highest1SecFrame</i><b>;
+};</b></pre>
+</td>
+</tr>
+</table>
+<h4>Out Members</h4>
+<dl>
+<dt><i>Width</i></dt>
+<dd>Specifies the width of the Bink file.</dd>
+<dt><i>Height</i></dt>
+<dd>Specifies the height of the Bink file.</dd>
+<dt><i>TotalTime</i></dt>
+<dd>Specifies the total playback time (in milliseconds).</dd>
+<dt><i>FileFrameRate</i></dt>
+<dd>Along with FileFrameRateDiv, specifies the original frame rate of the Bink file. The frame rate is calculated by (summary->FileFrameRate/summary->FileFrameRateDiv). The file frame rate is the frame rate of the file before you overrode the frame rate with <a href="BinkSetFrameRate.html">BinkSetFrameRate</a>.</dd>
+<dt><i>FileFrameRateDiv</i></dt>
+<dd>Specifies the original frame rate divisor of the Bink file.</dd>
+<dt><i>FrameRate</i></dt>
+<dd>Along with FrameRateDiv, specifies the frame rate of the Bink file. The frame rate is calculated by (summary->FrameRate/summary->FrameRateDiv).</dd>
+<dt><i>FrameRateDiv</i></dt>
+<dd>Specifies the frame rate divisor of the Bink file.</dd>
+<dt><i>TotalOpenTime</i></dt>
+<dd>Specifies the time to open and prepare the Bink file for decompression.</dd>
+<dt><i>TotalFrames</i></dt>
+<dd>Specifies the number of frames in the Bink file.</dd>
+<dt><i>TotalPlayedFrames</i></dt>
+<dd>Specifies the number of frames played.</dd>
+<dt><i>SkippedFrames</i></dt>
+<dd>Specifies the number of frames that had to be skipped during playback.</dd>
+<dt><i>SkippedBlits</i></dt>
+<dd>Specifies the number of blitting stages that had to be skipped during playback.</dd>
+<dt><i>SoundSkips</i></dt>
+<dd>Specifies the number of times that the sound dropped out during playback.</dd>
+<dt><i>TotalBlitTime</i></dt>
+<dd>Specifies the time spent blitting (in milliseconds).</dd>
+<dt><i>TotalReadTime</i></dt>
+<dd>Specifies the time spent reading in the foreground (in milliseconds).</dd>
+<dt><i>TotalVideoDecompTime</i></dt>
+<dd>Specifies the time spent decompressing the video (in milliseconds).</dd>
+<dt><i>TotalAudioDecompTime</i></dt>
+<dd>Specifies the time spent decompressing the audio (in milliseconds).</dd>
+<dt><i>TotalIdleReadTime</i></dt>
+<dd>Specifies the time spent reading at idle time (in milliseconds).</dd>
+<dt><i>TotalBackReadTime</i></dt>
+<dd>Specifies the time spent reading in the background thread (in milliseconds).</dd>
+<dt><i>TotalReadSpeed</i></dt>
+<dd>Specifies the device reading IO speed (in bytes/second).</dd>
+<dt><i>SlowestFrameTime</i></dt>
+<dd>Specifies the slowest single frame time (in milliseconds).</dd>
+<dt><i>Slowest2FrameTime</i></dt>
+<dd>Specifies the second-slowest single frame time (in milliseconds).</dd>
+<dt><i>SlowestFrameNum</i></dt>
+<dd>Specifies the slowest single frame number.</dd>
+<dt><i>Slowest2FrameNum</i></dt>
+<dd>Specifies the second-slowest single frame number.</dd>
+<dt><i>AverageDataRate</i></dt>
+<dd>Specifies the average data rate of the movie (in bytes/second).</dd>
+<dt><i>AverageFrameSize</i></dt>
+<dd>Specifies the average size of the frames (in bytes).</dd>
+<dt><i>HighestMemAmount</i></dt>
+<dd>Specifies the highest amount of memory allocated at one time during playback (in bytes).</dd>
+<dt><i>TotalIOMemory</i></dt>
+<dd>Specifies the size of the IO buffer used to read ahead in the Bink file (in bytes).</dd>
+<dt><i>HighestIOUsed</i></dt>
+<dd>Specifies the highest level that the read ahead IO buffer was filled to (in bytes).</dd>
+<dt><i>Highest1SecRate</i></dt>
+<dd>Specifies the highest one second data rate in the Bink file (in bytes/second).</dd>
+<dt><i>Highest1SecFrame</i></dt>
+<dd>Specifies the starting frame of the highest one second data rate in the Bink file.</dd>
+</dl>
+<h4>Discussion</h4>
+<p>The BINKSUMMARY structure is used in the <a href="BinkGetSummary.html">BinkGetSummary</a> function. It returns the playback statistics of a complete playback of a Bink file.</p>
+<p>
+<br>
+<b>Group:</b>
+<a href="Bink API.html">Bink API</a><br>
+<b>Related Functions:</b>
+<a href="BinkGetSummary.html">BinkGetSummary</a>, <a href="BinkSetFrameRate.html">BinkSetFrameRate</a><br>
+<b>Related Basic Types:</b>
+<a href="U32.html">U32</a></p>
+<p align=center>
+<a href="mailto:Bink1@radgametools.com">For technical support, e-mail Bink1@radgametools.com</a>
+<br>
+<a href="http://www.radgametools.com/bnkmain.htm?from=help1.5v">&#169; Copyright 1994-2003 RAD Game Tools, Inc. All Rights Reserved.</a>
+</p>
+<br>
+</body>
+</html>

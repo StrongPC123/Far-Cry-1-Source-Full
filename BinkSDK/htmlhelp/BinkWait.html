@@ -1,0 +1,55 @@
+<!-- This page was created with the RAD auto-doc generator. -->
+<!doctype html public "-//w3c//dtd html 3.2 final//en">
+<html>
+<head>
+<title>BinkWait</title>
+<meta http-equiv="content-type" content="text/html; charset=iso8859-1">
+<meta name="ms.locale" content="en-us">
+<meta name="description" content="tells you when to move to the next Bink frame (based on the frame rate of the file).">
+<meta name="ms-hkwd" content="BinkWait">
+<link rel="stylesheet" title="default" href="reference.css" type="text/css" media="screen">
+</head>
+<body topmargin="0">
+<table cellspacing=0 cellpadding=0 class=bar width=100% height=25>
+<tr class=bar>
+<td class=bar>
+<i>&nbsp;<a href="index.html" class=trn>Bink SDK 1.5v</a></i>
+</td>
+</tr>
+</table>
+<h1>BinkWait</h1>
+<p>The function  <b>BinkWait</b> tells you when to move to the next Bink frame (based on the frame rate of the file).</p>
+<table width=100% cellspacing=0 class=pre>
+<tr class=pre>
+<td class=pre>
+<pre><b><a href="S32.html" class=trn>S32</a> <a href="BinkWait.html" class=trn>BinkWait</a>(</b>
+<b>&nbsp&nbsp<a href="HBINK.html" class=trn>HBINK</a>&nbsp</b><i>bink</i>
+<b>);</b></pre>
+</td>
+</tr>
+</table>
+<h4>In Parameters</h4>
+<dl>
+<dt><i>bink</i></dt>
+<dd>Specifies the Bink handle.</dd>
+</dl>
+<h4>Discussion</h4>
+<p> This function tells you whether it's time to move onto the next frame. It will return a 1 if you should keep waiting, and a 0 if you should move onto the next frame. Basically, the core Bink playback loop is: <br> 1) display a frame, <br> 2) wait until BinkWait returns a zero, <br> 3) loop back to step 1. <br> Note that there is a lot of logic hidden behind this tiny interface: sound-synchronization, preloading upcoming data, sound servicing, etc. Because all this timing sensitive work is being done in this one little function, you need to call it frequently - several times the frame rate frequency at least. Under Windows and MacOS, you need to yield and process messages while you're waiting on BinkWait. The best way to handle this is to place the call to BinkWait inside your message handling loop. For example, you could do something like this on Win32: </p><code><font size=3 color=#006000><pre>if ( PeekMessage( &msg, 0, 0, 0, PM_REMOVE ) ){  if ( msg.message == WM_QUIT )    break;<br>  TranslateMessage( &msg );  DispatchMessage( &msg );}else{  if ( !BinkWait( bink ) )  {    <i>// do the BinkDoFrame, BinkCopyToBuffer, BinkNextFrame, blitting, etc in this function</i>    Show_next_frame( bink, bink_buf );  }}</pre></font></code><p>Message handling code like this allows Bink to continue to run while other processes still receive their messages. However, sometimes logic like this is difficult to implement (as in MFC or OWL applications). In these cases, it is still best to try to implement message handling like the example above. This can be accomplished by overloading the appropriate message dispatching function (contact RAD Game Tools for more details on this type of code). Another playback alternative is to use a timer callback and check the BinkWait status there. Note that although this technique can work, Bink really needs BinkWait to be called much more frequently than a timer can usually provide. However, if you create a timer callback that operates at 4 or 5 times the frame rate (so, with a 15 fps Bink file, check BinkWait 75 times a second), then this method may be easier to integrate. If neither a message loop nor a timer call back will work for you, contact RAD Game Tools for other more-complicated alternatives. </p>
+<p>
+<br>
+<b>Group:</b>
+<a href="Bink API.html">Bink API</a><br>
+<b>Related Sections:</b>
+<a href="Bink Video Playback.html">Bink Video Playback</a>, <a href="NTSC and PAL on the cadb3m.html">NTSC and PAL on the Nintendo GameCube</a>, <a href="NTSC and PAL on the Xbox.html">NTSC and PAL on the Xbox</a>, <a href="Sharing the CPU on t86r93m.html">Sharing the CPU on the Nintendo GameCube</a>, <a href="Sharing the CPU on t9jibaa.html">Sharing the CPU on the Xbox</a>, <a href="Sharing the CPU unde9ijdaa.html">Sharing the CPU under MacOS</a>, <a href="Sharing the CPU unde2nabaa.html">Sharing the CPU under Win32</a><br>
+<b>Related Functions:</b>
+<a href="BinkDoFrame.html">BinkDoFrame</a>, <a href="BinkNextFrame.html">BinkNextFrame</a>, <a href="BinkPause.html">BinkPause</a><br>
+<b>Related Basic Types:</b>
+<a href="HBINK.html">HBINK</a>, <a href="S32.html">S32</a></p>
+<p align=center>
+<a href="mailto:Bink1@radgametools.com">For technical support, e-mail Bink1@radgametools.com</a>
+<br>
+<a href="http://www.radgametools.com/bnkmain.htm?from=help1.5v">&#169; Copyright 1994-2003 RAD Game Tools, Inc. All Rights Reserved.</a>
+</p>
+<br>
+</body>
+</html>

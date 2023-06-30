@@ -1,0 +1,59 @@
+<!-- This page was created with the RAD auto-doc generator. -->
+<!doctype html public "-//w3c//dtd html 3.2 final//en">
+<html>
+<head>
+<title>BinkBufferLock</title>
+<meta http-equiv="content-type" content="text/html; charset=iso8859-1">
+<meta name="ms.locale" content="en-us">
+<meta name="description" content="locks the BinkBuffer for reading or writing to the pixel buffer.">
+<meta name="ms-hkwd" content="BinkBufferLock">
+<link rel="stylesheet" title="default" href="reference.css" type="text/css" media="screen">
+</head>
+<body topmargin="0">
+<table cellspacing=0 cellpadding=0 class=bar width=100% height=25>
+<tr class=bar>
+<td class=bar>
+<i>&nbsp;<a href="index.html" class=trn>Bink SDK 1.5v</a></i>
+</td>
+</tr>
+</table>
+<h1>BinkBufferLock</h1>
+<p>The function  <b>BinkBufferLock</b> locks the BinkBuffer for reading or writing to the pixel buffer.</p>
+<table width=100% cellspacing=0 class=pre>
+<tr class=pre>
+<td class=pre>
+<pre><b><a href="S32.html" class=trn>S32</a> <a href="BinkBufferLock.html" class=trn>BinkBufferLock</a>(</b>
+<b>&nbsp&nbsp<a href="HBINKBUFFER.html" class=trn>HBINKBUFFER</a>&nbsp</b><i>bink_buf</i>
+<b>);</b></pre>
+</td>
+</tr>
+</table>
+<h4>In Parameters</h4>
+<dl>
+<dt><i>bink_buf</i></dt>
+<dd>Specifies the BinkBuffer handle.</dd>
+</dl>
+<h4>Returns</h4>
+<p>Returns whether the BinkBuffer was successfully locked (non-zero) or not (zero).</p>
+<h4>Discussion</h4>
+<p>This function locks the BinkBuffer for reading or writing to the pixel buffer. Once you lock a BinkBuffer, the Buffer and BufferPitch fields of the BinkBuffer structure will be set and available for use. Note that DirectDraw can be locked during a BinkBuffer lock, so be quick - do the lock, do whatever you want to the buffer as quickly as possible, and then do the unlock. For primary surface and overlay BinkBuffers, data written to a locked BinkBuffer will appear on the screen immediately. For off-screen BinkBuffers, you must lock, copy the pixel data, unlock, and then blit before the data will appear on the screen. To blit a frame onto the screen, you lock the buffer, copy from the Bink internal buffers into the BinkBuffer, unlock the buffer, and then blit the BinkBuffer onto the screen. So, to blit a frame of a Bink file onto the screen, you'll use code something like this: </p><code><font size=3 color=#006000><pre>BinkDoFrame( bink );                <i>// decompress a frame</i><br>if ( BinkBufferLock( bink_buf ) ){  BinkCopyToBuffer( bink,                 <i>// copy into the BinkBuffer</i>                    bink_buf->Buffer,                    bink_buf->BufferPitch,                    bink_buf->Height,                    0,0,                    bink_buf->SurfaceType );<br>  BinkBufferUnlock( bink_buf );}<br><i>// blit the data onto the screen</i>BinkBufferBlit( bink_buf,                bink->FrameRects,                BinkGetRects( bink, bink_buf->SurfaceType ) );</pre></font></code><p>This function will return a non-zero value if the lock succeeded, and a zero if the BinkBuffer couldn't be locked. Note that DirectDraw doesn't allow you to step through a DirectDraw lock, so never single step over a BinkBufferLock call, or your machine will lock up. Always set a breakpoint after the <a href="BinkBufferUnlock.html">BinkBufferUnlock</a> call, and then just run to the breakpoint. </p>
+<p>
+<br>
+<b>Group:</b>
+<a href="BinkBuffer API.html">BinkBuffer API</a><br>
+<b>Related Sections:</b>
+<a href="Locking and Unlocking.html">Locking and Unlocking</a><br>
+<b>Related Functions:</b>
+<a href="BinkBufferBlit.html">BinkBufferBlit</a>, <a href="BinkBufferUnlock.html">BinkBufferUnlock</a>, <a href="BinkCopyToBuffer.html">BinkCopyToBuffer</a><br>
+<b>Related Basic Types:</b>
+<a href="BINKBUFFER_OPEN_FLAGS.html">BINKBUFFER_OPEN_FLAGS</a>, <a href="HBINKBUFFER.html">HBINKBUFFER</a>, <a href="S32.html">S32</a><br>
+<b>Related Structures:</b>
+<a href="BINKBUFFER.html">BINKBUFFER</a></p>
+<p align=center>
+<a href="mailto:Bink1@radgametools.com">For technical support, e-mail Bink1@radgametools.com</a>
+<br>
+<a href="http://www.radgametools.com/bnkmain.htm?from=help1.5v">&#169; Copyright 1994-2003 RAD Game Tools, Inc. All Rights Reserved.</a>
+</p>
+<br>
+</body>
+</html>

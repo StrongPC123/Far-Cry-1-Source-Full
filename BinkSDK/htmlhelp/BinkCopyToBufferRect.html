@@ -1,0 +1,87 @@
+<!-- This page was created with the RAD auto-doc generator. -->
+<!doctype html public "-//w3c//dtd html 3.2 final//en">
+<html>
+<head>
+<title>BinkCopyToBufferRect</title>
+<meta http-equiv="content-type" content="text/html; charset=iso8859-1">
+<meta name="ms.locale" content="en-us">
+<meta name="description" content="copies a piece of the video frame from the internal Bink memory buffers to a specified memory address.">
+<meta name="ms-hkwd" content="BinkCopyToBufferRect">
+<link rel="stylesheet" title="default" href="reference.css" type="text/css" media="screen">
+</head>
+<body topmargin="0">
+<table cellspacing=0 cellpadding=0 class=bar width=100% height=25>
+<tr class=bar>
+<td class=bar>
+<i>&nbsp;<a href="index.html" class=trn>Bink SDK 1.5v</a></i>
+</td>
+</tr>
+</table>
+<h1>BinkCopyToBufferRect</h1>
+<p>The function  <b>BinkCopyToBufferRect</b> copies a piece of the video frame from the internal Bink memory buffers to a specified memory address.</p>
+<table width=100% cellspacing=0 class=pre>
+<tr class=pre>
+<td class=pre>
+<pre><b><a href="S32.html" class=trn>S32</a> <a href="BinkCopyToBufferRect.html" class=trn>BinkCopyToBufferRect</a>(</b>
+<b>&nbsp&nbsp<a href="HBINK.html" class=trn>HBINK</a>&nbsp</b><i>bink</i><b>,</b>
+<b>&nbsp&nbsp<a href="VOID_PTR.html" class=trn>VOID_PTR</a>&nbsp</b><i>dest_addr</i><b>,</b>
+<b>&nbsp&nbsp<a href="S32.html" class=trn>S32</a>&nbsp</b><i>dest_pitch</i><b>,</b>
+<b>&nbsp&nbsp<a href="U32.html" class=trn>U32</a>&nbsp</b><i>dest_height</i><b>,</b>
+<b>&nbsp&nbsp<a href="U32.html" class=trn>U32</a>&nbsp</b><i>dest_x</i><b>,</b>
+<b>&nbsp&nbsp<a href="U32.html" class=trn>U32</a>&nbsp</b><i>dest_y</i><b>,</b>
+<b>&nbsp&nbsp<a href="U32.html" class=trn>U32</a>&nbsp</b><i>src_x</i><b>,</b>
+<b>&nbsp&nbsp<a href="U32.html" class=trn>U32</a>&nbsp</b><i>src_y</i><b>,</b>
+<b>&nbsp&nbsp<a href="U32.html" class=trn>U32</a>&nbsp</b><i>src_w</i><b>,</b>
+<b>&nbsp&nbsp<a href="U32.html" class=trn>U32</a>&nbsp</b><i>src_h</i><b>,</b>
+<b>&nbsp&nbsp<a href="BINK_COPY_FLAGS.html" class=trn>BINK_COPY_FLAGS</a>&nbsp</b><i>copy_flags</i>
+<b>);</b></pre>
+</td>
+</tr>
+</table>
+<h4>In Parameters</h4>
+<dl>
+<dt><i>bink</i></dt>
+<dd>Specifies the Bink handle.</dd>
+<dt><i>dest_addr</i></dt>
+<dd>Address of the destination memory buffer.</dd>
+<dt><i>dest_pitch</i></dt>
+<dd>Pitch of the destination buffer in bytes.</dd>
+<dt><i>dest_height</i></dt>
+<dd>Height of the destination buffer in pixels.</dd>
+<dt><i>dest_x</i></dt>
+<dd>X (left) pixel offset into the destination buffer.</dd>
+<dt><i>dest_y</i></dt>
+<dd>Y (top) pixel offset into the destination buffer.</dd>
+<dt><i>src_x</i></dt>
+<dd>The X pixel offset in the internal Bink buffer. This must be divisible by 16 unless you use the <a href="BINK_COPY_FLAGS.html#BINKCOPYALL">BINKCOPYALL</a> flag.</dd>
+<dt><i>src_y</i></dt>
+<dd>The Y pixel offiset in the internal Bink buffer.</dd>
+<dt><i>src_w</i></dt>
+<dd>The width in pixels to copy.</dd>
+<dt><i>src_h</i></dt>
+<dd>The height in pixels to copy.</dd>
+<dt><i>copy_flags</i></dt>
+<dd>Specifies the flags that describe the destination buffer type and other special copy options.</dd>
+</dl>
+<h4>Returns</h4>
+<p>Returns one if the frame was skipped, or zero otherwise.</p>
+<h4>Discussion</h4>
+<p>Use this function to copy the decompressed pixels from Bink's internal decompression buffers into a destination address just like <a href="BinkCopyToBuffer.html">BinkCopyToBuffer</a>. The only difference between this function and <a href="BinkCopyToBuffer.html">BinkCopyToBuffer</a> is that this function can copy a sub-rectangle of Bink's internal buffers. This is handy when you don't need the entire video frame, or when a single video frame is being broken up into multiple output buffers (like when you are using tiled 256x256 textures, for example. When using this function without the <a href="BINK_COPY_FLAGS.html#BINKCOPYALL">BINKCOPYALL</a> flag, you must use a divisible by 16 value for the src_x parameter.</p>
+<p>
+<br>
+<b>Group:</b>
+<a href="Bink API.html">Bink API</a><br>
+<b>Related Sections:</b>
+<a href="Scaling.html">Scaling</a><br>
+<b>Related Functions:</b>
+<a href="BinkCopyToBuffer.html">BinkCopyToBuffer</a>, <a href="BinkDDSurfaceType.html">BinkDDSurfaceType</a>, <a href="BinkDoFrame.html">BinkDoFrame</a>, <a href="BinkGDSurfaceType.html">BinkGDSurfaceType</a><br>
+<b>Related Basic Types:</b>
+<a href="BINK_COPY_FLAGS.html">BINK_COPY_FLAGS</a>, <a href="HBINK.html">HBINK</a>, <a href="S32.html">S32</a>, <a href="U32.html">U32</a>, <a href="VOID_PTR.html">VOID_PTR</a></p>
+<p align=center>
+<a href="mailto:Bink1@radgametools.com">For technical support, e-mail Bink1@radgametools.com</a>
+<br>
+<a href="http://www.radgametools.com/bnkmain.htm?from=help1.5v">&#169; Copyright 1994-2003 RAD Game Tools, Inc. All Rights Reserved.</a>
+</p>
+<br>
+</body>
+</html>

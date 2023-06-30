@@ -1,0 +1,32 @@
+Console changes (move working compiled cgf code into resource compiler tool(now I waiting for indoor and shadow volume changes))
+Water distortion
+Water distortion texture
+Rain on screen 1
+Shadow maps generalization (shadow maps on particles, indoors.. each lsource and entity has flags to cast stencil or smaps )
+
+Finalize stencil for outdoors
+Restore terrain modifications
+Finetune complex decals on entities
+Real time update in editor of layered fog and other volumes/elements
+Make list of attached particle sprays in the entity class, remove part sys calls every frame from script
+Slow lod switch for static objects (research) 
+Decals bending with trees
+Finish beaches (fix visual bugs, more control for designers)
+Finish weather/dragonfly
+Rocket affects particles movement
+Physiclicaly correct breakable glass
+Editor: automatic objects brightness calculations: 3 groups of objects on terrain: on light, in shadow from tree, in shadow from mountain
+Improve HW occlusion culling
+Water: switch back to old radial system?
+Try to render real objects instead detail objects to give more freedom to artists
+Adjustable density for detail objects (per type)
+Mirrored trees (instead rotation)
+Point sprite extension research
+Tesselate terrain light pass to get shadow maps from point lsources in one pass
+'Update shadow every frame' flag for trees and entities in editor
+Use LeafBuffer callcback for terrain ant other procedural
+Reload IStatObj
+Random particles bouncing
+Fixed loading address for DDLs
+Editable voxel space research
+Beaches slow dissapearing on distance

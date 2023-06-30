@@ -1,0 +1,61 @@
+<!-- This page was created with the RAD auto-doc generator. -->
+<!doctype html public "-//w3c//dtd html 3.2 final//en">
+<html>
+<head>
+<title>BinkSetPan</title>
+<meta http-equiv="content-type" content="text/html; charset=iso8859-1">
+<meta name="ms.locale" content="en-us">
+<meta name="description" content="sets the speaker pan (left to right balance) of a Bink sound track.">
+<meta name="ms-hkwd" content="BinkSetPan">
+<link rel="stylesheet" title="default" href="reference.css" type="text/css" media="screen">
+</head>
+<body topmargin="0">
+<table cellspacing=0 cellpadding=0 class=bar width=100% height=25>
+<tr class=bar>
+<td class=bar>
+<i>&nbsp;<a href="index.html" class=trn>Bink SDK 1.5v</a></i>
+</td>
+</tr>
+</table>
+<h1>BinkSetPan</h1>
+<p>The function  <b>BinkSetPan</b> sets the speaker pan (left to right balance) of a Bink sound track.</p>
+<table width=100% cellspacing=0 class=pre>
+<tr class=pre>
+<td class=pre>
+<pre><b><a href="void.html" class=trn>void</a> <a href="BinkSetPan.html" class=trn>BinkSetPan</a>(</b>
+<b>&nbsp&nbsp<a href="HBINK.html" class=trn>HBINK</a>&nbsp</b><i>bink</i><b>,</b>
+<b>&nbsp&nbsp<a href="U32.html" class=trn>U32</a>&nbsp</b><i>trackID</i><b>,</b>
+<b>&nbsp&nbsp<a href="S32.html" class=trn>S32</a>&nbsp</b><i>pan</i>
+<b>);</b></pre>
+</td>
+</tr>
+</table>
+<h4>In Parameters</h4>
+<dl>
+<dt><i>bink</i></dt>
+<dd>Specifies the Bink handle.</dd>
+<dt><i>trackID</i></dt>
+<dd>Specifies the track ID to change the pan for.</dd>
+<dt><i>pan</i></dt>
+<dd>Specifies the new pan setting.</dd>
+</dl>
+<h4>Discussion</h4>
+<p>This function sets the speaker pan (left to right balance) for the currently playing Bink sound track. The pan parameter specifies the new left to right balance setting from 0 (all the way left) to 32768 (split evenly between left and right), and 65536 (all the way right). You can't set the pan on an Xbox. To control the pan on an Xbox, use the <a href="BinkSetMixBins.html">BinkSetMixBins</a> and <a href="BinkSetMixBinVolumes.html">BinkSetMixBinVolumes</a> functions. </p>
+<p>
+<br>
+<b>Group:</b>
+<a href="Bink API.html">Bink API</a><br>
+<b>Related Sections:</b>
+<a href="Audio Tracks in Bink.html">Audio Tracks in Bink</a><br>
+<b>Related Functions:</b>
+<a href="BinkSetMixBinVolumes.html">BinkSetMixBinVolumes</a>, <a href="BinkSetMixBins.html">BinkSetMixBins</a>, <a href="BinkSetVolume.html">BinkSetVolume</a><br>
+<b>Related Basic Types:</b>
+<a href="HBINK.html">HBINK</a>, <a href="S32.html">S32</a>, <a href="U32.html">U32</a>, <a href="void.html">void</a></p>
+<p align=center>
+<a href="mailto:Bink1@radgametools.com">For technical support, e-mail Bink1@radgametools.com</a>
+<br>
+<a href="http://www.radgametools.com/bnkmain.htm?from=help1.5v">&#169; Copyright 1994-2003 RAD Game Tools, Inc. All Rights Reserved.</a>
+</p>
+<br>
+</body>
+</html>

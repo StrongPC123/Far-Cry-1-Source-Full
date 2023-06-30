@@ -1,0 +1,53 @@
+<!-- This page was created with the RAD auto-doc generator. -->
+<!doctype html public "-//w3c//dtd html 3.2 final//en">
+<html>
+<head>
+<title>RADMEMFREE</title>
+<meta http-equiv="content-type" content="text/html; charset=iso8859-1">
+<meta name="ms.locale" content="en-us">
+<meta name="description" content="points to a function that will free memory allocated by a previous call to the RADMEMALLOC function.">
+<meta name="ms-hkwd" content="RADMEMFREE">
+<link rel="stylesheet" title="default" href="reference.css" type="text/css" media="screen">
+</head>
+<body topmargin="0">
+<table cellspacing=0 cellpadding=0 class=bar width=100% height=25>
+<tr class=bar>
+<td class=bar>
+<i>&nbsp;<a href="index.html" class=trn>Bink SDK 1.5v</a></i>
+</td>
+</tr>
+</table>
+<h1>RADMEMFREE</h1>
+<p>The function  <b>RADMEMFREE</b> points to a function that will free memory allocated by a previous call to the RADMEMALLOC function.</p>
+<table width=100% cellspacing=0 class=pre>
+<tr class=pre>
+<td class=pre>
+<pre><b><a href="void.html" class=trn>void</a> RADLINK <a href="RADMEMFREE.html" class=trn>RADMEMFREE</a>(</b>
+<b>&nbsp&nbsp<a href="VOID_PTR.html" class=trn>VOID_PTR</a>&nbsp</b><i>ptr</i>
+<b>);</b></pre>
+</td>
+</tr>
+</table>
+<h4>In Parameters</h4>
+<dl>
+<dt><i>ptr</i></dt>
+<dd>Specifies a pointer that was previously allocated by <a href="RADMEMALLOC.html">RADMEMALLOC</a>.</dd>
+</dl>
+<h4>Discussion</h4>
+<p>This function replaces the function that Bink calls to free memory. It should be able to free any pointer that has been returned from <a href="RADMEMALLOC.html">RADMEMALLOC</a>. </p>
+<p>
+<br>
+<b>Group:</b>
+<a href="Bink API.html">Bink API</a><br>
+<b>Related Functions:</b>
+<a href="RADMEMALLOC.html">RADMEMALLOC</a>, <a href="RADSetMemory.html">RADSetMemory</a><br>
+<b>Related Basic Types:</b>
+<a href="VOID_PTR.html">VOID_PTR</a>, <a href="void.html">void</a></p>
+<p align=center>
+<a href="mailto:Bink1@radgametools.com">For technical support, e-mail Bink1@radgametools.com</a>
+<br>
+<a href="http://www.radgametools.com/bnkmain.htm?from=help1.5v">&#169; Copyright 1994-2003 RAD Game Tools, Inc. All Rights Reserved.</a>
+</p>
+<br>
+</body>
+</html>

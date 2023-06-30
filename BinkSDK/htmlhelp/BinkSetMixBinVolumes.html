@@ -1,0 +1,67 @@
+<!-- This page was created with the RAD auto-doc generator. -->
+<!doctype html public "-//w3c//dtd html 3.2 final//en">
+<html>
+<head>
+<title>BinkSetMixBinVolumes</title>
+<meta http-equiv="content-type" content="text/html; charset=iso8859-1">
+<meta name="ms.locale" content="en-us">
+<meta name="description" content="sets the volumes of the individual mix bins on an Xbox.">
+<meta name="ms-hkwd" content="BinkSetMixBinVolumes">
+<link rel="stylesheet" title="default" href="reference.css" type="text/css" media="screen">
+</head>
+<body topmargin="0">
+<table cellspacing=0 cellpadding=0 class=bar width=100% height=25>
+<tr class=bar>
+<td class=bar>
+<i>&nbsp;<a href="index.html" class=trn>Bink SDK 1.5v</a></i>
+</td>
+</tr>
+</table>
+<h1>BinkSetMixBinVolumes</h1>
+<p>The function  <b>BinkSetMixBinVolumes</b> sets the volumes of the individual mix bins on an Xbox.</p>
+<table width=100% cellspacing=0 class=pre>
+<tr class=pre>
+<td class=pre>
+<pre><b><a href="void.html" class=trn>void</a> <a href="BinkSetMixBinVolumes.html" class=trn>BinkSetMixBinVolumes</a>(</b>
+<b>&nbsp&nbsp<a href="HBINK.html" class=trn>HBINK</a>&nbsp</b><i>bink</i><b>,</b>
+<b>&nbsp&nbsp<a href="U32.html" class=trn>U32</a>&nbsp</b><i>trackID</i><b>,</b>
+<b>&nbsp&nbsp<a href="u32_ptr.html" class=trn>u32_ptr</a>&nbsp</b><i>mix_bins</i><b>,</b>
+<b>&nbsp&nbsp<a href="s32_ptr.html" class=trn>s32_ptr</a>&nbsp</b><i>volumes</i><b>,</b>
+<b>&nbsp&nbsp<a href="U32.html" class=trn>U32</a>&nbsp</b><i>total</i>
+<b>);</b></pre>
+</td>
+</tr>
+</table>
+<h4>In Parameters</h4>
+<dl>
+<dt><i>bink</i></dt>
+<dd>Specifies the Bink handle.</dd>
+<dt><i>trackID</i></dt>
+<dd>Specifies the track ID to change the mix bin volumes for.</dd>
+<dt><i>mix_bins</i></dt>
+<dd>Points to an array of the mix bins for each of the volumes.</dd>
+<dt><i>volumes</i></dt>
+<dd>Points to an array of the new volume levels.</dd>
+<dt><i>total</i></dt>
+<dd>The number of mix bins and volumes in the <i>mix_bins</i> and <i>volumes</i> arrays.</dd>
+</dl>
+<h4>Discussion</h4>
+<p>This function allows you to set the volume for each of the mix bin destinations on an Xbox. See the Xbox documentation for the mix bin destination values. The volume parameter specifies the new volume setting from 0 (silent) to 32768 (normal) to 65536 (maximum amplification). Note that most sound systems don't do amplification (neither Miles nor DirectSound does) - in these cases, volumes above 32768 are the same as 32768. </p>
+<p>
+<br>
+<b>Group:</b>
+<a href="Bink API.html">Bink API</a><br>
+<b>Related Sections:</b>
+<a href="Audio Tracks in Bink.html">Audio Tracks in Bink</a><br>
+<b>Related Functions:</b>
+<a href="BinkSetMixBins.html">BinkSetMixBins</a>, <a href="BinkSetPan.html">BinkSetPan</a><br>
+<b>Related Basic Types:</b>
+<a href="HBINK.html">HBINK</a>, <a href="U32.html">U32</a>, <a href="s32_ptr.html">s32_ptr</a>, <a href="u32_ptr.html">u32_ptr</a>, <a href="void.html">void</a></p>
+<p align=center>
+<a href="mailto:Bink1@radgametools.com">For technical support, e-mail Bink1@radgametools.com</a>
+<br>
+<a href="http://www.radgametools.com/bnkmain.htm?from=help1.5v">&#169; Copyright 1994-2003 RAD Game Tools, Inc. All Rights Reserved.</a>
+</p>
+<br>
+</body>
+</html>

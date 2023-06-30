@@ -1,0 +1,55 @@
+<!-- This page was created with the RAD auto-doc generator. -->
+<!doctype html public "-//w3c//dtd html 3.2 final//en">
+<html>
+<head>
+<title>BinkNextFrame</title>
+<meta http-equiv="content-type" content="text/html; charset=iso8859-1">
+<meta name="ms.locale" content="en-us">
+<meta name="description" content="moves to the next video frame in the Bink file.">
+<meta name="ms-hkwd" content="BinkNextFrame">
+<link rel="stylesheet" title="default" href="reference.css" type="text/css" media="screen">
+</head>
+<body topmargin="0">
+<table cellspacing=0 cellpadding=0 class=bar width=100% height=25>
+<tr class=bar>
+<td class=bar>
+<i>&nbsp;<a href="index.html" class=trn>Bink SDK 1.5v</a></i>
+</td>
+</tr>
+</table>
+<h1>BinkNextFrame</h1>
+<p>The function  <b>BinkNextFrame</b> moves to the next video frame in the Bink file.</p>
+<table width=100% cellspacing=0 class=pre>
+<tr class=pre>
+<td class=pre>
+<pre><b><a href="void.html" class=trn>void</a> <a href="BinkNextFrame.html" class=trn>BinkNextFrame</a>(</b>
+<b>&nbsp&nbsp<a href="HBINK.html" class=trn>HBINK</a>&nbsp</b><i>bink</i>
+<b>);</b></pre>
+</td>
+</tr>
+</table>
+<h4>In Parameters</h4>
+<dl>
+<dt><i>bink</i></dt>
+<dd>Specifies the Bink handle.</dd>
+</dl>
+<h4>Discussion</h4>
+<p> This function actually moves you to the next frame. It is usually called after you have decompressed the frame with <a href="BinkDoFrame.html">BinkDoFrame</a> and have blitted it onto the screen. This function is should be the last function in your playback logic before the <a href="BinkWait.html">BinkWait</a> delay loop. Make sure that you always call this function before waiting in your <a href="BinkWait.html">BinkWait</a> loop, or your playback will be jerky. For example, this is an example of good playback logic: </p><code><font size=3 color=#006000><pre>for( i=0 ; ; i++ ){  BinkDoFrame( bink );  BinkNextFrame( bink );        <i>//***** Good, notice how this line is before the BinkWait delay loop</i><br>  while ( BinkWait( bink ) ) ;  <i>//***** Good, notice how this line is after the BinkNextFrame call</i>}</pre></font></code><p>This is an example of incorrect playback logic: </p><code><font size=3 color=#006000><pre>for( i=0 ; ; i++ ){                             <i>//***** THIS IS AN INCORRECT PLAYBACK LOOP!</i>  BinkDoFrame( bink );  while (BinkWait( bink ) ) ; <i>//***** WRONG!! THIS SHOULD BE AFTER BINKNEXTFRAME</i>  BinkNextFrame( bink );      <i>//***** WRONG!! THIS SHOULD BE BEFORE THE BINKWAIT LOOP</i>}</pre></font></code><p></p><p>Note that if you call this function on the last frame of a Bink file, then Bink will loop around back to the first frame. This means that if you are only playing your animations once (not looping them), then you need to add extra logic to avoid calling this function for the very last frame (otherwise there will be a delay at the end of your videos while Bink seeks back to the beginning of the file). For example, a simple playback loop that only plays the Bink file once would look like this: </p><code><font size=3 color=#006000><pre>for( i=0 ; ; i++ ){  BinkDoFrame( bink );  if ( i == bink->Frames )  <i>// Break out of loop before BinkNextFrame if at the end of the file</i>    break;<br>  BinkNextFrame( bink );  while ( BinkWait( bink ) ) ;}</pre></font></code><p></p>
+<p>
+<br>
+<b>Group:</b>
+<a href="Bink API.html">Bink API</a><br>
+<b>Related Sections:</b>
+<a href="Bink Video Playback.html">Bink Video Playback</a>, <a href="Critical File I-O haq3ylyt.html">Critical File I/O handling in Bink</a><br>
+<b>Related Functions:</b>
+<a href="BinkDoFrame.html">BinkDoFrame</a>, <a href="BinkWait.html">BinkWait</a><br>
+<b>Related Basic Types:</b>
+<a href="HBINK.html">HBINK</a>, <a href="void.html">void</a></p>
+<p align=center>
+<a href="mailto:Bink1@radgametools.com">For technical support, e-mail Bink1@radgametools.com</a>
+<br>
+<a href="http://www.radgametools.com/bnkmain.htm?from=help1.5v">&#169; Copyright 1994-2003 RAD Game Tools, Inc. All Rights Reserved.</a>
+</p>
+<br>
+</body>
+</html>

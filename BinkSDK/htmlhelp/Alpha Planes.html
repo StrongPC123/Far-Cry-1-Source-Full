@@ -1,0 +1,38 @@
+<!-- This page was created with the RAD auto-doc generator. -->
+<!doctype html public "-//w3c//dtd html 3.2 final//en">
+<html>
+<head>
+<title>Alpha Planes</title>
+<meta http-equiv="content-type" content="text/html; charset=iso8859-1">
+<meta name="ms.locale" content="en-us">
+<meta name="description" content="">
+<meta name="ms-hkwd" content="Alpha Planes">
+<link rel="stylesheet" title="default" href="reference.css" type="text/css" media="screen">
+</head>
+<body topmargin="0">
+<table cellspacing=0 cellpadding=0 class=bar width=100% height=25>
+<tr class=bar>
+<td class=bar>
+<i>&nbsp;<a href="index.html" class=trn>Bink SDK 1.5v</a></i>
+</td>
+</tr>
+</table>
+<h1>Alpha Planes</h1>
+<h4>Discussion</h4>
+<p>Alpha planes are bitplanes that describe what is and what isn't transparent or translucent on a video frame. They are much more useful than simple color keying because you control the transparency right to the pixel - no more weird problems when the color key blends into the edges of the non-transparent pixels! You create alpha planes with a video editing package like Adode Premiere, or by telling your 3D package to generate alpha planes as it renders the video frames. Playing back alpha planes is a little tricky because applying alpha transparency is fairly expensive CPU-wise. To keep performance up, we recommend using your 3D video card to merge bitmap using alpha planes. Harnessing your 3D video card means that you must use <a href="OpenGL.html">OpenGL</a>, <a href="Direct3D.html">Direct3D</a>, or your console's 3D library to talk to your video card. On Win32, Bink includes an example that can play alpha transparent video for both OpenGL and Direct3D (<b>"ExamAlph.C"</b>). To use OpenGL, or Direct3D, you just link to the appropiate 3D interface file ("GLRAD3D.C", "DX8RAD3D.CPP', or "DX7RAD3D.CPP'). On Xbox, Bink include an example that uses Direct3D to play alpha translucent video (<b>ExamXAlf.CPP</b>). You'll also need the Xbox 3D interface file, XbxRAD3D.CPP. On Nintendo GameCube, Bink include an example that uses the OS to play alpha translucent video (<b>ExamNAlf.CPP</b>). You'll also need the GameCube 3D interface file, NGCRAD3D.CPP. </p>
+<p>
+<br>
+<b>Group:</b>
+<a href="Background Concepts.html">Background Concepts</a><br>
+<b>Related Sections:</b>
+<a href="Bink Examples for Win32.html">Bink Examples for Win32</a>, <a href="Bink Examples for th43an3m.html">Bink Examples for the Nintendo GameCube</a>, <a href="Bink Examples for th19saaa.html">Bink Examples for the Xbox</a>, <a href="Bink Playback on the43an3m.html">Bink Playback on the Nintendo GameCube</a>, <a href="Bink Playback on the Xbox.html">Bink Playback on the Xbox</a>, <a href="Bink Playback under MacOS.html">Bink Playback under MacOS</a>, <a href="Bink Playback under Win32.html">Bink Playback under Win32</a>, <a href="Direct3D.html">Direct3D</a>, <a href="OpenGL.html">OpenGL</a><br>
+<b>Related Basic Types:</b>
+<a href="BINK_COPY_FLAGS.html">BINK_COPY_FLAGS</a>, <a href="BINK_OPEN_FLAGS.html">BINK_OPEN_FLAGS</a></p>
+<p align=center>
+<a href="mailto:Bink1@radgametools.com">For technical support, e-mail Bink1@radgametools.com</a>
+<br>
+<a href="http://www.radgametools.com/bnkmain.htm?from=help1.5v">&#169; Copyright 1994-2003 RAD Game Tools, Inc. All Rights Reserved.</a>
+</p>
+<br>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!-- This page was created with the RAD auto-doc generator. -->
+<!doctype html public "-//w3c//dtd html 3.2 final//en">
+<html>
+<head>
+<title>Gamma on the Xbox</title>
+<meta http-equiv="content-type" content="text/html; charset=iso8859-1">
+<meta name="ms.locale" content="en-us">
+<meta name="description" content="">
+<meta name="ms-hkwd" content="Gamma on the Xbox">
+<link rel="stylesheet" title="default" href="reference.css" type="text/css" media="screen">
+</head>
+<body topmargin="0">
+<table cellspacing=0 cellpadding=0 class=bar width=100% height=25>
+<tr class=bar>
+<td class=bar>
+<i>&nbsp;<a href="index.html" class=trn>Bink SDK 1.5v</a></i>
+</td>
+</tr>
+</table>
+<h1>Gamma on the Xbox</h1>
+<h4>Discussion</h4>
+<p><b>On an NTSC TV</b>, the gamma ramp is set to a 2.2 curve. PC monitors use a 2.5 curve. This means that if a movie looks great on a PC, you need to adjust it slightly for good looking playback on a TV. Otherwise, the video will appear to be washed out. If you are compressing CGI scenes, then the best way to handle this is just to set the gamma to 2.2 in your rendering options. It will look a little dark on your PC monitor, but will look great on a TV. If you are capturing video, check out the documentation on the capture software to find the gamma control options. If you can't re-generate original video directly at 2.2, then you can use Bink's built-in gamma adjuster. Just set the gamma option in the Bink compression window to 0.88 to convert from PC 2.5 gamma video to NTSC 2.2 gamma. On a PAL TV, the gamma ramp is set to a 2.8 curve. Again, the best way to deal with this difference is to just recreate the original material (re-render or re-capture). If you can't, however, you can set the gamma option in the Bink compression window to 1.12 to convert from PC 2.5 gamma to PAL 2.8 gamma.</p>
+<p><a href="Sound on the Xbox.html">Next Topic (Sound on the Xbox)</a>  </p><p><a href="NTSC and PAL on the Xbox.html">Previous Topic (NTSC and PAL on the Xbox)</a>  </p><p>
+<br>
+<b>Group:</b>
+<a href="The Xbox Platform.html">The Xbox Platform</a><br>
+<b>Related Sections:</b>
+<a href="NTSC and PAL on the Xbox.html">NTSC and PAL on the Xbox</a></p>
+<p align=center>
+<a href="mailto:Bink1@radgametools.com">For technical support, e-mail Bink1@radgametools.com</a>
+<br>
+<a href="http://www.radgametools.com/bnkmain.htm?from=help1.5v">&#169; Copyright 1994-2003 RAD Game Tools, Inc. All Rights Reserved.</a>
+</p>
+<br>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!-- This page was created with the RAD auto-doc generator. -->
+<!doctype html public "-//w3c//dtd html 3.2 final//en">
+<html>
+<head>
+<title>BINKBUFFER</title>
+<meta http-equiv="content-type" content="text/html; charset=iso8859-1">
+<meta name="ms.locale" content="en-us">
+<meta name="description" content="is a structure returned from BinkBufferOpen.">
+<meta name="ms-hkwd" content="BINKBUFFER">
+<link rel="stylesheet" title="default" href="reference.css" type="text/css" media="screen">
+</head>
+<body topmargin="0">
+<table cellspacing=0 cellpadding=0 class=bar width=100% height=25>
+<tr class=bar>
+<td class=bar>
+<i>&nbsp;<a href="index.html" class=trn>Bink SDK 1.5v</a></i>
+</td>
+</tr>
+</table>
+<h1>BINKBUFFER</h1>
+<p>The structure  <b>BINKBUFFER</b> is a structure returned from BinkBufferOpen.</p>
+<table width=100% cellspacing=0 class=pre>
+<tr class=pre>
+<td class=pre>
+<pre><b>struct <a href="BINKBUFFER.html" class=trn>BINKBUFFER</a>
+{
+&nbsp&nbsp<a href="U32.html" class=trn>U32</a></b><i> Width</i><b>;
+&nbsp&nbsp<a href="U32.html" class=trn>U32</a></b><i> Height</i><b>;
+&nbsp&nbsp<a href="VOID_PTR.html" class=trn>VOID_PTR</a></b><i> Buffer</i><b>;
+&nbsp&nbsp<a href="S32.html" class=trn>S32</a></b><i> BufferPitch</i><b>;
+&nbsp&nbsp<a href="BINK_COPY_FLAGS.html" class=trn>BINK_COPY_FLAGS</a></b><i> SurfaceType</i><b>;
+&nbsp&nbsp<a href="U32.html" class=trn>U32</a></b><i> WindowWidth</i><b>;
+&nbsp&nbsp<a href="U32.html" class=trn>U32</a></b><i> WindowHeight</i><b>;
+&nbsp&nbsp<a href="U32.html" class=trn>U32</a></b><i> ScreenWidth</i><b>;
+&nbsp&nbsp<a href="U32.html" class=trn>U32</a></b><i> ScreenHeight</i><b>;
+&nbsp&nbsp<a href="U32.html" class=trn>U32</a></b><i> ScreenDepth</i><b>;
+};</b></pre>
+</td>
+</tr>
+</table>
+<h4>Out Members</h4>
+<dl>
+<dt><i>Width</i></dt>
+<dd>Specifies the width of the BinkBuffer.</dd>
+<dt><i>Height</i></dt>
+<dd>Specifies the height of the BinkBuffer.</dd>
+<dt><i>Buffer</i></dt>
+<dd>Specifies the address of the internal pixel buffer. This value is only valid inside of <a href="BinkBufferLock.html">BinkBufferLock</a> and <a href="BinkBufferUnlock.html">BinkBufferUnlock</a> function calls.</dd>
+<dt><i>BufferPitch</i></dt>
+<dd>Specifies the pitch in bytes of the internal pixel buffer. This value is only valid inside of <a href="BinkBufferLock.html">BinkBufferLock</a> and <a href="BinkBufferUnlock.html">BinkBufferUnlock</a> function calls.</dd>
+<dt><i>SurfaceType</i></dt>
+<dd>Specifies the flags that should be passed to <a href="BinkCopyToBuffer.html">BinkCopyToBuffer</a> to copy into this BinkBuffer correctly.</dd>
+<dt><i>WindowWidth</i></dt>
+<dd>Specifies the width that you should set your window to - it takes into account alignment and the window style of the window that you pass to <a href="BinkBufferOpen.html">BinkBufferOpen</a>.</dd>
+<dt><i>WindowHeight</i></dt>
+<dd>Specifies the height that you should set your window to - it takes into account alignment and the window style of the window that you pass to <a href="BinkBufferOpen.html">BinkBufferOpen</a>.</dd>
+<dt><i>ScreenWidth</i></dt>
+<dd>Specifies the current width of the screen in pixels. This is useful to see if your resolution change request was successful.</dd>
+<dt><i>ScreenHeight</i></dt>
+<dd>Specifies the current height of the screen in pixels. This is useful to see if your resolution change request was successful.</dd>
+<dt><i>ScreenDepth</i></dt>
+<dd>Specifies the current color depth of the screen (8, 16, 24, or 32) in bits. This is useful to see if your resolution change request was successful.</dd>
+</dl>
+<h4>Discussion</h4>
+<p>The BINKBUFFER structure is pointed to by the HBINKBUFFER handle that is returned from <a href="BinkBufferOpen.html">BinkBufferOpen</a>. You can dereference the pointer to access any of these information fields. Note that you should <b>never</b> change any of these values!</p>
+<p>
+<br>
+<b>Group:</b>
+<a href="BinkBuffer API.html">BinkBuffer API</a><br>
+<b>Related Functions:</b>
+<a href="BinkBufferLock.html">BinkBufferLock</a>, <a href="BinkBufferOpen.html">BinkBufferOpen</a>, <a href="BinkBufferUnlock.html">BinkBufferUnlock</a>, <a href="BinkCopyToBuffer.html">BinkCopyToBuffer</a><br>
+<b>Related Basic Types:</b>
+<a href="BINK_COPY_FLAGS.html">BINK_COPY_FLAGS</a>, <a href="HBINKBUFFER.html">HBINKBUFFER</a>, <a href="S32.html">S32</a>, <a href="U32.html">U32</a>, <a href="VOID_PTR.html">VOID_PTR</a></p>
+<p align=center>
+<a href="mailto:Bink1@radgametools.com">For technical support, e-mail Bink1@radgametools.com</a>
+<br>
+<a href="http://www.radgametools.com/bnkmain.htm?from=help1.5v">&#169; Copyright 1994-2003 RAD Game Tools, Inc. All Rights Reserved.</a>
+</p>
+<br>
+</body>
+</html>

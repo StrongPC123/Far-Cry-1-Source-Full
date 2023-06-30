@@ -1,0 +1,155 @@
+<!-- This page was created with the RAD auto-doc generator. -->
+<!doctype html public "-//w3c//dtd html 3.2 final//en">
+<html>
+<head>
+<title>Basic Types</title>
+<meta http-equiv="content-type" content="text/html; charset=iso8859-1">
+<meta name="ms.locale" content="en-us">
+<meta name="description" content="">
+<meta name="ms-hkwd" content="Basic Types">
+<link rel="stylesheet" title="default" href="reference.css" type="text/css" media="screen">
+</head>
+<body topmargin="0">
+<table cellspacing=0 cellpadding=0 class=bar width=100% height=25>
+<tr class=bar>
+<td class=bar>
+<i>&nbsp;<a href="index.html" class=trn>Bink SDK 1.5v</a></i>
+</td>
+</tr>
+</table>
+<h1>Basic Types</h1>
+<h4>Discussion</h4>
+<p>Bink strives to be as cross-platform as possible. To this end, Bink uses a set of basic types that are configured for each platform to ensure consistency in the API. These basic types include simple integer types, float types, and more. In general, it is best if an application uses Bink's types internally in places where it interfaces to Bink, as this ensures that porting the application to other Bink platforms will be quick and easy.</p>
+<table class=toc width=90%>
+<tr class=toc>
+<th height=25 valign=top class=toc><a href="Basic Types.html">Basic Types</a></th>
+</tr>
+<tr class=grid>
+<td height=25 valign=top class=toc ><a href="S8.html">S8</a></td>
+<td height=25 valign=top class=toc>describes a signed 8-bit integer.</td>
+</tr>
+<tr class=grid>
+<td height=25 valign=top class=toc ><a href="U8.html">U8</a></td>
+<td height=25 valign=top class=toc>describes an unsigned 8-bit integer.</td>
+</tr>
+<tr class=grid>
+<td height=25 valign=top class=toc ><a href="S16.html">S16</a></td>
+<td height=25 valign=top class=toc>describes a signed 16-bit integer.</td>
+</tr>
+<tr class=grid>
+<td height=25 valign=top class=toc ><a href="U16.html">U16</a></td>
+<td height=25 valign=top class=toc>describes an unsigned 16-bit integer.</td>
+</tr>
+<tr class=grid>
+<td height=25 valign=top class=toc ><a href="S64.html">S64</a></td>
+<td height=25 valign=top class=toc>describes a signed 64-bit integer.</td>
+</tr>
+<tr class=grid>
+<td height=25 valign=top class=toc ><a href="U64.html">U64</a></td>
+<td height=25 valign=top class=toc>describes an unsigned 64-bit integer.</td>
+</tr>
+<tr class=grid>
+<td height=25 valign=top class=toc ><a href="S32.html">S32</a></td>
+<td height=25 valign=top class=toc>describes a signed 32-bit integer.</td>
+</tr>
+<tr class=grid>
+<td height=25 valign=top class=toc ><a href="U32.html">U32</a></td>
+<td height=25 valign=top class=toc>describes an unsigned 32-bit integer.</td>
+</tr>
+<tr class=grid>
+<td height=25 valign=top class=toc ><a href="s32_ptr.html">s32_ptr</a></td>
+<td height=25 valign=top class=toc>describes a pointer to a signed 32-bit integer.</td>
+</tr>
+<tr class=grid>
+<td height=25 valign=top class=toc ><a href="u32_ptr.html">u32_ptr</a></td>
+<td height=25 valign=top class=toc>describes a pointer to an unsigned 32-bit integer.</td>
+</tr>
+<tr class=grid>
+<td height=25 valign=top class=toc ><a href="F32.html">F32</a></td>
+<td height=25 valign=top class=toc>describes a standard 32-bit floating-point number.</td>
+</tr>
+<tr class=grid>
+<td height=25 valign=top class=toc ><a href="F64.html">F64</a></td>
+<td height=25 valign=top class=toc>describes a standard 64-bit double-precision floating-point number.</td>
+</tr>
+<tr class=grid>
+<td height=25 valign=top class=toc ><a href="void.html">void</a></td>
+<td height=25 valign=top class=toc>describes a standard C/C++ void return type.</td>
+</tr>
+<tr class=grid>
+<td height=25 valign=top class=toc ><a href="NULL.html">NULL</a></td>
+<td height=25 valign=top class=toc>describes a standard C/C++ NULL pointer.</td>
+</tr>
+<tr class=grid>
+<td height=25 valign=top class=toc ><a href="OS_WND.html">OS_WND</a></td>
+<td height=25 valign=top class=toc>describes a standard HWND window handle on Win32, or a
+standard WindowPtr under MacOS.</td>
+</tr>
+<tr class=grid>
+<td height=25 valign=top class=toc ><a href="HCURSOR.html">HCURSOR</a></td>
+<td height=25 valign=top class=toc>describes a standard Win32 HCURSOR cursor handle.</td>
+</tr>
+<tr class=grid>
+<td height=25 valign=top class=toc ><a href="LPDIRECTSOUND.html">LPDIRECTSOUND</a></td>
+<td height=25 valign=top class=toc>describes a pointer to a DirectSound object.</td>
+</tr>
+<tr class=grid>
+<td height=25 valign=top class=toc ><a href="LPDIRECTDRAW.html">LPDIRECTDRAW</a></td>
+<td height=25 valign=top class=toc>describes a pointer to a DirectDraw object.</td>
+</tr>
+<tr class=grid>
+<td height=25 valign=top class=toc ><a href="LPDIRECTDRAWSURFACE.html">LPDIRECTDRAWSURFACE</a></td>
+<td height=25 valign=top class=toc>describes a pointer to a DirectDraw surface
+object.</td>
+</tr>
+<tr class=grid>
+<td height=25 valign=top class=toc ><a href="LPDIRECT3DSURFACE8.html">LPDIRECT3DSURFACE8</a></td>
+<td height=25 valign=top class=toc>describes a pointer to a DirectX 8 Direct3D surface
+object.</td>
+</tr>
+<tr class=grid>
+<td height=25 valign=top class=toc ><a href="FSSpec_PTR.html">FSSpec_PTR</a></td>
+<td height=25 valign=top class=toc>describes a pointer to a MacOS filespec.</td>
+</tr>
+<tr class=grid>
+<td height=25 valign=top class=toc ><a href="GDHandle.html">GDHandle</a></td>
+<td height=25 valign=top class=toc>describes a standard MacOS Graphics Device pointer.</td>
+</tr>
+<tr class=grid>
+<td height=25 valign=top class=toc ><a href="VOID_PTR.html">VOID_PTR</a></td>
+<td height=25 valign=top class=toc>describes a standard C/C++ untyped memory pointer.</td>
+</tr>
+<tr class=grid>
+<td height=25 valign=top class=toc ><a href="BINK_STRING.html">BINK_STRING</a></td>
+<td height=25 valign=top class=toc>describes a normal zero-terminated C-style string.</td>
+</tr>
+<tr class=grid>
+<td height=25 valign=top class=toc ><a href="HBINK.html">HBINK</a></td>
+<td height=25 valign=top class=toc>is a handle to an opened Bink file.</td>
+</tr>
+<tr class=grid>
+<td height=25 valign=top class=toc ><a href="HBINKTRACK.html">HBINKTRACK</a></td>
+<td height=25 valign=top class=toc>is a handle to an opened Bink audio track.</td>
+</tr>
+<tr class=grid>
+<td height=25 valign=top class=toc ><a href="HBINKBUFFER.html">HBINKBUFFER</a></td>
+<td height=25 valign=top class=toc>is a handle to an opened BinkBuffer.</td>
+</tr>
+<tr class=grid>
+<td height=25 valign=top class=toc ><a href="BINKRECT.html">BINKRECT</a></td>
+<td height=25 valign=top class=toc>is a structure describing a rectangular area.</td>
+</tr>
+<tr class=grid>
+<td height=25 valign=top class=toc ><a href="BINKRECT_ARRAY.html">BINKRECT_ARRAY</a></td>
+<td height=25 valign=top class=toc>is an array of structures describing rectangular
+areas.</td>
+</tr>
+</table>
+<p align=center>
+<a href="mailto:Bink1@radgametools.com">For technical support, e-mail Bink1@radgametools.com</a>
+<br>
+<a href="http://www.radgametools.com/bnkmain.htm?from=help1.5v">&#169; Copyright 1994-2003 RAD Game Tools, Inc. All Rights Reserved.</a>
+</p>
+<br>
+</body>
+</html>

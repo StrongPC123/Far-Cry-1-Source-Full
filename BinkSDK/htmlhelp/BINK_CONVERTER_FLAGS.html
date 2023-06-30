@@ -1,0 +1,94 @@
+<!-- This page was created with the RAD auto-doc generator. -->
+<!doctype html public "-//w3c//dtd html 3.2 final//en">
+<html>
+<head>
+<title>BINK_CONVERTER_FLAGS</title>
+<meta http-equiv="content-type" content="text/html; charset=iso8859-1">
+<meta name="ms.locale" content="en-us">
+<meta name="description" content="Specifies the class of Bink YUV converters to load or unload.">
+<meta name="ms-hkwd" content="BINK_CONVERTER_FLAGS">
+<link rel="stylesheet" title="default" href="reference.css" type="text/css" media="screen">
+</head>
+<body topmargin="0">
+<table cellspacing=0 cellpadding=0 class=bar width=100% height=25>
+<tr class=bar>
+<td class=bar>
+<i>&nbsp;<a href="index.html" class=trn>Bink SDK 1.5v</a></i>
+</td>
+</tr>
+</table>
+<h1>BINK_CONVERTER_FLAGS</h1>
+<p>The basic type <b>BINK_CONVERTER_FLAGS</b> Specifies the class of Bink YUV converters to load or unload.</p>
+<h4>Fundamental Values</h4>
+<table class=list width=90%>
+<tr valign=top class=list>
+<th width=29% height=25 valign=middle class=list>&nbsp;Value</th>
+<th width=71% height=25 valign=middle class=list>&nbsp;Description</th>
+</tr>
+<tr valign=top class=list>
+<td width=29% height=25 valign=middle class=list><a name="#BINKCONVERTERSALL" href="#BINKCONVERTERSALL" class=trn>&nbsp;BINKCONVERTERSALL</a></td>
+<td width=71% height=25 valign=middle class=list>Loads or unloads <b>all</b> of the Bink YUV converters.</td>
+</tr>
+<tr valign=top class=list>
+<td width=29% height=25 valign=middle class=list><a name="#BINKSURFACE32" href="#BINKSURFACE32" class=trn>&nbsp;BINKSURFACE32</a></td>
+<td width=71% height=25 valign=middle class=list>32-bit native RGB data (on Win32: BGRxBGRx, etc; on MacOS: xRGBxRGB, etc).</td>
+</tr>
+<tr valign=top class=list>
+<td width=29% height=25 valign=middle class=list><a name="#BINKSURFACE32A" href="#BINKSURFACE32A" class=trn>&nbsp;BINKSURFACE32A</a></td>
+<td width=71% height=25 valign=middle class=list>32-bit native RGB data with alpha (On Win32: BGRABGRA, etc).</td>
+</tr>
+<tr valign=top class=list>
+<td width=29% height=25 valign=middle class=list><a name="#BINKSURFACE32R" href="#BINKSURFACE32R" class=trn>&nbsp;BINKSURFACE32R</a></td>
+<td width=71% height=25 valign=middle class=list>32-bit reversed RGB data (RGBxRGBx, etc). This surface type isn't supported on Xbox.</td>
+</tr>
+<tr valign=top class=list>
+<td width=29% height=25 valign=middle class=list><a name="#BINKSURFACE32RA" href="#BINKSURFACE32RA" class=trn>&nbsp;BINKSURFACE32RA</a></td>
+<td width=71% height=25 valign=middle class=list>32-bit reversed RGB data with alpha (RGBARGBA, etc). In OpenGL, this is GL_RGBA. This surface type isn't supported on Xbox.</td>
+</tr>
+<tr valign=top class=list>
+<td width=29% height=25 valign=middle class=list><a name="#BINKSURFACE555" href="#BINKSURFACE555" class=trn>&nbsp;BINKSURFACE555</a></td>
+<td width=71% height=25 valign=middle class=list>16-bit 555 RGB high-color surface.</td>
+</tr>
+<tr valign=top class=list>
+<td width=29% height=25 valign=middle class=list><a name="#BINKSURFACE565" href="#BINKSURFACE565" class=trn>&nbsp;BINKSURFACE565</a></td>
+<td width=71% height=25 valign=middle class=list>16-bit 565 RGB high-color surface.</td>
+</tr>
+<tr valign=top class=list>
+<td width=29% height=25 valign=middle class=list><a name="#BINKSURFACE655" href="#BINKSURFACE655" class=trn>&nbsp;BINKSURFACE655</a></td>
+<td width=71% height=25 valign=middle class=list>16-bit 655 RGB high-color surface.</td>
+</tr>
+<tr valign=top class=list>
+<td width=29% height=25 valign=middle class=list><a name="#BINKSURFACE664" href="#BINKSURFACE664" class=trn>&nbsp;BINKSURFACE664</a></td>
+<td width=71% height=25 valign=middle class=list>16-bit 664 RGB high-color surface.</td>
+</tr>
+<tr valign=top class=list>
+<td width=29% height=25 valign=middle class=list><a name="#BINKSURFACE4444" href="#BINKSURFACE4444" class=trn>&nbsp;BINKSURFACE4444</a></td>
+<td width=71% height=25 valign=middle class=list>16-bit 4444 RGB high-color surface with alpha.</td>
+</tr>
+<tr valign=top class=list>
+<td width=29% height=25 valign=middle class=list><a name="#BINKSURFACE5551" href="#BINKSURFACE5551" class=trn>&nbsp;BINKSURFACE5551</a></td>
+<td width=71% height=25 valign=middle class=list>16-bit 5551 RGB high-color surface with one bit alpha.</td>
+</tr>
+<tr valign=top class=list>
+<td width=29% height=25 valign=middle class=list><a name="#BINKCONVERTERSMONO" href="#BINKCONVERTERSMONO" class=trn>&nbsp;BINKCONVERTERSMONO</a></td>
+<td width=71% height=25 valign=middle class=list>Used with one of the surface flags to test Bink to unload or load the monochrome version of the converter too.</td>
+</tr>
+<tr valign=top class=list>
+<td width=29% height=25 valign=middle class=list><a name="#BINKCONVERTERS2X" href="#BINKCONVERTERS2X" class=trn>&nbsp;BINKCONVERTERS2X</a></td>
+<td width=71% height=25 valign=middle class=list>Used with one of the surface flags to test Bink to unload or load the 2x width version of the converter too.</td>
+</tr>
+</table>
+<p>
+<br>
+<b>Group:</b>
+<a href="Bink API.html">Bink API</a><br>
+<b>Related Functions:</b>
+<a href="BinkLoadConverter.html">BinkLoadConverter</a>, <a href="BinkUnloadConverter.html">BinkUnloadConverter</a></p>
+<p align=center>
+<a href="mailto:Bink1@radgametools.com">For technical support, e-mail Bink1@radgametools.com</a>
+<br>
+<a href="http://www.radgametools.com/bnkmain.htm?from=help1.5v">&#169; Copyright 1994-2003 RAD Game Tools, Inc. All Rights Reserved.</a>
+</p>
+<br>
+</body>
+</html>

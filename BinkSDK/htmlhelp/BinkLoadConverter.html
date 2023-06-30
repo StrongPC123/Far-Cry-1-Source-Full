@@ -1,0 +1,55 @@
+<!-- This page was created with the RAD auto-doc generator. -->
+<!doctype html public "-//w3c//dtd html 3.2 final//en">
+<html>
+<head>
+<title>BinkLoadConverter</title>
+<meta http-equiv="content-type" content="text/html; charset=iso8859-1">
+<meta name="ms.locale" content="en-us">
+<meta name="description" content="reloads one or more of the Bink YUV to RGB converters (if they had been unloaded by BinkUnloadConverter).">
+<meta name="ms-hkwd" content="BinkLoadConverter">
+<link rel="stylesheet" title="default" href="reference.css" type="text/css" media="screen">
+</head>
+<body topmargin="0">
+<table cellspacing=0 cellpadding=0 class=bar width=100% height=25>
+<tr class=bar>
+<td class=bar>
+<i>&nbsp;<a href="index.html" class=trn>Bink SDK 1.5v</a></i>
+</td>
+</tr>
+</table>
+<h1>BinkLoadConverter</h1>
+<p>The function  <b>BinkLoadConverter</b> reloads one or more of the Bink YUV to RGB converters (if they had been unloaded by BinkUnloadConverter).</p>
+<table width=100% cellspacing=0 class=pre>
+<tr class=pre>
+<td class=pre>
+<pre><b><a href="void.html" class=trn>void</a> <a href="BinkLoadConverter.html" class=trn>BinkLoadConverter</a>(</b>
+<b>&nbsp&nbsp<a href="BINK_CONVERTER_FLAGS.html" class=trn>BINK_CONVERTER_FLAGS</a>&nbsp</b><i>flags</i>
+<b>);</b></pre>
+</td>
+</tr>
+</table>
+<h4>In Parameters</h4>
+<dl>
+<dt><i>flags</i></dt>
+<dd>Specifies the converter to load.</dd>
+</dl>
+<h4>Discussion</h4>
+<p>This function reloads one or more of the Bink YUV converters into memory. You can use memory most effectively by loading just the YUV converters that your game actually uses. For example, say you use the <a href="BINK_COPY_FLAGS.html#BINKSURFACE32">BINKSURFACE32</a> and <a href="BINK_COPY_FLAGS.html#BINKSURFACE32A">BINKSURFACE32A</a> surface types, use the following code to load the minimum coverters: </p><code><font size=3 color=#006000><pre><br>// First, unload all of the converters.BinkUnloadConverter( BINKCONVERTERSALL );<br>// Next, load just the converters you're going to use.BinkLoadConverter( BINKSURFACEYUY2 );BinkLoadConverter( BINKSURFACE32A );</pre></font></code><p></p>
+<p>
+<br>
+<b>Group:</b>
+<a href="Bink API.html">Bink API</a><br>
+<b>Related Sections:</b>
+<a href="Memory management onxuuiga.html">Memory management on the Xbox</a>, <a href="Sections on the Xbox.html">Sections on the Xbox</a><br>
+<b>Related Functions:</b>
+<a href="BinkLoad.html">BinkLoad</a>, <a href="BinkUnloadConverter.html">BinkUnloadConverter</a><br>
+<b>Related Basic Types:</b>
+<a href="BINK_CONVERTER_FLAGS.html">BINK_CONVERTER_FLAGS</a>, <a href="BINK_COPY_FLAGS.html">BINK_COPY_FLAGS</a>, <a href="void.html">void</a></p>
+<p align=center>
+<a href="mailto:Bink1@radgametools.com">For technical support, e-mail Bink1@radgametools.com</a>
+<br>
+<a href="http://www.radgametools.com/bnkmain.htm?from=help1.5v">&#169; Copyright 1994-2003 RAD Game Tools, Inc. All Rights Reserved.</a>
+</p>
+<br>
+</body>
+</html>

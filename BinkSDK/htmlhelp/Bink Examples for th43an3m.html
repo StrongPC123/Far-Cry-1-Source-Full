@@ -1,0 +1,38 @@
+<!-- This page was created with the RAD auto-doc generator. -->
+<!doctype html public "-//w3c//dtd html 3.2 final//en">
+<html>
+<head>
+<title>Bink Examples for the Nintendo GameCube</title>
+<meta http-equiv="content-type" content="text/html; charset=iso8859-1">
+<meta name="ms.locale" content="en-us">
+<meta name="description" content="">
+<meta name="ms-hkwd" content="Bink Examples for the Nintendo GameCube">
+<link rel="stylesheet" title="default" href="reference.css" type="text/css" media="screen">
+</head>
+<body topmargin="0">
+<table cellspacing=0 cellpadding=0 class=bar width=100% height=25>
+<tr class=bar>
+<td class=bar>
+<i>&nbsp;<a href="index.html" class=trn>Bink SDK 1.5v</a></i>
+</td>
+</tr>
+</table>
+<h1>Bink Examples for the Nintendo GameCube</h1>
+<h4>Discussion</h4>
+<p>The Bink SDK supplies several example programs for Nintendo GameCube. To create these examples with SN Systems or CodeWarrior, just create a new project and include the appropriate C source file (ExamNbb.C, ExamNTex.C or ExamNAlf.C), and then add the Bink for Nintendo GameCube static library to the project (BinkNGC.a). <br> The following is a list of the example files that you can experiment with: <br> For an example of using Bink to display a video directly to the GameCube's YUV back buffer, see the <b>"ExamNbb.C"</b> file. This example is extremely simple because it doesn't use the GPU to render the video - it's just blasts it right to the back buffer. It's also very fast, because Bink doesn't have to convert out of YUV format. <br> For an example of using Bink to decompress onto a texture and then render the texture to the screen, see the <b>"ExamNTex.C"</b> file. This example uses our simple 3D wrapper, so be sure to also add the <b>"NGCRAD3D.C"</b> file to your project. Bink converts from YUV format directly into the GameCube's swizzled format inside the <a href="BinkCopyToBuffer.html">BinkCopyToBuffer</a> function, so you can render the texture immediately! For an example of using Bink with alpha videos and then render the textures to the screen, see the <b>"ExamNAlf.C"</b> file. This example also uses our simple 3D wrapper, so be sure to also add the <b>"NGCRAD3D.C"</b> file to your project. You can download a small alpha test movie from our ftp-site<ftp://ftp.radgametools.com/bink>. All of these examples also use a simple file to setup the GameCube for use, so you'll also need to include "NGCDemo.c" in your sample projects. </p>
+<p><a href="Sharing the CPU on t86r93m.html">Previous Topic (Sharing the CPU on the Nintendo GameCube)</a>  </p><p>
+<br>
+<b>Group:</b>
+<a href="The Nintendo GameCubm0rzpb.html">The Nintendo GameCube Platform</a><br>
+<b>Related Sections:</b>
+<a href="Alpha Planes.html">Alpha Planes</a><br>
+<b>Related Functions:</b>
+<a href="BinkCopyToBuffer.html">BinkCopyToBuffer</a></p>
+<p align=center>
+<a href="mailto:Bink1@radgametools.com">For technical support, e-mail Bink1@radgametools.com</a>
+<br>
+<a href="http://www.radgametools.com/bnkmain.htm?from=help1.5v">&#169; Copyright 1994-2003 RAD Game Tools, Inc. All Rights Reserved.</a>
+</p>
+<br>
+</body>
+</html>

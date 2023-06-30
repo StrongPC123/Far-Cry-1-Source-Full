@@ -1,0 +1,38 @@
+<!-- This page was created with the RAD auto-doc generator. -->
+<!doctype html public "-//w3c//dtd html 3.2 final//en">
+<html>
+<head>
+<title>Bink Playback on the Nintendo GameCube</title>
+<meta http-equiv="content-type" content="text/html; charset=iso8859-1">
+<meta name="ms.locale" content="en-us">
+<meta name="description" content="">
+<meta name="ms-hkwd" content="Bink Playback on the Nintendo GameCube">
+<link rel="stylesheet" title="default" href="reference.css" type="text/css" media="screen">
+</head>
+<body topmargin="0">
+<table cellspacing=0 cellpadding=0 class=bar width=100% height=25>
+<tr class=bar>
+<td class=bar>
+<i>&nbsp;<a href="index.html" class=trn>Bink SDK 1.5v</a></i>
+</td>
+</tr>
+</table>
+<h1>Bink Playback on the Nintendo GameCube</h1>
+<h4>Discussion</h4>
+<p> Video playback on the Nintendo GameCube is pretty easy compared to a PC or Mac - the hardware is damn fast and, most importantly, it is constant. If it plays back perfectly on your machine, then it will on everyone else's too! You have a couple options for blitting the video frames onto the screen with a GameCube - copying to the back buffer, or copying to a texture and then rendering. The simplest way is definitely the back buffer option - just have Bink copy its YUV data directly to your screen's YUV back buffer. This is also the highest performance method, because not only do you keep the renderer out of the loop, but Bink doesn't even have to convert from its internal YUV format. Very fast, very simple. See the "ExamNbb.C" for an example of this kind of playback. The more flexible option is to have Bink copy into a texture, and then render that texture onto the screen. This lets you do all kinds of sophisticated stuff like <a href="Alpha Planes.html#alpha">alpha</a> transluncency, animated textures, video in a window with 3D objects in the scene, etc. The GameCube's texture formats are nice and simple. First off, they can be non-power-of-2 which is really nice for video. However, they do have to be swizzled to the GPU's internal format (which is usually painful). Fortunately, the <a href="BinkCopyToBuffer.html">BinkCopyToBuffer</a> functions, <b>automatically swizzle</b> the pixels as it converts its YUV data into the RGB destination. That means you simply need to call <a href="BinkCopyToBuffer.html">BinkCopyToBuffer</a> to move the pixels from Bink's YUV buffers into your RGB texture and your texture is ready! Note that due to the swizzled output, you must use divisible-by-four values for the X offset, Y offset, width, and height parameters in <a href="BinkCopyToBuffer.html">BinkCopyToBuffer</a> on the GameCube. See the "ExamNTex.C" for an example of this kind of playback. </p>
+<p><a href="NTSC and PAL on the cadb3m.html">Next Topic (NTSC and PAL on the Nintendo GameCube)</a>  </p><p><a href="Distributing Bink on8uyiaz.html">Previous Topic (Distributing Bink on the Nintendo GameCube)</a>  </p><p>
+<br>
+<b>Group:</b>
+<a href="The Nintendo GameCubm0rzpb.html">The Nintendo GameCube Platform</a><br>
+<b>Related Sections:</b>
+<a href="Alpha Planes.html">Alpha Planes</a><br>
+<b>Related Functions:</b>
+<a href="BinkCopyToBuffer.html">BinkCopyToBuffer</a></p>
+<p align=center>
+<a href="mailto:Bink1@radgametools.com">For technical support, e-mail Bink1@radgametools.com</a>
+<br>
+<a href="http://www.radgametools.com/bnkmain.htm?from=help1.5v">&#169; Copyright 1994-2003 RAD Game Tools, Inc. All Rights Reserved.</a>
+</p>
+<br>
+</body>
+</html>

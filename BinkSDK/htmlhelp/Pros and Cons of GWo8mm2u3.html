@@ -1,0 +1,34 @@
+<!-- This page was created with the RAD auto-doc generator. -->
+<!doctype html public "-//w3c//dtd html 3.2 final//en">
+<html>
+<head>
+<title>Pros and Cons of GWorld Blitting under MacOS</title>
+<meta http-equiv="content-type" content="text/html; charset=iso8859-1">
+<meta name="ms.locale" content="en-us">
+<meta name="description" content="">
+<meta name="ms-hkwd" content="Pros and Cons of GWorld Blitting under MacOS">
+<link rel="stylesheet" title="default" href="reference.css" type="text/css" media="screen">
+</head>
+<body topmargin="0">
+<table cellspacing=0 cellpadding=0 class=bar width=100% height=25>
+<tr class=bar>
+<td class=bar>
+<i>&nbsp;<a href="index.html" class=trn>Bink SDK 1.5v</a></i>
+</td>
+</tr>
+</table>
+<h1>Pros and Cons of GWorld Blitting under MacOS</h1>
+<h4>Discussion</h4>
+<p><b>GWorld blitting is good, because:</b> 1) It is the most compatible way of getting pixels onto the screen. They will always work. 2) GWorlds can perform clipping during blitting. 3) GWorlds can be scaled to any resolution - not just 2x (this is usually slow, though). <br> <b>GWorld blitting is bad, because:</b> 1) GWorlds are slow! Even if CopyBits was perfect (which it ain't), there still is an extra frame buffer blit compared to direct-to-screen. 3) GWorlds use more memory. Again, because there is an extra frame buffer, they require more memory than direct-to-screen. </p>
+<p><a href="Simplifying MacOS Blrzu5pt.html">Next Topic (Simplifying MacOS Blitting with BinkBuffers)</a>  </p><p><a href="Pros and Cons of Dire7y86m.html">Previous Topic (Pros and Cons of Direct to Screen Blitting under MacOS)</a>  </p><p>
+<br>
+<b>Group:</b>
+<a href="The MacOS Platform.html">The MacOS Platform</a></p>
+<p align=center>
+<a href="mailto:Bink1@radgametools.com">For technical support, e-mail Bink1@radgametools.com</a>
+<br>
+<a href="http://www.radgametools.com/bnkmain.htm?from=help1.5v">&#169; Copyright 1994-2003 RAD Game Tools, Inc. All Rights Reserved.</a>
+</p>
+<br>
+</body>
+</html>

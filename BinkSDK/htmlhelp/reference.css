@@ -1,0 +1,166 @@
+body  
+{
+  padding: 10 0 0 10;
+  background: #ffffff; 
+  color: #000000;
+  font-family: verdana, arial, helvetica, sans-serif; 
+  font-size: 100%;
+}
+
+h1
+{
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 100%;
+}
+
+h4
+{
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 70%;
+}
+
+p
+{
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 70%;
+}
+
+dl
+{
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 70%;
+}
+
+dt 
+{
+}
+
+dd
+{
+}
+
+pre
+{
+  padding: 2 4;
+  cursor: text; 
+}
+
+a:link
+{
+  color: #661155; 
+  text-decoration: none;
+}
+
+a:visited
+{
+  color: #772266; 
+  text-decoration: none;
+}
+
+a:hover
+{
+  background: #ddeedd; 
+  color: #661155; 
+  text-decoration: none;
+}
+
+a:link.trn
+{
+  color: #000000; 
+  text-decoration: none;
+}
+
+a:visited.trn
+{
+  color: #000000; 
+  text-decoration: none;
+}
+
+a:hover.trn
+{ 
+  background: #ddeedd; 
+  color: #661155; 
+  text-decoration: none;
+}
+
+table.list
+{
+  background-color:#999999;
+}
+
+th.list
+{
+  font-family: verdana, arial, helvetica, sans-serif;
+  background: #cccccc;
+  text-align: left;
+  font-size: 70%;
+}
+
+td.list
+{
+  font-family: verdana, arial, helvetica, sans-serif;
+  background: #ffffff;
+  text-align: left;
+  font-size: 70%;
+}  
+
+table.grid
+{
+  background-color:#999999;
+}
+
+th.grid
+{
+  font-family: verdana, arial, helvetica, sans-serif;
+  background: #cccccc;
+  text-align: center;
+  font-size: 70%;
+}
+
+td.grid
+{
+  font-family: verdana, arial, helvetica, sans-serif;
+  background: #ffffff;
+  text-align: center;
+  font-size: 70%;
+}  
+
+table.toc
+{
+  background-color:#ffffff;
+}
+
+th.toc
+{
+  font-family: verdana, arial, helvetica, sans-serif;
+  background: #ffffff;
+  text-align: left;
+  font-size: 70%;
+}
+
+td.toc
+{
+  font-family: verdana, arial, helvetica, sans-serif;
+  background: #ffffff;
+  text-align: left;
+  font-size: 70%;
+}  
+
+table.bar
+{
+  font-family: verdana, arial, helvetica, sans-serif;
+  background-color: #bbddcc;
+}
+
+td.bar
+{
+  font-family: verdana;
+  font-size: 60%;
+  text-align: left;
+  text-valign: middle;
+}
+
+table.pre
+{
+  background-color: #dddddd;
+}

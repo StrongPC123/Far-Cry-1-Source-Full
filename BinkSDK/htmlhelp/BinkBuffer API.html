@@ -1,0 +1,133 @@
+<!-- This page was created with the RAD auto-doc generator. -->
+<!doctype html public "-//w3c//dtd html 3.2 final//en">
+<html>
+<head>
+<title>BinkBuffer API</title>
+<meta http-equiv="content-type" content="text/html; charset=iso8859-1">
+<meta name="ms.locale" content="en-us">
+<meta name="description" content="">
+<meta name="ms-hkwd" content="BinkBuffer API">
+<link rel="stylesheet" title="default" href="reference.css" type="text/css" media="screen">
+</head>
+<body topmargin="0">
+<table cellspacing=0 cellpadding=0 class=bar width=100% height=25>
+<tr class=bar>
+<td class=bar>
+<i>&nbsp;<a href="index.html" class=trn>Bink SDK 1.5v</a></i>
+</td>
+</tr>
+</table>
+<h1>BinkBuffer API</h1>
+<h4>Discussion</h4>
+<p>The BinkBuffer API was written to make adding YUV blitting to your applications easy. Under Win32, the BinkBuffer API supports five different primary blitting styles (primary, DIBSection, overlay, YUV off-screen and RGB off-screen) and allows you to switch easily between them. Under MacOS, the API the direct-to-screen and GWorld blitting styles. The BinkBuffer API is almost identical on Win32 and MacOS, so porting will be easy. <b>The BinkBuffer API is <i>not</i> supported on the Xbox (see ExamXbox.CPP) or Nintendo GameCube (see ExamNbb.C).</b> Note that the BinkBuffer API will get your applications up and running almost immediately, but <b>it is optional</b>. If you already have DirectDraw, Direct3D or your own blitting solution up and running, you can skip the whole BinkBuffer API completely, and just have the Bink API copy right into your surface pointers. Also, BinkBuffers don't necessarily use any extra system memory. Overlays and most of the off-screen surfaces exist in video memory, and primary surface BinkBuffers don't require any extra memory at all! BinkBuffers are used a lot like the Bink API - you open and receive an HBINKBUFFER handle (which is a pointer to a BINKBUFFER structure), use the handle with the BinkBuffer API functions, and finally, close the BinkBuffer when you're done. See the ExamW32.C or ExampleMac.c files for simple examples. </p>
+<table class=toc width=90%>
+<tr class=toc>
+<th height=25 valign=top class=toc><a href="BinkBuffer API.html">BinkBuffer API</a></th>
+</tr>
+<tr class=grid>
+<td height=25 valign=top class=toc ><a href="BinkBufferOpen.html">BinkBufferOpen</a></td>
+<td height=25 valign=top class=toc>opens a BinkBuffer (which simplifies blitting YUV
+data onto the screen).</td>
+</tr>
+<tr class=grid>
+<td height=25 valign=top class=toc ><a href="BINKBUFFER.html">BINKBUFFER</a></td>
+<td height=25 valign=top class=toc>is a structure returned from BinkBufferOpen.</td>
+</tr>
+<tr class=grid>
+<td height=25 valign=top class=toc ><a href="BINKBUFFER_OPEN_FLAGS.html">BINKBUFFER_OPEN_FLAGS</a></td>
+<td height=25 valign=top class=toc>describes the type and capabilities of the
+BinkBuffer that you wish to open.</td>
+</tr>
+<tr class=grid>
+<td height=25 valign=top class=toc ><a href="BinkBufferClose.html">BinkBufferClose</a></td>
+<td height=25 valign=top class=toc>closes the specified BinkBuffer handle.</td>
+</tr>
+<tr class=grid>
+<td height=25 valign=top class=toc ><a href="BinkBufferSetDirectDraw.html">BinkBufferSetDirectDraw</a></td>
+<td height=25 valign=top class=toc>sets the DirectDraw object and primary surface
+pointers.</td>
+</tr>
+<tr class=grid>
+<td height=25 valign=top class=toc ><a href="BinkBufferLock.html">BinkBufferLock</a></td>
+<td height=25 valign=top class=toc>locks the BinkBuffer for reading or writing to the
+pixel buffer.</td>
+</tr>
+<tr class=grid>
+<td height=25 valign=top class=toc ><a href="BinkBufferUnlock.html">BinkBufferUnlock</a></td>
+<td height=25 valign=top class=toc>unlocks a BinkBuffer that has been locked with
+BinkBufferLock.</td>
+</tr>
+<tr class=grid>
+<td height=25 valign=top class=toc ><a href="BinkBufferBlit.html">BinkBufferBlit</a></td>
+<td height=25 valign=top class=toc>copies the pixel data onto the screen (for the
+off-screen variety of BinkBuffers).</td>
+</tr>
+<tr class=grid>
+<td height=25 valign=top class=toc ><a href="BinkBufferCheckWinPos.html">BinkBufferCheckWinPos</a></td>
+<td height=25 valign=top class=toc>adjusts the specified window position
+coordinates for validity with the current BinkBuffer type.</td>
+</tr>
+<tr class=grid>
+<td height=25 valign=top class=toc ><a href="BinkBufferSetOffset.html">BinkBufferSetOffset</a></td>
+<td height=25 valign=top class=toc>tells the BinkBuffer that either the window
+position on the desktop or that the playback offset within the window has
+changed.</td>
+</tr>
+<tr class=grid>
+<td height=25 valign=top class=toc ><a href="BinkBufferSetScale.html">BinkBufferSetScale</a></td>
+<td height=25 valign=top class=toc>sets a new shrinking or stretching scale to use
+during blitting.</td>
+</tr>
+<tr class=grid>
+<td height=25 valign=top class=toc ><a href="BinkBufferSetResolution.html">BinkBufferSetResolution</a></td>
+<td height=25 valign=top class=toc>tells Bink to switch video resolution when
+opening the BinkBuffer.</td>
+</tr>
+<tr class=grid>
+<td height=25 valign=top class=toc ><a href="BinkBufferGetDescription.html">BinkBufferGetDescription</a></td>
+<td height=25 valign=top class=toc>returns a string describing the blitting
+style being used by the BinkBuffer.</td>
+</tr>
+<tr class=grid>
+<td height=25 valign=top class=toc ><a href="BinkBufferGetError.html">BinkBufferGetError</a></td>
+<td height=25 valign=top class=toc>returns a string that describes the last global BinkBuffer error.</td>
+</tr>
+<tr class=grid>
+<td height=25 valign=top class=toc ><a href="BinkDDSurfaceType.html">BinkDDSurfaceType</a></td>
+<td height=25 valign=top class=toc>returns a value describing the format of the specified
+DirectDraw surface.</td>
+</tr>
+<tr class=grid>
+<td height=25 valign=top class=toc ><a href="BinkDX8SurfaceType.html">BinkDX8SurfaceType</a></td>
+<td height=25 valign=top class=toc>returns a value describing the format of the specified
+DirectX 8 surface.</td>
+</tr>
+<tr class=grid>
+<td height=25 valign=top class=toc ><a href="BinkGDSurfaceType.html">BinkGDSurfaceType</a></td>
+<td height=25 valign=top class=toc>returns a value describing the format of the specified
+MacOS Graphics Device.</td>
+</tr>
+<tr class=grid>
+<td height=25 valign=top class=toc ><a href="BinkIsSoftwareCursor.html">BinkIsSoftwareCursor</a></td>
+<td height=25 valign=top class=toc>determines whether the specified mouse cursor
+is software-based on the specified DirectDraw surface pointer.</td>
+</tr>
+<tr class=grid>
+<td height=25 valign=top class=toc ><a href="BinkCheckCursor.html">BinkCheckCursor</a></td>
+<td height=25 valign=top class=toc>checks to see if the mouse is currently inside the
+specified window rectangle, and, if so, hides it.</td>
+</tr>
+<tr class=grid>
+<td height=25 valign=top class=toc ><a href="BinkRestoreCursor.html">BinkRestoreCursor</a></td>
+<td height=25 valign=top class=toc>restores the mouse cursor to its original state
+after a BinkCheckCursor call.</td>
+</tr>
+</table>
+<p align=center>
+<a href="mailto:Bink1@radgametools.com">For technical support, e-mail Bink1@radgametools.com</a>
+<br>
+<a href="http://www.radgametools.com/bnkmain.htm?from=help1.5v">&#169; Copyright 1994-2003 RAD Game Tools, Inc. All Rights Reserved.</a>
+</p>
+<br>
+</body>
+</html>

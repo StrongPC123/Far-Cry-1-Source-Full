@@ -1,0 +1,36 @@
+<!-- This page was created with the RAD auto-doc generator. -->
+<!doctype html public "-//w3c//dtd html 3.2 final//en">
+<html>
+<head>
+<title>Sharing the CPU under Win32</title>
+<meta http-equiv="content-type" content="text/html; charset=iso8859-1">
+<meta name="ms.locale" content="en-us">
+<meta name="description" content="">
+<meta name="ms-hkwd" content="Sharing the CPU under Win32">
+<link rel="stylesheet" title="default" href="reference.css" type="text/css" media="screen">
+</head>
+<body topmargin="0">
+<table cellspacing=0 cellpadding=0 class=bar width=100% height=25>
+<tr class=bar>
+<td class=bar>
+<i>&nbsp;<a href="index.html" class=trn>Bink SDK 1.5v</a></i>
+</td>
+</tr>
+</table>
+<h1>Sharing the CPU under Win32</h1>
+<h4>Discussion</h4>
+<p>Under Win32, to be polite, we are encouraged to share the processor time with other applications. To do this, we have to process messages while we're waiting for each frame. Bink handles timing with the <a href="BinkWait.html">BinkWait</a> function, so we just need to check this function whenever we're not processing a message. So, we'll simply monitor the <a href="BinkWait.html">BinkWait</a> function in our message loop - when <a href="BinkWait.html">BinkWait</a> tells us that it's time for the next frame, we'll just call the code to advance a frame. A simple example of Windows playback would look something like this: </p><code><font size=3 color=#006000><pre>for ( ; ; ){  <i>// check for a Windows message</i>  if ( PeekMessage( &msg, 0, 0, 0, PM_REMOVE ) )  {    if ( msg.message == WM_QUIT )      break;<br>    TranslateMessage( &msg );    DispatchMessage( &msg );   }   else   {     <i>// no Windows message, so check on our playback</i>     if ( !BinkWait( bink ) )     {       <i>// go process the next Bink frame</i>       Show_next_frame( bink, bink_buf );     }   }}</pre></font></code><p></p>
+<p><a href="Bink Examples for Win32.html">Next Topic (Bink Examples for Win32)</a>  </p><p><a href="Memory management uni4hsaa.html">Previous Topic (Memory management under Win32)</a>  </p><p>
+<br>
+<b>Group:</b>
+<a href="The Win32 Platform.html">The Win32 Platform</a><br>
+<b>Related Functions:</b>
+<a href="BinkWait.html">BinkWait</a></p>
+<p align=center>
+<a href="mailto:Bink1@radgametools.com">For technical support, e-mail Bink1@radgametools.com</a>
+<br>
+<a href="http://www.radgametools.com/bnkmain.htm?from=help1.5v">&#169; Copyright 1994-2003 RAD Game Tools, Inc. All Rights Reserved.</a>
+</p>
+<br>
+</body>
+</html>

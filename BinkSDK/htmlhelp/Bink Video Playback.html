@@ -1,0 +1,36 @@
+<!-- This page was created with the RAD auto-doc generator. -->
+<!doctype html public "-//w3c//dtd html 3.2 final//en">
+<html>
+<head>
+<title>Bink Video Playback</title>
+<meta http-equiv="content-type" content="text/html; charset=iso8859-1">
+<meta name="ms.locale" content="en-us">
+<meta name="description" content="">
+<meta name="ms-hkwd" content="Bink Video Playback">
+<link rel="stylesheet" title="default" href="reference.css" type="text/css" media="screen">
+</head>
+<body topmargin="0">
+<table cellspacing=0 cellpadding=0 class=bar width=100% height=25>
+<tr class=bar>
+<td class=bar>
+<i>&nbsp;<a href="index.html" class=trn>Bink SDK 1.5v</a></i>
+</td>
+</tr>
+</table>
+<h1>Bink Video Playback</h1>
+<h4>Discussion</h4>
+<p>Bink is very different than other video codecs. Most noticeably, Bink doesn't plug into one of the monolithic video codec architectures. Instead, it stands on its own two feet, doing everything itself. While this is a little more work on the content creation side (you have to run the Bink tools and actually Bink the file), it is a huge win on the playback side - you just have to ship a single DLL, we can improve the codec much faster than the architectures are updated, we have more control over the various compression stages, we don't have to over-abstract video playback into playback of other media types, etc. Also because Bink stands on its own, we've also been able to create a clean, simple and streamlined way to playback videos. Instead of relying on complicated and difficult-to-debug callbacks or events, <b>your application</b> drives the Bink playback. That means that rather than calling a function like "Play" that goes away for ten minutes, you remain in control the entire time. For example, with Bink, you call a function to decompress a frame, then you call a function to move to the next frame, and then you wait until Bink says it's time to move to the next frame. While this sounds more complicated, it's actually much, much simpler. Let's look at an example. The basic code to open and close a Bink file looks like this (there will be subtle differences on a platform-basis, but this is the gist): </p><code><font size=3 color=#006000><pre>HBINK bink = BinkOpen( "mybink.bik", 0 );<br><i>// use the Bink handle to play the movie</i><br>BinkClose( bink );</pre></font></code><p>Now that we've got a Bink handle to use, let's look at the basic playback loop: </p><code><font size=3 color=#006000><pre>while ( 1 ){  BinkDoFrame( bink );<br>  <i>// blit the frame onto the screen here (platform specific)</i><br>  if ( bink->FrameNum == bink->Frames )    break;                  <i>// done at the point</i>  else    BinkNextFrame( bink );  <i>// skip to the next frame</i><br>  while ( BinkWait( bink ) )    do_idle();              <i>// pump message loop, process other tasks - whatever</i>}</pre></font></code><p>So, basically, we decompress a frame with <a href="BinkDoFrame.html">BinkDoFrame</a>, we move to the next frame with <a href="BinkNextFrame.html">BinkNextFrame</a>, and finally, we wait until <a href="BinkWait.html">BinkWait</a> says that it is time to move on. Pretty simple and you've haven't given up any control at all! This example didn't show the details of blitting the video pixels onto the screen, because that is fairly platform-specific and isn't all that different from any other codec. On Win32, we even supply a high-level blitting API (called the BinkBuffer API) that makes getting the pixels onto the screen completely painless. </p>
+<p><a href="Colorspace - RGB vs. YUV.html">Next Topic (Colorspace - RGB vs. YUV)</a>  </p><p><a href="Compressing with Bink.html">Previous Topic (Compressing with Bink)</a>  </p><p>
+<br>
+<b>Group:</b>
+<a href="Bink Overview.html">Bink Overview</a><br>
+<b>Related Functions:</b>
+<a href="BinkDoFrame.html">BinkDoFrame</a>, <a href="BinkNextFrame.html">BinkNextFrame</a>, <a href="BinkWait.html">BinkWait</a></p>
+<p align=center>
+<a href="mailto:Bink1@radgametools.com">For technical support, e-mail Bink1@radgametools.com</a>
+<br>
+<a href="http://www.radgametools.com/bnkmain.htm?from=help1.5v">&#169; Copyright 1994-2003 RAD Game Tools, Inc. All Rights Reserved.</a>
+</p>
+<br>
+</body>
+</html>

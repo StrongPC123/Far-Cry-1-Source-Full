@@ -1,0 +1,36 @@
+<!-- This page was created with the RAD auto-doc generator. -->
+<!doctype html public "-//w3c//dtd html 3.2 final//en">
+<html>
+<head>
+<title>Bink Playback on the Xbox</title>
+<meta http-equiv="content-type" content="text/html; charset=iso8859-1">
+<meta name="ms.locale" content="en-us">
+<meta name="description" content="">
+<meta name="ms-hkwd" content="Bink Playback on the Xbox">
+<link rel="stylesheet" title="default" href="reference.css" type="text/css" media="screen">
+</head>
+<body topmargin="0">
+<table cellspacing=0 cellpadding=0 class=bar width=100% height=25>
+<tr class=bar>
+<td class=bar>
+<i>&nbsp;<a href="index.html" class=trn>Bink SDK 1.5v</a></i>
+</td>
+</tr>
+</table>
+<h1>Bink Playback on the Xbox</h1>
+<h4>Discussion</h4>
+<p> Video playback on the Xbox is pretty easy compared to a PC - the hardware is damn fast and, most importantly, it is constant. If it plays back perfectly on your machine, then it will on everyone else's too! The other nice thing is that the Xbox gives you so many ways to get video onto the screen. You can use an overlay (by far the easiest way to go), a YUV format D3D texture, a RGB linear format D3D texture (for alpha), or just dump it on the backbuffer before you flip! Overlays are the easiest way to get video into your game. Overlays float over the frame buffer pixels, so they don't disturb anything else in your game. Your rendering and page-flipping code all stays exactly the same with overlays. This is definitely the way to put simple cut-scenes in your game. Overlays can't be textured (but they can be scaled), and they can't do translucency (but they can do color-keyed on/off transparency). See <b>ExamXbox.cpp</b> for an example of using Xbox overlays with Bink. The next display method is using a YUV format texture. Bink's native format is YUV, so it can copy into a YUV texture <b>very</b> quickly. The Xbox graphics chip can then do the conversion to RGB as it renders the texture. This is very fast, and very flexible because you can use the video as a texture for any surface in your game (a TV monitor in a scene for example). The only downside to this method is that YUV textures can't contain an alpha plane. See <b>ExamXTex.cpp</b> for an example of using Xbox YUV textures with Bink. If you need to use an alpha plane, then Bink still has you covered. Just use an RGB format texture like 16-bit RGBA 4444, or 32-bit RGBA 8888 (which Bink can convert directly into using internal super-optimized software converters). The Xbox hardware helps you here too - it supports linear RGB textures, so that you don't even have to swizzle the video frames before passing it to Direct3D. To allocate a linear texture, you just use one of the textures with "_LIN_" in the D3DFORMAT enumerant name. You also have to be careful to select <i>clamping</i> for linear textures - tiling and mirroring isn't supported when using this texture format. See <b>ExamXAlf.cpp</b> for an example of using Xbox alpha RGB textures with Bink. Finally, you can simply lock the video back buffer, and just have Bink copy the video frame directly into the buffer pixels. This is a pretty easy way to get Bink running in your game, but overlays are just about as easy and usually much faster. See <b>ExamXbb.cpp</b> for an example of using the Xbox back buffer with Bink. Video on the Xbox really is an embarassment of riches - you've just got tons of options! To summarize: If you just want to play plain-old, straight-on video (cut-scenes), use overlays. If you want the video textured onto an object, use a YUV texture. If you need alpha support, use a linear RGB texture.</p>
+<p><a href="Sections on the Xbox.html">Next Topic (Sections on the Xbox)</a>  </p><p><a href="Distributing Bink onxuuiga.html">Previous Topic (Distributing Bink on the Xbox)</a>  </p><p>
+<br>
+<b>Group:</b>
+<a href="The Xbox Platform.html">The Xbox Platform</a><br>
+<b>Related Sections:</b>
+<a href="Alpha Planes.html">Alpha Planes</a></p>
+<p align=center>
+<a href="mailto:Bink1@radgametools.com">For technical support, e-mail Bink1@radgametools.com</a>
+<br>
+<a href="http://www.radgametools.com/bnkmain.htm?from=help1.5v">&#169; Copyright 1994-2003 RAD Game Tools, Inc. All Rights Reserved.</a>
+</p>
+<br>
+</body>
+</html>

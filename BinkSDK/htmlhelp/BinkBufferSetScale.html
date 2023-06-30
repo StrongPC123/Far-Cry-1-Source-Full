@@ -1,0 +1,63 @@
+<!-- This page was created with the RAD auto-doc generator. -->
+<!doctype html public "-//w3c//dtd html 3.2 final//en">
+<html>
+<head>
+<title>BinkBufferSetScale</title>
+<meta http-equiv="content-type" content="text/html; charset=iso8859-1">
+<meta name="ms.locale" content="en-us">
+<meta name="description" content="sets a new shrinking or stretching scale to use during blitting.">
+<meta name="ms-hkwd" content="BinkBufferSetScale">
+<link rel="stylesheet" title="default" href="reference.css" type="text/css" media="screen">
+</head>
+<body topmargin="0">
+<table cellspacing=0 cellpadding=0 class=bar width=100% height=25>
+<tr class=bar>
+<td class=bar>
+<i>&nbsp;<a href="index.html" class=trn>Bink SDK 1.5v</a></i>
+</td>
+</tr>
+</table>
+<h1>BinkBufferSetScale</h1>
+<p>The function  <b>BinkBufferSetScale</b> sets a new shrinking or stretching scale to use during blitting.</p>
+<table width=100% cellspacing=0 class=pre>
+<tr class=pre>
+<td class=pre>
+<pre><b><a href="S32.html" class=trn>S32</a> <a href="BinkBufferSetScale.html" class=trn>BinkBufferSetScale</a>(</b>
+<b>&nbsp&nbsp<a href="HBINKBUFFER.html" class=trn>HBINKBUFFER</a>&nbsp</b><i>bink_buf</i><b>,</b>
+<b>&nbsp&nbsp<a href="U32.html" class=trn>U32</a>&nbsp</b><i>width</i><b>,</b>
+<b>&nbsp&nbsp<a href="U32.html" class=trn>U32</a>&nbsp</b><i>height</i>
+<b>);</b></pre>
+</td>
+</tr>
+</table>
+<h4>In Parameters</h4>
+<dl>
+<dt><i>bink_buf</i></dt>
+<dd>Specifies the BinkBuffer handle.</dd>
+<dt><i>width</i></dt>
+<dd>Specifies the width that you would like the blitting stretched or shrunk to.</dd>
+<dt><i>height</i></dt>
+<dd>Specifies the height that you would like the blitting stretched or shrunk to.</dd>
+</dl>
+<h4>Returns</h4>
+<p>Returns whether the BinkBuffer was successfully able to use this scale (non-zero) or whether the specified scale was invalid (zero).</p>
+<h4>Discussion</h4>
+<p>This function sets a new shrink/stretch scale to use. Not all of the blitting styles can do shrinking or stretching, so be sure to specify one of the <a href="BINKBUFFER_OPEN_FLAGS.html#BINKBUFFERSTRETCHX">BINKBUFFERSTRETCHX</a>, <a href="BINKBUFFER_OPEN_FLAGS.html#BINKBUFFERSTRETCHY">BINKBUFFERSTRETCHY</a>, <a href="BINKBUFFER_OPEN_FLAGS.html#BINKBUFFERSHRINKX">BINKBUFFERSHRINKX</a>, or <a href="BINKBUFFER_OPEN_FLAGS.html#BINKBUFFERSHRINKY">BINKBUFFERSHRINKY</a> constants when you open the BinkBuffer, or your scale factor may be ignored. Stretching and shrinking is almost always faster (even in hardware) when using an integral factor (2x, for example). The WindowWidth and WindowHeight fields in the BinkBuffer structure will be updated to new sizes if this function is successful. This function returns non-zero if the BinkBuffer is able to perform the scale, or zero if the BinkBuffer is unable to scale. </p>
+<p>
+<br>
+<b>Group:</b>
+<a href="BinkBuffer API.html">BinkBuffer API</a><br>
+<b>Related Sections:</b>
+<a href="Scaling.html">Scaling</a><br>
+<b>Related Functions:</b>
+<a href="BinkBufferOpen.html">BinkBufferOpen</a><br>
+<b>Related Basic Types:</b>
+<a href="BINKBUFFER_OPEN_FLAGS.html">BINKBUFFER_OPEN_FLAGS</a>, <a href="HBINKBUFFER.html">HBINKBUFFER</a>, <a href="S32.html">S32</a>, <a href="U32.html">U32</a></p>
+<p align=center>
+<a href="mailto:Bink1@radgametools.com">For technical support, e-mail Bink1@radgametools.com</a>
+<br>
+<a href="http://www.radgametools.com/bnkmain.htm?from=help1.5v">&#169; Copyright 1994-2003 RAD Game Tools, Inc. All Rights Reserved.</a>
+</p>
+<br>
+</body>
+</html>

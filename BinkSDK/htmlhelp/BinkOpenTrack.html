@@ -1,0 +1,60 @@
+<!-- This page was created with the RAD auto-doc generator. -->
+<!doctype html public "-//w3c//dtd html 3.2 final//en">
+<html>
+<head>
+<title>BinkOpenTrack</title>
+<meta http-equiv="content-type" content="text/html; charset=iso8859-1">
+<meta name="ms.locale" content="en-us">
+<meta name="description" content="opens a handle to the low-level audio track decoder.">
+<meta name="ms-hkwd" content="BinkOpenTrack">
+<link rel="stylesheet" title="default" href="reference.css" type="text/css" media="screen">
+</head>
+<body topmargin="0">
+<table cellspacing=0 cellpadding=0 class=bar width=100% height=25>
+<tr class=bar>
+<td class=bar>
+<i>&nbsp;<a href="index.html" class=trn>Bink SDK 1.5v</a></i>
+</td>
+</tr>
+</table>
+<h1>BinkOpenTrack</h1>
+<p>The function  <b>BinkOpenTrack</b> opens a handle to the low-level audio track decoder.</p>
+<table width=100% cellspacing=0 class=pre>
+<tr class=pre>
+<td class=pre>
+<pre><b><a href="HBINKTRACK.html" class=trn>HBINKTRACK</a> <a href="BinkOpenTrack.html" class=trn>BinkOpenTrack</a>(</b>
+<b>&nbsp&nbsp<a href="HBINK.html" class=trn>HBINK</a>&nbsp</b><i>bink</i><b>,</b>
+<b>&nbsp&nbsp<a href="U32.html" class=trn>U32</a>&nbsp</b><i>track_index</i>
+<b>);</b></pre>
+</td>
+</tr>
+</table>
+<h4>In Parameters</h4>
+<dl>
+<dt><i>bink</i></dt>
+<dd>Specifies the Bink handle.</dd>
+<dt><i>track_index</i></dt>
+<dd>Specifies the track index to open.</dd>
+</dl>
+<h4>Returns</h4>
+<p>Returns a track ID handle to extract audio from.</p>
+<h4>Discussion</h4>
+<p>This function allows you to open an audio track that you can use to extract the low-level sound data from. This function is usually used by applications that are routing sound to their own audio playback system. The returned HBINKTRACK handle is also a pointer to a <a href="BINKTRACK.html">BINKTRACK</a> structure which contains format information about the audio track. The maximum number of tracks in a Bink file is specified by the NumTracks field of the <a href="BINK.html">BINK</a> structure. So, if NumTracks was 2, then valid track indexes would be 0 and 1. This function is rarely used - most of the time audio playback is completely automatic with Bink. </p>
+<p>
+<br>
+<b>Group:</b>
+<a href="Bink API.html">Bink API</a><br>
+<b>Related Functions:</b>
+<a href="BinkCloseTrack.html">BinkCloseTrack</a>, <a href="BinkGetTrackData.html">BinkGetTrackData</a><br>
+<b>Related Basic Types:</b>
+<a href="HBINK.html">HBINK</a>, <a href="HBINKTRACK.html">HBINKTRACK</a>, <a href="U32.html">U32</a><br>
+<b>Related Structures:</b>
+<a href="BINK.html">BINK</a>, <a href="BINKTRACK.html">BINKTRACK</a></p>
+<p align=center>
+<a href="mailto:Bink1@radgametools.com">For technical support, e-mail Bink1@radgametools.com</a>
+<br>
+<a href="http://www.radgametools.com/bnkmain.htm?from=help1.5v">&#169; Copyright 1994-2003 RAD Game Tools, Inc. All Rights Reserved.</a>
+</p>
+<br>
+</body>
+</html>

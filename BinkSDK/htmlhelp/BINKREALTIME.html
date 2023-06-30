@@ -1,0 +1,93 @@
+<!-- This page was created with the RAD auto-doc generator. -->
+<!doctype html public "-//w3c//dtd html 3.2 final//en">
+<html>
+<head>
+<title>BINKREALTIME</title>
+<meta http-equiv="content-type" content="text/html; charset=iso8859-1">
+<meta name="ms.locale" content="en-us">
+<meta name="description" content="is a structure used to return realtime playback information from BinkGetRealtime.">
+<meta name="ms-hkwd" content="BINKREALTIME">
+<link rel="stylesheet" title="default" href="reference.css" type="text/css" media="screen">
+</head>
+<body topmargin="0">
+<table cellspacing=0 cellpadding=0 class=bar width=100% height=25>
+<tr class=bar>
+<td class=bar>
+<i>&nbsp;<a href="index.html" class=trn>Bink SDK 1.5v</a></i>
+</td>
+</tr>
+</table>
+<h1>BINKREALTIME</h1>
+<p>The structure  <b>BINKREALTIME</b> is a structure used to return realtime playback information from BinkGetRealtime.</p>
+<table width=100% cellspacing=0 class=pre>
+<tr class=pre>
+<td class=pre>
+<pre><b>struct <a href="BINKREALTIME.html" class=trn>BINKREALTIME</a>
+{
+&nbsp&nbsp<a href="U32.html" class=trn>U32</a></b><i> FrameNum</i><b>;
+&nbsp&nbsp<a href="U32.html" class=trn>U32</a></b><i> FrameRate</i><b>;
+&nbsp&nbsp<a href="U32.html" class=trn>U32</a></b><i> FrameRateDiv</i><b>;
+&nbsp&nbsp<a href="U32.html" class=trn>U32</a></b><i> Frames</i><b>;
+&nbsp&nbsp<a href="U32.html" class=trn>U32</a></b><i> FramesTime</i><b>;
+&nbsp&nbsp<a href="U32.html" class=trn>U32</a></b><i> FrameVideoDecompTime</i><b>;
+&nbsp&nbsp<a href="U32.html" class=trn>U32</a></b><i> FrameAudioDecompTime</i><b>;
+&nbsp&nbsp<a href="U32.html" class=trn>U32</a></b><i> FrameReadTime</i><b>;
+&nbsp&nbsp<a href="U32.html" class=trn>U32</a></b><i> FrameIdleReadTime</i><b>;
+&nbsp&nbsp<a href="U32.html" class=trn>U32</a></b><i> FrameThreadReadTime</i><b>;
+&nbsp&nbsp<a href="U32.html" class=trn>U32</a></b><i> FramesBlitTime</i><b>;
+&nbsp&nbsp<a href="U32.html" class=trn>U32</a></b><i> ReadBufferSize</i><b>;
+&nbsp&nbsp<a href="U32.html" class=trn>U32</a></b><i> ReadBufferUsed</i><b>;
+&nbsp&nbsp<a href="U32.html" class=trn>U32</a></b><i> FramesDataRate</i><b>;
+};</b></pre>
+</td>
+</tr>
+</table>
+<h4>Out Members</h4>
+<dl>
+<dt><i>FrameNum</i></dt>
+<dd>Specifies the current frame number.</dd>
+<dt><i>FrameRate</i></dt>
+<dd>Along with FrameRateDiv, specifies the frame rate of the Bink file. The frame rate is calculated by (realtime->FrameRate/realtime->FrameRateDiv). So, for example, at 15 fps, FrameRate would be 15 and FrameRateDiv would be 1.</dd>
+<dt><i>FrameRateDiv</i></dt>
+<dd>Specifies the frame rate divisor of the Bink file.</dd>
+<dt><i>Frames</i></dt>
+<dd>Specifies the number of frames in the frame window.</dd>
+<dt><i>FramesTime</i></dt>
+<dd>Specifies the total time that the frame window covers (in milliseconds).</dd>
+<dt><i>FrameVideoDecompTime</i></dt>
+<dd>Specifies the amount of time spent decompressing the video inside the frame window.</dd>
+<dt><i>FrameAudioDecompTime</i></dt>
+<dd>Specifies the amount of time spent decompressing the audio inside the frame window.</dd>
+<dt><i>FrameReadTime</i></dt>
+<dd>Specifies the amount of time spent reading from the device in the foreground inside the frame window.</dd>
+<dt><i>FrameIdleReadTime</i></dt>
+<dd>Specifies the amount of time spent reading from the device during idle time inside the frame window.</dd>
+<dt><i>FrameThreadReadTime</i></dt>
+<dd>Specifies the amount of time spent reading from the device in the background thread inside the frame window.</dd>
+<dt><i>FramesBlitTime</i></dt>
+<dd>Specifies the amount of time spent blitting to the screen inside the frame window.</dd>
+<dt><i>ReadBufferSize</i></dt>
+<dd>Specifies the current maximum IO buffer size in bytes.</dd>
+<dt><i>ReadBufferUsed</i></dt>
+<dd>Specifies the current IO buffer size that is preloaded (divide this value by ReadBufferSize for a percent-full indicator).</dd>
+<dt><i>FramesDataRate</i></dt>
+<dd>Specifies the current frame window data rate in bytes per second.</dd>
+</dl>
+<h4>Discussion</h4>
+<p>The BINKREALTIME structure is used in the <a href="BinkGetRealtime.html">BinkGetRealtime</a> function. It returns the realtime playback statistics of a playing Bink file.</p>
+<p>
+<br>
+<b>Group:</b>
+<a href="Bink API.html">Bink API</a><br>
+<b>Related Functions:</b>
+<a href="BinkGetRealtime.html">BinkGetRealtime</a><br>
+<b>Related Basic Types:</b>
+<a href="U32.html">U32</a></p>
+<p align=center>
+<a href="mailto:Bink1@radgametools.com">For technical support, e-mail Bink1@radgametools.com</a>
+<br>
+<a href="http://www.radgametools.com/bnkmain.htm?from=help1.5v">&#169; Copyright 1994-2003 RAD Game Tools, Inc. All Rights Reserved.</a>
+</p>
+<br>
+</body>
+</html>

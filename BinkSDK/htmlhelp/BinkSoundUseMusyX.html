@@ -1,0 +1,50 @@
+<!-- This page was created with the RAD auto-doc generator. -->
+<!doctype html public "-//w3c//dtd html 3.2 final//en">
+<html>
+<head>
+<title>BinkSoundUseMusyX</title>
+<meta http-equiv="content-type" content="text/html; charset=iso8859-1">
+<meta name="ms.locale" content="en-us">
+<meta name="description" content="tells Bink to use MusyX as its sound output system on the Nintendo GameCube.">
+<meta name="ms-hkwd" content="BinkSoundUseMusyX">
+<link rel="stylesheet" title="default" href="reference.css" type="text/css" media="screen">
+</head>
+<body topmargin="0">
+<table cellspacing=0 cellpadding=0 class=bar width=100% height=25>
+<tr class=bar>
+<td class=bar>
+<i>&nbsp;<a href="index.html" class=trn>Bink SDK 1.5v</a></i>
+</td>
+</tr>
+</table>
+<h1>BinkSoundUseMusyX</h1>
+<p>The function  <b>BinkSoundUseMusyX</b> tells Bink to use MusyX as its sound output system on the Nintendo GameCube.</p>
+<table width=100% cellspacing=0 class=pre>
+<tr class=pre>
+<td class=pre>
+<pre><b><a href="S32.html" class=trn>S32</a> <a href="BinkSoundUseMusyX.html" class=trn>BinkSoundUseMusyX</a>(</b><b>);</b></pre>
+</td>
+</tr>
+</table>
+<h4>Returns</h4>
+<p>Returns whether Bink successfully switched to MusyX as its output layer (non-zero for success, zero for failure).</p>
+<h4>Discussion</h4>
+<p>This function (macro actually) tells Bink to use MusyX for its audio output on the Nintendo GameCude. AX users should use <a href="BinkSoundUseAX.html">BinkSoundUseAX</a> instead. This function is global - you only need to call it once. You must, however, call it before you call <a href="BinkOpen.html">BinkOpen</a> for the first time, or the function will fail.</p>
+<p>
+<br>
+<b>Group:</b>
+<a href="Bink API.html">Bink API</a><br>
+<b>Related Sections:</b>
+<a href="Sound on the Nintendyrr8cb.html">Sound on the Nintendo GameCube</a><br>
+<b>Related Functions:</b>
+<a href="BinkOpen.html">BinkOpen</a>, <a href="BinkSetSoundSystem.html">BinkSetSoundSystem</a>, <a href="BinkSoundUseAX.html">BinkSoundUseAX</a>, <a href="BinkSoundUseDirectSound.html">BinkSoundUseDirectSound</a>, <a href="BinkSoundUseMiles.html">BinkSoundUseMiles</a>, <a href="BinkSoundUseSoundManager.html">BinkSoundUseSoundManager</a><br>
+<b>Related Basic Types:</b>
+<a href="S32.html">S32</a></p>
+<p align=center>
+<a href="mailto:Bink1@radgametools.com">For technical support, e-mail Bink1@radgametools.com</a>
+<br>
+<a href="http://www.radgametools.com/bnkmain.htm?from=help1.5v">&#169; Copyright 1994-2003 RAD Game Tools, Inc. All Rights Reserved.</a>
+</p>
+<br>
+</body>
+</html>

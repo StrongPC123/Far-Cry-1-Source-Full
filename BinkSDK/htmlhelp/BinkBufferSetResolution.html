@@ -1,0 +1,59 @@
+<!-- This page was created with the RAD auto-doc generator. -->
+<!doctype html public "-//w3c//dtd html 3.2 final//en">
+<html>
+<head>
+<title>BinkBufferSetResolution</title>
+<meta http-equiv="content-type" content="text/html; charset=iso8859-1">
+<meta name="ms.locale" content="en-us">
+<meta name="description" content="tells Bink to switch video resolution when opening the BinkBuffer.">
+<meta name="ms-hkwd" content="BinkBufferSetResolution">
+<link rel="stylesheet" title="default" href="reference.css" type="text/css" media="screen">
+</head>
+<body topmargin="0">
+<table cellspacing=0 cellpadding=0 class=bar width=100% height=25>
+<tr class=bar>
+<td class=bar>
+<i>&nbsp;<a href="index.html" class=trn>Bink SDK 1.5v</a></i>
+</td>
+</tr>
+</table>
+<h1>BinkBufferSetResolution</h1>
+<p>The function  <b>BinkBufferSetResolution</b> tells Bink to switch video resolution when opening the BinkBuffer.</p>
+<table width=100% cellspacing=0 class=pre>
+<tr class=pre>
+<td class=pre>
+<pre><b><a href="void.html" class=trn>void</a> <a href="BinkBufferSetResolution.html" class=trn>BinkBufferSetResolution</a>(</b>
+<b>&nbsp&nbsp<a href="U32.html" class=trn>U32</a>&nbsp</b><i>width</i><b>,</b>
+<b>&nbsp&nbsp<a href="U32.html" class=trn>U32</a>&nbsp</b><i>height</i><b>,</b>
+<b>&nbsp&nbsp<a href="U32.html" class=trn>U32</a>&nbsp</b><i>color_depth</i>
+<b>);</b></pre>
+</td>
+</tr>
+</table>
+<h4>In Parameters</h4>
+<dl>
+<dt><i>width</i></dt>
+<dd>Specifies the screen width that you wish to switch into (in pixels).</dd>
+<dt><i>height</i></dt>
+<dd>Specifies the screen height that you wish to switch into (in pixels).</dd>
+<dt><i>color_depth</i></dt>
+<dd>Specifies the screen color depth that you wish to switch into (in bits: 8, 16, 24, or 32). You can also use several color depth macros: 1=at least high-color (tries 16-bit, then 32-bit, and then 24-bit), 2=attempt true-color (tries 32-bit, then 24-bit, and then 16-bit), or 3=true-color only (tries 32-bit, then 24-bit).</dd>
+</dl>
+<h4>Discussion</h4>
+<p>This function tells Bink what resolution to use when playing the Bink file. This function won't actually switch the resolution - it just requests that it be used when the BinkBuffer is opened. To use this function, you first call this function, and then you call call <a href="BinkOpen.html">BinkOpen</a> using the <a href="BINKBUFFER_OPEN_FLAGS.html#BINKBUFFERRESOLUTION">BINKBUFFERRESOLUTION</a> flag. Note that if you have already switched the resolution using DirectDraw, then you don't have to do it again with the BinkBuffer API. If you used the <a href="BINKBUFFER_OPEN_FLAGS.html#BINKBUFFERDIBSECTION">BINKBUFFERDIBSECTION</a> flag to open this BinkBuffer, then Bink will use ChangeDisplaySettings to switch the video mode. </p>
+<p>
+<br>
+<b>Group:</b>
+<a href="BinkBuffer API.html">BinkBuffer API</a><br>
+<b>Related Functions:</b>
+<a href="BinkBufferOpen.html">BinkBufferOpen</a>, <a href="BinkOpen.html">BinkOpen</a><br>
+<b>Related Basic Types:</b>
+<a href="BINKBUFFER_OPEN_FLAGS.html">BINKBUFFER_OPEN_FLAGS</a>, <a href="U32.html">U32</a>, <a href="void.html">void</a></p>
+<p align=center>
+<a href="mailto:Bink1@radgametools.com">For technical support, e-mail Bink1@radgametools.com</a>
+<br>
+<a href="http://www.radgametools.com/bnkmain.htm?from=help1.5v">&#169; Copyright 1994-2003 RAD Game Tools, Inc. All Rights Reserved.</a>
+</p>
+<br>
+</body>
+</html>

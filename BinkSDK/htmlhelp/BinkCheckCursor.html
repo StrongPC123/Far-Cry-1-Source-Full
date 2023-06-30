@@ -1,0 +1,69 @@
+<!-- This page was created with the RAD auto-doc generator. -->
+<!doctype html public "-//w3c//dtd html 3.2 final//en">
+<html>
+<head>
+<title>BinkCheckCursor</title>
+<meta http-equiv="content-type" content="text/html; charset=iso8859-1">
+<meta name="ms.locale" content="en-us">
+<meta name="description" content="checks to see if the mouse is currently inside the specified window rectangle, and, if so, hides it.">
+<meta name="ms-hkwd" content="BinkCheckCursor">
+<link rel="stylesheet" title="default" href="reference.css" type="text/css" media="screen">
+</head>
+<body topmargin="0">
+<table cellspacing=0 cellpadding=0 class=bar width=100% height=25>
+<tr class=bar>
+<td class=bar>
+<i>&nbsp;<a href="index.html" class=trn>Bink SDK 1.5v</a></i>
+</td>
+</tr>
+</table>
+<h1>BinkCheckCursor</h1>
+<p>The function  <b>BinkCheckCursor</b> checks to see if the mouse is currently inside the specified window rectangle, and, if so, hides it.</p>
+<table width=100% cellspacing=0 class=pre>
+<tr class=pre>
+<td class=pre>
+<pre><b><a href="S32.html" class=trn>S32</a> <a href="BinkCheckCursor.html" class=trn>BinkCheckCursor</a>(</b>
+<b>&nbsp&nbsp<a href="OS_WND.html" class=trn>OS_WND</a>&nbsp</b><i>window</i><b>,</b>
+<b>&nbsp&nbsp<a href="S32.html" class=trn>S32</a>&nbsp</b><i>check_x</i><b>,</b>
+<b>&nbsp&nbsp<a href="S32.html" class=trn>S32</a>&nbsp</b><i>check_y</i><b>,</b>
+<b>&nbsp&nbsp<a href="U32.html" class=trn>U32</a>&nbsp</b><i>width</i><b>,</b>
+<b>&nbsp&nbsp<a href="U32.html" class=trn>U32</a>&nbsp</b><i>height</i>
+<b>);</b></pre>
+</td>
+</tr>
+</table>
+<h4>In Parameters</h4>
+<dl>
+<dt><i>window</i></dt>
+<dd>Specifies the window handle (under Win32) or window pointer (under MacOS) that the check_x and check_y parameters are relative to. You can pass in NULL for this parameter.</dd>
+<dt><i>check_x</i></dt>
+<dd>Specifies the X (left) coordinate of the test rectangle.</dd>
+<dt><i>check_y</i></dt>
+<dd>Specifies the X (left) coordinate of the test rectangle.</dd>
+<dt><i>width</i></dt>
+<dd>Specifies the width of the test rectangle.</dd>
+<dt><i>height</i></dt>
+<dd>Specifies the height of the test rectangle.</dd>
+</dl>
+<h4>Returns</h4>
+<p>Returns the total number of times cursor had to be hidden (which is passed to <a href="BinkRestoreCursor.html">BinkRestoreCursor</a>).</p>
+<h4>Discussion</h4>
+<p>This function will determine if the mouse is currently in the specified window rectangle, and, if it is, hide it. This will let you move the mouse without leaving mouse trails behind with software-drawn mouse cursors. You have to call this function before you lock the primary surface, or the cursor won't be hidden. Check out the <a href="BinkIsSoftwareCursor.html">BinkIsSoftwareCursor</a> function for an example of how to use this function. This function returns a count value that you need to pass to the <a href="BinkRestoreCursor.html">BinkRestoreCursor</a> function to restore the mouse cursor to its original state. </p>
+<p>
+<br>
+<b>Group:</b>
+<a href="BinkBuffer API.html">BinkBuffer API</a><br>
+<b>Related Sections:</b>
+<a href="Mouse Cursors.html">Mouse Cursors</a><br>
+<b>Related Functions:</b>
+<a href="BinkIsSoftwareCursor.html">BinkIsSoftwareCursor</a>, <a href="BinkRestoreCursor.html">BinkRestoreCursor</a><br>
+<b>Related Basic Types:</b>
+<a href="OS_WND.html">OS_WND</a>, <a href="S32.html">S32</a>, <a href="U32.html">U32</a></p>
+<p align=center>
+<a href="mailto:Bink1@radgametools.com">For technical support, e-mail Bink1@radgametools.com</a>
+<br>
+<a href="http://www.radgametools.com/bnkmain.htm?from=help1.5v">&#169; Copyright 1994-2003 RAD Game Tools, Inc. All Rights Reserved.</a>
+</p>
+<br>
+</body>
+</html>

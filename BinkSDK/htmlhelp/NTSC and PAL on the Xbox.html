@@ -1,0 +1,38 @@
+<!-- This page was created with the RAD auto-doc generator. -->
+<!doctype html public "-//w3c//dtd html 3.2 final//en">
+<html>
+<head>
+<title>NTSC and PAL on the Xbox</title>
+<meta http-equiv="content-type" content="text/html; charset=iso8859-1">
+<meta name="ms.locale" content="en-us">
+<meta name="description" content="">
+<meta name="ms-hkwd" content="NTSC and PAL on the Xbox">
+<link rel="stylesheet" title="default" href="reference.css" type="text/css" media="screen">
+</head>
+<body topmargin="0">
+<table cellspacing=0 cellpadding=0 class=bar width=100% height=25>
+<tr class=bar>
+<td class=bar>
+<i>&nbsp;<a href="index.html" class=trn>Bink SDK 1.5v</a></i>
+</td>
+</tr>
+</table>
+<h1>NTSC and PAL on the Xbox</h1>
+<h4>Discussion</h4>
+<p>NTSC is the refresh standard for TVs in the United States. PAL is the refresh standard for TVs in Europe. These two standards are pretty quirky and pretty different, so you'll have to deal with several issues when playing back your movies: <b>1)</b> The frame rate on NTSC is 29.97 fps (59.94 fields per second), rather than PAL's is 25 fps (50 fields). You really can't handle this adjustment at compression time or playback time - it will always just look a little wrong to play a 30 fps video at 25 fps. You'll usually see this problem when watching a slow pan - since you will be skipping every 5th frame, the video will pan smoothly, then jump, then pan, then jump, etc. You can't even fix the problem at compression time - you've still got the same sampling problem. So, unfortunately, the only way to fix it completely is to re-render or re-capture your video at 25 fps. Note that if you just don't care and want to play the 30 fps video at 25 fps anyway, then you also need to decouple the decompression and blitting steps in your Bink playback loop. Instead of decompress, blit, decompress, blit, etc (which will be too slow at 25 fps and will start skipping), you need to decompress all of the frames that are pending, then blit, decompress all, then blit, etc. We don't recommend this, though - you should really re-create the source material instead. (Gaming magazines in Europe routinely flame games for poor PAL conversion issues, so be warned). <br> <b>2)</b> On NTSC, 29.97 fps is <b>NOT</b> 30 fps! This is probably the most common technical support issue on the Xbox. You can't author a 30 fps movie and play it when your page flipping is set to 29.97! Your max frame rate will be 29.97 fps and the movie is 30 fps - it's impossible to keep up! You'll either start losing sync with the audio, or frames will start skipping, or the audio will drop out, etc. There are several ways to deal with this. The best is to just create correct 29.97 material (30,000 / 1,001 fps) and then not use <a href="BinkWait.html">BinkWait</a> to do the timing (let the page flipping determine the frame rate). You can also use <a href="BinkSetFrameRate.html">BinkSetFrameRate</a> to adjust the frame rate of the movie to 29.97 and let the page flipping control the frame rate as in the previous paragraph. Another option is to let Bink skip frames to keep up. However, for the same reasons as in the 30 fps to 25 fps issue above, we don't recommend this - it looks terrible once it's been pointed out. Re-author the material, or adjust it to 29.97, both solutions look much better than letting frames be skipped. <br> <b>3)</b> The gamma on PAL is usually about 2.8 instead of NTSC's 2.2 (and PC monitors are 2.5). This means that if you adjust the gamma to look good on NTSC, then it is going to look really dark on PAL. You can split the difference by leaving the gamma alone (at PC levels), but then the video isn't going to look good on either platform! See the "Gamma on the <a href="Gamma on the Xbox.html#Xbox"">Xbox"</a> section for more details on gamma issues. <br> <b>4)</b> PAL doesn't have "off-limits" colors - they can be fully saturated. You can read about other color differences on <a href="http://www.gamasutra.com/features/20010622/dawson_01.htm">Gamasutra</a>. <br> <b>5)</b> PAL uses slightly a different aspect ratio. Instead of NTSC's 720x480, PAL uses 720x576. If you configure the screen to 640x480, then the hardware will scale to full-screen, so the aspect change won't matter. However, if you use the native modes (which look the best, because there is less filtering), then movies that look great on an NTSC TV, will look squashed on PAL. On some videos this is very noticeable, on others, you can barely tell at all. People look the worst - your game's macho lead character can accidentally look seriously bloated if you forget to handle this (another issue commonly mocked in European game mags). Since you use textures to display frames of Bink video, it's fairly easy to stretch the output a bit to account for the difference. Just shrink the vertical size, or stretch the horizontal size (or re-create the source material). </p>
+<p><a href="Sections on the Xbox.html">Previous Topic (Sections on the Xbox)</a>  </p><p>
+<br>
+<b>Group:</b>
+<a href="The Xbox Platform.html">The Xbox Platform</a><br>
+<b>Related Sections:</b>
+<a href="Gamma on the Xbox.html">Gamma on the Xbox</a><br>
+<b>Related Functions:</b>
+<a href="BinkSetFrameRate.html">BinkSetFrameRate</a>, <a href="BinkWait.html">BinkWait</a></p>
+<p align=center>
+<a href="mailto:Bink1@radgametools.com">For technical support, e-mail Bink1@radgametools.com</a>
+<br>
+<a href="http://www.radgametools.com/bnkmain.htm?from=help1.5v">&#169; Copyright 1994-2003 RAD Game Tools, Inc. All Rights Reserved.</a>
+</p>
+<br>
+</body>
+</html>

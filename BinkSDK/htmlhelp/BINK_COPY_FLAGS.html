@@ -1,0 +1,154 @@
+<!-- This page was created with the RAD auto-doc generator. -->
+<!doctype html public "-//w3c//dtd html 3.2 final//en">
+<html>
+<head>
+<title>BINK_COPY_FLAGS</title>
+<meta http-equiv="content-type" content="text/html; charset=iso8859-1">
+<meta name="ms.locale" content="en-us">
+<meta name="description" content="describes the destination buffer type as well as special or unusual ways of converting Bink's internal YUV data.">
+<meta name="ms-hkwd" content="BINK_COPY_FLAGS">
+<link rel="stylesheet" title="default" href="reference.css" type="text/css" media="screen">
+</head>
+<body topmargin="0">
+<table cellspacing=0 cellpadding=0 class=bar width=100% height=25>
+<tr class=bar>
+<td class=bar>
+<i>&nbsp;<a href="index.html" class=trn>Bink SDK 1.5v</a></i>
+</td>
+</tr>
+</table>
+<h1>BINK_COPY_FLAGS</h1>
+<p>The basic type <b>BINK_COPY_FLAGS</b> describes the destination buffer type as well as special or unusual ways of converting Bink's internal YUV data.</p>
+<h4>Fundamental Values</h4>
+<table class=list width=90%>
+<tr valign=top class=list>
+<th width=29% height=25 valign=middle class=list>&nbsp;Value</th>
+<th width=71% height=25 valign=middle class=list>&nbsp;Description</th>
+</tr>
+<tr valign=top class=list>
+<td width=29% height=25 valign=middle class=list><a name="#BINKSURFACE24" href="#BINKSURFACE24" class=trn>&nbsp;BINKSURFACE24</a></td>
+<td width=71% height=25 valign=middle class=list>24-bit RGB data (BGRBGR, etc). This surface type isn't supported on MacOS, Xbox, or GameCube.</td>
+</tr>
+<tr valign=top class=list>
+<td width=29% height=25 valign=middle class=list><a name="#BINKSURFACE32" href="#BINKSURFACE32" class=trn>&nbsp;BINKSURFACE32</a></td>
+<td width=71% height=25 valign=middle class=list>32-bit native RGB data (on x86: BGRxBGRx, etc; on PPC: xRGBxRGB, etc). On GameCube, this format is swizzled.</td>
+</tr>
+<tr valign=top class=list>
+<td width=29% height=25 valign=middle class=list><a name="#BINKSURFACE32A" href="#BINKSURFACE32A" class=trn>&nbsp;BINKSURFACE32A</a></td>
+<td width=71% height=25 valign=middle class=list>32-bit native RGB data with alpha (On Win32: BGRABGRA, etc). On GameCube, this format is swizzled.</td>
+</tr>
+<tr valign=top class=list>
+<td width=29% height=25 valign=middle class=list><a name="#BINKSURFACE24R" href="#BINKSURFACE24R" class=trn>&nbsp;BINKSURFACE24R</a></td>
+<td width=71% height=25 valign=middle class=list>24-bit reversed RGB data (RGBRGB, etc). This surface type isn't supported on MacOS, Xbox, or GameCube.</td>
+</tr>
+<tr valign=top class=list>
+<td width=29% height=25 valign=middle class=list><a name="#BINKSURFACE32R" href="#BINKSURFACE32R" class=trn>&nbsp;BINKSURFACE32R</a></td>
+<td width=71% height=25 valign=middle class=list>32-bit reversed RGB data (RGBxRGBx, etc). This surface type isn't supported on Xbox, or GameCube.</td>
+</tr>
+<tr valign=top class=list>
+<td width=29% height=25 valign=middle class=list><a name="#BINKSURFACE32RA" href="#BINKSURFACE32RA" class=trn>&nbsp;BINKSURFACE32RA</a></td>
+<td width=71% height=25 valign=middle class=list>32-bit reversed RGB data with alpha (RGBARGBA, etc). In OpenGL, this is GL_RGBA. This surface type isn't supported on Xbox, or GameCube.</td>
+</tr>
+<tr valign=top class=list>
+<td width=29% height=25 valign=middle class=list><a name="#BINKSURFACE555" href="#BINKSURFACE555" class=trn>&nbsp;BINKSURFACE555</a></td>
+<td width=71% height=25 valign=middle class=list>16-bit 555 RGB high-color surface. On GameCube, this format is swizzled.</td>
+</tr>
+<tr valign=top class=list>
+<td width=29% height=25 valign=middle class=list><a name="#BINKSURFACE565" href="#BINKSURFACE565" class=trn>&nbsp;BINKSURFACE565</a></td>
+<td width=71% height=25 valign=middle class=list>16-bit 565 RGB high-color surface. On GameCube, this format is swizzled.</td>
+</tr>
+<tr valign=top class=list>
+<td width=29% height=25 valign=middle class=list><a name="#BINKSURFACE655" href="#BINKSURFACE655" class=trn>&nbsp;BINKSURFACE655</a></td>
+<td width=71% height=25 valign=middle class=list>16-bit 655 RGB high-color surface. On GameCube, this format is swizzled.</td>
+</tr>
+<tr valign=top class=list>
+<td width=29% height=25 valign=middle class=list><a name="#BINKSURFACE664" href="#BINKSURFACE664" class=trn>&nbsp;BINKSURFACE664</a></td>
+<td width=71% height=25 valign=middle class=list>16-bit 664 RGB high-color surface. On GameCube, this format is swizzled.</td>
+</tr>
+<tr valign=top class=list>
+<td width=29% height=25 valign=middle class=list><a name="#BINKSURFACE4444" href="#BINKSURFACE4444" class=trn>&nbsp;BINKSURFACE4444</a></td>
+<td width=71% height=25 valign=middle class=list>16-bit 4444 RGB high-color surface with alpha. On GameCube, this is actually 4443 format (3-bits of alpha) and is swizzled.</td>
+</tr>
+<tr valign=top class=list>
+<td width=29% height=25 valign=middle class=list><a name="#BINKSURFACE5551" href="#BINKSURFACE5551" class=trn>&nbsp;BINKSURFACE5551</a></td>
+<td width=71% height=25 valign=middle class=list>16-bit 5551 RGB high-color surface with one bit alpha. On GameCube, this format is swizzled.</td>
+</tr>
+<tr valign=top class=list>
+<td width=29% height=25 valign=middle class=list><a name="#BINKSURFACEYUY2" href="#BINKSURFACEYUY2" class=trn>&nbsp;BINKSURFACEYUY2</a></td>
+<td width=71% height=25 valign=middle class=list>YUY2 format surface (YUYVYUYV, etc.) - effective 16-bits per pixel. This surface type isn't supported on MacOS. On GameCube, this format is <b>not</b> swizzled, so you can use it to copy directly to the video back buffer.</td>
+</tr>
+<tr valign=top class=list>
+<td width=29% height=25 valign=middle class=list><a name="#BINKSURFACEUYVY" href="#BINKSURFACEUYVY" class=trn>&nbsp;BINKSURFACEUYVY</a></td>
+<td width=71% height=25 valign=middle class=list>UYVY format surface (UYVYUYVY, etc.) - effective 16-bits per pixel. This surface type isn't supported on MacOS, Xbox, or GameCube.</td>
+</tr>
+<tr valign=top class=list>
+<td width=29% height=25 valign=middle class=list><a name="#BINKSURFACEYV12" href="#BINKSURFACEYV12" class=trn>&nbsp;BINKSURFACEYV12</a></td>
+<td width=71% height=25 valign=middle class=list>YV12 format planar surface (complete Y plane, complete U plane, complete V plane) - effective 12-bits per pixel (Bink's native internal format). This surface type isn't supported on Xbox.</td>
+</tr>
+<tr valign=top class=list>
+<td width=29% height=25 valign=middle class=list><a name="#BINKCOPYALL" href="#BINKCOPYALL" class=trn>&nbsp;BINKCOPYALL</a></td>
+<td width=71% height=25 valign=middle class=list>Copy all of the pixels to the destination buffer, not just the pixels that changed. Normally, Bink will try to copy just the pixels that changed into the destination buffer - this flag causes Bink to re-copy every pixel over to the destination buffer.</td>
+</tr>
+<tr valign=top class=list>
+<td width=29% height=25 valign=middle class=list><a name="#BINKGRAYSCALE" href="#BINKGRAYSCALE" class=trn>&nbsp;BINKGRAYSCALE</a></td>
+<td width=71% height=25 valign=middle class=list>This flag tells Bink that you want to convert the pixels in grayscale mode. Grayscale mode is much faster in blitting, but it can be even faster when we skip the decompression. Therefore, you should usually use this flag in <a href="BinkOpen.html">BinkOpen</a> instead of <a href="BinkCopyToBuffer.html">BinkCopyToBuffer</a>, so you get the benefit of the faster decompression too. If you compressed the Bink file in grayscale mode, then this flag will automatically be set.</td>
+</tr>
+<tr valign=top class=list>
+<td width=29% height=25 valign=middle class=list><a name="#BINKNOSKIP" href="#BINKNOSKIP" class=trn>&nbsp;BINKNOSKIP</a></td>
+<td width=71% height=25 valign=middle class=list>Bink will skip the copy step if the video begins to fall behind the audio. Bink won't skip copying at all if the Bink file contains no audio, or if you use this flag. This flag is useful when you want the video quality to have precedence over the sound quality (good for cartoon-style animations).</td>
+</tr>
+<tr valign=top class=list>
+<td width=29% height=25 valign=middle class=list><a name="#BINKCOPY2XH" href="#BINKCOPY2XH" class=trn>&nbsp;BINKCOPY2XH</a></td>
+<td width=71% height=25 valign=middle class=list>Use this flag to tell Bink to convert the video in 2x height doubled mode. This will cause each line to be duplicated (which will double the height). If the video was compressed in 2x height doubled mode with the Bink compressor, then this flag will automatically be set - you can override it with any of the other COPY flags.</td>
+</tr>
+<tr valign=top class=list>
+<td width=29% height=25 valign=middle class=list><a name="#BINKCOPY2XHI" href="#BINKCOPY2XHI" class=trn>&nbsp;BINKCOPY2XHI</a></td>
+<td width=71% height=25 valign=middle class=list>Use this flag to tell Bink to convert the video in 2x height interlaced mode. This will cause the video to be expanded to every other scanline (which will double the height). If the video was compressed in interlaced mode with the Bink compressor, then this flag will automatically be set - you can override it with any of the other COPY flags.</td>
+</tr>
+<tr valign=top class=list>
+<td width=29% height=25 valign=middle class=list><a name="#BINKCOPY2XW" href="#BINKCOPY2XW" class=trn>&nbsp;BINKCOPY2XW</a></td>
+<td width=71% height=25 valign=middle class=list>Use this flag to tell Bink to convert the video in 2x width doubled mode. This will cause each pixel to be duplicated (which will double the width). If the video was compressed in 2x width doubled mode with the Bink compressor, then this flag will automatically be set - you can override it with any of the other COPY flags.</td>
+</tr>
+<tr valign=top class=list>
+<td width=29% height=25 valign=middle class=list><a name="#BINKCOPY2XWH" href="#BINKCOPY2XWH" class=trn>&nbsp;BINKCOPY2XWH</a></td>
+<td width=71% height=25 valign=middle class=list>Use this flag to tell Bink to convert the video in 2x width and height doubled mode. This will cause each line and each pixel to be duplicated (which will double both the width and height). If the video was compressed in 2x width and height doubled mode with the Bink compressor, then this flag will automatically be set - you can override it with any of the other COPY flags.</td>
+</tr>
+<tr valign=top class=list>
+<td width=29% height=25 valign=middle class=list><a name="#BINKCOPY2XWHI" href="#BINKCOPY2XWHI" class=trn>&nbsp;BINKCOPY2XWHI</a></td>
+<td width=71% height=25 valign=middle class=list>Use this flag to tell Bink to convert the video in 2x width doubled and height interlaced mode. This will cause each pixel to be duplicated and every other scanline to be skipped (which will double both the width and height). If the video was compressed in 2x width and height interlaced mode with the Bink compressor, then this flag will automatically be set - you can override it with any of the other COPY flags.</td>
+</tr>
+<tr valign=top class=list>
+<td width=29% height=25 valign=middle class=list><a name="#BINKCOPY1XI" href="#BINKCOPY1XI" class=trn>&nbsp;BINKCOPY1XI</a></td>
+<td width=71% height=25 valign=middle class=list>This copy flag tells Bink to convert the movie in normal 1x mode, but to only copy ever other scanline during playback. This saves half the time of a normal frame copy, so it is useful on under-powered machines.</td>
+</tr>
+<tr valign=top class=list>
+<td width=29% height=25 valign=middle class=list><a name="#BINKCOPYNOSCALING" href="#BINKCOPYNOSCALING" class=trn>&nbsp;BINKCOPYNOSCALING</a></td>
+<td width=71% height=25 valign=middle class=list>Use this flag to tell Bink to convert the video without any doubling or interlacing. Use this flag to counteract the automatic effect of a video compressed in one of the interlaced or doubled modes.</td>
+</tr>
+<tr valign=top class=list>
+<td width=29% height=25 valign=middle class=list><a name="#BINKNOMMX" href="#BINKNOMMX" class=trn>&nbsp;BINKNOMMX</a></td>
+<td width=71% height=25 valign=middle class=list>This flag tells Bink not to use MMX while when converting colorspaces. Bink runs much slower without MMX, so you will usually just want to leave this flag alone. This flag isn't supported on Xbox - MMX is always used when running on the Xbox.</td>
+</tr>
+</table>
+<h4>Discussion</h4>
+<p>The copy flags passed to <a href="BinkCopyToBuffer.html">BinkCopyToBuffer</a> perform two services. First, they tell Bink what kind of surface you are copying into. And second, they allow you to change the copying style and options during playback instead of just at <a href="BinkOpen.html">BinkOpen</a> time. If you are using BinkBuffers, you will usually use the bink_buf->SurfaceType for the copy_flags parameter. If you are using DirectDraw or DirectX 8, then you will usually use the value returned from <a href="BinkDDSurfaceType.html">BinkDDSurfaceType</a> or <a href="BinkDX8SurfaceType.html">BinkDX8SurfaceType</a>. </p>
+<p>
+<br>
+<b>Group:</b>
+<a href="Bink API.html">Bink API</a><br>
+<b>Related Sections:</b>
+<a href="Alpha Planes.html">Alpha Planes</a>, <a href="Scaling.html">Scaling</a><br>
+<b>Related Functions:</b>
+<a href="BinkCopyToBuffer.html">BinkCopyToBuffer</a>, <a href="BinkCopyToBufferRect.html">BinkCopyToBufferRect</a>, <a href="BinkDDSurfaceType.html">BinkDDSurfaceType</a>, <a href="BinkDX8SurfaceType.html">BinkDX8SurfaceType</a>, <a href="BinkGDSurfaceType.html">BinkGDSurfaceType</a>, <a href="BinkLoadConverter.html">BinkLoadConverter</a>, <a href="BinkOpen.html">BinkOpen</a>, <a href="BinkUnloadConverter.html">BinkUnloadConverter</a><br>
+<b>Related Basic Types:</b>
+<a href="BINK_OPEN_FLAGS.html">BINK_OPEN_FLAGS</a><br>
+<b>Related Structures:</b>
+<a href="BINKBUFFER.html">BINKBUFFER</a></p>
+<p align=center>
+<a href="mailto:Bink1@radgametools.com">For technical support, e-mail Bink1@radgametools.com</a>
+<br>
+<a href="http://www.radgametools.com/bnkmain.htm?from=help1.5v">&#169; Copyright 1994-2003 RAD Game Tools, Inc. All Rights Reserved.</a>
+</p>
+<br>
+</body>
+</html>

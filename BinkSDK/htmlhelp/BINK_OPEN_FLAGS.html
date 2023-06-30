@@ -1,0 +1,134 @@
+<!-- This page was created with the RAD auto-doc generator. -->
+<!doctype html public "-//w3c//dtd html 3.2 final//en">
+<html>
+<head>
+<title>BINK_OPEN_FLAGS</title>
+<meta http-equiv="content-type" content="text/html; charset=iso8859-1">
+<meta name="ms.locale" content="en-us">
+<meta name="description" content="describes the special or unusual ways of opening a Bink file.">
+<meta name="ms-hkwd" content="BINK_OPEN_FLAGS">
+<link rel="stylesheet" title="default" href="reference.css" type="text/css" media="screen">
+</head>
+<body topmargin="0">
+<table cellspacing=0 cellpadding=0 class=bar width=100% height=25>
+<tr class=bar>
+<td class=bar>
+<i>&nbsp;<a href="index.html" class=trn>Bink SDK 1.5v</a></i>
+</td>
+</tr>
+</table>
+<h1>BINK_OPEN_FLAGS</h1>
+<p>The basic type <b>BINK_OPEN_FLAGS</b> describes the special or unusual ways of opening a Bink file.</p>
+<h4>Fundamental Values</h4>
+<table class=list width=90%>
+<tr valign=top class=list>
+<th width=29% height=25 valign=middle class=list>&nbsp;Value</th>
+<th width=71% height=25 valign=middle class=list>&nbsp;Description</th>
+</tr>
+<tr valign=top class=list>
+<td width=29% height=25 valign=middle class=list><a name="#BINKFILEHANDLE" href="#BINKFILEHANDLE" class=trn>&nbsp;BINKFILEHANDLE</a></td>
+<td width=71% height=25 valign=middle class=list>Use this flag to tell Bink that the file name that you passed in isn't a file name at all, but rather a file handle. Bink will then use this handle instead of opening a new file. Note that you have to typecast the file handle to a "char*" when using this flag. This flag is useful when you'd like to have a resource file that contains multiple Bink files. When you use this flag, Bink won't open (or close) the file handle. <br><br>Under Win32 and Xbox, the file handle value must be a handle returned from the system function "CreateFile".<br><br>Under MacOS, the file handle value must be a pointer returned from the system function "FSpOpenDF".<br><br>On the Nintendo GameCube, this file handle value must be a DVDFileInfo pointer returned from the system function "DVDFastOpen". On the GameCube, you must also fill in the userData field (fileInfo->cb.userData) in the DVDFileInfo pointer with the starting file offset of the video in this file handle (usually zero). This oddness is because there is no system function for determining the current file position on the GameCube. Also note that this starting file offset must be a multiple of 32.</td>
+</tr>
+<tr valign=top class=list>
+<td width=29% height=25 valign=middle class=list><a name="#BINKFROMMEMORY" href="#BINKFROMMEMORY" class=trn>&nbsp;BINKFROMMEMORY</a></td>
+<td width=71% height=25 valign=middle class=list>Use this flag to tell Bink that the file name that you passed in isn't a file name at all, but rather a pointer to an entire Bink file already loaded into memory. Bink will then use this memory to play from. You must not free the memory address that you pass in until you have called <a href="BinkClose.html">BinkClose</a>. On <b>MacOS and GameCube</b>, you must first dword endian-swap your memory buffer before passing it to <a href="BinkOpen.html">BinkOpen</a>.</td>
+</tr>
+<tr valign=top class=list>
+<td width=29% height=25 valign=middle class=list><a name="#BINKSNDTRACK" href="#BINKSNDTRACK" class=trn>&nbsp;BINKSNDTRACK</a></td>
+<td width=71% height=25 valign=middle class=list>Use this flag to tell Bink to play a specific sound track. By default, Bink will play the first sound track in the Bink file, so use this flag to force Bink to use the track ID set in a previous call to the <a href="BinkSetSoundTrack.html">BinkSetSoundTrack</a> function. So, to use this flag, you must first call <a href="BinkSetSoundTrack.html">BinkSetSoundTrack</a> with the desired track ID number, and then open the Bink file using this flag.</td>
+</tr>
+<tr valign=top class=list>
+<td width=29% height=25 valign=middle class=list><a name="#BINKNOSKIP" href="#BINKNOSKIP" class=trn>&nbsp;BINKNOSKIP</a></td>
+<td width=71% height=25 valign=middle class=list>Bink will skip frames if the video begins to fall behind the audio. Bink won't skip frames at all if the Bink file contains no audio, or if you use this flag. This flag is useful when you want the video quality to have precedence over the sound quality (good for cartoon-style animations).</td>
+</tr>
+<tr valign=top class=list>
+<td width=29% height=25 valign=middle class=list><a name="#BINKPRELOADALL" href="#BINKPRELOADALL" class=trn>&nbsp;BINKPRELOADALL</a></td>
+<td width=71% height=25 valign=middle class=list>Use this flag to tell Bink to preload the entire animation into memory. If Bink is unable to preload the animation into memory, then the open will fail.</td>
+</tr>
+<tr valign=top class=list>
+<td width=29% height=25 valign=middle class=list><a name="#BINKALPHA" href="#BINKALPHA" class=trn>&nbsp;BINKALPHA</a></td>
+<td width=71% height=25 valign=middle class=list>This flag tells Bink that you want to decompress the alpha plane data if it is present in the file. By default, Bink does not decompress the alpha plane, so you must set this flag if you intend to use any of the alpha bitplane formats (<a href="BINK_COPY_FLAGS.html#BINKSURFACE32A">BINKSURFACE32A</a> or <a href="BINK_COPY_FLAGS.html#BINKSURFACE4444">BINKSURFACE4444</a>).</td>
+</tr>
+<tr valign=top class=list>
+<td width=29% height=25 valign=middle class=list><a name="#BINKGRAYSCALE" href="#BINKGRAYSCALE" class=trn>&nbsp;BINKGRAYSCALE</a></td>
+<td width=71% height=25 valign=middle class=list>This flag tells Bink that you want to play the Bink file back in grayscale mode. Grayscale mode is much faster in both the decompression step (Bink only has to decompress the Y plane) and the YUV conversion step. If you compressed the Bink file in grayscale mode, then this flag will automatically be set.</td>
+</tr>
+<tr valign=top class=list>
+<td width=29% height=25 valign=middle class=list><a name="#BINKFRAMERATE" href="#BINKFRAMERATE" class=trn>&nbsp;BINKFRAMERATE</a></td>
+<td width=71% height=25 valign=middle class=list>Use this flag to tell Bink to override the frame rate in the Bink file and use the frame rate specified by a previous call to the <a href="BinkSetFrameRate.html">BinkSetFrameRate</a> function. So, to use this flag, you first call <a href="BinkSetFrameRate.html">BinkSetFrameRate</a> with the desired rate, and then open the Bink file using this flag.</td>
+</tr>
+<tr valign=top class=list>
+<td width=29% height=25 valign=middle class=list><a name="#BINKCOPY2XH" href="#BINKCOPY2XH" class=trn>&nbsp;BINKCOPY2XH</a></td>
+<td width=71% height=25 valign=middle class=list>Use this flag to tell Bink to playback the video in 2x height doubled mode. This will cause each line to be duplicated (which will double the height). If the video was compressed in 2x height doubled mode with the Bink compressor, then this flag will automatically be set - you can override it with any of the other COPY flags.</td>
+</tr>
+<tr valign=top class=list>
+<td width=29% height=25 valign=middle class=list><a name="#BINKCOPY2XHI" href="#BINKCOPY2XHI" class=trn>&nbsp;BINKCOPY2XHI</a></td>
+<td width=71% height=25 valign=middle class=list>Use this flag to tell Bink to playback the video in 2x height interlaced mode. This will cause the video to be expanded to every other scanline (which will double the height). If the video was compressed in interlaced mode with the Bink compressor, then this flag will automatically be set - you can override it with any of the other COPY flags.</td>
+</tr>
+<tr valign=top class=list>
+<td width=29% height=25 valign=middle class=list><a name="#BINKCOPY2XW" href="#BINKCOPY2XW" class=trn>&nbsp;BINKCOPY2XW</a></td>
+<td width=71% height=25 valign=middle class=list>Use this flag to tell Bink to playback the video in 2x width doubled mode. This will cause each pixel to be duplicated (which will double the width). If the video was compressed in 2x width doubled mode with the Bink compressor, then this flag will automatically be set - you can override it with any of the other COPY flags.</td>
+</tr>
+<tr valign=top class=list>
+<td width=29% height=25 valign=middle class=list><a name="#BINKCOPY2XWH" href="#BINKCOPY2XWH" class=trn>&nbsp;BINKCOPY2XWH</a></td>
+<td width=71% height=25 valign=middle class=list>Use this flag to tell Bink to playback the video in 2x width and height doubled mode. This will cause each line and each pixel to be duplicated (which will double both the width and height). If the video was compressed in 2x width and height doubled mode with the Bink compressor, then this flag will automatically be set - you can override it with any of the other COPY flags.</td>
+</tr>
+<tr valign=top class=list>
+<td width=29% height=25 valign=middle class=list><a name="#BINKCOPY2XWHI" href="#BINKCOPY2XWHI" class=trn>&nbsp;BINKCOPY2XWHI</a></td>
+<td width=71% height=25 valign=middle class=list>Use this flag to tell Bink to playback the video in 2x width doubled and height interlaced mode. This will cause each pixel to be duplicated and every other scanline to be skipped (which will double both the width and height). If the video was compressed in 2x width and height interlaced mode with the Bink compressor, then this flag will automatically be set - you can override it with any of the other COPY flags.</td>
+</tr>
+<tr valign=top class=list>
+<td width=29% height=25 valign=middle class=list><a name="#BINKCOPY1XI" href="#BINKCOPY1XI" class=trn>&nbsp;BINKCOPY1XI</a></td>
+<td width=71% height=25 valign=middle class=list>This copy flag tells Bink to play the movie in normal 1x mode, but to only copy ever other scanline during playback. This saves half the time of a normal frame copy, so it is useful on under-powered machines.</td>
+</tr>
+<tr valign=top class=list>
+<td width=29% height=25 valign=middle class=list><a name="#BINKCOPYNOSCALING" href="#BINKCOPYNOSCALING" class=trn>&nbsp;BINKCOPYNOSCALING</a></td>
+<td width=71% height=25 valign=middle class=list>Use this flag to tell Bink to playback the video without any doubling or interlacing. Use this flag to counteract the automatic effect of a video compressed in one of the interlaced or doubled modes.</td>
+</tr>
+<tr valign=top class=list>
+<td width=29% height=25 valign=middle class=list><a name="#BINKNOMMX" href="#BINKNOMMX" class=trn>&nbsp;BINKNOMMX</a></td>
+<td width=71% height=25 valign=middle class=list>This flag tells Bink not to use MMX while decompressing or when converting colorspaces. Bink runs much slower without MMX, so you will usually just want to leave this flag alone. This flag isn't supported on Xbox - MMX is always used when running on the Xbox.</td>
+</tr>
+<tr valign=top class=list>
+<td width=29% height=25 valign=middle class=list><a name="#BINKSIMULATE" href="#BINKSIMULATE" class=trn>&nbsp;BINKSIMULATE</a></td>
+<td width=71% height=25 valign=middle class=list>Use this flag to tell Bink to simulate the device speed set in a previous call to the <a href="BinkSetSimulate.html">BinkSetSimulate</a> function. To use this flag, you first call <a href="BinkSetSimulate.html">BinkSetSimulate</a> with the device speed, and then open the Bink file using this flag.</td>
+</tr>
+<tr valign=top class=list>
+<td width=29% height=25 valign=middle class=list><a name="#BINKIOSIZE" href="#BINKIOSIZE" class=trn>&nbsp;BINKIOSIZE</a></td>
+<td width=71% height=25 valign=middle class=list>Use this flag to tell Bink to override the default IO buffer size with the size set in a previous call to the <a href="BinkSetIOSize.html">BinkSetIOSize</a> function. To use this flag, you must first call BinkSetIOSize with the IO size, and then open the Bink file using this flag.</td>
+</tr>
+<tr valign=top class=list>
+<td width=29% height=25 valign=middle class=list><a name="#BINKNOFILLIOBUF" href="#BINKNOFILLIOBUF" class=trn>&nbsp;BINKNOFILLIOBUF</a></td>
+<td width=71% height=25 valign=middle class=list>Use this flag to tell Bink not to fill the IO buffer in <a href="BinkOpen.html">BinkOpen</a>. By default, Bink completely fills the IO buffer before returning from <a href="BinkOpen.html">BinkOpen</a>. Using this flag will speed up the opening process, but it can cause skipping early in the movie.</td>
+</tr>
+<tr valign=top class=list>
+<td width=29% height=25 valign=middle class=list><a name="#BINKIOPROCESSOR" href="#BINKIOPROCESSOR" class=trn>&nbsp;BINKIOPROCESSOR</a></td>
+<td width=71% height=25 valign=middle class=list>This flag lets you completely replace the file IO system that Bink will use to read the Bink file. This is a not a trivial job, but you can perform any type of IO using this flag (even streaming from an Internet address). If you are interested in using this flag, contact RAD for more information.</td>
+</tr>
+<tr valign=top class=list>
+<td width=29% height=25 valign=middle class=list><a name="#BINKNOTHREADEDIO" href="#BINKNOTHREADEDIO" class=trn>&nbsp;BINKNOTHREADEDIO</a></td>
+<td width=71% height=25 valign=middle class=list>Use this flag to tell Bink not to use multi-threaded IO. By default, Bink creates a background thread that reads from the Bink file in the background. If you don't want Bink to do any of this background processing, then you can turn it off with this flag.</td>
+</tr>
+</table>
+<h4>Discussion</h4>
+<p>The Bink flags are passed to the <a href="BinkOpen.html">BinkOpen</a> function to enable special or unusual processing modes. You will almost always pass zero for the Bink flags, but you can use any of these options when the need arises. The various COPY flags are very useful for creating really scalable video playback. For example, say you have a 320x240 movie, using the different COPY flags, you could offer the following playback modes: <br> 1) No flags - normal 320x240 playback <br> 2) <a href="BINK_OPEN_FLAGS.html#BINKCOPY1XI">BINKCOPY1XI</a> - 320x240 with 1x interlacing for slow machines. <br> 3) <a href="BINK_OPEN_FLAGS.html#BINKCOPY2XWHI">BINKCOPY2XWHI</a> - 640x480 with 2x interlacing for medium machines. <br> 4) <a href="BINK_OPEN_FLAGS.html#BINKCOPY2XWH">BINKCOPY2XWH</a> - 640x480 with 2x doubling for fast machines. </p>
+<p>
+<br>
+<b>Group:</b>
+<a href="Bink API.html">Bink API</a><br>
+<b>Related Sections:</b>
+<a href="Alpha Planes.html">Alpha Planes</a>, <a href="Scaling.html">Scaling</a><br>
+<b>Related Functions:</b>
+<a href="BinkClose.html">BinkClose</a>, <a href="BinkDoFrame.html">BinkDoFrame</a>, <a href="BinkGetLogoAddress.html">BinkGetLogoAddress</a>, <a href="BinkMacOpen.html">BinkMacOpen</a>, <a href="BinkOpen.html">BinkOpen</a>, <a href="BinkSetFrameRate.html">BinkSetFrameRate</a>, <a href="BinkSetIO.html">BinkSetIO</a>, <a href="BinkSetIOSize.html">BinkSetIOSize</a>, <a href="BinkSetSimulate.html">BinkSetSimulate</a>, <a href="BinkSetSoundOnOff.html">BinkSetSoundOnOff</a>, <a href="BinkSetSoundTrack.html">BinkSetSoundTrack</a><br>
+<b>Related Basic Types:</b>
+<a href="BINK_COPY_FLAGS.html">BINK_COPY_FLAGS</a>, <a href="BINK_OPEN_FLAGS.html">BINK_OPEN_FLAGS</a><br>
+<b>Related Structures:</b>
+<a href="BINK.html">BINK</a></p>
+<p align=center>
+<a href="mailto:Bink1@radgametools.com">For technical support, e-mail Bink1@radgametools.com</a>
+<br>
+<a href="http://www.radgametools.com/bnkmain.htm?from=help1.5v">&#169; Copyright 1994-2003 RAD Game Tools, Inc. All Rights Reserved.</a>
+</p>
+<br>
+</body>
+</html>

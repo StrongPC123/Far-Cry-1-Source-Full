@@ -1,0 +1,36 @@
+<!-- This page was created with the RAD auto-doc generator. -->
+<!doctype html public "-//w3c//dtd html 3.2 final//en">
+<html>
+<head>
+<title>Bink Playback under MacOS</title>
+<meta http-equiv="content-type" content="text/html; charset=iso8859-1">
+<meta name="ms.locale" content="en-us">
+<meta name="description" content="">
+<meta name="ms-hkwd" content="Bink Playback under MacOS">
+<link rel="stylesheet" title="default" href="reference.css" type="text/css" media="screen">
+</head>
+<body topmargin="0">
+<table cellspacing=0 cellpadding=0 class=bar width=100% height=25>
+<tr class=bar>
+<td class=bar>
+<i>&nbsp;<a href="index.html" class=trn>Bink SDK 1.5v</a></i>
+</td>
+</tr>
+</table>
+<h1>Bink Playback under MacOS</h1>
+<h4>Discussion</h4>
+<p> True-color video playback under MacOS is simpler than Windows (mainly because the hardware is less varied), but still a little tricky. Like most true color codecs, Bink doesn't operate in RGB colorspace, but rather YUV. To get this necessary colorspace conversion fast and reliable, Bink includes built-in, well-optimized YUV to RGB software conversion routines. We include 1x and 2x width, height interlacing, height doubling, alpha plane merging, and color or grayscale routines that can copy into 16-bit and 32-bit RGB formats. The permutations total 80 different hand-optimized routines! As you might guess, the majority of the Bink Shared Library is the colorspace converters. Because Bink buffers your video frames internally in YUV colorspace, it can make a big difference in playback speed to convert from YUV directly into the video frame buffer (directly onto the screen). This is the default mode of playback in Bink - it just tries to get that video onto the screen as fast as possible! There are, however, good reasons to use standard MacOS GWorlds - highest possible compatibility, clipping, and unusual scaling, for example. So, you have a choice between super-fast direct to screen, and not-as-fast GWorlds. Let's look at the pros and cons of each technique... </p>
+<p><a href="Pros and Cons of Dire7y86m.html">Next Topic (Pros and Cons of Direct to Screen Blitting under MacOS)</a>  </p><p><a href="Distributing the Bindt3i85.html">Previous Topic (Distributing the Bink Shared Library under MacOS)</a>  </p><p>
+<br>
+<b>Group:</b>
+<a href="The MacOS Platform.html">The MacOS Platform</a><br>
+<b>Related Sections:</b>
+<a href="Alpha Planes.html">Alpha Planes</a></p>
+<p align=center>
+<a href="mailto:Bink1@radgametools.com">For technical support, e-mail Bink1@radgametools.com</a>
+<br>
+<a href="http://www.radgametools.com/bnkmain.htm?from=help1.5v">&#169; Copyright 1994-2003 RAD Game Tools, Inc. All Rights Reserved.</a>
+</p>
+<br>
+</body>
+</html>

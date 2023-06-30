@@ -1,0 +1,40 @@
+<!-- This page was created with the RAD auto-doc generator. -->
+<!doctype html public "-//w3c//dtd html 3.2 final//en">
+<html>
+<head>
+<title>Audio Tracks in Bink</title>
+<meta http-equiv="content-type" content="text/html; charset=iso8859-1">
+<meta name="ms.locale" content="en-us">
+<meta name="description" content="">
+<meta name="ms-hkwd" content="Audio Tracks in Bink">
+<link rel="stylesheet" title="default" href="reference.css" type="text/css" media="screen">
+</head>
+<body topmargin="0">
+<table cellspacing=0 cellpadding=0 class=bar width=100% height=25>
+<tr class=bar>
+<td class=bar>
+<i>&nbsp;<a href="index.html" class=trn>Bink SDK 1.5v</a></i>
+</td>
+</tr>
+</table>
+<h1>Audio Tracks in Bink</h1>
+<h4>Discussion</h4>
+<p>Bink allows any number of audio tracks to be added to a Bink file. You can decompress or not decompress any tracks you wish. You could, for example, store all the music in one track, and multiple languages in other tracks. Each audio track in Bink is either a mono or stereo track. The person creating the Bink files chooses a new track ID for each audio file that is mixed in (by default, track zero is used). Generally, audio is automatically routed by Bink to your sound library automatically. You just specify the tracks you want to play with the <a href="BinkSetSoundTrack.html">BinkSetSoundTrack</a> functions and Bink takes care of the rest. The Bink high-level audio functions (<a href="BinkSetSoundTrack.html">BinkSetSoundTrack</a>, <a href="BinkSetVolume.html">BinkSetVolume</a> and <a href="BinkSetPan.html">BinkSetPan</a>) all take track IDs. These are the same numbers that the person mixing in the audio uses in the RAD Video Tools. So, usually, you simply need to set some standard - track 0 is the music, track 1 is English, track 2 is French, etc. Then, your game can select the correct tracks to start and control with simple defines that specify which localization you are building. Bink also has low-level audio functions that let you query what audio tracks are present and extract the PCM samples directly. These functions take a track index rather than a track ID. A track index ranges from zero to the total number of tracks in the Bink file. So, you could have track IDs of 42 and 118, or, 65 and 12, but the track indexes will still range from zero to one. You can get the total number of audio tracks in a Bink file by looking at the NumTracks field of the <a href="BINK.html">BINK</a> structure. You can correlate a track index to a track ID with the <a href="BinkGetTrackID.html">BinkGetTrackID</a> function. As noted above, though, you normally just let Bink handle the audio details and you simply choose which tracks to play. </p>
+<p><a href="Colorspace - RGB vs. YUV.html">Previous Topic (Colorspace - RGB vs. YUV)</a>  </p><p>
+<br>
+<b>Group:</b>
+<a href="Bink Overview.html">Bink Overview</a><br>
+<b>Related Sections:</b>
+<a href="Sound on the Nintendyrr8cb.html">Sound on the Nintendo GameCube</a>, <a href="Sound on the Xbox.html">Sound on the Xbox</a>, <a href="Sound under MacOS.html">Sound under MacOS</a>, <a href="Sound under Win32.html">Sound under Win32</a><br>
+<b>Related Functions:</b>
+<a href="BinkGetTrackID.html">BinkGetTrackID</a>, <a href="BinkSetMixBinVolumes.html">BinkSetMixBinVolumes</a>, <a href="BinkSetMixBins.html">BinkSetMixBins</a>, <a href="BinkSetPan.html">BinkSetPan</a>, <a href="BinkSetSoundTrack.html">BinkSetSoundTrack</a>, <a href="BinkSetVolume.html">BinkSetVolume</a><br>
+<b>Related Structures:</b>
+<a href="BINK.html">BINK</a></p>
+<p align=center>
+<a href="mailto:Bink1@radgametools.com">For technical support, e-mail Bink1@radgametools.com</a>
+<br>
+<a href="http://www.radgametools.com/bnkmain.htm?from=help1.5v">&#169; Copyright 1994-2003 RAD Game Tools, Inc. All Rights Reserved.</a>
+</p>
+<br>
+</body>
+</html>

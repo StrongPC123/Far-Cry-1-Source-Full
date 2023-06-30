@@ -1,0 +1,36 @@
+<!-- This page was created with the RAD auto-doc generator. -->
+<!doctype html public "-//w3c//dtd html 3.2 final//en">
+<html>
+<head>
+<title>Bink Playback under Win32</title>
+<meta http-equiv="content-type" content="text/html; charset=iso8859-1">
+<meta name="ms.locale" content="en-us">
+<meta name="description" content="">
+<meta name="ms-hkwd" content="Bink Playback under Win32">
+<link rel="stylesheet" title="default" href="reference.css" type="text/css" media="screen">
+</head>
+<body topmargin="0">
+<table cellspacing=0 cellpadding=0 class=bar width=100% height=25>
+<tr class=bar>
+<td class=bar>
+<i>&nbsp;<a href="index.html" class=trn>Bink SDK 1.5v</a></i>
+</td>
+</tr>
+</table>
+<h1>Bink Playback under Win32</h1>
+<h4>Discussion</h4>
+<p> True-color video playback under Windows is tricky for several reasons. First off, true color codecs (including Bink) generally don't operate in RGB colorspace, but rather YUV. Secondly, Windows video drivers are generally slower and more bug prone in high-color than 256 colors. Other minor difficulties include a complicated blitting architecture and no asynchronous reads under Win95/98 (which Bink gets around by doing I/O on another thread). I suppose the good news, however, is that using true color means that you never have to wrestle with the palette manager again! On the Windows platform, Bink includes incredibly fast YUV to RGB software conversion routines. We include MMX and non-MMX, 1x and 2x width, height interlacing, height doubling, alpha plane merging, and color or grayscale routines that can copy into 16-bit, 24-bit and 32-bit RGB formats. The permutations total 120 different hand-optimized assembly conversion routines - whew! In fact, unsurprisingly, the majority of the BinkW32.DLL is the colorspace converters. We wrote all of these different YUV to RGB converters because we've found the YUV to RGB hardware on PC video cards to be fairly unreliable - especially when flipping video modes or using the video card's 3D features (which means, <i>sigh</i>, pretty much all PC video games). This means you have a choice between software and, if it is available, hardware blitting. Video cards currently can provide two types of YUV hardware converts - YUV overlays and YUV off-screen buffers. YUV overlays are really amazing when they work - they are basically windows on the desktop that live at a different color resolution than the desktop! You could have a YUV true color overlay being displayed while the rest of the Windows desktop is being displayed at even 256 colors, for example. Fewer cards support overlays than off-screen buffers. YUV off-screen buffers are simply DirectDraw secondary surfaces that convert from YUV to RGB when you blit them onto the primary surface. They are nice because you get things like clipping for free. The conversion technique (software, overlays, or off-screens) that you choose for your game depends on several factors. Let's look at the pros and cons of each technique... </p>
+<p><a href="Pros and Cons of Sofv5ld0h.html">Next Topic (Pros and Cons of Software Blitting under Win32)</a>  </p><p><a href="Distributing the Binbatocy.html">Previous Topic (Distributing the Bink DLL under Win32)</a>  </p><p>
+<br>
+<b>Group:</b>
+<a href="The Win32 Platform.html">The Win32 Platform</a><br>
+<b>Related Sections:</b>
+<a href="Alpha Planes.html">Alpha Planes</a></p>
+<p align=center>
+<a href="mailto:Bink1@radgametools.com">For technical support, e-mail Bink1@radgametools.com</a>
+<br>
+<a href="http://www.radgametools.com/bnkmain.htm?from=help1.5v">&#169; Copyright 1994-2003 RAD Game Tools, Inc. All Rights Reserved.</a>
+</p>
+<br>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!-- This page was created with the RAD auto-doc generator. -->
+<!doctype html public "-//w3c//dtd html 3.2 final//en">
+<html>
+<head>
+<title>BINKTRACK</title>
+<meta http-equiv="content-type" content="text/html; charset=iso8859-1">
+<meta name="ms.locale" content="en-us">
+<meta name="description" content="is a structure returned from BinkOpenTrack.">
+<meta name="ms-hkwd" content="BINKTRACK">
+<link rel="stylesheet" title="default" href="reference.css" type="text/css" media="screen">
+</head>
+<body topmargin="0">
+<table cellspacing=0 cellpadding=0 class=bar width=100% height=25>
+<tr class=bar>
+<td class=bar>
+<i>&nbsp;<a href="index.html" class=trn>Bink SDK 1.5v</a></i>
+</td>
+</tr>
+</table>
+<h1>BINKTRACK</h1>
+<p>The structure  <b>BINKTRACK</b> is a structure returned from BinkOpenTrack.</p>
+<table width=100% cellspacing=0 class=pre>
+<tr class=pre>
+<td class=pre>
+<pre><b>struct <a href="BINKTRACK.html" class=trn>BINKTRACK</a>
+{
+&nbsp&nbsp<a href="U32.html" class=trn>U32</a></b><i> Frequency</i><b>;
+&nbsp&nbsp<a href="U32.html" class=trn>U32</a></b><i> Bits</i><b>;
+&nbsp&nbsp<a href="U32.html" class=trn>U32</a></b><i> Channels</i><b>;
+&nbsp&nbsp<a href="U32.html" class=trn>U32</a></b><i> MaxSize</i><b>;
+};</b></pre>
+</td>
+</tr>
+</table>
+<h4>Out Members</h4>
+<dl>
+<dt><i>Frequency</i></dt>
+<dd>Specifies the sound frequency of the audio track.</dd>
+<dt><i>Bits</i></dt>
+<dd>Specifies the bit depth of the audio track (8 or 16).</dd>
+<dt><i>Channels</i></dt>
+<dd>Specifies the number of channels in the audio track (1 = mono, 2 = stereo).</dd>
+<dt><i>MaxSize</i></dt>
+<dd>Specifies the maximum amount of sound data in bytes that is stored in any one video frame of the movie (usually frame 1). You need to allocate this large of a buffer for the destination address passed to <a href="BinkGetTrackData.html">BinkGetTrackData</a>.</dd>
+</dl>
+<h4>Discussion</h4>
+<p>The BINKTRACK structure is pointed to by the HBINKTRACK handle that is returned from <a href="BinkOpenTrack.html">BinkOpenTrack</a>. You can dereference the pointer to access any of these information fields. Note that you should <b>never</b> change any of these values!</p>
+<p>
+<br>
+<b>Group:</b>
+<a href="Bink API.html">Bink API</a><br>
+<b>Related Functions:</b>
+<a href="BinkGetTrackData.html">BinkGetTrackData</a>, <a href="BinkOpenTrack.html">BinkOpenTrack</a><br>
+<b>Related Basic Types:</b>
+<a href="HBINKTRACK.html">HBINKTRACK</a>, <a href="U32.html">U32</a></p>
+<p align=center>
+<a href="mailto:Bink1@radgametools.com">For technical support, e-mail Bink1@radgametools.com</a>
+<br>
+<a href="http://www.radgametools.com/bnkmain.htm?from=help1.5v">&#169; Copyright 1994-2003 RAD Game Tools, Inc. All Rights Reserved.</a>
+</p>
+<br>
+</body>
+</html>

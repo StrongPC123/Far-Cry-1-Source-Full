@@ -1,0 +1,36 @@
+<!-- This page was created with the RAD auto-doc generator. -->
+<!doctype html public "-//w3c//dtd html 3.2 final//en">
+<html>
+<head>
+<title>Colorspace - RGB vs. YUV</title>
+<meta http-equiv="content-type" content="text/html; charset=iso8859-1">
+<meta name="ms.locale" content="en-us">
+<meta name="description" content="">
+<meta name="ms-hkwd" content="Colorspace - RGB vs. YUV">
+<link rel="stylesheet" title="default" href="reference.css" type="text/css" media="screen">
+</head>
+<body topmargin="0">
+<table cellspacing=0 cellpadding=0 class=bar width=100% height=25>
+<tr class=bar>
+<td class=bar>
+<i>&nbsp;<a href="index.html" class=trn>Bink SDK 1.5v</a></i>
+</td>
+</tr>
+</table>
+<h1>Colorspace - RGB vs. YUV</h1>
+<h4>Discussion</h4>
+<p>A colorspace is simply the name given to a system of describing colors. The RGB colorspace is the one we're all familiar with - 8 bits for Red, Green, and Blue. Other colorspaces include CMYK (for printing), and YUV (which Bink uses internally). The YUV (or, more accurately YCrCb) colorspace uses 24 bits to represent color (like RGB), but rather than shades of red, green and blue, YUV uses luminance (kind of like brightness), and two chrominance (color) channels. There are simple formulas to convert back and forth between YUV and RGB losslessly, but this conversion does take cycles - even on a fast CPU, you're looking at 25% to 50% of the total playback time! So why does Bink use this more complicated and slower colorspace? Well, there are two reasons. First, the YUV colorspace is much less correlated than RGB. Being less correlated means that there is less redundacy across the Y, U, and V planes - the planes tend to come apart entropy-wise very cleanly, and less cross-planar redundancy means better compression. The second and more important reason for using YUV colorspace is the fact that people see luminance information much more accurately than they see color information. This means that you don't have to store a U and a V value for every Y value, because humans can't tell the difference anyway. This pre-compression technique is called "sub-sampling". Bink uses a 2 to 1 UV horizontal and vertical sub-sample - so, on a 640x480 image, we store a 640x480 Y plane, but only a 320x240 U and V plane. Bink averages each set of 4x4 pixels in the original 640x480 U and V planes to create the 320x240 U and V planes. Like Bink, MPEG and MPEG II also use a 2 to 1 UV horizontal and vertical sub-sampling. Indeo actually uses a 4 to 1 (!) UV horizontal and vertical sub-sample, but that's a little too aggressive for us and the compression community has been clamoring for Intel to release a 2 to 1 subsampling Indeo version for a long time. Most of the time, you won't have to worry about the YUV colorspace - Bink contains internal highly-optimized routines that automatically convert the YUV data into RGB data. However, interestingly, many video cards also have hardware to convert between YUV and RGB colorspace. This is really cool in theory, because the hardware could do this tricky colorspace conversion faster than our software conversion routines. Unfortunately there's always that pesky reality lurking behind the theory, but more on that in the platform specific chapters. </p>
+<p><a href="Bink Video Playback.html">Previous Topic (Bink Video Playback)</a>  </p><p>
+<br>
+<b>Group:</b>
+<a href="Bink Overview.html">Bink Overview</a><br>
+<b>Related Sections:</b>
+<a href="Scaling.html">Scaling</a></p>
+<p align=center>
+<a href="mailto:Bink1@radgametools.com">For technical support, e-mail Bink1@radgametools.com</a>
+<br>
+<a href="http://www.radgametools.com/bnkmain.htm?from=help1.5v">&#169; Copyright 1994-2003 RAD Game Tools, Inc. All Rights Reserved.</a>
+</p>
+<br>
+</body>
+</html>

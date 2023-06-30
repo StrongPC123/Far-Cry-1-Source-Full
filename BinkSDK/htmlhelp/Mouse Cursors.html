@@ -1,0 +1,36 @@
+<!-- This page was created with the RAD auto-doc generator. -->
+<!doctype html public "-//w3c//dtd html 3.2 final//en">
+<html>
+<head>
+<title>Mouse Cursors</title>
+<meta http-equiv="content-type" content="text/html; charset=iso8859-1">
+<meta name="ms.locale" content="en-us">
+<meta name="description" content="">
+<meta name="ms-hkwd" content="Mouse Cursors">
+<link rel="stylesheet" title="default" href="reference.css" type="text/css" media="screen">
+</head>
+<body topmargin="0">
+<table cellspacing=0 cellpadding=0 class=bar width=100% height=25>
+<tr class=bar>
+<td class=bar>
+<i>&nbsp;<a href="index.html" class=trn>Bink SDK 1.5v</a></i>
+</td>
+</tr>
+</table>
+<h1>Mouse Cursors</h1>
+<h4>Discussion</h4>
+<p>The mouse cursor is that thing that moves around when you move your mouse. You know - the thing that stops moving when Windows crashes. There are two different kinds of mouse cursors - hardware and software. Hardware cursors float above the pixels on the screen not disturbing anything. Some video cards can only do hardware cursors if they are black and white, some video cards can only do non-animated cursors, some video cards can do any type of cursor. Some video cards can't do hardware cursors of any type! When the hardware isn't capable of creating a particular type of cursor, then Windows or MacOS steps in and creates a software cursor. Software cursors are actually drawn by the system - you move the mouse, and the system erases the old mouse bitmap and draws a new one a few pixels over. Normally, you never even need to know this, and everything just works perfectly. However, with DirectDraw or MacOS, you can actually write onto the video memory without Windows knowing about it. So, say you move the mouse on a software cursor system after you've wrote to video memory - Windows or MacOS will erase the old mouse bitmap by drawing the wrong pixels in the old mouse location! These little remnants of garbage are known as mouse trails. To fix mouse trails, you can simply hide the mouse before locking the DirectDraw or MacOS pixmap surface, and then restore it after unlocking the surface. This, however, causes a slight flickering during video playback, so it is best to detect software-cursors and only hide the cursor if a mouse trail might result. Bink supplies the <a href="BinkIsSoftwareCursor.html">BinkIsSoftwareCursor</a>, <a href="BinkCheckCursor.html">BinkCheckCursor</a>, and <a href="BinkRestoreCursor.html">BinkRestoreCursor</a> functions to deal with this problem. These functions are useful whenever you use DirectDraw or MacOS - they are useful even if you don't use Bink. </p>
+<p>
+<br>
+<b>Group:</b>
+<a href="Background Concepts.html">Background Concepts</a><br>
+<b>Related Functions:</b>
+<a href="BinkCheckCursor.html">BinkCheckCursor</a>, <a href="BinkIsSoftwareCursor.html">BinkIsSoftwareCursor</a>, <a href="BinkRestoreCursor.html">BinkRestoreCursor</a></p>
+<p align=center>
+<a href="mailto:Bink1@radgametools.com">For technical support, e-mail Bink1@radgametools.com</a>
+<br>
+<a href="http://www.radgametools.com/bnkmain.htm?from=help1.5v">&#169; Copyright 1994-2003 RAD Game Tools, Inc. All Rights Reserved.</a>
+</p>
+<br>
+</body>
+</html>
