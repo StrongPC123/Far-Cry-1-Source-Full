@@ -3,6 +3,7 @@ https://discord.com/invite/far-cry-1-community-472740869208801292
 
 ____________________________________________________________________________________
 
+
 CryEngine Source SDK Copyright(c) CryTek Corp.  
 
 THIS DOCUMENT DESCRIBES A CONTRACT BETWEEN YOU AND CRYTEK 
