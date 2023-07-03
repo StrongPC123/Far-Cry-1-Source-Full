@@ -14,7 +14,7 @@ THE TERMS OF THIS LICENSE PLEASE DON’T DOWNLOAD OR USE THE SDK.
   You may, free of charge, download and use the SDK to develop a modified CryTek game 
 (published by Ubisoft) running on the CryEngine 1.  
 You may distribute your modified CryTek game in CryEngine 1 and 
-object code form, but only for free. 
+object code form, but only for free/ 
 Terms of use for CryTek's games are found in the Steam 
 Subscriber Agreement located here: https://www.cryengine.com/ce-terms
 
