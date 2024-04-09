@@ -1,5 +1,5 @@
 Side Discord community I found where you can share your works and ask any issues from users about the game: 
-https://discord.com/invite/q3UrcTPgnk
+https://discord.com/invite/q3UrcTPgnk 
 
 ____________________________________________________________________________________
 
